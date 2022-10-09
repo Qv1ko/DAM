@@ -1,7 +1,7 @@
 // Las palabras con color distintivo son palabras reservadas de java
 
 // Se selecciona el paquete en el que se encuentra la clase/fichero .java
-package pack;
+package packClasses;
 
 /* Cada clase, pertenece a un fichero .java
  * Para que una clase pueda ser usada en el codigo tiene que ser de tipo Public

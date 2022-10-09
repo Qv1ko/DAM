@@ -1,4 +1,4 @@
-package pack;
+package packClasses;
 
 public class Class02_PrintlnCharPractice	{
 
