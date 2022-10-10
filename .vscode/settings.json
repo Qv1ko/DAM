@@ -1,3 +1,5 @@
 {
-    "java.project.sourcePaths": []
+    "java.project.sourcePaths": [
+        "Programación/Evaluacion1/Java/src"
+    ]
 }
