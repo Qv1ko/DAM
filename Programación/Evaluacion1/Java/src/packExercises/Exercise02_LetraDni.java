@@ -1,81 +1,81 @@
-package pack;
+package packExercises;
 
 public class Exercise02_LetraDni{
 
     public static void main(String[] args) {
         
-        int dni=53933374;
+        int nif=53933374;
 
-        switch(dni%23) {
+        switch(nif%23) {
 
             case 0:
-                System.out.println("DNI -> "+dni+"T");
+                System.out.println("DNI -> "+nif+"T");
                 break;
             case 1:
-                System.out.println("DNI -> "+dni+"R");
+                System.out.println("DNI -> "+nif+"R");
                 break;
             case 2:
-                System.out.println("DNI -> "+dni+"W");
+                System.out.println("DNI -> "+nif+"W");
                 break;
             case 3:
-                System.out.println("DNI -> "+dni+"A");
+                System.out.println("DNI -> "+nif+"A");
                 break;
             case 4:
-                System.out.println("DNI -> "+dni+"G");
+                System.out.println("DNI -> "+nif+"G");
                 break;
             case 5:
-                System.out.println("DNI -> "+dni+"M");
+                System.out.println("DNI -> "+nif+"M");
                 break;
             case 6:
-                System.out.println("DNI -> "+dni+"Y");
+                System.out.println("DNI -> "+nif+"Y");
                 break;
             case 7:
-                System.out.println("DNI -> "+dni+"F");
+                System.out.println("DNI -> "+nif+"F");
                 break;
             case 8:
-                System.out.println("DNI -> "+dni+"P");
+                System.out.println("DNI -> "+nif+"P");
                 break;
             case 9:
-                System.out.println("DNI -> "+dni+"D");
+                System.out.println("DNI -> "+nif+"D");
                 break;
             case 10:
-                System.out.println("DNI -> "+dni+"X");
+                System.out.println("DNI -> "+nif+"X");
                 break;
             case 11:
-                System.out.println("DNI -> "+dni+"B");
+                System.out.println("DNI -> "+nif+"B");
                 break;
             case 12:
-                System.out.println("DNI -> "+dni+"N");
+                System.out.println("DNI -> "+nif+"N");
                 break;
             case 13:
-                System.out.println("DNI -> "+dni+"J");
+                System.out.println("DNI -> "+nif+"J");
                 break;
             case 14:
-                System.out.println("DNI -> "+dni+"Z");
+                System.out.println("DNI -> "+nif+"Z");
                 break;
             case 15:
-                System.out.println("DNI -> "+dni+"S");
+                System.out.println("DNI -> "+nif+"S");
                 break;
             case 16:
-                System.out.println("DNI -> "+dni+"Q");
+                System.out.println("DNI -> "+nif+"Q");
                 break;
             case 17:
-                System.out.println("DNI -> "+dni+"V");
+                System.out.println("DNI -> "+nif+"V");
                 break;
             case 18:
-                System.out.println("DNI -> "+dni+"H");
+                System.out.println("DNI -> "+nif+"H");
                 break;
             case 19:
-                System.out.println("DNI -> "+dni+"L");
+                System.out.println("DNI -> "+nif+"L");
                 break;
             case 20:
-                System.out.println("DNI -> "+dni+"C");
+                System.out.println("DNI -> "+nif+"C");
                 break;
             case 21:
-                System.out.println("DNI -> "+dni+"K");
+                System.out.println("DNI -> "+nif+"K");
                 break;
             case 22:
-                System.out.println("DNI -> "+dni+"E");
+                System.out.println("DNI -> "+nif+"E");
                 break;
             default:
                 System.out.println("Escribe el NIF correctamente");
