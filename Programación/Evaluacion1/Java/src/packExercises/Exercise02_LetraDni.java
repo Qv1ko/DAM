@@ -4,7 +4,7 @@ public class Exercise02_LetraDni{
 
     public static void main(String[] args) {
         
-        int nif=53933374;
+        int nif=76879811;
 
         switch(nif%23) {
 
