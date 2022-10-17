@@ -23,10 +23,13 @@ public class Class09_BucleFor {
 
         //ejercicio 1 - Tablas de multiplicar
         for(int tabla=0;tabla<=10;tabla++) {
-            System.out.println("Tabla del "+tabla+':');
+
+            System.out.println("\nTabla del "+tabla+':');
+
             for(int numero=0;numero<=10;numero++) {
                 System.out.println(tabla+"*"+numero+" = "+(tabla*numero));
             }
+
         }
 
     }//fin main
