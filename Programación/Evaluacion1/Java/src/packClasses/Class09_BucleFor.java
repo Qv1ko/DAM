@@ -32,6 +32,20 @@ public class Class09_BucleFor {
 
         }
 
+
+        //ejercicio 2 - Tabla de multiplicaciones
+        String linea="";
+        for(int tabla=0;tabla<=10;tabla++) {
+
+            for(int numero=0;numero<=10;numero++) {
+                linea+="\t"+tabla+"*"+numero+"="+(tabla*numero);
+            }
+
+            System.out.println(linea);
+            linea="";
+
+        }
+
     }//fin main
 
 }//fin class
