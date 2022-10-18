@@ -17,6 +17,19 @@ public class Exercise03_Repaso2Weekend {
             letra++;
 
         }
+        // System.out.print("\n");
+
+        // int ascii=97;
+
+        // while(ascii<=122) {
+        //     System.out.print((char)ascii);
+
+        //     if(ascii==110) {
+        //         System.out.print((char)241);
+        //     }
+
+        //     ascii++;
+        // }
 
     }//fin main
 
