@@ -8,27 +8,16 @@ public class Exercise03_Repaso1Weekend {
         int pesoVehiculo=300; //peso del vehiculo
 
         if(pesoVehiculo<500&&planta1>=planta2) {
-
             System.out.println("Su vehiculo de "+pesoVehiculo+"Kg debe aparcar en la primera planta");
             planta1--;
-
-        }
-        else if(pesoVehiculo<500&&planta1<planta2) {
-
+        } else if(pesoVehiculo<500&&planta1<planta2) {
             System.out.println("Su vehiculo de "+pesoVehiculo+"Kg debe aparcar en la segunda planta");
             planta2--;
-
-        }
-        else if(planta3>0) {
-
+        } else if(planta3>0) {
             System.out.println("Su vehiculo de "+pesoVehiculo+"Kg debe aparcar en la tercera planta");
             planta3--;
-
-        }
-        else {
-
+        } else {
             System.out.println("No hay plazas para aparcar");
-
         }
 
     }//fin main
