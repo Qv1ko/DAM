@@ -10,7 +10,7 @@ public class Exercise04_Cifras {
             if(num/10>0) {
                 System.out.println("El numero tiene 1 cifra");
             }
-            if(num/100>0) {
+            else if(num/100>0) {
                 System.out.println("El numero tiene 2 cifra");
             }
             if(num/1000>0) {
