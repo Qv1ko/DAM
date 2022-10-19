@@ -30,7 +30,7 @@ public class Class10_ClaseMath {
 
         //ejercicio 1 - Permutacion de Y
 
-        int numY=7, Resultado=1;
+        double numY=17, Resultado=1;
 
         while(numY>0) {
 
