@@ -1,5 +1,5 @@
-create database exercise01;
+CREATE DATABASE exercise01;
 
-use exercise01;
+USE exercise01;
 
-create table Socios(Num_socio int primary key, Apellidos varchar(15), Tel char(9), Direccion varchar(20), Cod_postal int);
+CREATE TABLE Socios(Num_socio int primary key, Apellidos varchar(15), Tel char(9), Direccion varchar(20), Cod_postal int);
