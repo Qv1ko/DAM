@@ -28,17 +28,25 @@ public class Class10_ClaseMath {
         System.out.println("\nEl numero "+numX+" aparece "+count);
 
 
-        //ejercicio 1 - Permutacion de Y
+        //ejercicio 1 - Factorial de Y
+        long numY=17, Resultado=1;
 
-        double numY=17, Resultado=1;
-
-        while(numY>0) {
-
-            Resultado=Resultado*numY;
+        while(numY>1) {
+            Resultado*=numY;
             numY--;
-
         }
-        System.out.println("\nLa permutacion es "+Resultado);
+        System.out.println("\nEl resultado es "+Resultado);
+
+
+        //ejercicio 2 - Base y explonente
+        int base=3,exp=4;
+
+        // for(Tot)
+        while(exp>0) {
+            base*=base;
+            exp--;
+        }
+        System.out.println();
 
     }//fin main
 
