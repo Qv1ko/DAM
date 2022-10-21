@@ -1,6 +1,6 @@
-CREATE DATABASE sanos;
+CREATE DATABASE exercise01_sanos;
 
-USE sanos;
+USE exercise01_sanos;
 
 CREATE TABLE medico(
     dni CHAR(9) PRIMARY KEY,
