@@ -12,5 +12,6 @@ public class Exercise06_Repaso1Weekend {
         }
         System.out.println(resultado);
 
-    }
-}
+    }//fin main
+
+}//fin class
