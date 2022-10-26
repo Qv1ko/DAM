@@ -1,6 +1,6 @@
-CREATE DATABASE Exercise03_FeriaLibro;
+CREATE DATABASE exercise03_feria_libro;
 
-USE Exercise03_FeriaLibro;
+USE exercise03_feria_libro;
 
 CREATE TABLE escritor(
     nombre VARCHAR(30) PRIMARY KEY,
