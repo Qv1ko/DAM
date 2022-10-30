@@ -6,17 +6,17 @@ public class Exercise00_EjerciciosScanner2 {
 
     public static void main(String[] args) {
         
-        String password="qwerty123",input;
+        String password="qwerty123";
         Scanner entrada=new Scanner(System.in);
 
         for(int i=3;i>0;i--) {
             System.out.print("Escriba la contasena: ");
-            input=entrada.nextLine();
-            if(input!=password) {
-                System.out.println("Contrasena incorrecta");
-            } else {
+            String input=entrada.next();
+            if(input.equals(password)) {
                 System.out.println("Enhorabuena");
                 break;
+            } else {
+                System.out.println("Contrasena incorrecta");
             }
         }
 
