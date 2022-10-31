@@ -7,14 +7,24 @@ public class Exercise00_EjerciciosScanner3 {
     public static void main(String[] args) {
         
         Scanner entrada=new Scanner(System.in);
-
-        System.out.print("Escribe un numero: ");
-        int num1=entrada.nextInt();
-        System.out.print("Escribe un numero: ");
-        int num2=entrada.nextInt();
-
+        int num1,num2;
+        do {
+            System.out.println("Escriba dos numeros diferentes:");
+            System.out.print("Primer numero -> ");
+            num1=entrada.nextInt();
+            System.out.print("Segundo numero -> ");
+            num2=entrada.nextInt();
+        } while(num1==num2);
+        int min=Math.min(num1, num2), max=Math.max(num1, num2);
         
+        for(int i=10;i>0;i--) {
+            int numRandom=(int)(Math.random()*(max+1));
+            if(numRandom<min) {
+                numRandom+=min;
+            }
+            System.out.println(numRandom);
+        }
 
-    }
+    } //fin main
     
-}
+} //fin class
