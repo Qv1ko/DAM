@@ -36,11 +36,18 @@ public class Class05_OperadoresLogicos {
         int diaNacimiento=4,mesNacimiento=11,anoNacimiento=2004;//fecha de nacimiento
         int diaActual=9,mesActual=10,anoActual=2023;//fecha actual
 
-        if((anoActual>anoNacimiento)&&(mesActual>=mesNacimiento)&&(diaActual>diaNacimiento)){
-            System.out.println("\nEs mayor de edad");
+        // if((anoActual>anoNacimiento)&&(mesActual>=mesNacimiento)&&(diaActual>diaNacimiento)){
+        //     System.out.println("\nEs mayor de edad");
+        // }
+        // else{
+        //     System.out.println("\nEs menor de edad");
+        // }
+
+        if((anoNacimiento<(anoActual-18))||(anoNacimiento==(anoActual-18))&&(mesNacimiento<mesActual)||(anoNacimiento==(anoActual-18))&&(mesNacimiento==mesActual)&&(diaNacimiento<=diaActual)){
+            System.out.println("Es mayor de edad");
         }
         else{
-            System.out.println("\nEs menor de edad");
+            System.out.println("Es menor de edad");
         }
 
     }//fin main
