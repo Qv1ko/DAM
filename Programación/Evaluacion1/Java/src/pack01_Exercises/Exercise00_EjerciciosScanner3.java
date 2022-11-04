@@ -20,7 +20,9 @@ public class Exercise00_EjerciciosScanner3 {
         for(int i=10;i>0;i--) {
             int numRandom=(int)(Math.random()*(max+1));
             if(numRandom<min) {
-                numRandom+=min;
+                do {
+                    numRandom=(int)(Math.random()*(max+1));
+                } while(numRandom<min);
             }
             System.out.println(numRandom);
         }
