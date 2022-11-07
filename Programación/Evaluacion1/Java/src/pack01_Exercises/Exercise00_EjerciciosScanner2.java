@@ -20,6 +20,8 @@ public class Exercise00_EjerciciosScanner2 {
             }
         }
 
+        entrada.close();
+
     } //fin main
     
 } //fin class

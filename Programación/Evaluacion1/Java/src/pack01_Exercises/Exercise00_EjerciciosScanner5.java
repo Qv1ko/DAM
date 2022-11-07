@@ -39,6 +39,8 @@ public class Exercise00_EjerciciosScanner5 {
         System.out.println("Suma de todos los numeros -> "+sumTotal+"\nSuma de los numeros positivos -> "+sumPos+"\nSuma de los numeros negativos -> "+sumNeg);
         System.out.println("Media de la suma total -> "+mediaSum);
 
+        entrada.close();
+
     } //fin main
     
 } //fin class

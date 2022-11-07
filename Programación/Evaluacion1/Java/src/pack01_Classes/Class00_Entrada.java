@@ -8,13 +8,14 @@ public class Class00_Entrada {
         
         //String nombre="Victor"; //referencia a un objeto (nombre es un objeto)
         
-        //declaracion de un objeto (porque el tipo de dato que precede al identificador esta en mayus -> Scanner)
-        //todo objeto en java tiene un construcctor
-        Scanner entrada; //declaramos e instanciamos(guardar un tamano en memoria para el objeto) el objeto
+        /*declaracion de un objeto (porque el tipo de dato que precede al identificador esta en mayus -> Scanner)
+         todo objeto en java tiene un construcctor*/
+        Scanner entrada; //declaramos el objeto
 
         //declaracion de variable
         long numero;
 
+        //instanciamos el objeto (guardar un tamano en memoria para el objeto)
         entrada=new Scanner(System.in); //definimos como parametro de entrada para el Scanner la clase Input System
 
         System.out.println("Introduce un numero");
@@ -24,6 +25,8 @@ public class Class00_Entrada {
         System.out.println("Introduce tu nombre");
         String cadena=entrada.next(); //tambien se puede usar nextLine()
         System.out.println("Tu nombre es -> "+cadena);
+
+        entrada.close(); //cerrar el objeto
         
     } //fin main
 

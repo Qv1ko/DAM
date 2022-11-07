@@ -18,6 +18,8 @@ public class Exercise00_EjerciciosScanner1 {
         }
         System.out.println("Total de productos vendidos -> "+suma);
 
+        entrada.close();
+
     } //fin main
 
 } //fin class

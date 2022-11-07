@@ -26,6 +26,8 @@ public class Exercise00_EjerciciosScanner6 {
             }
         }
 
+        entrada.close();
+
     } //fin main
     
 } //fin class

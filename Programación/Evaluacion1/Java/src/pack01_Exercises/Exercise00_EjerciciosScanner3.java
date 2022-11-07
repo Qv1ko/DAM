@@ -27,6 +27,8 @@ public class Exercise00_EjerciciosScanner3 {
             System.out.println(numRandom);
         }
 
+        entrada.close();
+
     } //fin main
     
 } //fin class
