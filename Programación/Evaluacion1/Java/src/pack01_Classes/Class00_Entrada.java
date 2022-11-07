@@ -18,6 +18,9 @@ public class Class00_Entrada {
         //instanciamos el objeto (guardar un tamano en memoria para el objeto)
         entrada=new Scanner(System.in); //definimos como parametro de entrada para el Scanner la clase Input System
 
+        //declaracion e instancia
+        // Scanner input=new Scanner(System.in);
+
         System.out.println("Introduce un numero");
         numero=entrada.nextLong(); //llamada de un metodo de la clase Scanner para introducir el metodo por teclado al ejecutar
         System.out.println("Has introducido -> "+numero);
