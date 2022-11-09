@@ -11,14 +11,28 @@ public class Exercise00_EjerciciosScanner2 {
 
         for(int i=3;i>0;i--) {
             System.out.print("Escriba la contasena: ");
-            String input=entrada.next();
-            if(input.equals(password)) {
+            String inputPass=entrada.next();
+            if(inputPass.equals(password)) { //comparacion de diferentes objetos
                 System.out.println("Enhorabuena");
                 break;
             } else {
                 System.out.println("Contrasena incorrecta");
             }
         }
+
+        // boolean comparacion=false;
+        // int count=0;
+        // do {
+        //     System.out.print("Escriba la contasena: ");
+        //     String inputPass=entrada.next();
+        //     if(inputPass.equals(password)) { //comparacion de diferentes objetos
+        //         System.out.println("Enhorabuena");
+        //         comparacion=true;
+        //     } else {
+        //         System.out.println("Contrasena incorrecta");
+        //         count++;
+        //     }
+        // } while(!comparacion&&count<3);
 
         entrada.close();
 
