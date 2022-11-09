@@ -12,7 +12,7 @@ CREATE TABLE organizacion(
 CREATE TABLE espacio_natural(
     extension FLOAT(5,3),
     nombre VARCHAR(35),
-    epoca CHAR(9) CHECK(epoca="otono"OR"invierno"OR"verano"OR"primavera"),
+    epoca CHAR(9) CHECK(epoca="otono" OR epoca="invierno" OR epoca="verano" OR epoca="primavera"),
     PRIMARY KEY(nombre)
 );
 
@@ -21,7 +21,7 @@ CREATE TABLE alojamiento(
     direccion VARCHAR(30) UNIQUE,
     telefono CHAR(9),
     comunidad_autonoma VARCHAR(25),
-    tipo_alquiler VARCHAR(20) CHECK(tipo_alquiler="completo"OR"por habitaciones"),
+    tipo_alquiler VARCHAR(20) CHECK(tipo_alquiler="completo" OR tipo_alquiler="por habitaciones"),
     organizacion_nombre VARCHAR(20),
     espacio_natural_nombre VARCHAR(35),
     CONSTRAINT fk_es FOREIGN KEY(espacio_natural_nombre) REFERENCES espacio_natural(nombre),
@@ -36,7 +36,7 @@ CREATE TABLE actividad(
 
 CREATE TABLE ofertar(
     precio FLOAT(5,2) NOT NULL,
-    dificultad VARCHAR(15) CHECK(dificultad="facil"OR"medio"OR"dificil"OR"experto"),
+    dificultad VARCHAR(15) CHECK(dificultad="facil" OR dificultad="medio" OR dificultad="dificil" OR dificultad="experto"),
     espacio_natural_nombre VARCHAR(35),
     actividad_codigo VARCHAR(20),
     CONSTRAINT fk_es2 FOREIGN KEY(espacio_natural_nombre) REFERENCES espacio_natural(nombre),
