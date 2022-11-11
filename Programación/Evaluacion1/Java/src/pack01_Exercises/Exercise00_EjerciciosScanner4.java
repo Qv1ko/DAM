@@ -16,6 +16,14 @@ public class Exercise00_EjerciciosScanner4 {
             System.out.println("Palabra "+i+" -> "+separador[i]); //imprime por pantalla el espacio del array equivalente al numero de i
         }
 
+        for(int i=0;i<frase.length();i++) {
+            if(frase.charAt(i)==' ') {
+                System.out.println();
+            } else {
+                System.out.print(frase.charAt(i));
+            }
+        }
+
         entrada.close();
         
     } //fin main

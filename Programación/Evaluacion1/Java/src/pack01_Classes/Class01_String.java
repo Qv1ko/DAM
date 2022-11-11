@@ -15,7 +15,7 @@ public class Class01_String {
         
         //ejercicio 0 - Caracteres
         //bucle para representar todos los caracteres de una frase
-        for(int i=0; i<frase.length();i++) {
+        for(int i=0;i<frase.length();i++) {
             System.out.print("\nEl caracter "+i+" es \'"+frase.charAt(i)+"\'");
         }
 
