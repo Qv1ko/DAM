@@ -70,7 +70,7 @@ Normalmente, tanto al Back-end y al Front-end están conectados con una base de 
 
 - El equipo Back-end recoge la información de la base de datos y la procesa, después, se la envía al equipo Front-end, para que estos lo maqueten.
 
-![imagen1.png](/Imagenes/imagen1.png)
+![imagen1.png](../Imagenes/imagen1.png)
 
 **CSS (Cascading Style Sheets):** lenguaje de marcas que da y define el formato a html.
 
