@@ -80,9 +80,9 @@ Normalmente, tanto al Back-end y al Front-end están conectados con una base de 
 
 **Case sensitive:** distingue entre mayúsculas y minúsculas.
 
-Página dinámica**:** permite al usuario interactuar con la página.
+**Página dinámica:** permite al usuario interactuar con la página.
 
-Página estática**:** el usuario no puede interactuar con la página.
+**Página estática:** el usuario no puede interactuar con la página.
 
 Ingeniería **inversa:** sacar el código de una aplicación o web para averiguar su funcionamiento.
 
