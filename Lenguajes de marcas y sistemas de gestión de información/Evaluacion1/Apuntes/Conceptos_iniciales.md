@@ -84,7 +84,7 @@ Normalmente, tanto al Back-end y al Front-end están conectados con una base de 
 
 **Página estática:** el usuario no puede interactuar con la página.
 
-Ingeniería **inversa:** sacar el código de una aplicación o web para averiguar su funcionamiento.
+**Ingeniería inversa:** sacar el código de una aplicación o web para averiguar su funcionamiento.
 
 **Interfaz:** parte de la web en la que interactúan los usuarios.
 
