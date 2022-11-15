@@ -27,7 +27,7 @@ public class Class02_Envolventes {
             }
             count++;
         } while(count<frase.length());
-        System.out.println("En la frase introducida hay "+letras+" letra/s y "+numeros+" numero/hhs");
+        System.out.println("En la frase introducida hay "+letras+" letra/s y "+numeros+" numero/s");
 
         ent.close();
 
