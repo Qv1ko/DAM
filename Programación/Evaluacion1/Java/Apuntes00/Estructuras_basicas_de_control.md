@@ -57,7 +57,7 @@ Normalmente, los algoritmos vienen definidos por instrucciones que se ejecutan d
         //Ejemplo seudocodigo
         import java.lang.*;
         
-        public class Ejemplo2
+        public class Ejemplo2 {
         
         	public static void main(String[] args){
         		
@@ -118,7 +118,7 @@ Normalmente, los algoritmos vienen definidos por instrucciones que se ejecutan d
         //Ejemplo seudocodigo
         import java.lang.*;
         
-        public class Ejemplo4
+        public class Ejemplo4 {
         
         	public static void main(String[] args){
         		
@@ -150,7 +150,7 @@ Normalmente, los algoritmos vienen definidos por instrucciones que se ejecutan d
         //Ejemplo seudocodigo
         import java.lang.*;
         
-        public class Ejemplo5
+        public class Ejemplo5 {
         
         	public static void main(String[] args){
         		
