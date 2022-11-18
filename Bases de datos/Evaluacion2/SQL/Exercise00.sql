@@ -63,7 +63,7 @@ DESC contratos2;
 
 DESC marcas;
 
-LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\Desktop\\alquileres_textos\\Marcas.txt'
+LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Evaluacion2\\SQL\\Exercise00_texts\\Marcas.txt'
     INTO TABLE marcas
     LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
 
@@ -72,24 +72,24 @@ LOAD DATA LOCAL INFILE 'C:/Users/Usuario/Desktop/alquileres_textos/Automoviles.t
     FIELDS TERMINATED BY '\t'
     LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
 
-LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\Desktop\\alquileres_textos\\Clientes.txt'
+LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Evaluacion2\\SQL\\Exercise00_texts\\Clientes.txt'
     INTO TABLE clientes
     FIELDS TERMINATED BY '\t'
     LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
 
-LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\Desktop\\alquileres_textos\\contratos.txt'
+LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Evaluacion2\\SQL\\Exercise00_texts\\contratos.txt'
     INTO TABLE contratos
     FIELDS TERMINATED BY '\t'
     LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
 
-LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\Desktop\\alquileres_textos\\contratos2.txt'
+LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Evaluacion2\\SQL\\Exercise00_texts\\contratos2.txt'
     INTO TABLE contratos2
     FIELDS TERMINATED BY '\t'
     LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
 
 CREATE TABLE contratos3 LIKE contratos;
 
-LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\Desktop\\alquileres_textos\\contratos3.txt'
+LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Evaluacion2\\SQL\\Exercise00_texts\\contratos3.txt'
     INTO TABLE contratos3
     FIELDS TERMINATED BY '\t'
     LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
