@@ -5,8 +5,8 @@ USE alquileres;
 SHOW TABLES;
 
 CREATE TABLE marcas(
-    marca VARCHAR(15) UNIQUE,
-    numero CHAR(2) PRIMARY KEY
+    marca VARCHAR(15) PRIMARY KEY UNIQUE,
+    numero CHAR(2)
 );
 
 CREATE TABLE automoviles(
@@ -65,5 +65,56 @@ DESC marcas;
 
 LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\Desktop\\alquileres_textos\\Marcas.txt'
     INTO TABLE marcas
-    LINES TERMINATED BY '\r\n';
+    LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
 
+LOAD DATA LOCAL INFILE 'C:/Users/Usuario/Desktop/alquileres_textos/Automoviles.txt'
+    INTO TABLE automoviles
+    FIELDS TERMINATED BY '\t'
+    LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+
+LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\Desktop\\alquileres_textos\\Clientes.txt'
+    INTO TABLE clientes
+    FIELDS TERMINATED BY '\t'
+    LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+
+LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\Desktop\\alquileres_textos\\contratos.txt'
+    INTO TABLE contratos
+    FIELDS TERMINATED BY '\t'
+    LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+
+LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\Desktop\\alquileres_textos\\contratos2.txt'
+    INTO TABLE contratos2
+    FIELDS TERMINATED BY '\t'
+    LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+
+CREATE TABLE contratos3 LIKE contratos;
+
+LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\Desktop\\alquileres_textos\\contratos3.txt'
+    INTO TABLE contratos3
+    FIELDS TERMINATED BY '\t'
+    LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+
+INSERT INTO contratos(matricula_automoviles,dni_clientes,finicial,kinicial)
+    VALUES("1234BMY", "37409800", "2009-07-10", 22561),
+    ("2058CGF", "00371569", "2009-07-11", 9736),
+    ("3273BGH", "24589635", "2009-08-11", 17368),
+    ("5573BFS", "00445760", "2009-08-15", 28500),
+    ("7839CDR", "28759595", "2009-10-15", 15873),
+    ("8795BTK", "12348630", "2009-11-16", 46980),
+    ("2123BTB", "43809540", "2009-11-16", 34323);
+
+SELECT * FROM contratos;
+
+USE test;
+
+SHOW TABLES;
+
+SHOW CREATE TABLE marcas;
+
+SHOW CREATE TABLE automoviles;
+
+SHOW CREATE TABLE clientes;
+
+SHOW CREATE TABLE contratos;
+
+exit
