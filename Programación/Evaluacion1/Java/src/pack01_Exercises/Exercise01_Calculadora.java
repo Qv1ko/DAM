@@ -7,7 +7,8 @@ public class Exercise01_Calculadora {
     public static void main(String[] args) {
         
         Scanner ent=new Scanner(System.in);
-        int option=0, num1=0,num2=0,total=0;
+        int option=0;
+        double num1=0.0,num2=0.0;
         boolean exit=true;
 
         do{
@@ -16,36 +17,73 @@ public class Exercise01_Calculadora {
 
             switch(option) {
                 case 1:
-                    System.out.print("Introduce el primer operando -> ");
-                    num1=ent.nextInt();
-                    System.out.print("Introduce el segundo operando -> ");
-                    num2=ent.nextInt();
-                    total=num1+num2;
-                    System.out.println("El resultado de la suma es -> "+total+"\n");
+                    do {
+                        System.out.print("Introduce el primer operando -> ");
+                        num1=Double.parseDouble(ent.next().replace(',', '.'));
+                        if ((num1>(Double.MAX_VALUE)||num1<(Double.MIN_VALUE))) {
+                            System.out.println("Introdujiste un operando muy largo, reducelo para continuar");
+                        }
+                    } while(num1>(Double.MAX_VALUE)||num1<(Double.MIN_VALUE));
+                    do {
+                        System.out.print("Introduce el segundo operando -> ");
+                        num2=Double.parseDouble(ent.next().replace(',', '.'));
+                        if ((num2>(Double.MAX_VALUE)||num2<(Double.MIN_VALUE))) {
+                            System.out.println("Introdujiste un operando muy largo, reducelo para continuar");
+                        }
+                    } while(num2>(Double.MAX_VALUE)||num2<(Double.MIN_VALUE));
+                    System.out.println("El resultado de la suma es -> "+(num1+num2)+"\n");
                     break;
                 case 2:
-                    System.out.print("Introduce el primer operando -> ");
-                    num1=ent.nextInt();
-                    System.out.print("Introduce el segundo operando -> ");
-                    num2=ent.nextInt();
-                    total=num1-num2;
-                    System.out.println("El resultado de la resta es -> "+total+"\n");
+                    do {
+                        System.out.print("Introduce el primer operando -> ");
+                        num1=Double.parseDouble(ent.next().replace(',', '.'));
+                        if ((num1>(Double.MAX_VALUE)||num1<(Double.MIN_VALUE))) {
+                            System.out.println("Introdujiste un operando muy largo, reducelo para continuar");
+                        }
+                    } while(num1>(Double.MAX_VALUE)||num1<(Double.MIN_VALUE));
+                    do {
+                        System.out.print("Introduce el segundo operando -> ");
+                        num2=Double.parseDouble(ent.next().replace(',', '.'));
+                        if ((num2>(Double.MAX_VALUE)||num2<(Double.MIN_VALUE))) {
+                            System.out.println("Introdujiste un operando muy largo, reducelo para continuar");
+                        }
+                    } while(num2>(Double.MAX_VALUE)||num2<(Double.MIN_VALUE));
+                    System.out.println("El resultado de la resta es -> "+(num1-num2)+"\n");
                     break;
                 case 3:
-                    System.out.print("Introduce el primer operando -> ");
-                    num1=ent.nextInt();
-                    System.out.print("Introduce el segundo operando -> ");
-                    num2=ent.nextInt();
-                    total=num1*num2;
-                    System.out.println("El resultado de la multiplicacion es -> "+total+"\n");
+                    do {
+                        System.out.print("Introduce el primer operando -> ");
+                        num1=Double.parseDouble(ent.next().replace(',', '.'));
+                        if ((num1>(Double.MAX_VALUE)||num1<(Double.MIN_VALUE))) {
+                            System.out.println("Introdujiste un operando muy largo, reducelo para continuar");
+                        }
+                    } while(num1>(Double.MAX_VALUE)||num1<(Double.MIN_VALUE));
+                    do {
+                        System.out.print("Introduce el segundo operando -> ");
+                        num2=Double.parseDouble(ent.next().replace(',', '.'));
+                        if ((num2>(Double.MAX_VALUE)||num2<(Double.MIN_VALUE))) {
+                            System.out.println("Introdujiste un operando muy largo, reducelo para continuar");
+                        }
+                    } while(num2>(Double.MAX_VALUE)||num2<(Double.MIN_VALUE));
+                    System.out.println("El resultado de la multiplicacion es -> "+(num1*num2)+"\n");
                     break;
                 case 4:
-                    System.out.print("Introduce el primer operando -> ");
-                    num1=ent.nextInt();
-                    System.out.print("Introduce el segundo operando -> ");
-                    num2=ent.nextInt();
-                    total=num1/num2;
-                    System.out.println("El resultado de la division es -> "+total+"\n");
+                    do {
+                        System.out.print("Introduce el primer operando -> ");
+                        num1=Double.parseDouble(ent.next().replace(',', '.'));
+                        if ((num1>(Double.MAX_VALUE)||num1<(Double.MIN_VALUE))) {
+                            System.out.println("Introdujiste un operando muy largo, reducelo para continuar");
+                        }
+                    } while(num1>(Double.MAX_VALUE)||num1<(Double.MIN_VALUE));
+                    do {
+                        System.out.print("Introduce el segundo operando -> ");
+                        num2=Double.parseDouble(ent.next().replace(',', '.'));
+                        if ((num2>(Double.MAX_VALUE)||num2<(Double.MIN_VALUE))) {
+                            System.out.println("Introdujiste un operando muy largo, reducelo para continuar");
+                        }
+                    } while(num2>(Double.MAX_VALUE)||num2<(Double.MIN_VALUE));
+                    System.out.println("El resultado de la division es -> "+(num1/num2)+"\n");
+                    System.out.println("El resto de la divison es -> "+(num1%num2));
                     break;
                 case 5:
                     System.out.println("\nSaliendo...\n");

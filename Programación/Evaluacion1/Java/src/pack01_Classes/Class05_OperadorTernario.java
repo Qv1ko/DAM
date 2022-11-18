@@ -7,8 +7,7 @@ public class Class05_OperadorTernario {
     public static void main(String[] args) {
         
         // (condicion)? true:flase
-
-        System.out.println((5>3)? "Mayor":"Menor");
+        // System.out.println((5>3)? "Mayor":"Menor");
 
         Scanner ent=new Scanner(System.in);
 
