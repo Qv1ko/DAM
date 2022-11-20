@@ -22,15 +22,15 @@ public class Exercise04_EjerciciosRepaso4 {
 
     } //fin main
 
-    public static boolean digit(String inp) {
-        for (int i=0;i<inp.length();i++) {
-            if(Character.isDigit(inp.charAt(i))) {
+    public static boolean digit(String dat) {
+
+        if(Character.isDigit(dat.charAt(0))) {
                 return false;
             } else {
                 return true;
             }
-        }
-    }
+
+    } //fin digit
 
     public static void cal(String numero) {
 
