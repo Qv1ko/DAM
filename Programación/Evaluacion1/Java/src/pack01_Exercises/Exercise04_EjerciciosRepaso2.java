@@ -21,31 +21,30 @@ public class Exercise04_EjerciciosRepaso2 {
             }
         } while(time.length()!=8||correctFormat!=true);
 
-        System.out.println("En total "+time+" son "+(horasSec(time.charAt(0),time.charAt(1))+minSec(time.charAt(3),time.charAt(4))+sec(time.charAt(6),time.charAt(7)))+" segundo/s");
+        System.out.println("En total "+time+" son "+(sec(time.charAt(0),time.charAt(1),time.charAt(3),time.charAt(4),time.charAt(6),time.charAt(7)))+" segundo/s");
+        System.out.println("Total segundos "+correccion(time));
 
         ent.close();
 
     } //fin main
 
-    public static int horasSec(char h1,char h2) {
+    public static int sec(char h1,char h2,char m1,char m2,char s1,char s2) {
 
         int hora=Character.getNumericValue(h1)+Character.getNumericValue(h2);
-        return hora*3600;
-
-    } //fin horasSec
-
-    public static int minSec(char m1,char m2) {
-
         int min=Character.getNumericValue(m1)+Character.getNumericValue(m2);
-        return min*60;
-
-    } //fin minSec
-
-    public static int sec(char s1,char s2) {
-
         int secs=Character.getNumericValue(s1)+Character.getNumericValue(s2);
-        return secs;
+        return (hora*3600)+(min*60)+secs;
 
     } //fin sec
+
+    public static long correccion(String tiempo) {
+
+        long horas=Long.parseLong(tiempo.substring(0,2));
+        long min=Long.parseLong(tiempo.substring(3,5));
+        long sec=Long.parseLong(tiempo.substring(6, 8));
+
+        return (horas*3600)+(min*60)+sec;
+
+    } //fin correccion
     
 } //fin class
