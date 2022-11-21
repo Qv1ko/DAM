@@ -25,10 +25,10 @@ public class Exercise04_EjerciciosRepaso4 {
     public static boolean digit(String dat) {
 
         if(Character.isDigit(dat.charAt(0))) {
-                return false;
-            } else {
-                return true;
-            }
+            return false;
+        } else {
+            return true;
+        }
 
     } //fin digit
 
