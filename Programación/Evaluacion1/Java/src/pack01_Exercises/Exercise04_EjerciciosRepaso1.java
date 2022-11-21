@@ -10,7 +10,7 @@ public class Exercise04_EjerciciosRepaso1 {
         String cadena="";
 
         System.out.print("Escriba una cadena de texto: ");
-        cadena=ent.nextLine();
+        cadena=ent.nextLine().toLowerCase();
 
         contador(cadena);
 
@@ -20,28 +20,41 @@ public class Exercise04_EjerciciosRepaso1 {
 
     public static void contador(String cadena) {
 
-        int countA=0,countE=0,countI=0,countO=0,countU=0,countVocales=0;
+        int countA=0,countE=0,countI=0,countO=0,countU=0;
 
         for(int i=0;i<cadena.length();i++) {
-            if(cadena.charAt(i)=='a'||cadena.charAt(i)=='A') {
+            if(cadena.charAt(i)=='a') {
                 countA++;
-                countVocales++;
-            } else if(cadena.charAt(i)=='e'||cadena.charAt(i)=='E') {
+            } else if(cadena.charAt(i)=='e') {
                 countE++;
-                countVocales++;
-            } else if(cadena.charAt(i)=='i'||cadena.charAt(i)=='I') {
+            } else if(cadena.charAt(i)=='i') {
                 countI++;
-                countVocales++;
-            } else if(cadena.charAt(i)=='o'||cadena.charAt(i)=='O') {
+            } else if(cadena.charAt(i)=='o') {
                 countO++;
-                countVocales++;
-            } else if(cadena.charAt(i)=='u'||cadena.charAt(i)=='U') {
+            } else if(cadena.charAt(i)=='u') {
                 countU++;
-                countVocales++;
             }
-        }
+            // switch(cadena.charAt(i)) {
+            //     case 'a':
+            //         countA++;
+            //         break;
+            //     case 'e':
+            //         countE++;
+            //         break;
+            //     case 'i':
+            //         countI++;
+            //         break;
+            //     case 'o':
+            //         countO++;
+            //         break;
+            //     case 'u':
+            //         countU++;
+            //         break;
+            //     default:
+            // }
+        } //fin for
 
-        System.out.println("\nNumero de a -> "+countA+"\nNumero de e -> "+countE+"\nNumero de i -> "+countI+"\nNumero de o -> "+countO+"\nNumero de u -> "+countU+"\n\nEn total hay "+countVocales+" vocales");
+        System.out.println("\nNumero de a -> "+countA+"\nNumero de e -> "+countE+"\nNumero de i -> "+countI+"\nNumero de o -> "+countO+"\nNumero de u -> "+countU+"\n\nEn total hay "+(countA+countE+countI+countO+countU)+" vocales");
 
     } //fin contador
 
