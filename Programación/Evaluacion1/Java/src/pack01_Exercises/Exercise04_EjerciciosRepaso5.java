@@ -20,9 +20,9 @@ public class Exercise04_EjerciciosRepaso5 {
 
     } //fin main
 
-    public static int importe(int inf,int adul) {
+    public static float importe(int inf,int adul) {
 
-        int imp=(inf*10)+(adul*15);
+        float imp=(float)((inf*10)+(adul*15));
         return ((imp>100)? (imp-(imp/10)):imp);
 
     } //fin importe
