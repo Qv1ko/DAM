@@ -8,7 +8,7 @@ public class Exercise04_EjerciciosRepaso3 {
         
         Scanner ent=new Scanner(System.in);
         int asignaturas=0;
-        float nota=0.0f,media=0.0f;
+        float nota=0.0f;
 
         System.out.print("Escriba el numero de asignaturas: ");
         asignaturas=ent.nextInt();
@@ -17,10 +17,9 @@ public class Exercise04_EjerciciosRepaso3 {
             System.out.print("Nota de la "+i+"º asignatura: ");
             nota+=Float.parseFloat(ent.next().replace(',', '.'));
         }
-        media=nota/asignaturas;
 
-        System.out.println("\nLa media aritmetica es de "+media);
-        System.out.println("La nota media es "+mensajeMedia(media));
+        System.out.println("\nLa media aritmetica es de "+(nota/asignaturas));
+        System.out.println("La nota media es "+mensajeMedia(nota/asignaturas));
 
         ent.close();
 
