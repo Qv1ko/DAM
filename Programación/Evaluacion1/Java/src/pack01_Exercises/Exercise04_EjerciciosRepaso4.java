@@ -24,11 +24,18 @@ public class Exercise04_EjerciciosRepaso4 {
 
     public static boolean digit(String dat) {
 
-        if(Character.isDigit(dat.charAt(0))) {
-            return false;
-        } else {
-            return true;
+        boolean bool=false;
+
+        for(int i=0;i<dat.length();i++) {
+            if(Character.isDigit(dat.charAt(i))||dat.charAt(i)=='.') {
+                bool=false;
+            } else {
+                bool=true;
+                break;
+            }
         }
+
+        return bool;
 
     } //fin digit
 
