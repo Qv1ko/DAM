@@ -67,7 +67,7 @@ LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Evalua
     INTO TABLE marcas
     LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
 
-LOAD DATA LOCAL INFILE 'C:/Users/Usuario/Desktop/alquileres_textos/Automoviles.txt'
+LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Evaluacion2\\SQL\\Exercise00_texts\\Automoviles.txt'
     INTO TABLE automoviles
     FIELDS TERMINATED BY '\t'
     LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
