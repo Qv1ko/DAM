@@ -8,8 +8,16 @@ public class Ejercicio3_Correccion {
         
         //tipo A
         // Scanner ent=new Scanner(System.in);
+        // int numPalos=0,numCarta=0;
 
-        // System.out.print("Introduce la carta: ");
+        // do {
+        //     System.out.print("Introduce el numero de la carta: ");
+        //     numCarta=ent.nextInt();
+        //     System.out.print("Introduce el numero del palo: ");
+        //     numPalos=ent.nextInt();
+        // } while(validaCarta(numPalos, numCarta));
+        // mostrarCarta(numPalos,numCarta);
+
 
         // ent.close();
 
@@ -24,12 +32,53 @@ public class Ejercicio3_Correccion {
             mes=sc.nextInt();
             System.out.print("Introduce el ano: ");
             ano=sc.nextInt();
-            mostrarFecha(dia, mes, ano);
         } while (!validarFecha(dia,mes,ano));
+        mostrarFecha(dia, mes, ano);
 
         sc.close();
 
     } //fin main
+
+    //metodo validaCarta - tipo A
+    public static boolean validaCarta(int palo,int carta) {
+
+        boolean valida=false;
+        if((palo<1||palo>4)||(carta<1||carta>12)) {
+            valida=true;
+        }
+        return valida;
+
+    } //fin validaCarta - tipo A
+
+    //metodo mostrarCarta - tipo A
+    public static void mostrarCarta(int palo,int carta) {
+
+        String nombreCarta="",nombrePalo="";
+
+        switch(carta) {
+            case 1: nombreCarta="as "; break;
+            case 2: nombreCarta="2 "; break;
+            case 3: nombreCarta="3 "; break;
+            case 4: nombreCarta="4 "; break;
+            case 5: nombreCarta="5 "; break;
+            case 6: nombreCarta="6 "; break;
+            case 7: nombreCarta="7 "; break;
+            case 8: nombreCarta="8 "; break;
+            case 9: nombreCarta="9 "; break;
+            case 10: nombreCarta="sota "; break;
+            case 11: nombreCarta="caballo "; break;
+            case 12: nombreCarta="rey "; break;
+        }
+        switch(palo) {
+            case 1: nombrePalo=" oros"; break;
+            case 2: nombrePalo=" copas"; break;
+            case 3: nombrePalo=" bastos"; break;
+            case 4: nombrePalo=" espadas"; break;
+        }
+
+        System.out.println(nombreCarta+"de"+nombrePalo);
+
+    } //fin mostrarCarta - tipo A
 
     //metodo validarFecha - tipo B
     public static boolean validarFecha(int dia,int mes,int ano) {
