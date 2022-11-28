@@ -14,7 +14,7 @@ public class Exercise03_MetodosAleatorio {
         System.out.print("Escribe el segundo numero: ");
         num2=ent.nextInt();
 
-        System.out.println(aleatorio(num1,num2));
+        System.out.println(aleatorio(num1, num2));
 
         ent.close();
 
