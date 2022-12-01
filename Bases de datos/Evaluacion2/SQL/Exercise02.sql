@@ -36,3 +36,4 @@ SELECT * FROM comidas c1, comidas c2 WHERE c1.nombre<>c2.nombre;
 
 SELECT c.nombre FROM comidas c, postres p WHERE c.precio=p.precio AND p.nombre = "Tarta";
 
+SELECT nombre,precio FROM comidas WHERE precio=(SELECT precio FROM postres WHERE nombre="Tarta");
