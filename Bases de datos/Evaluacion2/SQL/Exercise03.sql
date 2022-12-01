@@ -13,3 +13,8 @@ SELECT matricula,marca_marcas,modelo FROM automoviles WHERE precio=(SELECT preci
 
 SELECT matricula,marca_marcas,modelo FROM automoviles WHERE precio=(SELECT precio FROM automoviles WHERE matricula="2058CGF") AND matricula<>"2058CGF";
 
+SELECT matricula,marca_marcas,modelo FROM automoviles WHERE precio>(SELECT precio FROM automoviles WHERE marca_marcas="Mercedes" AND modelo="500 E");
+
+SELECT matricula,marca_marcas,modelo FROM automoviles WHERE precio<(SELECT precio FROM automoviles WHERE marca_marcas="Ford" AND modelo="Focus");
+
+SELECT nombre,apellidos FROM clientes WHERE carnet=(SELECT carnet FROM clientes WHERE dni="12348630");
