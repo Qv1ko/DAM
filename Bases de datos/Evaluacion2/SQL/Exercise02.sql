@@ -36,4 +36,12 @@ SELECT * FROM comidas c1, comidas c2 WHERE c1.nombre<>c2.nombre;
 
 SELECT c.nombre FROM comidas c, postres p WHERE c.precio=p.precio AND p.nombre = "Tarta";
 
+
 SELECT nombre,precio FROM comidas WHERE precio=(SELECT precio FROM postres WHERE nombre="Tarta");
+
+--Devuelve el nombre y precio de las comidas con el mismo precio que los postres que empiezan con P
+SELECT nombre,precio FROM postres WHERE precio IN (SELECT precio FROM comidas WHERE nombre LIKE "p%");
+--Devuelve el nombre y precio de las comidas con menor precio que todos los postres que empiezan con P
+SELECT nombre,precio FROM postres WHERE precio <ALL (SELECT precio FROM comidas WHERE nombre LIKE "p%");
+--Devuelve el nombre y precio de las comidas con menor precio que algunos postres que empiezan con P
+SELECT nombre,precio FROM postres WHERE precio <ANY (SELECT precio FROM comidas WHERE nombre LIKE "p%");

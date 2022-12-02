@@ -47,3 +47,8 @@ SELECT numcontrato,finicial AS "Fecha inicial",ffinal AS "Fecha final",kinicial 
 SELECT dni,nombre,apellidos FROM clientes WHERE YEAR(CURDATE())-YEAR(fechaexp);
 
 SELECT marca,modelo
+
+SELECT CONCAT(marca_marcas," ",modelo) AS coche FROM automoviles ORDER BY marca_marcas,modelo ASC;
+--SELECT CONCAT(marca_marcas," ",modelo) AS coche FROM automoviles ORDER BY marca_marcas DESC, modelo DESC;
+
+SELECT CONCAT("El cliente: ",dni_clientes," Contrato el: ",matricula_automoviles) AS "Contratos realizados" FROM contratos;

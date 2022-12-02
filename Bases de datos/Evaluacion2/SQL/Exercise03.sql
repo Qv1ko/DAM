@@ -18,3 +18,7 @@ SELECT matricula,marca_marcas,modelo FROM automoviles WHERE precio>(SELECT preci
 SELECT matricula,marca_marcas,modelo FROM automoviles WHERE precio<(SELECT precio FROM automoviles WHERE marca_marcas="Ford" AND modelo="Focus");
 
 SELECT nombre,apellidos FROM clientes WHERE carnet=(SELECT carnet FROM clientes WHERE dni="12348630");
+
+SELECT marca_marcas,modelo,precio FROM automoviles WHERE precio IN (SELECT precio FROM automoviles WHERE marca_marcas="Seat");
+
+SELECT * FROM contratos WHERE dni_clientes=(SELECT dni FROM clientes WHERE nombre="Beatriz" AND apellidos="Garcia Martin");
