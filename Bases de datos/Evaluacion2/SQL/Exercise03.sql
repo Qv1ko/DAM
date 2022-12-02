@@ -22,3 +22,9 @@ SELECT nombre,apellidos FROM clientes WHERE carnet=(SELECT carnet FROM clientes 
 SELECT marca_marcas,modelo,precio FROM automoviles WHERE precio IN (SELECT precio FROM automoviles WHERE marca_marcas="Seat");
 
 SELECT * FROM contratos WHERE dni_clientes=(SELECT dni FROM clientes WHERE nombre="Beatriz" AND apellidos="Garcia Martin");
+
+SELECT clientes.nombre,clientes.apellidos,contratos.* FROM clientes,contratos WHERE clientes.dni = contratos.dni_clientes;
+
+SELECT clientes.nombre,clientes.apellidos,contratos.* FROM clientes,contratos WHERE clientes.dni="07385709" AND contratos.dni_clientes="07385709";
+
+--SELECT a.marca_marcas,a.modelo FROM automoviles AS a INNER JOIN contratos AS c ON a.marca_marcas=c.marca_marcas WHERE c.dni=(SELECT dni FROM clientes WHERE nombre="Carlos Javier" AND apellidos="López Carvajal");
