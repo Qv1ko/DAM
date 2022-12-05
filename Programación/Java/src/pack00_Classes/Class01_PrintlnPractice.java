@@ -16,7 +16,7 @@ public class Class01_PrintlnPractice	{
     	// print -> muestra por consola el texto entre doble comillas
     	System.out.print("Second line;");
     	System.out.print(" my output is bad becouse i use print in my java code");
-    	
+		
     }
     
 }
