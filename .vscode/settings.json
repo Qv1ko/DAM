@@ -1,5 +1,6 @@
 {
     "java.project.sourcePaths": [
-        "Programación/Evaluacion1/Java/src"
-    ]
+        "Programación\\Java\\src"
+    ],
+    "java.project.outputPath": "Programación\\Java\\bin"
 }
