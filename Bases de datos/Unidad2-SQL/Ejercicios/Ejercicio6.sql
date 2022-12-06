@@ -1,6 +1,6 @@
-CREATE DATABASE exercise05;
+CREATE DATABASE ejercicio6;
 
-USE exercise05;
+USE ejercicio6;
 
 CREATE TABLE cursos(
     curso INT PRIMARY KEY,

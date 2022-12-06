@@ -1,5 +1,3 @@
-USE alquileres;
-
 SELECT marca_marcas,modelo,precio FROM automoviles WHERE matricula="3273BGH";
 
 SELECT a1.matricula FROM automoviles a1, automoviles a2 WHERE a2.matricula="3765BSD" AND a1.precio>=a2.precio;

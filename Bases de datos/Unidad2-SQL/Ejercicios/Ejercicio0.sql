@@ -1,6 +1,6 @@
-CREATE DATABASE exercise00;
+CREATE DATABASE ejercicio0;
 
-USE exercise00;
+USE ejercicio0;
 
 CREATE TABLE socios(
     numSocio INT AUTO_INCREMENT,

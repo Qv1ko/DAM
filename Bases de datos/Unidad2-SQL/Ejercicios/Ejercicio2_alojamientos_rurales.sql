@@ -1,6 +1,6 @@
-CREATE DATABASE exercise02_alojamientos_rurales;
+CREATE DATABASE ejercicio2_alojamientos_rurales;
 
-USE exercise02_alojamientos_rurales;
+USE ejercicio2_alojamientos_rurales;
 
 CREATE TABLE organizacion(
     telefono CHAR(9),

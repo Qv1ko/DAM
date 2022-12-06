@@ -1,6 +1,6 @@
-CREATE DATABASE exercise04;
+CREATE DATABASE ejercicio5;
 
-USE exercise04;
+USE ejercicio5;
 
 CREATE TABLE comidas(
     nombre CHAR(15) PRIMARY KEY,
