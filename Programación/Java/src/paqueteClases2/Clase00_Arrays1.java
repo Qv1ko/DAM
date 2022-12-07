@@ -3,7 +3,7 @@ package paqueteClases2;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Clase00_Arrays {
+public class Clase00_Arrays1 {
 
     public static void main(String[] args) {
         

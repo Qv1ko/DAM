@@ -2,7 +2,7 @@ package paqueteClases2;
 
 import java.util.Arrays;
 
-public class Clase01_Arrays {
+public class Clase00_Arrays2 {
 
     public static void main(String[] args) {
         
