@@ -15,7 +15,7 @@ SELECT matricula,marca_marcas,modelo FROM automoviles WHERE precio>(SELECT preci
 
 SELECT matricula,marca_marcas,modelo FROM automoviles WHERE precio<(SELECT precio FROM automoviles WHERE marca_marcas="Ford" AND modelo="Focus");
 
-SELECT nombre,apellidos FROM clientes WHERE carnet=(SELECT carnet FROM clientes WHERE dni="12348630");
+SELECT nombre,apellidos FROM clientes WHERE carnet=(SELECT carnet FROM clientes WHERE nombre="Soraya" AND apellidos LIKE "Bats%");
 
 SELECT marca_marcas,modelo,precio FROM automoviles WHERE precio IN (SELECT precio FROM automoviles WHERE marca_marcas="Seat");
 
@@ -25,4 +25,16 @@ SELECT clientes.nombre,clientes.apellidos,contratos.* FROM clientes,contratos WH
 
 SELECT clientes.nombre,clientes.apellidos,contratos.* FROM clientes,contratos WHERE clientes.dni="07385709" AND contratos.dni_clientes="07385709";
 
-SELECT marca_marcas, modelo FROM automoviles WHERE matricula IN (SELECT c.matricula_automoviles,c2.matricula_automoviles,c3.matricula_automoviles FROM contratos c, contratos2 c2, contratos3 c3 WHERE c.dni_clientes=(SELECT dni FROM clientes WHERE nombre="Carlos Javier" AND apellidos="López Carvajal") OR c2.dni_clientes=(SELECT dni FROM clientes WHERE nombre="Carlos Javier" AND apellidos="López Carvajal") OR c3.dni_clientes=(SELECT dni FROM clientes WHERE nombre="Carlos Javier" AND apellidos="López Carvajal"));
+SELECT marca_marcas,modelo FROM automoviles WHERE matricula=(SELECT matricula_automoviles FROM contratos WHERE dni_clientes=(SELECT dni FROM clientes WHERE nombre="Carlos Javier" AND apellidos="López Carvajal"));
+
+--SELECT clientes.nombre,clientes.apellidos FROM clientes,contratos WHERE contratos.finicial >IN (SELECT finicial FROM contratos WHERE dni_clientes="09856064");
+
+SELECT matricula,marca_marcas,modelo FROM automoviles WHERE kilometros>10000 AND kilometros<30000 AND color="rojo";
+
+SELECT * FROM automoviles WHERE color="verde" OR color="azul" OR color="blanco";
+
+SELECT * FROM automoviles WHERE color="verde" AND extras LIKE "%ABS%" AND extras LIKE "%AA%" AND kilometros<30000;
+
+SELECT * FROM automoviles WHERE precio>=90 AND precio<=100 AND alquilado=0;
+
+SELECT * FROM automoviles WHERE precio<100

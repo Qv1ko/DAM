@@ -26,3 +26,13 @@ INSERT INTO alumnos(nombre,curso_cursos)
     ("Ramon",3);
 
 SELECT alumnos.nombre,cursos.nombre FROM alumnos INNER JOIN cursos ON alumnos.curso_cursos=cursos.curso;
+
+ALTER TABLE cursos CHANGE nombre nom char(3);
+
+DESC cursos;
+
+SELECT * FROM alumnos NATURAL JOIN cursos;
+
+SELECT nombre,nom FROM alumnos NATURAL JOIN cursos;
+
+SELECT nombre,cursos.* FROM alumnos NATURAL JOIN cursos;
