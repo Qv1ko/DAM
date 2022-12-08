@@ -37,4 +37,5 @@ SELECT * FROM automoviles WHERE color="verde" AND extras LIKE "%ABS%" AND extras
 
 SELECT * FROM automoviles WHERE precio>=90 AND precio<=100 AND alquilado=0;
 
-SELECT * FROM automoviles WHERE precio<100
+SELECT * FROM automoviles WHERE precio<100 AND extras LIKE "%CD%" AND kilometros<30000 AND (color="blanco" OR color="azul");
+
