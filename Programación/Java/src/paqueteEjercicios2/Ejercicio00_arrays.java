@@ -10,9 +10,7 @@ public class Ejercicio00_Arrays {
 
         for(int i=0;i<terceraColumna.length;i++) {
             primeraColumna[i]=(int)((Math.random())*11);
-            segundaColumna[i]=(int)((Math.random())*11);
-        }
-        for(int i=0;i<terceraColumna.length;i++) {
+            segundaColumna[(segundaColumna.length-1)-i]=(int)((Math.random())*11);
             terceraColumna[i]=primeraColumna[i]*segundaColumna[(segundaColumna.length-1)-i];
         }
 
