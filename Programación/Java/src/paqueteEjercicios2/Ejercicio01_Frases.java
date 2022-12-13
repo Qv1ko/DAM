@@ -2,7 +2,7 @@ package paqueteEjercicios2;
 
 import java.util.Scanner;
 
-public class Ejercicio02_Frases {
+public class Ejercicio01_Frases {
     
     public static void main(String[] args) {
         int numFrases=0;
