@@ -56,7 +56,8 @@ SELECT AVG(precio) FROM automoviles;
 SELECT MAX(precio),MIN(precio),AVG(precio) FROM automoviles;
 
 SELECT * FROM contratos ORDER BY DATEDIFF(ffinal,finicial) DESC LIMIT 1;
+SELECT numcontrato, DATEDIFF(ffinal,finicial) AS Dias FROM contratos ORDER BY dias DESC LIMIT 1;
 
-SELECT SUM(precio) AS Importe FROM automoviles WHERE matricula IN (SELECT matricula_automoviles FROM contratos WHERE DATEDIFF(ffinal,finicial)>0);
+SELECT SUM(DATEDIFF(ffinal,finicial)*precio) AS Total FROM contratos NATURAL JOIN automoviles WHERE ffinal IS NOT NULL;
 
 SELECT COUNT(dni) AS "Clientes con permiso B" FROM clientes WHERE carnet="B";
