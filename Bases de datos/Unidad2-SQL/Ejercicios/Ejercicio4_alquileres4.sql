@@ -20,3 +20,19 @@ SELECT dni_clientes,COUNT(*)
     FROM contratos
     GROUP BY dni_clientes HAVING COUNT(*)=(SELECT COUNT(*) FROM contratos GROUP BY dni_clientes ORDER BY COUNT(*) DESC LIMIT 1);
 
+SELECT localidad,MAX(fechaexp) FROM clientes GROUP BY localidad;
+
+SELECT marca_marcas AS Marca,COUNT(matricula) AS Vehiculos FROM automoviles GROUP BY marca_marcas;
+
+SELECT localidad AS Localidad,MAX(fechaexp),carnet AS Carnet FROM clientes GROUP BY localidad,carnet;
+
+SELECT AVG(precio) AS "Precio medio" FROM automoviles;
+
+SELECT marca_marcas AS Marca,AVG(precio) AS "Media de precios" FROM automoviles GROUP BY marca_marcas;
+
+SELECT finicial AS Fecha,SUM(precio) AS Ingreso FROM automoviles INNER JOIN contratos GROUP BY finicial;
+
+SELECT matricula_automoviles AS Matricula,DATEDIFF(ffinal,finicial) AS "Dias de contrato"
+    FROM contratos
+    WHERE ffinal<>0 AND DATEDIFF(ffinal,finicial)>5;
+
