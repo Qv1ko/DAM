@@ -10,8 +10,8 @@ public class Ejercicio04_PasswordNavidad {
         String[] acertados=new String[cadena.length];
         int num=0;
         Scanner sc=new Scanner(System.in);
-        generadorRandom(cadena);
-        rellenador(acertados);
+        generarRandom(cadena);
+        rellenar(acertados);
         for(int i=10;i>0;i--) {
             do {
                 System.out.print("\nEscribe un numero del 1 al 20: ");
@@ -23,7 +23,7 @@ public class Ejercicio04_PasswordNavidad {
                 }
             }
             System.out.println(Arrays.toString(acertados));
-            if(comprobador(acertados)) {
+            if(comprobar(acertados)) {
                 break;
             } else if(i==1) {
                 System.out.println("\nFinalizaste los intentos");
@@ -35,26 +35,26 @@ public class Ejercicio04_PasswordNavidad {
         sc.close();
     }//main
 
-    public static void generadorRandom(int[] arrayCadena) {
+    public static void generarRandom(int[] arrayCadena) {
         for(int i=0;i<arrayCadena.length;i++) {
             arrayCadena[i]=(int)((Math.random()*20)+1);
         }
-    }//generadorRandom
+    }//generarRandom
 
-    public static void rellenador(String[] arrayAcertados) {
+    public static void rellenar(String[] arrayAcertados) {
         for(int i=0;i<arrayAcertados.length;i++) {
             arrayAcertados[i]="*";
         }
-    }//rellenador
+    }//rellenar
 
-    public static boolean comprobador(String[] arrayAcertados) {
+    public static boolean comprobar(String[] arrayAcertados) {
         for(int i=0;i<arrayAcertados.length;i++) {
             if(arrayAcertados[i]=="*") {
                 return false;
             }
         }
         return true;
-    }//comprobador
+    }//comprobar
 
     public static void pista(int[] arrayCadena,String[] arrayAcertados,int numero) {
         for(int i=0;i<arrayCadena.length;i++) {
