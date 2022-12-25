@@ -3,7 +3,7 @@ package paqueteEjercicios2;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Ejercicio04_PasswordNavidad {
+public class Ejercicio04_Navidad {
     
     public static void main(String[] args) {
         int[] cadena=new int[6];
