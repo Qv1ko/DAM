@@ -36,7 +36,7 @@ SELECT matricula_automoviles AS Matricula,DATEDIFF(ffinal,finicial) AS "Dias de 
     FROM contratos
     WHERE ffinal<>0 AND DATEDIFF(ffinal,finicial)>5;
 
-
+SELECT dni,nombre,apellidos,TRUNCATE(DATEDIFF(CURDATE(),fechaexp)/365,0) AS "Nº de años" FROM clientes;
 
 SELECT fechaexp,dni AS DNI FROM clientes GROUP BY fechaexp ASC LIMIT 1;
 
