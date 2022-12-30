@@ -10,8 +10,10 @@ public class Ejercicio04_Navidad {
         String[] acertados=new String[cadena.length];
         int num=0;
         Scanner sc=new Scanner(System.in);
+        //Relleno de los arrays
         generarRandom(cadena);
         rellenar(acertados);
+        //Bucle principal de la aplicacion
         for(int i=10;i>0;i--) {
             do {
                 System.out.print("\nEscribe un numero del 1 al 20: ");
@@ -22,6 +24,7 @@ public class Ejercicio04_Navidad {
                     acertados[j]=Integer.toString(num);
                 }
             }
+            //Validacion y muestra de asteriscos
             System.out.println(Arrays.toString(acertados));
             if(comprobar(acertados)) {
                 break;
@@ -29,12 +32,14 @@ public class Ejercicio04_Navidad {
                 System.out.println("\nFinalizaste los intentos");
                 break;
             } else {
+                //Muestra de pistas al usuario
                 pista(cadena,acertados,num);
             }
         }
         sc.close();
     }//main
 
+    //Metodos de relleno de los arrays
     public static void generarRandom(int[] arrayCadena) {
         for(int i=0;i<arrayCadena.length;i++) {
             arrayCadena[i]=(int)((Math.random()*20)+1);
@@ -47,6 +52,7 @@ public class Ejercicio04_Navidad {
         }
     }//rellenar
 
+    //Metodo de validacion
     public static boolean comprobar(String[] arrayAcertados) {
         for(int i=0;i<arrayAcertados.length;i++) {
             if(arrayAcertados[i]=="*") {
@@ -56,6 +62,7 @@ public class Ejercicio04_Navidad {
         return true;
     }//comprobar
 
+    //Metodos de muestra de pistas al usuario
     public static void pista(int[] arrayCadena,String[] arrayAcertados,int numero) {
         for(int i=0;i<arrayCadena.length;i++) {
             if(!(arrayAcertados[i].equals(Integer.toString(arrayCadena[i])))) {
