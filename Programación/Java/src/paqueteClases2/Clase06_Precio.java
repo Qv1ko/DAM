@@ -26,11 +26,11 @@ public class Clase06_Precio {
         this.divisa=divisa;
     }//Clase06_Precio
 
-    public double set() {
+    public double get() {
         return euros;
     }//set
 
-    public void get(double euros) {
+    public void set(double euros) {
         this.euros=euros;
     }//get
 

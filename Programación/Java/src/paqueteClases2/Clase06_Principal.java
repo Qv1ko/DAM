@@ -11,10 +11,10 @@ public class Clase06_Principal {
         precioLibro.euros=99.9;
         System.out.println(precioLibro.euros);
 
-        precioLibro.get(22.2);
-        System.out.println(precioLibro.set());
+        precioLibro.set(22.2);
+        System.out.println(precioLibro.get());
 
-        precioPortatil.get(2500.35);
+        precioPortatil.set(2500.35);
         System.out.println(precioPortatil.euros);
     }//main
 
