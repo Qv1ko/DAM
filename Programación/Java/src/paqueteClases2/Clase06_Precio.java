@@ -3,35 +3,50 @@ package paqueteClases2;
 public class Clase06_Precio {
     
     //Declarar los atributos
-    public double euros;
-    public String divisa;
+    private double cantidad;
+    private String divisa;
 
     //Metodos
     //Construcctor sin parametros
     public Clase06_Precio() {
-        euros=0.0;
+        cantidad=0.0;
+        divisa="EUR";
     }//Clase06_Precio
 
     //Construcctor con parametros (puede tener tantos parametros como metodos)
-    public Clase06_Precio(double euros) {
-        this.euros=euros;
+    public Clase06_Precio(double cantidad) {
+        this.cantidad=cantidad;
     }//Clase06_Precio
 
     public Clase06_Precio(String divisa) {
         this.divisa=divisa;
     }//Clase06_Precio
 
-    public Clase06_Precio(double euros,String divisa) {
-        this.euros=euros;
+    public Clase06_Precio(double cantidad,String divisa) {
+        this.cantidad=cantidad;
         this.divisa=divisa;
     }//Clase06_Precio
 
-    public double get() {
-        return euros;
-    }//set
+    //Getters
+    public double getCantidad() {
+        return this.cantidad;
+    }//getCantidad
 
-    public void set(double euros) {
-        this.euros=euros;
-    }//get
+    public String getDivisa() {
+        return this.divisa;
+    }//getDivisa
+
+    //Setters
+    public void setCantidad(double cantidad) {
+        if(cantidad<0) {
+            this.cantidad=0;
+        } else {
+            this.cantidad=cantidad;
+        }
+    }//setCantidad
+
+    public void setDivisa(String divisa) {
+        this.divisa=divisa;
+    }
 
 }//class
