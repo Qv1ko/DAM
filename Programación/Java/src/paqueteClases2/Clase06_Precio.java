@@ -38,11 +38,7 @@ public class Clase06_Precio {
 
     //Setters
     public void setCantidad(double cantidad) {
-        if(cantidad<0) {
-            this.cantidad=0;
-        } else {
-            this.cantidad=cantidad;
-        }
+        this.cantidad=(cantidad<0)? 0:cantidad;
     }//setCantidad
 
     public void setDivisa(String divisa) {

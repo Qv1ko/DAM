@@ -12,6 +12,8 @@ SELECT localidad,COUNT(dni) AS clientes FROM clientes WHERE carnet="B" GROUP BY 
 
 SELECT matricula_automoviles,finicial FROM contratos ORDER BY finicial DESC LIMIT 3;
 
+SELECT marca_marcas AS Marca,MAX(precio) AS Precio FROM automoviles GROUP BY marca_marcas;
+
 SELECT marca_marcas AS Marca,MAX(precio) AS Precio FROM automoviles GROUP BY marca_marcas HAVING AVG(precio)<=100;
 
 SELECT localidad,COUNT(carnet) AS frecuencia,carnet FROM clientes GROUP BY localidad,carnet;
@@ -20,11 +22,11 @@ SELECT dni_clientes,COUNT(*)
     FROM contratos
     GROUP BY dni_clientes HAVING COUNT(*)=(SELECT COUNT(*) FROM contratos GROUP BY dni_clientes ORDER BY COUNT(*) DESC LIMIT 1);
 
-SELECT localidad,MAX(fechaexp) FROM clientes GROUP BY localidad;
+SELECT localidad,MIN(fechaexp) FROM clientes GROUP BY localidad;
 
 SELECT marca_marcas AS Marca,COUNT(matricula) AS Vehiculos FROM automoviles GROUP BY marca_marcas;
 
-SELECT localidad AS Localidad,MAX(fechaexp),carnet AS Carnet FROM clientes GROUP BY localidad,carnet;
+SELECT localidad AS Localidad,MIN(fechaexp),carnet AS Carnet FROM clientes GROUP BY localidad,carnet;
 
 SELECT AVG(precio) AS "Precio medio" FROM automoviles;
 
