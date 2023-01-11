@@ -3,17 +3,18 @@ package paqueteClases2;
 public class Clase07_Libros {
     
     private int isbn;
-    private String titulo,autor;
+    private String titulo;
+    private Clase07_Autores autor;
     private boolean tapaDura;
 
     public Clase07_Libros() {
         this.isbn=0;
         this.titulo="Titulo sin definir";
-        this.autor="Autor sin definir";
+        this.autor=new Clase07_Autores();
         this.tapaDura=false;
     }//Clase07_Libros
 
-    public Clase07_Libros(int isbn,String titulo,String autor,boolean tapaDura) {
+    public Clase07_Libros(int isbn,String titulo,Clase07_Autores autor,boolean tapaDura) {
         this.isbn=isbn;
         this.titulo=titulo;
         this.autor=autor;
@@ -28,7 +29,7 @@ public class Clase07_Libros {
         return this.titulo;
     }//getTitulo
 
-    public String getAutor() {
+    public Clase07_Autores getAutor() {
         return this.autor;
     }//getAutor
 
@@ -44,7 +45,7 @@ public class Clase07_Libros {
         this.titulo=titulo;
     }//setTitulo
 
-    public void setAutor(String autor) {
+    public void setAutor(Clase07_Autores autor) {
         this.autor=autor;
     }//setAutor
 
@@ -53,7 +54,7 @@ public class Clase07_Libros {
     }//setTapaDura
 
     public String toString() {
-        return "Libro:\n\tISBN -> "+getIsbn()+"\n\tTitulo -> "+getTitulo()+"\n\tAutor -> "+getAutor()+"\n\tTipo de tapa -> "+isTapaDura();
+        return "Libro ("+getIsbn()+")\n\sTitulo -> "+getTitulo()+"\n\sAutor -> "+getAutor()+"\n\sTipo de tapa -> "+(isTapaDura()? "Tapa dura":"Tapa blanda");
     }//toString
 
 }//class
