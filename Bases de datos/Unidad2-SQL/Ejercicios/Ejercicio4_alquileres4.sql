@@ -44,12 +44,12 @@ SELECT fechaexp,dni AS DNI FROM clientes GROUP BY fechaexp ASC LIMIT 1;
 
 SELECT nombre AS Nombre FROM clientes GROUP BY fechaexp ASC LIMIT 1;
 
-SELECT numcontrato FROM contratos INNER JOIN automoviles WHERE ffinal IS NOT NULL GROUP BY DATEDIFF(ffinal,finicial)*precio ASC LIMIT 1;
+SELECT numcontrato FROM contratos INNER JOIN automoviles WHERE ffinal IS NOT NULL GROUP BY DATEDIFF(ffinal,finicial)*precio DESC LIMIT 1;
 
 SELECT nombre AS Nombre,apellidos AS apellidos
     FROM clientes
     WHERE dni=(SELECT dni_clientes FROM contratos INNER JOIN automoviles WHERE ffinal IS NOT NULL
-        GROUP BY DATEDIFF(ffinal,finicial)*precio ASC LIMIT 1);
+        GROUP BY DATEDIFF(ffinal,finicial)*precio DESC LIMIT 1);
 
 SELECT SUM(kilometros) AS "Kilometraje total" FROM automoviles WHERE alquilado=0;
 
