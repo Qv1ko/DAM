@@ -41,4 +41,8 @@ public class Clase07_Autores {
         this.numObras=numObras;
     }//setNumObras
 
+    public String toString() {
+        return nombre+" "+apellidos+" ("+numObras+" obra/s)";
+    }//toString
+
 }//class
