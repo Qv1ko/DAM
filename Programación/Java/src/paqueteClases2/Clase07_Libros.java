@@ -65,6 +65,14 @@ public class Clase07_Libros {
         this.tapaDura=tapaDura;
     }//setTapaDura
 
+    public void setTapaDuraText(String tapaDura) {
+        if(tapaDura.equalsIgnoreCase("si")||tapaDura.equalsIgnoreCase("dura")||tapaDura.equalsIgnoreCase("tapa dura")||tapaDura.equalsIgnoreCase("tapadura")||tapaDura.equalsIgnoreCase("true")||tapaDura.equalsIgnoreCase("yes")) {
+            this.tapaDura=true;
+        } else {
+            this.tapaDura=false;
+        }
+    }//setTapaDuraText
+
     public void setPrecio(float precio) {
         if(precio<0){
             precio=Math.abs(precio);

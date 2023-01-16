@@ -8,7 +8,7 @@ public class Clase07_PruebaLibros {
         // ejemplo1();
         // ejemplo2();
         ejemplo3();
-    }
+    }//main
 
     public static void ejemplo1() {
         // Clase07_Autores cervantes=new Clase07_Autores();
@@ -26,7 +26,7 @@ public class Clase07_PruebaLibros {
         System.out.println(quijote);
     }//ejemplo1
 
-    private static void ejemplo2() {
+    public static void ejemplo2() {
         Scanner ent=new Scanner(System.in);
         Clase07_Autores autor=new Clase07_Autores();
         System.out.print("Introduce los datos de un autor:\n\tNombre: ");
@@ -39,7 +39,7 @@ public class Clase07_PruebaLibros {
         ent.close();
     }//ejemplo2
 
-    private static void ejemplo3() {
+    public static void ejemplo3() {
         Scanner ent=new Scanner(System.in);
         Clase07_Libros libro=new Clase07_Libros();
         Clase07_Autores autor=new Clase07_Autores();
@@ -50,9 +50,9 @@ public class Clase07_PruebaLibros {
         System.out.print("\tNombre y apellidos del autor: ");
         autor.setNombreCompleto(ent.nextLine());
         System.out.print("\tNumero de obras: ");
-        autor.setNumObras(ent.nextInt());
-        System.out.print("\tEs de tapa dura? ");
-        libro.setTapaDura(ent.nextBoolean());
+        autor.setNumObras(ent.nextInt());ent.nextLine();
+        System.out.print("\t¿Es de tapa dura? ");
+        libro.setTapaDuraText(ent.nextLine());
         System.out.print("\tPrecio: ");
         libro.setPrecio(ent.nextFloat());
         System.out.println("\n"+libro);
