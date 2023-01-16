@@ -41,6 +41,11 @@ public class Clase07_Autores {
         this.numObras=numObras;
     }//setNumObras
 
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombre=nombreCompleto.split(" ")[0];
+        this.apellidos=nombreCompleto.split(" ")[1];
+    }//setNombreCompleto
+
     public String toString() {
         return nombre+" "+apellidos+" ("+numObras+" obra/s)";
     }//toString
