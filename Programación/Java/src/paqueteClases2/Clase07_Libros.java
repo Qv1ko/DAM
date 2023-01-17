@@ -1,5 +1,7 @@
 package paqueteClases2;
 
+import java.text.DecimalFormat;
+
 public class Clase07_Libros {
     
     private int isbn;
@@ -74,14 +76,12 @@ public class Clase07_Libros {
     }//setTapaDuraText
 
     public void setPrecio(float precio) {
-        if(precio<0){
-            precio=Math.abs(precio);
-        }
-        this.precio=precio;
+        this.precio=Math.abs(precio);
     }//setPrecio
 
     public String toString() {
-        return "Libro ("+getIsbn()+")\n\sTitulo -> "+getTitulo()+"\n\sAutor -> "+getAutor()+"\n\sTipo de tapa -> "+(isTapaDura()? "Tapa dura":"Tapa blanda")+"\n\sPrecio -> "+getPrecio()+" euros";
+        DecimalFormat df=new DecimalFormat("#.##");
+        return "Libro ("+getIsbn()+")\n\sTitulo -> "+getTitulo()+"\n\sAutor -> "+getAutor()+"\n\sTipo de tapa -> "+(isTapaDura()? "Tapa dura":"Tapa blanda")+"\n\sPrecio -> "+df.format(getPrecio())+" euros";
     }//toString
 
 }//class

@@ -47,14 +47,18 @@ public class Clase07_PruebaLibros {
         libro.setIsbn(ent.nextInt());ent.nextLine();
         System.out.print("\tTitulo: ");
         libro.setTitulo(ent.nextLine());
-        System.out.print("\tNombre y apellidos del autor: ");
-        autor.setNombreCompleto(ent.nextLine());
+        System.out.print("\tNombre del autor: ");
+        autor.setNombre(ent.nextLine());
+        System.out.print("\tApellidos del autor: ");
+        autor.setApellidos(ent.nextLine());
         System.out.print("\tNumero de obras: ");
         autor.setNumObras(ent.nextInt());ent.nextLine();
+        libro.setAutor(autor);
         System.out.print("\t¿Es de tapa dura? ");
         libro.setTapaDuraText(ent.nextLine());
         System.out.print("\tPrecio: ");
-        libro.setPrecio(ent.nextFloat());
+        libro.setPrecio(Float.parseFloat(ent.nextLine().replace(',', '.')));
+        //Con los datos del autor se asocia al libro
         System.out.println("\n"+libro);
         ent.close();
     }//ejemplo3
