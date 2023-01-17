@@ -2,8 +2,8 @@
 Repositorio de actividades realizadas en el ciclo formativo de grado superior de Desarrollo de Aplicaciones Multiplataforma (2022-).
 
 ### Lenguaje del README
-* 🇪🇸 **Spanish**
-* 🇺🇸 [English](./README-en.md)
+* 🇪🇸 **Español**
+* 🇺🇸 [Inglés](./README-en.md)
 
 ## Índice
 ### Primer curso
