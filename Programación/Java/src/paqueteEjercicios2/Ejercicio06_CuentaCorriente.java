@@ -62,7 +62,7 @@ public class Ejercicio06_CuentaCorriente {
             if(cantidad<=this.saldo) {
                 mensaje="Se han retirado "+cantidad+" euros. El saldo final es de "+this.saldo+" euros";
             } else {
-                mensaje="La cantidad a retirar es superior al saldo. Se a retirado el total del saldo ("+this.saldo+")";   
+                mensaje="La cantidad a retirar es superior al saldo. Se a retirado el total del saldo";   
             }
         } else {
             mensaje="No se permite retirar cantidades negativas";
@@ -71,7 +71,7 @@ public class Ejercicio06_CuentaCorriente {
     }//retirarInfo
 
     public String toString() {
-        return "Titular: "+getTitular()+"\n\sSaldo: "+String.format("%.2f",getSaldo());
+        return "\nTitular: "+getTitular()+"\n\sSaldo: "+String.format("%.2f",getSaldo())+"\n";
     }//toString
 
 }//class

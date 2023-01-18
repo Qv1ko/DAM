@@ -18,17 +18,18 @@ public class Ejercicio06_MiBanco {
 
     public static void ejemplo2() {
         Scanner ent=new Scanner(System.in);
-        String continuar=" ";
+        String continuar=" ",operacion=" ";
         System.out.print("Introduce el nombre del titular de la cuenta: ");
         Ejercicio06_CuentaCorriente titular=new Ejercicio06_CuentaCorriente(ent.nextLine());
         do {
             System.out.print("Ingresar(I) / Retirar(R): ");
-            if(ent.nextLine().equalsIgnoreCase("i")||ent.nextLine().equalsIgnoreCase("ingresar")) {
+            operacion=ent.nextLine();
+            if(operacion.equalsIgnoreCase("i")||operacion.equalsIgnoreCase("ingresar")) {
                 System.out.print("Cantidad a ingresar: ");
-                titular.ingresarInfo(ent.nextDouble());ent.nextLine();
-            } else if(ent.nextLine().equalsIgnoreCase("r")||ent.nextLine().equalsIgnoreCase("retirar")) {
+                System.out.println(titular.ingresarInfo(ent.nextDouble()));ent.nextLine();
+            } else if(operacion.equalsIgnoreCase("r")||operacion.equalsIgnoreCase("retirar")) {
                 System.out.print("Cantidad a retirar: ");
-                titular.retirarInfo(ent.nextDouble());ent.nextLine();
+                System.out.println(titular.retirarInfo(ent.nextDouble()));ent.nextLine();
             } else {
                 System.out.println("\t! Error");
             }
@@ -36,6 +37,7 @@ public class Ejercicio06_MiBanco {
             System.out.print("Desea continuar Si/No: ");
             continuar=ent.nextLine();
         } while(continuar.equalsIgnoreCase("si")||continuar.equalsIgnoreCase("s"));
+        System.out.println("\nSaliendo de la cuenta...\n");
         ent.close();
     }//ejemplo2
 
