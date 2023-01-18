@@ -42,6 +42,7 @@ INSERT INTO contratos(matricula_automoviles,dni_clientes,finicial,kinicial)
 
 DELETE FROM contratos WHERE numcontrato BETWEEN 28 AND 29 OR numcontrato BETWEEN 54 AND 62;
 
-SELECT * FROM clientes INTO OUTFILE "C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio4_txts\\Ejercicio4_alquileres5_clientes.txt";
+SELECT * FROM clientes 
+    INTO OUTFILE "C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio4_txts\\Ejercicio4_alquileres5_clientes.txt";
 
---SELECT * FROM contratos INTO OUTFILE "C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio4_txts\\Ejercicio4_alquileres5_contratos_finalizados.txt";
+-- SELECT nombre,apellidos,DATEDIFF(ffinal,finicial)*precio FROM contratos INNER JOIN automoviles ON clientes.dni=contratos.dni_clientes WHERE ffinal IS NOT NULL INTO OUTFILE "C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio4_txts\\Ejercicio4_alquileres5_contratos_finalizados.txt";
