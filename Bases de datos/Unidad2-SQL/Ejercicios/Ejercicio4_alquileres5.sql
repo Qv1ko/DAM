@@ -45,4 +45,26 @@ DELETE FROM contratos WHERE numcontrato BETWEEN 28 AND 29 OR numcontrato BETWEEN
 SELECT * FROM clientes 
     INTO OUTFILE "C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio4_txts\\Ejercicio4_alquileres5_clientes.txt";
 
--- SELECT nombre,apellidos,DATEDIFF(ffinal,finicial)*precio FROM contratos INNER JOIN automoviles ON clientes.dni=contratos.dni_clientes WHERE ffinal IS NOT NULL INTO OUTFILE "C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio4_txts\\Ejercicio4_alquileres5_contratos_finalizados.txt";
+SELECT nombre AS Nombre,apellidos AS Apellidos,ABS(DATEDIFF(ffinal,finicial)*precio) AS "Importe relativo"
+    FROM clientes INNER JOIN contratos ON clientes.dni=contratos.dni_clientes INNER JOIN automoviles ON contratos.matricula_automoviles=automoviles.matricula 
+        WHERE ffinal IS NOT NULL 
+            INTO OUTFILE "C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio4_txts\\Ejercicio4_alquileres5_contratos_finalizados.txt";
+
+UPDATE contratos
+    SET ffinal="2009-04-19",kfinal=24756 WHERE numcontrato=16;
+
+UPDATE contratos
+    SET kfinal=12267 WHERE numcontrato=17;
+
+UPDATE automoviles
+    SET color="Rojo" WHERE marca_marcas="Ford" AND modelo="Focus";
+
+UPDATE contratos
+    SET finicial=ADDDATE(finicial,7),kfinal=(kfinal+2200) WHERE numcontrato=18 OR numcontrato=19;
+
+UPDATE automoviles
+    SET alquilado=0 WHERE alquilado=1;
+
+UPDATE automoviles,contratos
+    SET alquilado=1 WHERE ffinal IS NOT NULL;
+
