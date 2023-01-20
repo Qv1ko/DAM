@@ -60,11 +60,37 @@ UPDATE automoviles
     SET color="Rojo" WHERE marca_marcas="Ford" AND modelo="Focus";
 
 UPDATE contratos
-    SET finicial=ADDDATE(finicial,7),kfinal=(kfinal+2200) WHERE numcontrato=18 OR numcontrato=19;
+    SET finicial=ADDDATE(finicial,7),kfinal=(kinicial+2200) WHERE numcontrato=18 OR numcontrato=19;
 
 UPDATE automoviles
     SET alquilado=0 WHERE alquilado=1;
 
-UPDATE automoviles,contratos
-    SET alquilado=1 WHERE ffinal IS NOT NULL;
+UPDATE automoviles NATURAL JOIN contratos
+    SET alquilado=true WHERE ffinal IS NULL;
 
+INSERT INTO contratos(dni_clientes,matricula_automoviles,finicial,kinicial)
+    VALUES ("09856064","4738CBJ",CURDATE(),(SELECT kilometros FROM automoviles WHERE matricula="4738CBJ"));
+
+UPDATE contratos
+    SET numcontrato=numcontrato+20 WHERE numcontrato BETWEEN 20 and 23;
+
+UPDATE contratos
+    SET numcontrato=66 WHERE numcontrato=16;
+
+UPDATE contratos
+    SET matricula_automoviles="5031BHL" WHERE numcontrato=15;
+
+SHOW CREATE TABLE contratos;
+ALTER TABLE contratos DROP FOREIGN KEY contratos_ibfk_2;
+ALTER TABLE contratos ADD FOREIGN KEY(matricula_automoviles) REFERENCES automoviles(matricula) ON UPDATE CASCADE ON DELETE CASCADE;
+UPDATE automoviles
+    SET matricula="4783CBJ" WHERE marca_marcas="Audi" AND modelo="A3";
+
+-- UPDATE automoviles NATURAL JOIN contratos
+--     SET kilometros=kfinal WHERE numcontrato=15;
+
+UPDATE automoviles
+    SET precio=precio*1.02;
+
+-- UPDATE automoviles NATURAL JOIN
+--     SET kilometros=kfinal WHERE ffinal BETWEEN "2017-02-04" AND "2017-04-15";
