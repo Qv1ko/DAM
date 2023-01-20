@@ -12,10 +12,11 @@ public class Ejercicio06_MiBancoArray {
         clientes[0]=new Ejercicio06_CuentaCorriente("Saul");
         clientes[1]=new Ejercicio06_CuentaCorriente("Andres");
         clientes[2]=new Ejercicio06_CuentaCorriente("Marta");
-        clientes[3]=new Ejercicio06_CuentaCorriente("Irene");
+        clientes[3]=new Ejercicio06_CuentaCorriente("Irene",55);
         clientes[4]=new Ejercicio06_CuentaCorriente("Constantin");
         clientes[0].ingresar(100);
         clientes[1].ingresar(99);
+        //for each -> for(elementoIterador:lista){}
         for(Ejercicio06_CuentaCorriente cli:clientes) {
             System.out.println(cli);
             saldoTotal+=cli.getSaldo();
