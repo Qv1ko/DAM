@@ -103,7 +103,7 @@ UPDATE automoviles SET kilometros=23057 WHERE matricula="4387BDD";
 UPDATE automoviles SET kilometros=8008 WHERE matricula="4783CBJ";
 UPDATE automoviles SET kilometros=24796 WHERE matricula="5031BHL";
 UPDATE automoviles SET kilometros=28500 WHERE matricula="5573BFS";
-UPDATE automoviles SET kilometros=7659 WHERE matricula="5678BFS";
+UPDATE automoviles SET kilometros=7659 WHERE matricula="5678BRZ";
 UPDATE automoviles SET kilometros=25672 WHERE matricula="6761CYM";
 UPDATE automoviles SET kilometros=1200 WHERE matricula="7600CFG";
 UPDATE automoviles SET kilometros=15873 WHERE matricula="7839CDR";
