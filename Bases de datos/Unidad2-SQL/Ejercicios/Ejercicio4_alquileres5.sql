@@ -88,6 +88,7 @@ UPDATE automoviles
 
 -- UPDATE automoviles NATURAL JOIN contratos
 --     SET kilometros=kfinal WHERE numcontrato=15;
+UPDATE automoviles SET kilometros=46980 WHERE matricula="8795BTK";
 
 UPDATE automoviles
     SET precio=precio*1.02;
