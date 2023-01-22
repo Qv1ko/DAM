@@ -113,5 +113,5 @@ UPDATE automoviles SET kilometros=46980 WHERE matricula="8795BTK";
 UPDATE automoviles
     SET precio=precio*1.02;
 
--- UPDATE automoviles NATURAL JOIN
---     SET kilometros=kfinal WHERE ffinal BETWEEN "2017-02-04" AND "2017-04-15";
+-- UPDATE automoviles NATURAL JOIN contratos
+--     SET kilometros=kfinal WHERE ffinal BETWEEN "2017-03-04" AND "2017-04-15";
