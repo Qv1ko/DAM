@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class Ejercicio07_MiBancoWeekend {
     
     public static void main(String[] args) {
-        // Ejercicio06_CuentaCorriente[] clientes=new Ejercicio06_CuentaCorriente[5];
-        // clientes[0]=new Ejercicio06_CuentaCorriente("Saul");
-        // clientes[1]=new Ejercicio06_CuentaCorriente("Andres");
-        // clientes[2]=new Ejercicio06_CuentaCorriente("Marta");
-        // clientes[3]=new Ejercicio06_CuentaCorriente("Irene",55);
-        // clientes[4]=new Ejercicio06_CuentaCorriente("Constantin");
-        // menu(clientes);
+        Ejercicio06_CuentaCorriente[] clientes=new Ejercicio06_CuentaCorriente[5];
+        clientes[0]=new Ejercicio06_CuentaCorriente("Saul");
+        clientes[1]=new Ejercicio06_CuentaCorriente("Andres");
+        clientes[2]=new Ejercicio06_CuentaCorriente("Marta");
+        clientes[3]=new Ejercicio06_CuentaCorriente("Irene",55);
+        clientes[4]=new Ejercicio06_CuentaCorriente("Constantin");
+        menu(clientes);
         menuCorreccion();
     }//main
 
@@ -79,7 +79,7 @@ public class Ejercicio07_MiBancoWeekend {
                     System.out.println("\nSaliendo...");
             }//switch
         }while(opcion!=5);
-        // sc.close();
+        sc.close();
     }//menu
 
     private static void menuCorreccion() {
@@ -93,19 +93,19 @@ public class Ejercicio07_MiBancoWeekend {
         clientes[4]=new Ejercicio06_CuentaCorriente("Constantin");
         do {
             System.out.print("Introduce una opcion: ");
-            opcion=ent.nextInt();
+            opcion=ent.nextInt();ent.nextLine();
             switch(opcion) {
                 case 1 -> listarClientes(clientes);
-                case 2 -> ingresar(clientes);
-                case 3 -> retirar(clientes);
-                case 4 -> transferir(clientes);
+                case 2 -> ingresar(clientes,ent);
+                case 3 -> retirar(clientes,ent);
+                case 4 -> transferir(clientes,ent);
                 case 5 -> System.out.println("Adios");
                 default -> {
                     System.out.println("Error - Entrada incorrecta");
                 }
             }
         } while(opcion!=5);
-        // ent.close();
+        ent.close();
     }//menuCorreccion
 
     private static void listarClientes(Ejercicio06_CuentaCorriente[] lista) {
@@ -114,8 +114,7 @@ public class Ejercicio07_MiBancoWeekend {
         }
     }//listarClientes
 
-    private static void ingresar(Ejercicio06_CuentaCorriente[] lista) {
-        Scanner ent=new Scanner(System.in);
+    private static void ingresar(Ejercicio06_CuentaCorriente[] lista,Scanner ent) {
         String nombre=" ";
         System.out.print("Introduce el nombre del titular: ");
         nombre=ent.nextLine();
@@ -126,11 +125,9 @@ public class Ejercicio07_MiBancoWeekend {
                 break;
             }
         }
-        // ent.close();
     }//ingresar
 
-    private static void retirar(Ejercicio06_CuentaCorriente[] lista) {
-        Scanner ent=new Scanner(System.in);
+    private static void retirar(Ejercicio06_CuentaCorriente[] lista,Scanner ent) {
         String nombre=" ";
         System.out.print("Introduce el nombre del titular: ");
         nombre=ent.nextLine();
@@ -148,11 +145,10 @@ public class Ejercicio07_MiBancoWeekend {
                 break;
             }
         }
-        // ent.close();
     }//retirar
 
-    private static void transferir(Ejercicio06_CuentaCorriente[] lista) {
-        transferir(cli1,cli2,cantidad);
+    private static void transferir(Ejercicio06_CuentaCorriente[] lista,Scanner ent) {
+        // transferir(cli1,cli2,cantidad);
     }//transferir
 
 }//class
