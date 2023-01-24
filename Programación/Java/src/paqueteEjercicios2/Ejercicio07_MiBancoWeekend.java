@@ -11,11 +11,11 @@ public class Ejercicio07_MiBancoWeekend {
         clientes[2]=new Ejercicio06_CuentaCorriente("Marta");
         clientes[3]=new Ejercicio06_CuentaCorriente("Irene",55);
         clientes[4]=new Ejercicio06_CuentaCorriente("Constantin");
-        menu(clientes);
+        // menu(clientes);
         menuCorreccion();
     }//main
 
-    private static void menu(Ejercicio06_CuentaCorriente[] clientes) {
+    public static void menu(Ejercicio06_CuentaCorriente[] clientes) {
         Scanner sc=new Scanner(System.in);
         int opcion=0;
         String titular="",beneficiario="";
@@ -82,7 +82,7 @@ public class Ejercicio07_MiBancoWeekend {
         sc.close();
     }//menu
 
-    private static void menuCorreccion() {
+    public static void menuCorreccion() {
         Ejercicio06_CuentaCorriente[] clientes=new Ejercicio06_CuentaCorriente[5];
         int opcion=0;
         Scanner ent=new Scanner(System.in);
@@ -148,7 +148,30 @@ public class Ejercicio07_MiBancoWeekend {
     }//retirar
 
     private static void transferir(Ejercicio06_CuentaCorriente[] lista,Scanner ent) {
-        // transferir(cli1,cli2,cantidad);
+        Ejercicio06_CuentaCorriente ordenante=null,beneficiario=null;
+        double cantidad=0.0;
+        System.out.print("Introduzca la cuenta ordenante: ");
+        ordenante=buscarCuentaCorriente(ent.nextLine(),lista);
+        System.out.print("Introduzca la cuenta beneficiaria: ");
+        beneficiario=buscarCuentaCorriente(ent.nextLine(),lista);
+        System.out.print("Cantidad a transferir: ");
+        cantidad=ent.nextDouble();
+        if(ordenante!=null&&beneficiario!=null) {
+            System.out.println(ordenante.retirarInfo(cantidad));
+            System.out.println(beneficiario.ingresarInfo(cantidad));
+        } else {
+            System.out.println("No existe uno de los titulares");
+        }
     }//transferir
+
+    private static Ejercicio06_CuentaCorriente buscarCuentaCorriente(String titular,Ejercicio06_CuentaCorriente[] lista) {
+        Ejercicio06_CuentaCorriente cliente=null;
+        for(Ejercicio06_CuentaCorriente cli:lista) {
+            if(cli.getTitular().equalsIgnoreCase(titular)) {
+                cliente=cli;
+            }
+        }
+        return cliente;
+    }//buscarCuentaCorriente
 
 }//class

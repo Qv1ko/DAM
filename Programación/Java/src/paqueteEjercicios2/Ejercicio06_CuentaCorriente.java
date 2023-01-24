@@ -31,8 +31,6 @@ public class Ejercicio06_CuentaCorriente {
     public void retirar(double cantidad) {
         if(cantidad<=this.saldo&&cantidad>0) {
             this.saldo-=cantidad;
-        } else if(cantidad>this.saldo&&cantidad>0) {
-            this.saldo-=this.saldo;
         }
     }//retirar
 
@@ -48,7 +46,7 @@ public class Ejercicio06_CuentaCorriente {
         ingresar(cantidad);
         String mensaje="";
         if(cantidad>0) {
-            mensaje="Se ha ingresado "+cantidad+" euros. El saldo final es de "+this.saldo+" euros";
+            mensaje="Se han ingresado a "+this.getTitular()+" "+cantidad+" euros. El saldo final es de "+this.saldo+" euros";
         } else {
             mensaje="No se permite ingresar cantidades negativas";
         }
@@ -56,16 +54,12 @@ public class Ejercicio06_CuentaCorriente {
     }//ingresarInfo
 
     public String retirarInfo(double cantidad) {
-        retirar(cantidad);
         String mensaje="";
-        if(cantidad>0) {
-            if(cantidad<=this.saldo) {
-                mensaje="Se han retirado "+cantidad+" euros. El saldo final es de "+this.saldo+" euros";
-            } else {
-                mensaje="La cantidad a retirar es superior al saldo. Se a retirado el total del saldo";   
-            }
+        if(cantidad>0&&cantidad<=this.getSaldo()) {
+            this.retirar(cantidad);
+            mensaje="Se han retirado "+this.getTitular()+" "+cantidad+" euros. El saldo final es de "+this.getSaldo()+" euros";
         } else {
-            mensaje="No se permite retirar cantidades negativas";
+            mensaje="La cantidad es incorrecta o el saldo es insuficiente";   
         }
         return mensaje;
     }//retirarInfo
