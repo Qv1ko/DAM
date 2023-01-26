@@ -14,14 +14,20 @@ public class Ejercicio09_Informe {
     private static void informe(Ejercicio09_Zoo[] animales) {
         String[] habitats={"Tierra","Mar","Aire"};
         // String[] comidas={"Carne","Pescado","Pienso"};
+        // double carne=0.0,pescado=0.0,pienso=0.0;
         for(int i=0;i<animales.length;i++) {
             for(int j=0;j<habitats.length;j++) {
-                if (animales[i].getHabitat().equalsIgnoreCase(habitats[j])) {
+                if(animales[i].getHabitat().equalsIgnoreCase(habitats[j])) {
                     System.out.println("\nAnimales de "+habitats[j].toLowerCase()+":");
                     System.out.println(animales[i]);
                 }
             }
-            // for(int)
+            // for(int k=0;k<comidas.length;k++) {
+            //     if(animales[i].getComida().equalsIgnoreCase(comidas[k])) {
+
+            //     }
+            // }
+            
         }
     }//informe
 
