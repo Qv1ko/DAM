@@ -9,6 +9,7 @@ public class Ejercicio09_Informe {
         animales[2]=new Ejercicio09_Zoo(3,"Paloma","Aire","Pienso",0.53);
         animales[3]=new Ejercicio09_Zoo(4,"Delfin","Mar","Pescado",4.65);
         informe(animales);
+        informeExcel(animales);
     }//main
 
     private static void informe(Ejercicio09_Zoo[] animales) {
@@ -24,5 +25,9 @@ public class Ejercicio09_Informe {
             // for(int)
         }
     }//informe
+
+    private static void informeExcel(Ejercicio09_Zoo[] animales) {
+        // String[][] datosInforme=new Ejercicio09_Zoo;
+    }//informeExcel
 
 }//class
