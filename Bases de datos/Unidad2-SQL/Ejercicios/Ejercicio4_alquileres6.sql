@@ -14,4 +14,4 @@ DELETE FROM contratos
     WHERE dni_clientes IN (SELECT dni FROM clientes WHERE nombre="Ismael" AND apellidos="Poza Rincón") AND 
         matricula_automoviles IN (SELECT matricula FROM automoviles WHERE marca_marcas="Audi" AND modelo="A4");
 
--- DELETE FROM automoviles WHERE precio IN (marca_marcas="Mercedes" AND modelo="500 E");
+-- DELETE FROM automoviles WHERE precio>(SELECT precio FROM automoviles WHERE marca_marcas="Mercedes" AND modelo="500 E");
