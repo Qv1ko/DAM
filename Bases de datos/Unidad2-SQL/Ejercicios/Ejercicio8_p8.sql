@@ -1,4 +1,5 @@
 CREATE DATABASE ejercicio8_p8;
+USE ejercicio8_p8;
 
 CREATE TABLE usuarios(
     id SMALLINT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
