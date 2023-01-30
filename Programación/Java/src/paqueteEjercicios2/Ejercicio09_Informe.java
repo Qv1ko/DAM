@@ -4,10 +4,10 @@ public class Ejercicio09_Informe {
     
     public static void main(String[] args) {
         Ejercicio09_Zoo[] animales=new Ejercicio09_Zoo[4];
-        animales[0]=new Ejercicio09_Zoo(1,"Leon","Tierra","Carne",8.25);
-        animales[1]=new Ejercicio09_Zoo(2,"Orangutan","Tierra","Pescado",3.65);
-        animales[2]=new Ejercicio09_Zoo(3,"Paloma","Aire","Pienso",0.53);
-        animales[3]=new Ejercicio09_Zoo(4,"Delfin","Mar","Pescado",4.65);
+        animales[0]=new Ejercicio09_Zoo(1,"Leon",Ejercicio09_Habitats.TIERRA,"Carne",8.25);
+        animales[1]=new Ejercicio09_Zoo(2,"Orangutan",Ejercicio09_Habitats.TIERRA,"Pescado",3.65);
+        animales[2]=new Ejercicio09_Zoo(3,"Paloma",Ejercicio09_Habitats.AIRE,"Pienso",0.53);
+        animales[3]=new Ejercicio09_Zoo(4,"Delfin",Ejercicio09_Habitats.MAR,"Pescado",4.65);
         System.out.println(Ejercicio09_Habitats.TIERRA);
         informe(animales);
         informeExcel(animales);

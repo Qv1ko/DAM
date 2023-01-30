@@ -15,7 +15,7 @@ public class Ejercicio09_Zoo {
         this.kgDiarios=0.0;
     }//Ejercicio09_Zoo
 
-    public Ejercicio09_Zoo(int id,String especie,String habitat,String comida,double kgDiarios) {
+    public Ejercicio09_Zoo(int id,String especie,Ejercicio09_Habitats habitat,String comida,double kgDiarios) {
         this.id=id+10;
         this.especie=especie;
         this.habitat=habitat;
@@ -40,8 +40,8 @@ public class Ejercicio09_Zoo {
         return especie;
     }//getEspecie
 
-    public String getHabitat() {
-        return habitat;
+    public Ejercicio09_Habitats getHabitat() {
+        return Ejercicio09_Habitats.TIERRA;
     }//getHabitat
 
     public String getComida() {
@@ -60,8 +60,8 @@ public class Ejercicio09_Zoo {
         this.especie=especie;
     }//setEspecie
 
-    public void setHabitat(String habitat) {
-        this.habitat=habitat;
+    public void setHabitat(Ejercicio09_Habitats habitat) {
+        this.habitat=Ejercicio09_Habitats.TIERRA;
     }//setHabitat
 
     public void setComida(String comida) {
