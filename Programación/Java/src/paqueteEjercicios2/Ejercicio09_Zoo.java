@@ -2,14 +2,15 @@ package paqueteEjercicios2;
 
 public class Ejercicio09_Zoo {
     
-    private int id=0;
-    private String especie=" ",habitat=" ",comida= " ";
-    private double kgDiarios=0.0f;
+    private int id;
+    private String especie,comida;
+    private double kgDiarios;
+    private Ejercicio09_Habitats habitat;
 
     public Ejercicio09_Zoo() {
         this.id=0;
         this.especie="Sin identificar";
-        this.habitat="Sin definir";
+        this.habitat=Ejercicio09_Habitats.TIERRA;
         this.comida="Sin definir";
         this.kgDiarios=0.0;
     }//Ejercicio09_Zoo
@@ -20,6 +21,15 @@ public class Ejercicio09_Zoo {
         this.habitat=habitat;
         this.comida=comida;
         this.kgDiarios=kgDiarios;
+    }//Ejercicio09_Zoo
+
+    //Construcctor copia
+    public Ejercicio09_Zoo(Ejercicio09_Zoo anim) {
+        this.id=anim.id;
+        this.especie=anim.especie;
+        this.habitat=anim.habitat;
+        this.comida=anim.comida;
+        this.kgDiarios=anim.kgDiarios;
     }//Ejercicio09_Zoo
 
     public int getId() {

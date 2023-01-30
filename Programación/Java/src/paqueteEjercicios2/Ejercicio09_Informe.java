@@ -8,8 +8,10 @@ public class Ejercicio09_Informe {
         animales[1]=new Ejercicio09_Zoo(2,"Orangutan","Tierra","Pescado",3.65);
         animales[2]=new Ejercicio09_Zoo(3,"Paloma","Aire","Pienso",0.53);
         animales[3]=new Ejercicio09_Zoo(4,"Delfin","Mar","Pescado",4.65);
+        System.out.println(Ejercicio09_Habitats.TIERRA);
         informe(animales);
         informeExcel(animales);
+        copia();
     }//main
 
     private static void informe(Ejercicio09_Zoo[] animales) {
@@ -41,32 +43,35 @@ public class Ejercicio09_Informe {
     }//informe
 
     private static void informeExcel(Ejercicio09_Zoo[] animales) {
-        String[][] datosInforme=new String[4][4];
-        double costeTerrestre=15.0f,costeJaula=20.0f,costeEstanques=45.0f;
-        for(int i=0;i<datosInforme.length;i++) {
+        String[][] datosInforme={{"Tierra","Mar","Aire"},{"carne","pescado","pienso"},{"15","45","20"},{"","",""},{"0","0","0"},{"0","0","0"}};
+        double kg=0.0;
+        int costes=0;
+        for(int i=0;i<animales.length;i++) {
             for(int j=0;j<datosInforme[i].length;j++) {
-                datosInforme[0][j]=(i==0&&j==0)? "Habitat":(i==0&&j==1)? "Especies":(i==0&&j==2)? "Kg semanales":(i==0&&j==3)? "Mantenimiento de jaulas":"";
-                if(i==1) {
-                    datosInforme[i][j]=(j==0)? "Terrestre":(j==1)? Integer.toString(cantAnimales(animales,"tierra")):(j==2)? "Kg semanales":(j==3)? Double.toString(cantAnimales(animales,"tierra")*costeTerrestre)+" euros":"";
-                } else if(i==2) {
-                    datosInforme[i][j]=(j==0)? "Marino":(j==1)? Integer.toString(cantAnimales(animales,"mar")):(j==2)? "Kg semanales":(j==3)? Double.toString(cantAnimales(animales,"mar")*costeEstanques)+" euros":"";
-                } else if(i==3) {
-                    datosInforme[i][j]=(j==0)? "Aereo":(j==1)? Integer.toString(cantAnimales(animales,"aire")):(j==2)? "Kg semanales":(j==3)? Double.toString(cantAnimales(animales,"aire")*costeJaula)+" euros":"";
+                if(animales[i].getHabitat().equalsIgnoreCase(datosInforme[0][j])) {
+                    datosInforme[3][j]+=animales[i].toString()+"\n";
+                    costes=Integer.parseInt(datosInforme[2][j])+Integer.parseInt(datosInforme[5][j]);
+                    datosInforme[5][j]=String.valueOf(costes);
                 }
-                System.out.print("| "+datosInforme[i][j]+" |");
+                if(animales[i].getComida().equalsIgnoreCase(datosInforme[1][j])) {
+                    kg=Double.parseDouble(datosInforme[4][j].replace(',','.')+animales[i].getKgDiarios());
+                    datosInforme[4][j]=String.valueOf(String.format("%.2f",kg));
+                }
             }
-            System.out.println();
+        }
+        for(int i=0;i<datosInforme[0].length;i++) {
+            System.out.println("**"+datosInforme[0][i]+"**");
+            System.out.println(datosInforme);
         }
     }//informeExcel
 
-    private static int cantAnimales(Ejercicio09_Zoo[] animales,String habitat) {
-        int numAnimales=0;
-        for(Ejercicio09_Zoo animal:animales) {
-            if(animal.getHabitat().equalsIgnoreCase(habitat)) {
-                numAnimales++;
-            }
-        }
-        return numAnimales;
-    }//cantAnimales
+    private static void copia() {
+        Ejercicio09_Zoo leon=new Ejercicio09_Zoo(1,"Leon","Tierra","Carne",9.80);
+        Ejercicio09_Zoo copiaLeon=leon;
+        leon.setEspecie("Leon Africano");
+        System.out.println(leon);
+        System.out.println("***********************");
+        System.out.println(copiaLeon);
+    }//copia
 
 }//class
