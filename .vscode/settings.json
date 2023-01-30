@@ -2,5 +2,6 @@
     "java.project.sourcePaths": [
         "Programación\\Java\\src"
     ],
-    "java.project.outputPath": "Programación\\Java\\bin"
+    "java.project.outputPath": "Programación\\Java\\bin",
+    "C_Cpp.errorSquiggles": "disabled"
 }
