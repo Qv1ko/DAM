@@ -41,7 +41,7 @@ public class Ejercicio09_Zoo {
     }//getEspecie
 
     public Ejercicio09_Habitats getHabitat() {
-        return Ejercicio09_Habitats.TIERRA;
+        return this.habitat;
     }//getHabitat
 
     public String getComida() {
@@ -61,7 +61,7 @@ public class Ejercicio09_Zoo {
     }//setEspecie
 
     public void setHabitat(Ejercicio09_Habitats habitat) {
-        this.habitat=Ejercicio09_Habitats.TIERRA;
+        this.habitat=habitat;
     }//setHabitat
 
     public void setComida(String comida) {
