@@ -72,7 +72,7 @@ public class Ejercicio09_Informe {
 
     private static void copia() {
         Ejercicio09_Zoo leon=new Ejercicio09_Zoo(1,"Leon",Ejercicio09_Habitats.TIERRA,"Carne",9.80);
-        Ejercicio09_Zoo copiaLeon=leon;
+        Ejercicio09_Zoo copiaLeon=new Ejercicio09_Zoo(leon);
         leon.setEspecie("Leon Africano");
         System.out.println(leon);
         System.out.println("---------------------------------------");

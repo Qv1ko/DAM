@@ -6,16 +6,18 @@ public class Ejercicio09_Zoo {
     private String especie,comida;
     private double kgDiarios;
     private Ejercicio09_Habitats habitat;
+    // private static int totalId=1; //Variable de id incremental
 
     public Ejercicio09_Zoo() {
         this.id=0;
         this.especie="Sin identificar";
-        this.habitat=Ejercicio09_Habitats.TIERRA;
+        this.habitat=null;
         this.comida="Sin definir";
         this.kgDiarios=0.0;
     }//Ejercicio09_Zoo
 
     public Ejercicio09_Zoo(int id,String especie,Ejercicio09_Habitats habitat,String comida,double kgDiarios) {
+        // this.id= ++totalId; //Incremento del id
         this.id=id+10;
         this.especie=especie;
         this.habitat=habitat;
@@ -25,7 +27,7 @@ public class Ejercicio09_Zoo {
 
     //Construcctor copia
     public Ejercicio09_Zoo(Ejercicio09_Zoo anim) {
-        this.id=anim.id;
+        this.id=anim.getId();
         this.especie=anim.especie;
         this.habitat=anim.habitat;
         this.comida=anim.comida;
