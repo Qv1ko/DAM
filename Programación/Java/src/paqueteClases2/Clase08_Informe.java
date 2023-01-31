@@ -1,26 +1,26 @@
-package paqueteEjercicios2;
+package paqueteClases2;
 
 import java.util.Arrays;
 
-public class Ejercicio09_Informe {
+public class Clase08_Informe {
     
     public static void main(String[] args) {
-        Ejercicio09_Zoo[] animales=new Ejercicio09_Zoo[4];
-        animales[0]=new Ejercicio09_Zoo(1,"Leon",Ejercicio09_Habitats.TIERRA,"Carne",8.25);
-        animales[1]=new Ejercicio09_Zoo(2,"Orangutan",Ejercicio09_Habitats.TIERRA,"Pescado",3.65);
-        animales[2]=new Ejercicio09_Zoo(3,"Paloma",Ejercicio09_Habitats.AIRE,"Pienso",0.53);
-        animales[3]=new Ejercicio09_Zoo(4,"Delfin",Ejercicio09_Habitats.MAR,"Pescado",4.65);
-        System.out.println(Ejercicio09_Habitats.TIERRA);
+        Clase08_Zoo[] animales=new Clase08_Zoo[4];
+        animales[0]=new Clase08_Zoo(1,"Leon",Clase08_Habitats.TIERRA,"Carne",8.25);
+        animales[1]=new Clase08_Zoo(2,"Orangutan",Clase08_Habitats.TIERRA,"Pescado",3.65);
+        animales[2]=new Clase08_Zoo(3,"Paloma",Clase08_Habitats.AIRE,"Pienso",0.53);
+        animales[3]=new Clase08_Zoo(4,"Delfin",Clase08_Habitats.MAR,"Pescado",4.65);
+        System.out.println(Clase08_Habitats.TIERRA);
         informe(animales);
         informeExcel(animales);
         copia();
     }//main
 
-    private static void informe(Ejercicio09_Zoo[] animales) {
+    private static void informe(Clase08_Zoo[] animales) {
         String habitatTierra="",habitatMar="",habitatAire="";
         double comidaCarne=0.0,comidaPescado=0.0,comidaPienso=0.0;
         float costesTerrestres=0.0f,costesJaulas=0.0f,costesEstanques=0.0f,costeTerrestre=15.0f,costeJaula=20.0f,costeEstanques=45.0f;
-        for(Ejercicio09_Zoo animal:animales) {
+        for(Clase08_Zoo animal:animales) {
             if(animal.getHabitat().toString().equalsIgnoreCase("tierra")) {
                 habitatTierra+=animal+"\n";
                 costesTerrestres+=costeTerrestre;
@@ -44,7 +44,7 @@ public class Ejercicio09_Informe {
         System.out.println("Mantenimiento de jaulas terrestes -> "+costesTerrestres+" euros\nMantenimiento de jaulas -> "+costesJaulas+" euros\nMantenimiento de estanques -> "+costesEstanques+" euros");
     }//informe
 
-    private static void informeExcel(Ejercicio09_Zoo[] animales) {
+    private static void informeExcel(Clase08_Zoo[] animales) {
         String[][] datosInforme={{"Tierra","Mar","Aire"},{"carne","pescado","pienso"},{"15","45","20"},{"","",""},{"0","0","0"},{"0","0","0"}};
         double kg=0.0;
         int costes=0;
@@ -71,8 +71,8 @@ public class Ejercicio09_Informe {
     }//informeExcel
 
     private static void copia() {
-        Ejercicio09_Zoo leon=new Ejercicio09_Zoo(1,"Leon",Ejercicio09_Habitats.TIERRA,"Carne",9.80);
-        Ejercicio09_Zoo copiaLeon=new Ejercicio09_Zoo(leon);
+        Clase08_Zoo leon=new Clase08_Zoo(1,"Leon",Clase08_Habitats.TIERRA,"Carne",9.80);
+        Clase08_Zoo copiaLeon=new Clase08_Zoo(leon);
         leon.setEspecie("Leon Africano");
         System.out.println(leon);
         System.out.println("---------------------------------------");

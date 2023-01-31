@@ -1,6 +1,6 @@
-package paqueteEjercicios2;
+package paqueteClases2;
 
-public enum Ejercicio09_Habitats {
+public enum Clase08_Habitats {
 
     //Definir lista de objetos estaticos y finales
     TIERRA,MAR,AIRE;

@@ -1,13 +1,13 @@
-package paqueteEjercicios2;
+package paqueteClases2;
 
 import java.util.Scanner;
 
-public class Ejercicio09_Informe2 {
+public class Clase08_Informe2 {
     
     public static void main(String[] args) {
         Scanner ent=new Scanner(System.in);
         String habitat="";
-        Ejercicio09_Zoo nuevo=new Ejercicio09_Zoo();
+        Clase08_Zoo nuevo=new Clase08_Zoo();
         //Mediante teclado
         System.out.print("Introduce el id: ");
         nuevo.setId(Integer.parseInt(ent.nextLine()));
@@ -16,7 +16,7 @@ public class Ejercicio09_Informe2 {
         System.out.print("Introduce el habitat: ");
         // nuevo.setHabitat(Ejercicio09_Habitats.valueOf(ent.nextLine().toUpperCase()));
         habitat=ent.nextLine();
-        nuevo.setHabitat((habitat.equalsIgnoreCase("tierra"))? Ejercicio09_Habitats.TIERRA:(habitat.equalsIgnoreCase("mar"))? Ejercicio09_Habitats.MAR:(habitat.equalsIgnoreCase("AIRE"))? Ejercicio09_Habitats.AIRE:null);
+        nuevo.setHabitat((habitat.equalsIgnoreCase("tierra"))? Clase08_Habitats.TIERRA:(habitat.equalsIgnoreCase("mar"))? Clase08_Habitats.MAR:(habitat.equalsIgnoreCase("AIRE"))? Clase08_Habitats.AIRE:null);
         // if(nuevo.getHabitat()==Ejercicio09_Habitats.TIERRA) {
         //     System.out.println("Verdadero");
         // } else {
