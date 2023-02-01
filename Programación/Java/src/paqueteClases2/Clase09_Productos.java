@@ -79,4 +79,8 @@ public class Clase09_Productos {
         this.id = id;
     }// setId
 
+    public String toString() {
+        return getNombre()+" ("+getId()+")\n\sDesc: "+getDescripcion()+"\n\sCategoria: "+getCate()+"\n\sCantidad: "+getCant()+"\n\sPrecio Und: "+getPrecio()+"\n\sPrecio total: "+getPrecio()*(getCant());
+    }
+
 }// class
