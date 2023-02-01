@@ -10,25 +10,25 @@ public class Clase09_Productos {
     private double precio;
 
     // Atributo estatico
-    private static int autoId;
+    private int autoId;
 
     // Constructores
     public Clase09_Productos() {
-        this.id = ++autoId;
-        this.nombre = "Sin definir";
-        this.descripcion = "";
-        this.cate = null;
-        this.cant = 0.0f;
-        this.precio = 0.0;
+        this.id=++autoId;
+        this.nombre="Sin definir";
+        this.descripcion="";
+        this.cate=Clase09_Categorias.CATA;
+        this.cant=0.0f;
+        this.precio=0.0;
     }// Clase09_Productos
 
     public Clase09_Productos(String nombre, String descripcion, Clase09_Categorias cate, float cantidad,double precio) {
-        this.id = ++autoId;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.cate = cate;
-        this.cant = cantidad;
-        this.precio = precio;
+        this.id=++autoId;
+        this.nombre=nombre;
+        this.descripcion=descripcion;
+        this.cate=cate;
+        this.cant=cantidad;
+        this.precio=precio;
     }// Clase09_Productos
 
     public int getId() {
