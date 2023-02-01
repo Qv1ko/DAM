@@ -37,8 +37,9 @@ DELETE FROM clientes WHERE localidad<>"Cuenca" AND localidad!="Toledo";
 
 DELETE FROM contratos;
 
+DELETE FROM clientes;
 
-
+ROLLBACK;
 
 
 
