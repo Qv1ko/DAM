@@ -93,11 +93,11 @@ BIT (Binary Digit): es la unidad mínima de información que maneja un ordenador
 
 Las unidades de medida de información son potencias de base 2 que toman el byte como base y se expresan con prefijos binarios:
 
-![Untitled](Imagenes/imagen1.png)
+![imagen1](Imagenes/imagen1.png)
 
 Conversión de medidas de información:
 
-![Untitled](Imagenes/imagen2.png)
+![imagen2](Imagenes/imagen2.png)
 
 ## Sistemas de numeración
 
@@ -119,7 +119,7 @@ Este sistema utiliza dos símbolos: 0 y 1. Cada cifra en este sistema estará re
 
 Utiliza la base 2, es decir, el peso de cada cifra vendrá dado por el  número en base dos correspondiente a su posición:
 
-![Untitled](Imagenes/imagen3.png)
+![imagen3](Imagenes/imagen3.png)
 
 ## Sistema de numeración octal y hexadecimal
 
@@ -160,7 +160,7 @@ Con los sistemas numéricos estudiamos solamente es posible representar informac
         - Cifras numéricas [0-9]
         - Otros símbolos: puntuación, interrogación, exclamación,...
 
-![Untitled](Imagenes/imagen4.png)
+![imagen4](Imagenes/imagen4.png)
 
 El código ASCII básico es limitado y presenta algunos inconvenientes como la dificultas de representar alfabetos de otros países. Algunos sistemas de codificación más completos son los siguientes:
 
