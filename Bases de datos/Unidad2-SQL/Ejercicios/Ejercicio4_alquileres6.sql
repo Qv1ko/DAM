@@ -71,4 +71,4 @@ SELECT @@AUTOCOMMIT;
 
 SHOW VARIABLES LIKE "a%";
 
-SELECT * FROM automoviles LEFT JOIN contratos ON automoviles.matricula=contratos.matricula_automoviles WHERE automoviles.matricula NOT IN contratos.matricula_automoviles;
+SELECT automoviles.* FROM automoviles LEFT JOIN contratos ON automoviles.matricula=contratos.matricula_automoviles WHERE automoviles.matricula NOT IN (SELECT matricula_automoviles FROM contratos);
