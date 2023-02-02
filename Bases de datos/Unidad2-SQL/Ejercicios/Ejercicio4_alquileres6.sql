@@ -26,8 +26,10 @@ ALTER TABLE contratos ADD FOREIGN KEY(dni_clientes) REFERENCES clientes(dni) ON 
 DELETE FROM clientes WHERE dni="09856064";
 
 DELETE FROM clientes WHERE nombre="Mariano" AND apellidos="Dorado";
+DELETE FROM clientes WHERE apellidos LIKE "Dorado%" AND nombre="Mariano";
 
 DELETE FROM contratos WHERE ffinal IS NOT NULL AND matricula_automoviles IN (SELECT matricula FROM automoviles WHERE marca_marcas="SEAT");
+DELETE c FROM contratos c INNER JOIN automoviles a ON c.matricula_automoviles=a.matricula WHERE ffinal IS NOT NULL AND marca_marcas="SEAT";
 
 DELETE FROM contratos WHERE ffinal IS NULL AND matricula_automoviles IN (SELECT matricula FROM automoviles WHERE marca_marcas="SEAT");
 
@@ -41,6 +43,32 @@ DELETE FROM clientes;
 
 ROLLBACK;
 
+SET AUTOCOMMIT=0;
 
+INSERT INTO automoviles
+    VALUES("4578ZXB","Ford","Mondeo","Gris",50,1000,"AA,ABS",0);
+
+INSERT INTO contratos(matricula_automoviles,dni_clientes,finicial,kinicial)
+    VALUES("4578ZXB","09856064",CURDATE(),1000);
+
+SELECT * FROM automoviles;
+
+SELECT * FROM contratos;
+
+ROLLBACK;
+
+INSERT INTO automoviles
+    VALUES("4578ZXB","Ford","Mondeo","Gris",50,1000,"AA,ABS",0);
+INSERT INTO contratos(matricula_automoviles,dni_clientes,finicial,kinicial)
+    VALUES("4578ZXB","09856064",CURDATE(),1000);
+COMMIT;
+
+SET AUTOCOMMIT=1;
 
 SELECT * FROM automoviles a1 WHERE a1.precio>(SELECT AVG(precio) FROM automoviles a2 WHERE a1.marca_marcas=a2.marca_marcas);
+
+SELECT @@AUTOCOMMIT;
+
+SHOW VARIABLES LIKE "a%";
+
+SELECT * FROM automoviles LEFT JOIN contratos ON automoviles.matricula=contratos.matricula_automoviles WHERE automoviles.matricula NOT IN contratos.matricula_automoviles;
