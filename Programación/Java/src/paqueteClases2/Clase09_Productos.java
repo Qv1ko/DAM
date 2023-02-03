@@ -10,7 +10,7 @@ public class Clase09_Productos {
     private double precio;
 
     // Atributo estatico
-    private int autoId;
+    private static int autoId;
 
     // Constructores
     public Clase09_Productos() {
