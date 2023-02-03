@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * @author Victor
- * @version 1.0
+ * @version 1.4
  */
 
 public class Clase09_CestaAmachon {
@@ -38,7 +38,7 @@ public class Clase09_CestaAmachon {
             opcion=sc.nextInt();sc.nextLine();
             switch(opcion) {
                 case 0 -> exit=true;
-                case 1 -> listaProd(lista);
+                case 1 -> listProd(lista);
                 case 2 -> addProd(lista,sc);
                 case 3 -> delProd(lista,sc);
                 case 4 -> modProd(lista,sc);
@@ -49,7 +49,7 @@ public class Clase09_CestaAmachon {
         System.out.println("\nSaliendo...\n");
     }//menu
 
-    private static void listaProd(ArrayList<Clase09_Productos> lista) {
+    private static void listProd(ArrayList<Clase09_Productos> lista) {
         for(int i=0;i<lista.size();i++) {
             System.out.println(lista.get(i).toString());
         }
@@ -57,7 +57,7 @@ public class Clase09_CestaAmachon {
 
     private static void addProd(ArrayList<Clase09_Productos> lista,Scanner sc) {
         Clase09_Productos producto=new Clase09_Productos();
-        String cateProducto="";
+        String cateProducto="",precio="";
         System.out.println("Introduce los datos del producto:");
         System.out.print("Nombre del producto: ");
         producto.setNombre(sc.nextLine());
@@ -67,9 +67,10 @@ public class Clase09_CestaAmachon {
         cateProducto=sc.nextLine();
         producto.setCate((cateProducto.equalsIgnoreCase("A"))? Clase09_Categorias.CATA:(cateProducto.equalsIgnoreCase("B"))? Clase09_Categorias.CATB:(cateProducto.equalsIgnoreCase("C"))? Clase09_Categorias.CATC:Clase09_Categorias.CATD);
         System.out.print("Cantidad: ");
-        producto.setCant(sc.nextFloat());
+        producto.setCant(sc.nextFloat());sc.nextLine();
         System.out.print("Precio del producto: ");
-        producto.setPrecio(Double.parseDouble(sc.nextLine().replace(',', '.')));
+        precio=sc.nextLine();
+        producto.setPrecio(Double.parseDouble(precio.replace(',', '.')));
         lista.add(producto);
     }//addProd
 
@@ -114,7 +115,7 @@ public class Clase09_CestaAmachon {
                             break;
                         case "cantidad":
                             System.out.print("Cantidad: ");
-                            lista.get(i).setCant(sc.nextFloat());
+                            lista.get(i).setCant(sc.nextFloat());sc.nextLine();
                             break;
                         case "precio":
                             System.out.print("Precio: ");
