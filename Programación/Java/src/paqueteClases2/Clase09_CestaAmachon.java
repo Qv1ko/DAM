@@ -3,8 +3,6 @@ package paqueteClases2;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.naming.event.NamingExceptionEvent;
-
 /**
  * @author Victor
  * @version 1.4
@@ -18,6 +16,7 @@ public class Clase09_CestaAmachon {
         // ejemploColchon();
         Scanner sc=new Scanner(System.in);
         menu(lista,sc);
+        menuCorreccion(lista,sc);
         sc.close();
     }//main
 
@@ -33,38 +32,36 @@ public class Clase09_CestaAmachon {
     }//ejemploColchon
 
     private static void menu(ArrayList<Clase09_Productos> lista,Scanner sc) {
-        boolean exit=false;
         int opcion;
         do {
             System.out.print("\n(0) Salir, (1) Listar productos, (2) Añadir producto, (3) Eliminar producto, (4) Modificar producto, (5) Mistery box\nSeleccione una opcion: ");
             opcion=sc.nextInt();sc.nextLine();
             switch(opcion) {
-                case 0 -> exit=true;
+                case 0 -> System.out.println("\nSaliendo...\n");
                 case 1 -> listProd(lista);
                 case 2 -> addProd(lista,sc);
                 case 3 -> delProd(lista,sc);
                 case 4 -> modProd(lista,sc);
                 case 5 -> misteryBox();
-                default -> exit=true;
             }
-        } while(!exit);
-        System.out.println("\nSaliendo...\n");
+        } while(opcion!=0);
     }//menu
 
     private static void listProd(ArrayList<Clase09_Productos> lista) {
-        for(int i=0;i<lista.size();i++) {
-            System.out.println(lista.get(i).toString());
+        System.out.println("\nCesta con "+lista.size()+" producto/s");
+        for(Clase09_Productos producto:lista) {
+            System.out.println(producto);
         }
     }//listaProd
 
     private static void addProd(ArrayList<Clase09_Productos> lista,Scanner sc) {
-        Clase09_Productos producto=new Clase09_Productos();
+        Clase09_Productos producto;
         String cateProducto="",precio="";
         int addProd=0;
         System.out.println("Cuantos productos quieres agregar a la cesta: ");
         addProd=sc.nextInt();sc.nextLine();
         for(int i=0;i<addProd;i++) {
-            System.out.println("\nIntroduce los datos del producto:");
+            producto=new Clase09_Productos();
             System.out.print("Nombre del producto: ");
             producto.setNombre(sc.nextLine());
             System.out.print("Descripcion del producto: ");
@@ -139,5 +136,37 @@ public class Clase09_CestaAmachon {
     private static void misteryBox() {
 
     }//misteryBox
+
+    private static void menuCorreccion(ArrayList<Clase09_Productos> lista,Scanner sc) {
+        int opcion;
+        do {
+            System.out.print("\n(0) Salir, (1) Listar productos, (2) Añadir producto, (3) Eliminar producto, (4) Modificar producto, (5) Mistery box\nSeleccione una opcion: ");
+            opcion=sc.nextInt();sc.nextLine();
+            switch(opcion) {
+                case 0 -> System.out.println("\nSaliendo...\n");
+                // case 1 -> listProd(lista);
+                case 2 -> addProducto(lista,sc);
+                // case 3 -> delProd(lista,sc);
+                // case 4 -> modProd(lista,sc);
+                // case 5 -> misteryBox();
+            }
+        } while(opcion!=0);
+    }
+
+    private static void addProducto(ArrayList<Clase09_Productos> lista, Scanner ent) {
+        String nombre="",desc="";
+        float cant=0.0f;
+        double precio=0.0;
+        Clase09_Categorias cat=null;
+        boolean sinError=true;
+        do {
+            System.out.print("Introduce el nombre del producto (introduzca salir para parar): ");
+            nombre=ent.nextLine().trim();
+        } while(!Clase09_Validaciones.validarString(nombre)||nombre.equalsIgnoreCase("salir"));
+        sinError=(nombre.equalsIgnoreCase("salir"))? false:true;
+        if(sinError) {
+            lista.add(new Clase09_Productos(nombre,desc,null,cant,precio));
+        }
+    }
 
 }//class
