@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * @author Victor
- * @version 1.4
+ * @version 1.6
  */
 
 public class Clase09_CestaAmachon {
