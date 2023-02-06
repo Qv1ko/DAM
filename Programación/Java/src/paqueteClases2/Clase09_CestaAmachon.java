@@ -3,6 +3,8 @@ package paqueteClases2;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.naming.event.NamingExceptionEvent;
+
 /**
  * @author Victor
  * @version 1.4
@@ -34,7 +36,7 @@ public class Clase09_CestaAmachon {
         boolean exit=false;
         int opcion;
         do {
-            System.out.print("(0) Salir, (1) Listar productos, (2) Añadir producto, (3) Eliminar producto, (4) Modificar producto, (5) Mistery box\nSeleccione una opcion: ");
+            System.out.print("\n(0) Salir, (1) Listar productos, (2) Añadir producto, (3) Eliminar producto, (4) Modificar producto, (5) Mistery box\nSeleccione una opcion: ");
             opcion=sc.nextInt();sc.nextLine();
             switch(opcion) {
                 case 0 -> exit=true;
@@ -58,20 +60,25 @@ public class Clase09_CestaAmachon {
     private static void addProd(ArrayList<Clase09_Productos> lista,Scanner sc) {
         Clase09_Productos producto=new Clase09_Productos();
         String cateProducto="",precio="";
-        System.out.println("Introduce los datos del producto:");
-        System.out.print("Nombre del producto: ");
-        producto.setNombre(sc.nextLine());
-        System.out.print("Descripcion del producto: ");
-        producto.setDescripcion(sc.nextLine());
-        System.out.print("Categoria del producto (A,B o C): ");
-        cateProducto=sc.nextLine();
-        producto.setCate((cateProducto.equalsIgnoreCase("A"))? Clase09_Categorias.CATA:(cateProducto.equalsIgnoreCase("B"))? Clase09_Categorias.CATB:(cateProducto.equalsIgnoreCase("C"))? Clase09_Categorias.CATC:Clase09_Categorias.CATD);
-        System.out.print("Cantidad: ");
-        producto.setCant(sc.nextFloat());sc.nextLine();
-        System.out.print("Precio del producto: ");
-        precio=sc.nextLine();
-        producto.setPrecio(Double.parseDouble(precio.replace(',', '.')));
-        lista.add(producto);
+        int addProd=0;
+        System.out.println("Cuantos productos quieres agregar a la cesta: ");
+        addProd=sc.nextInt();sc.nextLine();
+        for(int i=0;i<addProd;i++) {
+            System.out.println("\nIntroduce los datos del producto:");
+            System.out.print("Nombre del producto: ");
+            producto.setNombre(sc.nextLine());
+            System.out.print("Descripcion del producto: ");
+            producto.setDescripcion(sc.nextLine());
+            System.out.print("Categoria del producto (A,B o C): ");
+            cateProducto=sc.nextLine();
+            producto.setCate((cateProducto.equalsIgnoreCase("A"))? Clase09_Categorias.CATA:(cateProducto.equalsIgnoreCase("B"))? Clase09_Categorias.CATB:(cateProducto.equalsIgnoreCase("C"))? Clase09_Categorias.CATC:Clase09_Categorias.CATD);
+            System.out.print("Cantidad: ");
+            producto.setCant(sc.nextFloat());sc.nextLine();
+            System.out.print("Precio del producto: ");
+            precio=sc.nextLine();
+            producto.setPrecio(Double.parseDouble(precio.replace(',', '.')));
+            lista.add(producto);
+        }
     }//addProd
 
     private static void delProd(ArrayList<Clase09_Productos> lista,Scanner sc) {
