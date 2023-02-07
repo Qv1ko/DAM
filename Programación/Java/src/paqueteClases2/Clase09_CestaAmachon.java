@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * @author Victor
- * @version 1.7
+ * @version 1.8
  */
 
 public class Clase09_CestaAmachon {
@@ -148,7 +148,6 @@ public class Clase09_CestaAmachon {
                 case 2 -> addProducto(lista,sc);
                 // case 3 -> modProd(lista,sc);
                 // case 4 -> delProd(lista,sc);
-                // case 5 -> misteryBox();
             }
         } while(opcion!=0);
     }//menuCorreccion
