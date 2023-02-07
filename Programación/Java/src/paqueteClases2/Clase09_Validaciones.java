@@ -6,9 +6,9 @@ public class Clase09_Validaciones {
         return (unidades>=1)? true:false;
     }//validarUnidades
 
-    public static boolean validarString(String cadena) {
-        return (!cadena.isEmpty()); //True si esta vacio
-        // return (!cadena.isBlank()); //True si esta vacio o contiene espacios en blanco
+    public static boolean validarString(String cadena,int longitudMax) {
+        return (!cadena.isEmpty()&&cadena.length()<longitudMax); //True si esta vacio
+        // return (!cadena.isBlank()&&cadena.length()<longitudMax); //True si esta vacio o contiene espacios en blanco
     }
 
 }

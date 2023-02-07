@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * @author Victor
- * @version 1.6
+ * @version 1.7
  */
 
 public class Clase09_CestaAmachon {
@@ -15,7 +15,7 @@ public class Clase09_CestaAmachon {
         ArrayList<Clase09_Productos> lista=new ArrayList<Clase09_Productos>();
         // ejemploColchon();
         Scanner sc=new Scanner(System.in);
-        menu(lista,sc);
+        // menu(lista,sc);
         menuCorreccion(lista,sc);
         sc.close();
     }//main
@@ -140,33 +140,61 @@ public class Clase09_CestaAmachon {
     private static void menuCorreccion(ArrayList<Clase09_Productos> lista,Scanner sc) {
         int opcion;
         do {
-            System.out.print("\n(0) Salir, (1) Listar productos, (2) Añadir producto, (3) Eliminar producto, (4) Modificar producto, (5) Mistery box\nSeleccione una opcion: ");
+            System.out.print("\n(0) Salir, (1) Listar productos, (2) Añadir producto, (3) Modificar producto, (4) Eliminar producto\nSeleccione una opcion: ");
             opcion=sc.nextInt();sc.nextLine();
             switch(opcion) {
                 case 0 -> System.out.println("\nSaliendo...\n");
-                // case 1 -> listProd(lista);
+                case 1 -> listProducto(lista);
                 case 2 -> addProducto(lista,sc);
-                // case 3 -> delProd(lista,sc);
-                // case 4 -> modProd(lista,sc);
+                // case 3 -> modProd(lista,sc);
+                // case 4 -> delProd(lista,sc);
                 // case 5 -> misteryBox();
             }
         } while(opcion!=0);
-    }
+    }//menuCorreccion
+
+    private static void listProducto(ArrayList<Clase09_Productos> lista) {
+        for(Clase09_Productos p:lista) {
+            System.out.println(p);
+        }
+    }//listProducto
 
     private static void addProducto(ArrayList<Clase09_Productos> lista, Scanner ent) {
         String nombre="",desc="";
         float cant=0.0f;
         double precio=0.0;
         Clase09_Categorias cat=null;
-        boolean sinError=true;
+        boolean sinError=true,salir=false;
         do {
+            sinError=true;
             System.out.print("Introduce el nombre del producto (introduzca salir para parar): ");
             nombre=ent.nextLine().trim();
-        } while(!Clase09_Validaciones.validarString(nombre)||nombre.equalsIgnoreCase("salir"));
-        sinError=(nombre.equalsIgnoreCase("salir"))? false:true;
+            if(nombre.equalsIgnoreCase("salir")) {
+                System.out.println("Hasta la proxima");
+                sinError=false;
+                salir=true;
+            } else if(!Clase09_Validaciones.validarString(nombre,25)) {
+                System.out.println("\nEl nombre no puede ser vacio y no puede tener mas de 25 caracteres\n");
+                sinError=false;
+            }
+        } while(!sinError&&!salir);
+        if(!salir) {
+            do {
+                System.out.print("Introduce la descripcion del producto: ");
+                desc=ent.nextLine();
+                if(desc.equalsIgnoreCase("salir")) {
+                    System.out.println("Hasta la proxima");
+                    sinError=false;
+                    salir=true;
+                } else if(!Clase09_Validaciones.validarString(nombre,50)) {
+                    System.out.println("\nLa descripcion no puede ser vacia ni tener mas de 50 caracteres\n");
+                    sinError=false;
+                }
+            } while(!sinError&&!salir);
+        }
         if(sinError) {
             lista.add(new Clase09_Productos(nombre,desc,null,cant,precio));
         }
-    }
+    }//addProducto
 
 }//class
