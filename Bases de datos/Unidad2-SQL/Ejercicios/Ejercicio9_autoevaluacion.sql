@@ -12,6 +12,9 @@ INSERT mascotas(nombre,fnacimiento)
     ("Conejo","2021-05-04"),
     ("Tortuga","2020-09-13");
 
+ALTER TABLE mascotas ADD especie VARCHAR(20) default "caiman";
+UPDATE mascotas SET especie="Perro" WHERE id IN (1,2);
+
 mysqldump -u root -p test > "C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio9_autoevaluacion_backup.sql"
 
 DROP DATABASE test;
@@ -60,7 +63,9 @@ DELETE FROM mascotas ORDER BY id LIMIT 1;
 ROLLBACK;
 
 SELECT automoviles.* FROM automoviles LEFT JOIN contratos ON automoviles.matricula=contratos.matricula_automoviles WHERE automoviles.matricula NOT IN (SELECT matricula_automoviles FROM contratos);
+SELECT * from automoviles WHERE matricula NOT IN (SELECT contratos.matricula_automoviles FROM contratos JOIN automoviles ON contratos.matricula_automoviles=automoviles.matricula);
 
 SELECT COUNT(matricula) AS "Numero de coches",marca_marcas AS Marca FROM automoviles INNER JOIN contratos ON automoviles.matricula=contratos.matricula_automoviles WHERE alquilado=1 GROUP BY marca_marcas;
+SELECT COUNT(matricula) AS "Numero de coches",marca_marcas AS Marca FROM automoviles INNER JOIN contratos ON automoviles.matricula=contratos.matricula_automoviles WHERE alquilado=1 GROUP BY marca_marcas HAVING COUNT(automoviles.matricula)>3;
 
 SELECT numcontrato,DATE_FORMAT(finicial,"%D,%M,%Y") FROM contratos ORDER BY numcontrato DESC LIMIT 5;
