@@ -86,3 +86,9 @@ INSERT INTO clientes(id,nombre,finsc)
 ALTER TABLE mascotas ADD amo_id SMALLINT;
 
 ALTER TABLE mascotas ADD FOREIGN KEY(amo_id) REFERENCES clientes(id);
+
+UPDATE mascotas SET amo_id=2 WHERE id IN (5,10);
+UPDATE mascotas SET amo_id=3 WHERE id=6;
+UPDATE mascotas SET amo_id=4 WHERE id=7;
+UPDATE mascotas SET amo_id=1 WHERE id=8;
+UPDATE mascotas SET amo_id=5 WHERE id=9;
