@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * @author Victor
- * @version 1.8
+ * @version 1.9
  */
 
 public class Clase09_CestaAmachon {
@@ -159,7 +159,7 @@ public class Clase09_CestaAmachon {
     }//listProducto
 
     private static void addProducto(ArrayList<Clase09_Productos> lista, Scanner ent) {
-        String nombre="",desc="";
+        String nombre="",desc="",entCat="";
         float cant=0.0f;
         double precio=0.0;
         Clase09_Categorias cat=null;
@@ -191,6 +191,25 @@ public class Clase09_CestaAmachon {
                 }
             } while(!sinError&&!salir);
         }
+        //Control de la categoria del producto
+        if(!salir) {
+            do {
+                for(int i=0;i<Clase09_Categorias.values().length-1;i++) {
+                    System.out.println((i+1)+") "+Clase09_Categorias.values()[i]);
+                }
+                System.out.print("Introduce la categoria del producto: ");
+                entCat=ent.nextLine().toLowerCase();
+                if(Clase09_Validaciones.checkCategorias(entCat)!=null) {
+                    cat=Clase09_Validaciones.checkCategorias(entCat);
+                } else if(entCat.equals("salir")) {
+                    salir=true;
+                    sinError=false;
+                } else {
+                    System.out.println("Categoria incorrecta");
+                    sinError=false;
+                }
+            } while(!sinError&&!salir);
+        }        
         if(sinError) {
             lista.add(new Clase09_Productos(nombre,desc,null,cant,precio));
         }
