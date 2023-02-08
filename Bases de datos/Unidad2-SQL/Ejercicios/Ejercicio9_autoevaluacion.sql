@@ -69,3 +69,20 @@ SELECT COUNT(matricula) AS "Numero de coches",marca_marcas AS Marca FROM automov
 SELECT COUNT(matricula) AS "Numero de coches",marca_marcas AS Marca FROM automoviles INNER JOIN contratos ON automoviles.matricula=contratos.matricula_automoviles WHERE alquilado=1 GROUP BY marca_marcas HAVING COUNT(automoviles.matricula)>3;
 
 SELECT numcontrato,DATE_FORMAT(finicial,"%D,%M,%Y") FROM contratos ORDER BY numcontrato DESC LIMIT 5;
+
+CREATE TABLE clientes(
+    id SMALLINT PRIMARY KEY,
+    nombre VARCHAR(20),
+    finsc date
+);
+
+INSERT INTO clientes(id,nombre,finsc)
+    VALUES(1,"Paco",CURDATE()),
+    (2,"Andres","2021-02-03"),
+    (3,"Victor",CURDATE()),
+    (4,"Javier","2022-11-17"),
+    (5,"Oriol","2022-07-28");
+
+ALTER TABLE mascotas ADD amo_id SMALLINT;
+
+ALTER TABLE mascotas ADD FOREIGN KEY(amo_id) REFERENCES clientes(id);
