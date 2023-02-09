@@ -92,3 +92,23 @@ UPDATE mascotas SET amo_id=3 WHERE id=6;
 UPDATE mascotas SET amo_id=4 WHERE id=7;
 UPDATE mascotas SET amo_id=1 WHERE id=8;
 UPDATE mascotas SET amo_id=5 WHERE id=9;
+
+SELECT c.nombre,count(m.id) AS Numero FROM clientes c LEFT JOIN mascotas m ON c.id=amo_id GROUP BY c.id;
+
+ALTER TABLE mascotas ADD edad SMALLINT;
+
+UPDATE mascotas SET edad=5 WHERE id IN (5,10);
+UPDATE mascotas SET edad=2 WHERE id=6;
+UPDATE mascotas SET edad=1 WHERE id=7;
+UPDATE mascotas SET edad=3 WHERE id=8;
+UPDATE mascotas SET edad=6 WHERE id=9;
+
+SELECT especie,MAX(edad) AS "Mayor edad" FROM mascotas GROUP BY especie;
+
+SELECT especie AS Especie,SUM(edad) FROM mascotas GROUP BY especie;
+
+SELECT c.nombre,AVG(m.edad) AS "Media de edad" FROM clientes c JOIN mascotas m ON c.id=m.amo_id GROUP BY c.id;
+
+SELECT especie,SUM(edad) AS "Suma edad" FROM clientes c JOIN mascotas m ON c.id=m.amo_id WHERE c.id<>3 GROUP BY especie HAVING SUM(edad)>10;
+
+SELECT especie,SUM(edad) AS Total FROM clientes c JOIN mascotas m ON c.id=m.amo_id WHERE c.id<>3 GROUP BY especie HAVING SUM(edad)>10 ORDER BY Total DESC;
