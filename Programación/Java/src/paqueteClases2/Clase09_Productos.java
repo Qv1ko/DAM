@@ -79,8 +79,12 @@ public class Clase09_Productos {
         this.id = id;
     }// setId
 
-    public String toString() {
-        return getNombre()+" ("+getId()+")\n\sDesc: "+getDescripcion()+"\n\sCategoria: "+getCate()+"\n\sCantidad: "+getCant()+"\n\sPrecio Und: "+getPrecio()+" euros\n\sPrecio total: "+(getPrecio()*(getCant())+" euros\n");
+    public float getTotal() {
+        return (float)(this.cant*this.precio);
     }
+
+    public String toString() {
+        return getNombre()+" ("+getId()+")\n\sDesc: "+getDescripcion()+"\n\sCategoria: "+getCate()+"\n\sCantidad: "+getCant()+"\n\sPrecio Und: "+getPrecio()+" euros\n\sPrecio total: "+getTotal()+" euros\n";
+    }//toString
 
 }// class

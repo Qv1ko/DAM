@@ -9,7 +9,7 @@ public class Clase09_Validaciones {
     public static boolean validarString(String cadena,int longitudMax) {
         return (!cadena.isEmpty()&&cadena.length()<longitudMax); //True si esta vacio
         // return (!cadena.isBlank()&&cadena.length()<longitudMax); //True si esta vacio o contiene espacios en blanco
-    }
+    }//validarString
 
     public static Clase09_Categorias checkCategorias(String entCat) {
         Clase09_Categorias categoria=null;
@@ -22,6 +22,6 @@ public class Clase09_Validaciones {
             categoria=Clase09_Categorias.CATC;
         }
         return categoria;
-    }
+    }//checkCategorias
 
-}
+}//class

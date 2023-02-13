@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /**
  * @author Victor
- * @version 2.0
+ * @version 2.1
  */
 
 public class Clase09_CestaAmachon {
@@ -15,7 +15,7 @@ public class Clase09_CestaAmachon {
         ArrayList<Clase09_Productos> lista=new ArrayList<Clase09_Productos>();
         // ejemploColchon();
         Scanner sc=new Scanner(System.in);
-        // menu(lista,sc);
+        menu(lista,sc);
         menuCorreccion(lista,sc);
         sc.close();
     }//main
