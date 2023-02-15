@@ -1,9 +1,11 @@
+import org.junit.Test;
+
 import java.util.ArrayList;
 import paqueteClases2.Clase09_Categorias;
 import paqueteClases2.Clase09_Productos;
 
 public class test {
-
+    @Test
     /**
      * @author Victor
      * @version 0.1
