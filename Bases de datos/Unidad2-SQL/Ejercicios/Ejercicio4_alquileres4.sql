@@ -73,7 +73,7 @@ SELECT fechaexp,dni AS DNI FROM clientes GROUP BY fechaexp ASC LIMIT 1;
 SELECT nombre AS Nombre FROM clientes GROUP BY fechaexp ASC LIMIT 1;
 
 --22. Obtener el número de contrato que ha generado el mayor importe
-SELECT numcontrato FROM contratos INNER JOIN automoviles WHERE ffinal IS NOT NULL GROUP BY DATEDIFF(ffinal,finicial)*precio DESC LIMIT 1;
+SELECT numcontrato,DATEDIFF(ffinal,finicial)*precio AS imp FROM contratos INNER JOIN automoviles WHERE ffinal IS NOT NULL GROUP BY imp DESC LIMIT 1;
 
 --23. Obtener el nombre y apellidos del cliente que ha generado el mayor importe
 SELECT nombre AS Nombre,apellidos AS apellidos

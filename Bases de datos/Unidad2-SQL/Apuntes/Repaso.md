@@ -81,3 +81,46 @@
 # Copias de seguridad
 * Copia de seguridad -> mysqldump -u root -p nombreBD > archivo.sql
 * Recuperar copia de seguridad → source archivo.sql
+
+# Creas BD y tablas
+
+# Tipos de datos
+
+# Mostrar elementos y estructura
+
+# Consultas
+
+## Operadores
+
+## Con filtro
+
+## Con ordenacion
+
+## Agrupacion
+
+### Having
+
+## Subconsultas
+
+### Devuelven 1 valor
+
+### Devuelven varios datos
+
+# Consultas multitabla
+
+## Cross join
+
+## Inner join
+
+## Left join
+
+## Outer join
+
+# Consultas de resumen
+* COUNT()
+
+# Insertar y modificar datos
+
+# Modificar estructura
+
+# Transacciones
