@@ -5,13 +5,13 @@ import paqueteClases2.Clase09_Categorias;
 import paqueteClases2.Clase09_Productos;
 
 public class test {
-    @Test
     /**
      * @author Victor
      * @version 0.1
      */
 
-    public static void main(String[] args) {
+     @Test
+    public static void test(String[] args) {
         ArrayList<Clase09_Productos>miLista=new ArrayList<Clase09_Productos>();
         miLista.add(new Clase09_Productos("Portatil","MSI Gaming",Clase09_Categorias.CATA,1,2999.99));
         miLista.add(new Clase09_Productos("Sobremesa","ASUS Gaming",Clase09_Categorias.CATA,1,1999.99));
