@@ -4,12 +4,13 @@ public class Ejercicio09_Habitaciones {
 
     private String habitacion;
     private boolean terraza;
-    private int precio,id=100;
+    private int precio,id;
+    private static int totalId=100;
 
     public Ejercicio09_Habitaciones(String habitacion,boolean terraza) {
         this.habitacion=habitacion;
         this.terraza=terraza;
-        id++;
+        this.id=++totalId;
     }
 
     public String getHabitacion() {
@@ -45,4 +46,4 @@ public class Ejercicio09_Habitaciones {
         return "Habitacion "+getId()+" - "+getHabitacion()+"\n\sPrecio: "+getPrecio()+" euros/dia";
     }
 
-}
+}//class
