@@ -9,9 +9,10 @@ public enum Ejercicio09_Habitaciones {
     private int precio,id;
 
     private Ejercicio09_Habitaciones(int id,String habitacion,boolean terraza) {
+        this.id=id;
         this.habitacion=habitacion;
         this.terraza=terraza;
-        this.id=id;
+        this.alquilado=false;
     }//Ejercicio09_Habitaciones
 
     public String getHabitacion() {
@@ -23,7 +24,7 @@ public enum Ejercicio09_Habitaciones {
     }//isTerraza
 
     public void setAlquilado(boolean alquilado) {
-        this.alquilado = alquilado;
+        this.alquilado=alquilado;
     }//setAlquilado
 
     public boolean isAlquilar() {
