@@ -44,10 +44,10 @@ public class Ejercicio09_Hotel {
                 System.out.println(habitacion);
             }
         }
-        System.out.print("Escriba el id de la habitacion ha reservar: ");
+        System.out.print("Escriba el numero de la habitacion ha reservar: ");
         id=sc.nextInt();
         for(Ejercicio09_Habitaciones habitacion:habitaciones) {
-            if(habitacion.getId()==id) {
+            if(habitacion.getId()==id&&!habitacion.isAlquilar()) {
                 System.out.println("\nHabitacion "+habitacion.getId()+" alquilada correctamente\n");
                 habitacion.setAlquilado(true);
                 errorId=false;
@@ -55,7 +55,7 @@ public class Ejercicio09_Hotel {
             }
         }
         if(errorId) {
-            System.out.println("\nLa habitacion "+id+" no se encontro - Reserva rechazada\n");
+            System.out.println("\nLa habitacion "+id+" no se encuenta disponible - Reserva rechazada\n");
         }
     }//reserva
 
@@ -68,18 +68,18 @@ public class Ejercicio09_Hotel {
                 System.out.println(habitacion);
             }
         }
-        System.out.print("Escriba el id de la habitacion a devolver: ");
+        System.out.print("Escriba el numero de la habitacion a devolver: ");
         id=sc.nextInt();
         for(Ejercicio09_Habitaciones habitacion:habitaciones) {
-            if(habitacion.getId()==id) {
+            if(habitacion.getId()==id&&habitacion.isAlquilar()) {
                 System.out.println("\nDevolucion de la habitacion "+habitacion.getId()+" a "+habitacion.getPrecio()+" euros/dia:\n\sEl total a pagar por la estancia de "+ocupacion+" dias sera de "+ocupacion*habitacion.getPrecio()+" euros\n");
-                habitacion.setAlquilado(true);
+                habitacion.setAlquilado(false);
                 errorId=false;
                 break;
             }
         }
         if(errorId) {
-            System.out.println("\nLa habitacion "+id+" no se encontro - Devolucion rechazada\n");
+            System.out.println("\nLa habitacion "+id+" no se encuenta en reserva - Devolucion rechazada\n");
         }
     }//devolucion
 
