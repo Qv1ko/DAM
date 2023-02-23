@@ -17,13 +17,13 @@ public class Ejercicio09_Hotel {
         habitaciones.add(Ejercicio09_Habitaciones.HABM2);
         //Bucle del menu
         do {
-            System.out.print("1) Listado de habitaciones | 2) Reservar una habitación | 3) Devolver una habitación | 4) Salir\nSelecciona una opcion: ");
+            System.out.print("1) Listado de habitaciones | 2) Reservar una habitación | 3) Devolver una habitación | 4) Salir\nSelecciona una opción: ");
             switch(sc.nextLine()) {
                 case "1" -> listado(habitaciones);
                 case "2" -> reserva(habitaciones,sc);
                 case "3" -> devolucion(habitaciones,sc);
                 case "4" -> continuar=false;
-                default -> System.out.println("\nError - Seleccione el valor de la opcion correctamente\n");
+                default -> System.out.println("\nError - Seleccione el valor de la opción correctamente\n");
             }
         } while(continuar);
         System.out.println("\nSaliendo...\n");
@@ -49,13 +49,13 @@ public class Ejercicio09_Hotel {
                 System.out.println(habitacion);
             }
         }
-        System.out.print("Escriba el numero de la habitacion ha reservar: ");
+        System.out.print("Escriba el número de la habitación a reservar: ");
         id=sc.nextInt();sc.nextLine();
         //Bucle para reservar habitaciones
         for(Ejercicio09_Habitaciones habitacion:habitaciones) {
             //Condicion para obtener la habitacion seleccionada y reservarla
             if(habitacion.getId()==id&&!habitacion.isAlquilar()) {
-                System.out.println("\nHabitacion "+habitacion.getId()+" alquilada correctamente\n");
+                System.out.println("\nHabitación "+habitacion.getId()+" alquilada correctamente\n");
                 habitacion.setAlquilado(true);
                 errorId=false;
                 break;
@@ -63,7 +63,7 @@ public class Ejercicio09_Hotel {
         }
         //Condicion de error
         if(errorId) {
-            System.out.println("\nLa habitacion "+id+" no se encuenta disponible - Reserva rechazada\n");
+            System.out.println("\nLa habitación "+id+" no se encuenta disponible - Reserva rechazada\n");
         }
     }//reserva
 
@@ -78,13 +78,13 @@ public class Ejercicio09_Hotel {
                 System.out.println(habitacion);
             }
         }
-        System.out.print("Escriba el numero de la habitacion a devolver: ");
+        System.out.print("Escriba el número de la habitación a devolver: ");
         id=sc.nextInt();sc.nextLine();
         //Bucle para devolver habitaciones
         for(Ejercicio09_Habitaciones habitacion:habitaciones) {
             //Condicion para devolver la habitacion seleccionada e imprimir el coste total
             if(habitacion.getId()==id&&habitacion.isAlquilar()) {
-                System.out.println("\nDevolucion de la habitacion "+habitacion.getId()+" a "+habitacion.getPrecio()+" euros/dia:\n\sEl total a pagar por la estancia de "+ocupacion+" dias sera de "+ocupacion*habitacion.getPrecio()+" euros\n");
+                System.out.println("\nDevolución de la habitación "+habitacion.getId()+" a "+habitacion.getPrecio()+" euros/día:\n\sEl total a pagar por la estancia de "+ocupacion+" días será de "+ocupacion*habitacion.getPrecio()+" euros\n");
                 habitacion.setAlquilado(false);
                 errorId=false;
                 break;
@@ -92,7 +92,7 @@ public class Ejercicio09_Hotel {
         }
         //Condicion de error
         if(errorId) {
-            System.out.println("\nLa habitacion "+id+" no se encuenta en reserva - Devolucion rechazada\n");
+            System.out.println("\nLa habitación "+id+" no se encuentra en reserva - Devolución rechazada\n");
         }
     }//devolucion
 
