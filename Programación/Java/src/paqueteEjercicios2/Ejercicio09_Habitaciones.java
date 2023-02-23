@@ -31,6 +31,7 @@ public enum Ejercicio09_Habitaciones {
         return alquilado;
     }//isAlquilar
 
+    //Metodo para obtener el precio de la habitacion
     public int getPrecio() {
         if(getHabitacion().equalsIgnoreCase("matrimonio")) {
             precio=(terraza)? 40:30;
@@ -44,17 +45,20 @@ public enum Ejercicio09_Habitaciones {
         return id;
     }//getId
 
+    //Metodo para obtener la String para el metodo toString del numero de camas de la habitacion
     public String getNumCamas() {
-        return (getHabitacion().equalsIgnoreCase("individual"))? " 2 camas individuales ":" 1 cama de matrimonio";
+        return (getHabitacion().equalsIgnoreCase("individual"))? " 2 camas individuales":" 1 cama de matrimonio";
     }//getNumCamas
 
+    //Metodo para obtener la String para el metodo toString del tipo de habitacion (con o sin terraza)
     public String getTipoHabitacion() {
         return (isTerraza())? " con terraza y":" con ventana y";
     }//getTipoHabitacion
 
-    public String getDisposicion() {
+    //Metodo para obtener la String de si esta disponible o no la habitacion para el metodo listado dentro de la clase Ejercicio09_Hotel
+    public String getDisponibilidad() {
         return (isAlquilar())? "No disponible\n":"Disponible\n";
-    }//getDisposicion
+    }//getDisponibilidad
 
     public String toString() {
         return "Habitacion "+getId()+getTipoHabitacion()+getNumCamas()+"\n\sPrecio: "+getPrecio()+" euros/dia\n";
