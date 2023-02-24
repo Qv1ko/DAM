@@ -3,4 +3,7 @@
         "Programación\\Java\\src"
     ],
     "java.project.outputPath": "Programación\\Java\\bin",
+    "java.project.referencedLibraries": [
+        "Programación\\Java\\lib\\**\\*.jar"
+    ]
 }
