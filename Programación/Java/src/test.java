@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 import java.util.ArrayList;
 import paqueteClases2.Clase09_Categorias;
 import paqueteClases2.Clase09_Productos;
@@ -5,7 +7,7 @@ import paqueteClases2.Clase09_Productos;
 public class test {
     /**
      * @author Victor
-     * @version 0.1
+     * @version 0.2
      */
 
     public static void main(String[] args) {
@@ -20,6 +22,11 @@ public class test {
         for(int i=0;i<miLista.size();i++) {
             System.out.println(miLista.get(i).getNombre()+"Total a pagar "+miLista.get(i).getTotal()+" euros");
         }
-    }//main                                                                                                                                 
+    }//main
+    
+    @Test
+    public void testing() {
+
+    }
 
 }//class
