@@ -63,7 +63,7 @@ public class Ejercicio09_Hotel {
         }
         //Condicion de error
         if(errorId) {
-            System.out.println("\nLa habitación "+id+" no se encuenta disponible - Reserva rechazada\n");
+            System.out.println("\nLa habitación "+id+" no se encuentra disponible - Reserva rechazada\n");
         }
     }//reserva
 
