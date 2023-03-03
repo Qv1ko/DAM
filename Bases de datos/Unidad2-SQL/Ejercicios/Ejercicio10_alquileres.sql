@@ -41,4 +41,31 @@ SELECT nombre,direccion,INSTR(direccion,',') AS Posicion FROM clientes;
 SELECT nombre,apellidos,REPLACE(direccion,',','-') FROM clientes;
 
 --14
-SELECT nombre,apellidos FROM clientes WHERE DATE_FORMAT(fecha_exp,%M) IN "October";
+SELECT nombre,apellidos FROM clientes WHERE MONTH(fechaexp)=10;
+
+--15
+SELECT nombre,apellidos,CONCAT("El dia ",DAY(fechaexp)," de ",ELT(MONTH(fechaexp),'Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre',
+    'Octubre','Nobiembre','Diciembre')," de ",YEAR(fechaexp)) AS "Fecha de expedición" FROM clientes ORDER BY fechaexp DESC LIMIT 4;
+
+--16
+SELECT DATE_FORMAT(CURTIME(),"Son las %H horas %i minutos");
+
+--17
+SELECT CONCAT("Nací en ",ELT(WEEKDAY("2004-11-04")+1,"Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo")) AS "Día de nacimiento";
+
+--18
+SELECT DATEDIFF(NOW(),"2004-11-04") AS "Días vividos";
+
+--19
+SELECT DATE(ADDDATE(NOW(),INTERVAL 3 MONTH)) AS "Fecha",
+    ELT(WEEKDAY(ADDDATE(NOW(),INTERVAL 3 MONTH))+1,"Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo") AS "Día de la semana";
+
+--20
+SELECT *,INTERVAL(DATEDIFF(ffinal,finicial),2,5,10,11)+1 AS "Tipo de duración" FROM contratos WHERE ffinal IS NOT NULL;
+
+--21
+SELECT marca_marcas,GROUP_CONCAT(modelo SEPARATOR "---") FROM automoviles GROUP BY marca_marcas;
+
+--22
+CREATE TABLE clientese SELECT ENCODE(CONCAT(nombre,apellidos),"FEBRERO") AS "Nombre" FROM clientes;
+SELECT DECODE(nombre,"FEBRERO") FROM clientese;
