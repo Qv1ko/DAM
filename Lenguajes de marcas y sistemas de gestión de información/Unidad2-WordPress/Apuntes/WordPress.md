@@ -96,6 +96,8 @@ Clearfy → Quita comentarios
 
 Duplicator → Copia de seguridad de la base de datos, WordPress y el enlace entre las dos
 
+Contact Form 7 → Formularios
+
 </aside>
 
 </aside>
