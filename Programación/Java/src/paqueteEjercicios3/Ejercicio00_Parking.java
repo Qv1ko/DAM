@@ -61,4 +61,37 @@ public class Ejercicio00_Parking {
         System.out.println(cambio+"\n");
     }//cambio
 
+    public static void solucionParking() {
+        float[] monedas={2.0f,1.0f,0.5f,0.2f,0.1f,0.05f};
+        Scanner ent=new Scanner(System.in);
+        float precio=0.2f,aPagar=0.0f,aDevolver=0.0f;
+        int numMonedas;
+        System.out.print("Introduzca la hora de entrada: ");
+        LocalTime horaEntrada=LocalTime.parse(ent.nextLine());
+        Duration estancia=Duration.between(horaEntrada,LocalTime.now());
+        // if(horaEntrada.isBefore(LocalTime.now())) {
+        if(estancia.isPositive()) {
+            //Compara si la hora esta entre las 00:00 y las 08:00
+            if((horaEntrada.compareTo(LocalTime.of(0,0))>=0&&horaEntrada.compareTo(LocalTime.of(8,0))<0)||estancia.toHours()>=5) {
+                precio=0.1f;
+            } else if(estancia.toHours()>=1&&estancia.toHours()<5) {
+                precio=0.15f;
+            }
+            aPagar=estancia.toMinutes()*precio;
+            System.out.println("Debe por "+estancia.toHours()+" horas "+(estancia.toMinutes()-estancia.toHours()*60)+" min, "+aPagar+" a "+precio+"ct/min");
+            System.out.print("Introduzca el importe: ");
+            aDevolver=ent.nextInt()-aPagar;
+            for(float moneda:monedas) {
+                numMonedas=(int)(aDevolver/moneda);
+                if(numMonedas>0) {
+                    System.out.println(numMonedas+" de "+moneda+" euros");
+                    aDevolver-=numMonedas*moneda;
+                }                
+            }
+        } else {
+            System.out.println("Hora no valida");
+        }
+        ent.close();
+    }//solucionParking
+
 }//class
