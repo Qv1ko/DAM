@@ -1,10 +1,7 @@
 package paqueteEjercicios3;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.InputMismatchException;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Ejercicio01_Excepciones {
@@ -41,16 +38,12 @@ public class Ejercicio01_Excepciones {
                 System.out.print("Escriba su nombre: ");
                 nombre=sc.nextLine();
                 System.out.print("Escriba su telefono: ");
-                telefono=sc.nextInt();sc.nextLine();
+                telefono=Integer.parseInt(sc.nextLine());
                 System.out.print("Escriba la fecha de tu cumpleaños: ");
                 cumple=LocalDate.parse(sc.nextLine());
                 error=false;
-                System.out.println("\n"+nombre+" nacio el "+cumple.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))+"\nSu telefono es "+telefono+"\n");
-            } catch(InputMismatchException exc) {
-                sc.nextLine();
-                System.out.println("\nError - Telefono incorrecto\n");
-            } catch(NoSuchElementException exc) {
-                sc.nextLine();
+                System.out.println("\n"+nombre+" nacio un "+cumple.getDayOfWeek()+"\nSu telefono es "+telefono+"\n");
+            } catch(NumberFormatException exc) {
                 System.out.println("\nError - Telefono incorrecto\n");
             } catch(DateTimeParseException exc) {
                 System.out.println("\nError - Fecha incorrecta\n");
