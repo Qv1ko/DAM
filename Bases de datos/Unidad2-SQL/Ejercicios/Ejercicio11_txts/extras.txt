@@ -1,0 +1,4 @@
+2	Kárate	3
+2	Futbol	2
+3	Tenis	4
+3	Ajedrez	5
