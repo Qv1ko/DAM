@@ -69,6 +69,8 @@ public class Clase04_Excepciones {
         nombre=sc.nextLine();
         if(nombre.isBlank()) {
             throw new Exception("\nNombre no puede ser en blanco\n");
+        } else if(nombre.length()>15) {
+            throw new Exception("\nLongitud maxima del nombre alcanzada\n");
         }
         return nombre;
     }//altaNombre
