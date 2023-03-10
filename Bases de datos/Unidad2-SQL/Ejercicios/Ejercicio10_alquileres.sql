@@ -76,7 +76,7 @@ SELECT DATE(ADDDATE(NOW(),INTERVAL 3 MONTH)) AS "Fecha",
 
 /*20 Todos los datos de los contratos asociando a cada uno de ellos 1 si tienen uno o dos días de duración, 2 si tienen una duración entre 3 y 5 días, 3 si 
 tienen una duración entre 6 y 10 días y 4 si tienen una duración mayor */
-SELECT *,INTERVAL(DATEDIFF(ffinal,finicial),2,5,10,11)+1 AS "Tipo de duración" FROM contratos WHERE ffinal IS NOT NULL;
+SELECT *,INTERVAL(DATEDIFF(ffinal,finicial),0,3,6,11) AS "Tipo de duración" FROM contratos WHERE ffinal IS NOT NULL;
 
 --21 Obtén los nombres de las marcas de cohes junto con una lista con los modelos de cada una, separándolos con tres guiones
 SELECT marca_marcas,GROUP_CONCAT(modelo SEPARATOR "---") FROM automoviles GROUP BY marca_marcas;
