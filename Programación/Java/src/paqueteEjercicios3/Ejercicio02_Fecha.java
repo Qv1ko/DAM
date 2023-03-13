@@ -9,11 +9,11 @@ public class Ejercicio02_Fecha {
 
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        boolean flag=true,diaCorrecto=false,mesCorrecto=false,anoCorrecto=false;
+        boolean run=true,diaCorrecto=false,mesCorrecto=false,anoCorrecto=false;
         int dia=0,mes=0,ano=0;
         LocalDate fecha=null;
         String input="";
-        while(flag) {
+        while(run) {
             if(!diaCorrecto) {
                 try {
                     System.out.print("Introduce el día: ");
@@ -76,12 +76,15 @@ public class Ejercicio02_Fecha {
             }
             try {
                 fecha=LocalDate.of(ano,mes,dia);
-                flag=false;
+                run=false;
             }  catch(DateTimeException exc) {
-                System.out.println("\nError - La fecha es incorrecta\n");
-                diaCorrecto=false;
-                mesCorrecto=false;
-                anoCorrecto=false;
+                if(exc.getMessage().contains("DayOfMonth")||exc.getMessage().contains("Invalid date")) {
+                    System.out.println("\nError - El día es incorrecto\n");
+                    diaCorrecto=false;
+                } else if(exc.getMessage().contains("MonthOfYear")) {
+                    System.out.println("\nError - El mes es incorrecto\n");
+                    mesCorrecto=false;
+                }
             }
         }
         System.out.println("La fecha es "+fecha);
