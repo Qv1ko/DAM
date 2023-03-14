@@ -4,9 +4,17 @@ import paqueteClases2.Clase09_Categorias;
 
 public class Clase05_ValidacionesExc {
         
-    public static boolean validarUnidades(float unidades) {
-        return (unidades>=1)? true:false;
-    }//validarUnidades
+    public static void validarAbs(float valor) throws Exception {
+        if(valor<=0) {
+            throw new Exception("Valor negativo no valido");
+        }
+    }//validarAbs
+
+    public static void validarAbs(double valor) throws Exception {
+        if(valor<=0) {
+            throw new Exception("Valor negativo no valido");
+        }
+    }//validarAbs
 
     public static boolean validarString(String cadena,int longitudMax) {
         return (!cadena.isEmpty()&&cadena.length()<longitudMax); //True si esta vacio

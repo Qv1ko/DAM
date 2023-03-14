@@ -104,9 +104,7 @@ public class Clase05_AmachonExc {
                 System.out.print("Introduce el número de unidades: ");
                 try {
                     cant=Float.parseFloat(ent.nextLine().replace(',','.'));
-                    if(!Clase05_ValidacionesExc.validarUnidades(cant)) {
-                        throw new Exception("Valor negativo no valido");
-                    }
+                    Clase05_ValidacionesExc.validarAbs(cant);
                     sinError=true;
                 } catch(NoSuchElementException exc) {
                     System.out.println("\nValor no valido\n");
@@ -128,6 +126,7 @@ public class Clase05_AmachonExc {
                 System.out.print("Introduce el precio por unidad del producto: ");
                 try {
                     precio=Double.parseDouble(ent.nextLine().replace(',','.'));
+                    Clase05_ValidacionesExc.validarAbs(precio);
                     sinError=true;
                 } catch(NoSuchElementException exc) {
                     System.out.println("\nValor no valido\n");
@@ -138,6 +137,8 @@ public class Clase05_AmachonExc {
                 } catch(NumberFormatException exc) {
                     System.out.println("\nDato no numérico\n");
                     sinError=false;
+                } catch(Exception exc) {
+                    System.out.println(exc.getMessage());
                 }
             } while(!sinError&&!salir);
         }
