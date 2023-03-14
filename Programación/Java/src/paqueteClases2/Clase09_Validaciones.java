@@ -13,12 +13,16 @@ public class Clase09_Validaciones {
 
     public static Clase09_Categorias checkCategorias(String entCat) {
         Clase09_Categorias categoria=null;
-        // if(entCat.equals(Clase09_Categorias.CATA.getDesc().toLowerCase())||entCat.charAt(0)=='1'||entCat.charAt(0)==Clase09_Categorias.CATA.name().charAt(Clase09_Categorias.CATA.name().length()-1)) {}
-        if(entCat.equals(Clase09_Categorias.CATA.getDesc().toLowerCase())||entCat.charAt(0)=='1'||entCat.charAt(0)=='a') {
+        char carac=' ';
+        if(entCat.length()==1) {
+            carac=entCat.charAt(0);
+        }
+        // if(entCat.equals(Clase09_Categorias.CATA.getDesc().toLowerCase())||carac=='1'||carac==Clase09_Categorias.CATA.name().charAt(Clase09_Categorias.CATA.name().length()-1)) {}
+        if(entCat.equals(Clase09_Categorias.CATA.getDesc().toLowerCase())||carac=='1'||carac=='a') {
             categoria=Clase09_Categorias.CATA;
-        } else if(entCat.equals(Clase09_Categorias.CATB.getDesc().toLowerCase())||entCat.charAt(0)=='2'||entCat.charAt(0)=='b') {
+        } else if(entCat.equals(Clase09_Categorias.CATB.getDesc().toLowerCase())||carac=='2'||carac=='b') {
             categoria=Clase09_Categorias.CATB;
-        } else if(entCat.equals(Clase09_Categorias.CATC.getDesc().toLowerCase())||entCat.charAt(0)=='3'||entCat.charAt(0)=='c') {
+        } else if(entCat.equals(Clase09_Categorias.CATC.getDesc().toLowerCase())||carac=='3'||carac=='c') {
             categoria=Clase09_Categorias.CATC;
         }
         return categoria;
