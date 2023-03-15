@@ -6,13 +6,13 @@ public class Clase05_ValidacionesExc {
         
     public static void validarAbs(float valor) throws Exception {
         if(valor<=0) {
-            throw new Exception("Valor negativo no valido");
+            throw new Exception("La cantidad ha de ser mayor que cero");
         }
     }//validarAbs
 
     public static void validarAbs(double valor) throws Exception {
         if(valor<=0) {
-            throw new Exception("Valor negativo no valido");
+            throw new Exception("El precio ha de ser mayor que cero");
         }
     }//validarAbs
 
