@@ -2,12 +2,11 @@ package paqueteClases3;
 
 import paqueteClases2.*;
 import java.util.ArrayList;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
  * @author Victor
- * @version 2.3
+ * @version 2.4
  */
 
 public class Clase05_AmachonExc {
@@ -41,13 +40,14 @@ public class Clase05_AmachonExc {
     }//menuCorreccion
 
     private static void listProducto(ArrayList<Clase09_Productos> lista) {
+        System.out.println("\nCesta con "+lista.size()+" producto/s");
         for(Clase09_Productos p:lista) {
             System.out.println(p);
         }
     }//listProducto
 
     private static void addProducto(ArrayList<Clase09_Productos> lista, Scanner ent) {
-        String nombre="",desc="",entCat="";
+        String nombre="",desc="",entTeclado="";
         float cant=0.0f;
         double precio=0.0;
         Clase09_Categorias cat=null;
@@ -68,7 +68,7 @@ public class Clase05_AmachonExc {
         if(!salir) {
             do {
                 sinError=true;
-                System.out.print("Introduce la descripción del producto: ");
+                System.out.print("Introduce la descripción del producto (introduzca salir para parar): ");
                 desc=ent.nextLine();
                 if(desc.equalsIgnoreCase("salir")) {
                     System.out.println("Hasta la próxima");
@@ -85,12 +85,12 @@ public class Clase05_AmachonExc {
                 for(int i=0;i<Clase09_Categorias.values().length-1;i++) {
                     System.out.println((i+1)+") "+Clase09_Categorias.values()[i]);
                 }
-                System.out.print("Introduce la categoría del producto: ");
-                entCat=ent.nextLine().toLowerCase();
-                if(Clase05_ValidacionesExc.checkCategorias(entCat)!=null) {
-                    cat=Clase05_ValidacionesExc.checkCategorias(entCat);
+                System.out.print("Introduce la categoría del producto (introduzca salir para parar): ");
+                entTeclado=ent.nextLine().toLowerCase();
+                if(Clase05_ValidacionesExc.checkCategorias(entTeclado)!=null) {
+                    cat=Clase05_ValidacionesExc.checkCategorias(entTeclado);
                     sinError=true;
-                } else if(entCat.equals("salir")) {
+                } else if(entTeclado.equals("salir")) {
                     salir=true;
                     sinError=false;
                 } else {
@@ -101,45 +101,55 @@ public class Clase05_AmachonExc {
         }
         if(!salir) {
             do {
-                System.out.print("Introduce el número de unidades: ");
+                System.out.print("Introduce el número de unidades (introduzca salir para parar): ");
                 try {
-                    cant=Float.parseFloat(ent.nextLine().replace(',','.'));
-                    Clase05_ValidacionesExc.validarAbs(cant);
-                    sinError=true;
-                } catch(NoSuchElementException exc) {
-                    System.out.println("\nValor no valido\n");
-                    sinError=false;
-                } catch(NullPointerException exc) {
-                    System.out.println("\nValor no valido\n");
-                    sinError=false;
+                    entTeclado=ent.nextLine().replace(',','.');
+                    cant=Float.parseFloat(entTeclado);
+                    // Clase05_ValidacionesExc.validarAbs(cant);
+                    if(cant>0) {
+                        sinError=true;
+                    } else {
+                        System.out.println("\nLa cantidad ha de ser mayor que cero\n");
+                        sinError=false;
+                    }
+                    // sinError=true;
                 } catch(NumberFormatException exc) {
-                    System.out.println("\nDato no numérico\n");
-                    sinError=false;
-                } catch(Exception exc) {
-                    System.out.println(exc.getMessage());
-                    sinError=false;
-                }
+                    if(entTeclado.equalsIgnoreCase("salir")) {
+                        salir=true;
+                    } else {
+                        System.out.println("\nDato no numérico\n");
+                        sinError=false;
+                    }
+                } //catch(Exception exc) {
+                //     System.out.println(exc.getMessage());
+                //     sinError=false;
+                // }
             } while(!sinError&&!salir);
         }
         if(!salir) {
             do {
-                System.out.print("Introduce el precio por unidad del producto: ");
+                System.out.print("Introduce el precio por unidad del producto (introduzca salir para parar): ");
                 try {
-                    precio=Double.parseDouble(ent.nextLine().replace(',','.'));
-                    Clase05_ValidacionesExc.validarAbs(precio);
-                    sinError=true;
-                } catch(NoSuchElementException exc) {
-                    System.out.println("\nValor no valido\n");
-                    sinError=false;
-                } catch(NullPointerException exc) {
-                    System.out.println("\nValor no valido\n");
-                    sinError=false;
+                    entTeclado=ent.nextLine().replace(',','.');
+                    precio=Double.parseDouble(entTeclado);
+                    // Clase05_ValidacionesExc.validarAbs(precio);
+                    if(precio>0) {
+                        sinError=true;
+                    } else {
+                        System.out.println("\nLa cantidad ha de ser mayor que cero\n");
+                        sinError=false;
+                    }
+                    // sinError=true;
                 } catch(NumberFormatException exc) {
-                    System.out.println("\nDato no numérico\n");
-                    sinError=false;
-                } catch(Exception exc) {
-                    System.out.println(exc.getMessage());
-                }
+                    if(entTeclado.equalsIgnoreCase("salir")) {
+                        salir=true;
+                    } else {
+                        System.out.println("\nDato no numérico\n");
+                        sinError=false;
+                    }
+                } //catch(Exception exc) {
+                //     System.out.println(exc.getMessage());
+                // }
             } while(!sinError&&!salir);
         }
         if(sinError) {
