@@ -79,8 +79,8 @@ public class Clase09_Productos {
         this.id = id;
     }// setId
 
-    public float getTotal() {
-        return (float)(this.cant*this.precio);
+    public double getTotal() {
+        return this.cant*this.precio*cate.getDto()*cate.getImpuesto();
     }
 
     public String toString() {

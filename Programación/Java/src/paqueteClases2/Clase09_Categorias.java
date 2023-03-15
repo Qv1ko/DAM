@@ -19,6 +19,14 @@ public enum Clase09_Categorias {
         return this.desc;
     }//getDesc
 
+    public float getDto() {
+        return (100-this.dto)/100;
+    }
+
+    public float getImpuesto() {
+        return (100+this.impuesto)/100;
+    }
+
     public String toString() {
         return this.desc+" ("+this.impuesto+"% de IVA y descuento de "+this.dto+"%). "+((this.envFrio)? "Con refrigeracion":"Sin refrigeracion");
     }//toString
