@@ -1,0 +1,11 @@
+﻿Javier	Rodriguez Sanz	13702189G	Amos de Escalante 6, 1º C	Santander
+Marta	Herrera Alonso	20786540S	Floranes 17, 5º A	Santander
+Pedro	Diaz Menchaca	72158028D	Lasaga Larreta 2, 4º D	Torrelavega
+Miguel	Zurita Benitez	20368911B	Marqués de Santillana 13, 1º B	Santander
+Sonia	Artigas Oria	20216183B	La Habana 7, 2º B	Santander
+Susana	Gomez de la Fuente	72636612F	Lealtad 7, 4º D	Santander
+Ruben	Cuesta Garcia	20452287T	Canalejas 32, 3º B	Santander
+Raquel	Bueno Garcia	20316733Z	Jimenez Diaz 6, 4º C	Santander
+Luis	Garcia Jimenez	20429971C	Alonso 3, 2º A	Santander
+Igor	Ortuella Molina	20776190D	Moctezuma 9, 2º B	Santander
+
