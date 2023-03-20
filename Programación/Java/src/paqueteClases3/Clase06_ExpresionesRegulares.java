@@ -11,6 +11,7 @@ public class Clase06_ExpresionesRegulares {
         System.out.print("Introduce un dni: ");
         System.out.println((ent.nextLine().toUpperCase().matches(dniRegex))? "DNI válido":"No válido");
         String matriculaRegex="^[0-9]{4}[A-Z]{3}$";
+        // String matriculaRegex="^\\d{4}[A-Z]{3}$";
         System.out.print("Introduce una matrícula: ");
         System.out.println(ent.nextLine().toUpperCase().matches(matriculaRegex)? "Matrícula válida":"No válida");
         ent.close();
