@@ -32,7 +32,7 @@ public class Clase05_AmachonExc {
                 case 0 -> System.out.println("\nSaliendo...\n");
                 case 1 -> listProducto(lista);
                 case 2 -> addProducto(lista,sc);
-                // case 3 -> modProd(lista,sc);
+                case 3 -> modProd(lista,sc);
                 // case 4 -> delProd(lista,sc);
                 default -> System.out.println("\nOpción no valida\n");
             }
@@ -156,5 +156,9 @@ public class Clase05_AmachonExc {
             lista.add(new Clase09_Productos(nombre,desc,cat,cant,precio));
         }
     }//addProducto
+
+    private static void modProd(ArrayList<Clase09_Productos> lista,Scanner sc) {
+        
+    }//modProd
 
 }//class

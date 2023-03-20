@@ -20,11 +20,11 @@ public enum Clase09_Categorias {
     }//getDesc
 
     public float getDto() {
-        return (100-this.dto)/100;
+        return (float)(100-this.dto)/100;
     }
 
     public float getImpuesto() {
-        return (100+this.impuesto)/100;
+        return (float)(100+this.impuesto)/100;
     }
 
     public String toString() {
