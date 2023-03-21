@@ -2,11 +2,13 @@ package paqueteClases3;
 
 import paqueteClases2.*;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
  * @author Victor
- * @version 2.4
+ * @version 2.6
  */
 
 public class Clase05_AmachonExc {
@@ -33,7 +35,7 @@ public class Clase05_AmachonExc {
                 case 1 -> listProducto(lista);
                 case 2 -> addProducto(lista,sc);
                 case 3 -> modProd(lista,sc);
-                // case 4 -> delProd(lista,sc);
+                case 4 -> delProd(lista,sc);
                 default -> System.out.println("\nOpción no valida\n");
             }
         } while(opcion!=0);
@@ -61,7 +63,7 @@ public class Clase05_AmachonExc {
                 sinError=false;
                 salir=true;
             } else if(!Clase05_ValidacionesExc.validarString(nombre,25)) {
-                System.out.println("\nEl nombre no puede ser vacio y no puede tener mas de 25 caracteres\n");
+                System.out.println("\nEl nombre no puede ser vacío y no puede tener mas de 25 caracteres\n");
                 sinError=false;
             }
         } while(!sinError&&!salir);
@@ -158,7 +160,80 @@ public class Clase05_AmachonExc {
     }//addProducto
 
     private static void modProd(ArrayList<Clase09_Productos> lista,Scanner sc) {
-        
+        int identificador=0;
+        String atributo="",cateProducto="";
+        System.out.print("Escriba el id del producto que desea modificar: ");
+        try {
+            identificador=sc.nextInt();sc.nextLine();
+            for(int i=0;i<lista.size();i++) {
+                if(lista.get(i).getId()==identificador) {
+                    do {
+                        System.out.print("Que atributo desea modificar (nombre,descripcion,categoria,cantidad,precio), (introduzca salir para parar): ");
+                        try {
+                            atributo=sc.nextLine().toLowerCase();
+                            switch(atributo) {
+                                case "nombre":
+                                    System.out.print("Nuevo nombre: ");
+                                    lista.get(i).setNombre(sc.nextLine());
+                                    break;
+                                case "descripcion":
+                                    System.out.print("Nueva descripcion: ");
+                                    lista.get(i).setDescripcion(sc.nextLine());
+                                    break;
+                                case "descripción":
+                                    System.out.print("Nueva descripcion: ");
+                                    lista.get(i).setDescripcion(sc.nextLine());
+                                    break;
+                                case "categoria":
+                                    System.out.print("Seleccione la nueva categoria (A,B o C): ");
+                                    cateProducto=sc.nextLine();
+                                    lista.get(i).setCate((cateProducto.equalsIgnoreCase("A"))? Clase09_Categorias.CATA:(cateProducto.equalsIgnoreCase("B"))? Clase09_Categorias.CATB:(cateProducto.equalsIgnoreCase("C"))? Clase09_Categorias.CATC:Clase09_Categorias.CATD);
+                                    break;
+                                case "cantidad":
+                                    System.out.print("Cantidad: ");
+                                    lista.get(i).setCant(sc.nextFloat());sc.nextLine();
+                                    break;
+                                case "precio":
+                                    System.out.print("Precio: ");
+                                    lista.get(i).setPrecio(Double.parseDouble(sc.nextLine().replace(',', '.')));
+                                    break;
+                                default:
+                                    if(!atributo.equalsIgnoreCase("salir")) {
+                                        throw new Exception("El atributo del producto no existe");
+                                    }
+                            }
+                        } catch(NoSuchElementException exc) {
+                            System.out.println("Error - El campo no puede estar vacío");
+                        } catch(Exception exc) {
+                            System.out.println(exc.getMessage());
+                        }
+                    } while(!atributo.equalsIgnoreCase("salir"));
+                }
+            }
+        } catch(InputMismatchException exc) {
+            System.out.println("Error - El campo no puede estar vacío");
+        }
     }//modProd
+
+    private static void delProd(ArrayList<Clase09_Productos> lista,Scanner sc) {
+        int identificador;
+        String userInput="";
+        do {
+            System.out.print("Escriba el id del producto que desea eliminar (introduzca salir para parar): ");
+            try{
+                userInput=sc.nextLine();
+                if(!userInput.equalsIgnoreCase("salir")) {
+                    identificador=Integer.parseInt(userInput);
+                    for(int i=0;i<lista.size();i++) {
+                        if(lista.get(i).getId()==identificador) {
+                            lista.remove(i);
+                        }
+                    }
+                }
+            } catch(NumberFormatException exc) {
+                System.out.println("Introduce un valor númerico entero");                
+            }        
+        } while(!userInput.equalsIgnoreCase("salir"));
+    }//delProd
 
 }//class
