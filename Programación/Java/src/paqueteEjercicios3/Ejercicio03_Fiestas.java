@@ -10,6 +10,13 @@ public class Ejercicio03_Fiestas {
     private LocalDate fechaInicio,fechaFinal;
     private LocalDate inicioVerando=LocalDate.of(LocalDate.now().getYear(),07,01),finVerano=LocalDate.of(LocalDate.now().getYear(),9,01);
 
+    public Ejercicio03_Fiestas() {
+        this.nombre="Alguna fiesta";
+        this.localidad="no definida";
+        this.fechaInicio=LocalDate.now();
+        this.fechaFinal=LocalDate.now().plusDays(7);
+    }//Ejercicio03_Fiestas
+
     public Ejercicio03_Fiestas(String nombre,String localidad,LocalDate fechaInicio,LocalDate fechaFinal) {
         this.nombre=nombre;
         this.localidad=localidad;
@@ -19,22 +26,22 @@ public class Ejercicio03_Fiestas {
 
     public String getNombre() {
         return nombre;
-    }
+    }//getNombre
 
     public String getLocalidad() {
         return localidad;
-    }
+    }//getLocalidad
 
     public LocalDate getFechaInicio() {
         return fechaInicio;
-    }
+    }//getFechaInicio
 
     public LocalDate getFechaFinal() {
         return fechaFinal;
-    }
+    }//getFechaFinal
 
-    public String duracion() {
-        return "\s"+getNombre()+" dura "+ChronoUnit.DAYS.between(getFechaInicio(),getFechaFinal())+" días";
+    public long duracion() {
+        return ChronoUnit.DAYS.between(getFechaInicio(),getFechaFinal());
     }//duracion
 
     public String isVeraniega() {
@@ -50,20 +57,22 @@ public class Ejercicio03_Fiestas {
     }//diasSemana
 
     private String diaTraducido(DayOfWeek dia) {
-        return switch(dia.getValue()) {
-            case 1 -> "lunes";
-            case 2 -> "martes";
-            case 3 -> "miercoles";
-            case 4 -> "jueves";
-            case 5 -> "viernes";
-            case 6 -> "sabado";
-            case 7 -> "domingo";
-            default -> "error";
-        };
-    }
+        String[] dias={"lunes","martes","miercoles","jueves","viernes","sabado","domingo"};
+        return dias[dia.ordinal()];
+        // return switch(dia.getValue()) {
+        //     case 1 -> "lunes";
+        //     case 2 -> "martes";
+        //     case 3 -> "miercoles";
+        //     case 4 -> "jueves";
+        //     case 5 -> "viernes";
+        //     case 6 -> "sabado";
+        //     case 7 -> "domingo";
+        //     default -> "error";
+        // };
+    }//diaTraducido
 
     public String toString() {
-        return "La fiesta "+getNombre()+" de la localidad de "+getLocalidad()+" dura "+ChronoUnit.DAYS.between(getFechaInicio(),getFechaFinal())+" días"+isVeraniega()+diasSemana();
-    }
+        return "\nLa fiesta "+getNombre()+" de la localidad de "+getLocalidad()+" dura "+duracion()+" días"+isVeraniega()+diasSemana();
+    }//toString
 
 }//class

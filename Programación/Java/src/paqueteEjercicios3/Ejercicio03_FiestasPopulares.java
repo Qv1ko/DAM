@@ -15,11 +15,11 @@ public class Ejercicio03_FiestasPopulares {
         boolean error=false;
         for(int i=0;i<5;i++) {
             do {
+                System.out.print("\nNombre de la "+(fiestas.size()+1)+"º fiesta popular: ");
+                nombre=sc.nextLine();
+                System.out.print("Localidad de la "+(fiestas.size()+1)+"º fiesta popular: ");
+                localidad=sc.nextLine();
                 try {
-                    System.out.print("\nNombre de la "+(fiestas.size()+1)+"º fiesta popular: ");
-                    nombre=sc.nextLine();
-                    System.out.print("Localidad de la "+(fiestas.size()+1)+"º fiesta popular: ");
-                    localidad=sc.nextLine();
                     System.out.print("Fecha de inicio de la "+(fiestas.size()+1)+"º fiesta popular: ");
                     fechaInicio=LocalDate.parse(sc.nextLine());
                     System.out.print("Fecha de fin de la "+(fiestas.size()+1)+"º fiesta popular: ");
