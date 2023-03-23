@@ -1,0 +1,18 @@
+p {
+    margin: 1px 2px 3px 4px; /* Arriba, derecha, abajo, izquierda */
+    margin: 10px 20px; /* Arriba-abajo y izquierda-derecha */
+    margin: 0; /* Si hay un valor se aplica a todos los lados | Si el valor es 0 no es necesario poner la unidad medida */
+    margin: 0 auto; /* Centra el elemento porque la altura es 0 y la anchura es automatica */
+}
+p.one {
+	border-style:solid;
+	border-width:5px;
+}
+p.two {
+	border-style:solid;
+	border-width:medium;
+}
+p.tree {
+	border-style:solid;
+	border-width:2px 10px 4px 20px;
+}
