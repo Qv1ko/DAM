@@ -1,0 +1,7 @@
+﻿
+A1	Manuel	Gomez Uria	2003-9-1	13754040S	Cuatro Caminos 4, 3º B	Torrelavega
+A2	Nuria	Balbin Antunez	2020-9-1	13445361P	Vargas 44, 6º C	Santander
+B1	Maria	Contreras Gonzalez	2021-10-5	13518900C	Marques de Santillana 20, 5º A	Santander
+A3	Santiago	Martinez Casuso	1998-9-10	13132976D	San Fernando 30, 6º C	Santander
+B2	Mercedes	Campo Suárez	1998-9-1	20862091F	Ganeral Davila 82, 4º D	Santander
+

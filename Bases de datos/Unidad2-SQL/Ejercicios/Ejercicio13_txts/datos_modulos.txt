@@ -1,0 +1,7 @@
+﻿
+DIS	Diseño y Realización de Presentaciones en Entornos Gráficos	260	No
+DES	Desarrollo de Aplicaciones en Entornos de Cuarta Generación y con Herramientas CASE	350	No
+FOL	Formación y Orientación Laboral	75	Sí
+RET	Relaciones en el Entorno de Trabajo	75	Sí
+FCT	Formación en Centros de Trabajo	380	Sí
+
