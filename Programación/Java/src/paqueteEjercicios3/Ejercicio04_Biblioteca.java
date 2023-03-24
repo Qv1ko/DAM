@@ -34,8 +34,8 @@ public class Ejercicio04_Biblioteca {
         LocalDate fechaDevolucion=null;
         boolean flag=false;
         do {
+            System.out.print("Escriba la fecha de devolución del libro: ");
             try {
-                System.out.print("Escriba la fecha de devolución del libro: ");
                 fechaDevolucion=LocalDate.parse(sc.nextLine(),df);
                 flag=false;
             } catch(DateTimeParseException exc) {
