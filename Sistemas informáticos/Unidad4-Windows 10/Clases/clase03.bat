@@ -1,0 +1,6 @@
+@ECHO OFF
+REM Comentario
+ATTRIB +H *
+DIR /A:H
+ATTRIB -H *
+PAUSE
