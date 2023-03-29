@@ -1,0 +1,35 @@
+body {/* Etiqueta a dar formato */
+	background-color: rgba(144, 152, 161, 0.767);/* Color del fondo */
+}
+table {
+	color: blue;/* Color del texto */
+    font-family: courier,courier-new,serif;/* Tipo de fuente */
+	border-bottom: 2px solid rgb(21, 21, 252);/* Borde de abajo */ /* 2px de ancho */ /* Borde solido */ /* con color azul */
+    border-style: double;/* Borde con lineado doble */
+}
+.footer {/* Clase a dar formato */
+    font-size: 20pt;/* Tamaño de la fuente */
+    border-style: inset/* Borde en formato recuadro */
+}
+dl {
+    font-size: 120%;/* Tamaño de la fuente en % */
+    border-style: dotted ridge outset hidden;/* Estilo de borde en sentido de las agujas del reloj: Punteado, con cumbre, outset y oculto  */
+    border-width:2px;/* Ancho del borde en px */
+}
+dd {
+    color: hsla(0, 73%, 63%, 0.747);/* Color de texto con HSL */
+    border-style: dashed;/* Borde con guiones */
+    border-width:thin;/* Ancho del borde usando valores predefinidos */
+}
+aside {
+    font-weight: bold;/* Ancho del texto */
+    border-style: groove;/* Borde con ranura */
+    border-width:7px 1px 4px 3px;/* Ancho del borde por cada uno de los lados en sentido de las agujas del reloj */
+}
+div {
+    border-style: none;/* Sin borde */
+    padding: 5px 3px 5px 28px;/* Padding (relleno entre el elemento y su borde) */
+}
+ol {
+    margin-top: 25px;/* Margen superior (espacio entre dos elementos) */
+}
