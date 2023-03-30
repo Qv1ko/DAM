@@ -1,5 +1,5 @@
 body {/* Etiqueta a dar formato */
-	background-color: rgba(144, 152, 161, 0.767);/* Color del fondo */
+	background-color: rgba(124, 147, 173, 0.767);/* Color del fondo */
 }
 table {
 	color: blue;/* Color del texto */
@@ -32,4 +32,10 @@ div {
 }
 ol {
     margin-top: 25px;/* Margen superior (espacio entre dos elementos) */
+}
+.purback {
+	background-color: rgba(178, 140, 214, 0.274);
+}
+#secp01 {/* Id a dar formato */
+    color:rgb(52, 167, 58);
 }
