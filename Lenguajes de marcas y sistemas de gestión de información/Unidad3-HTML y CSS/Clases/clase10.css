@@ -1,0 +1,16 @@
+#p01 {
+    color:blue;
+}
+.error {
+	color:red;
+}
+p.error {
+	border-bottom: 1px solid blue ;
+}
+.center {
+    text-align: center;
+    color:red;
+}
+p.large {
+	font-size:300%;
+}
