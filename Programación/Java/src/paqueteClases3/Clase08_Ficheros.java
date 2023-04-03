@@ -27,12 +27,14 @@ public class Clase08_Ficheros {
     private static void leerDir(File directory) {
         for(File fichero:directory.listFiles()) {
             if(fichero.isDirectory()) {
-                System.out.println("\nSe puede escanear el contenido en "+fichero.getName());
-                leerDir(new File(fichero.toString()));
+                if(fichero.list()!=null) {
+                    System.out.println("\nSe puede escanear el contenido en "+fichero.getName());
+                    leerDir(new File(fichero.toString()));
+                }
             } else {
                 System.out.println(fichero.getName()+ " archivo de "+String.format("%.2f",fichero.length()/1024.00f)+" kb");
             }
         }
-    }
+    }//leerDir
 
 }//class
