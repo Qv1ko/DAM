@@ -29,7 +29,7 @@ public class Clase08_Ficheros {
             if(fichero.isDirectory()) {
                 if(fichero.list()!=null) {
                     System.out.println("\nSe puede escanear el contenido en "+fichero.getName());
-                    leerDir(new File(fichero.toString()));
+                    leerDir(fichero);
                 }
             } else {
                 System.out.println(fichero.getName()+ " archivo de "+String.format("%.2f",fichero.length()/1024.00f)+" kb");
