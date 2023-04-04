@@ -1,0 +1,3 @@
+@ECHO OFF
+%1 /?
+PAUSE
