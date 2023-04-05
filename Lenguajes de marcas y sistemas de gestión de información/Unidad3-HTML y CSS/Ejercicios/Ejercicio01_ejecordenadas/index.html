@@ -1,16 +1,33 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Ejercicio Erasmus</title>
-</head>
-<body>
-    <img src="./image.jpg" alt="" usemap="#Map">
-    <map name="Map">
-        <area id="first" shape="rect" coords="1,0,300,153" href="https://www.w3schools.com/">
-        <area id="second" shape="rect" coords="2,150,299,301" href="https://ceinmark.net/">
-        <area id="third" shape="rect" coords="2,150,299,301" href="https://css-tricks.com/">
-        <area id="fourth" shape="rect" coords="2,150,299,301" href="https://www.youtube.com/user/pildorasinformaticas">
-    </map>
-</body>
+<!DOCTYPE html><!-- Etiqueta DOCTYPE: Define que el documento es HTML5 -->
+<html><!-- Etiqueta html: Dentro de esta etiqueta estan todos los elementos del documento -->
+    <body><!-- Etiqueta body: Contiene los elementos a visualizar -->
+        <!--
+            Etiqueta img: Inserta una imagen en la página
+            Atributo src: Ruta del elemento a insertar
+                He usado este atributo para definir 
+            Atributo alt: Texto alternativo que se muestra si la ruta no existe
+            Atributo usemap: Define el mapa al que pertenece la imagen
+                He usado este atributo para declarar el mapa que usa la imagen
+        -->
+        <img src="./image.jpg" alt="Plano cartesiano con un enlace en cada cuadrante" usemap="#map">
+        <!--
+            Etiqueta map: Permite mapear una imagen a través de áreas.
+                He elegido esta etiqueta para dividir la imagen anterior en diferentes areas, cada una con un enlace.
+            Atributo name: Nombre del elemento
+                He utilizado este atributo para relacionar el mapa con la imagen.
+        -->
+        <map name="map">
+            <!--
+                Etiqueta area: Define un área dentro de la imagen mapeada
+                Atributo shape: Tipo de área (rectángulo,círculo o polígono)
+                Atributo coords: Define las coordenadas del área (en este caso ini_x, ini_y, fin_x y fin_y)
+                Atributo href: Enlace del área
+                Atributo target: Define el destino del enlace (_blank=ventana nueva)
+            -->
+            <area shape="rect" coords="320,0,640,320" href="https://www.w3schools.com/" target="_blank">
+            <area shape="rect" coords="320,320,640,640" href="https://ceinmark.net/" target="_blank">
+            <area shape="rect" coords="0,320,320,640" href="https://css-tricks.com/" target="_blank">
+            <area shape="rect" coords="0,0,320,320" href="https://www.youtube.com/user/pildorasinformaticas" target="_blank">
+        </map>
+    </body>
 </html>
