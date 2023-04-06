@@ -3,9 +3,11 @@
     <body><!-- Etiqueta body: Contiene los elementos a visualizar -->
         <!--
             Etiqueta img: Inserta una imagen en la página
+                He usado esta etiqueta para añadir la imagen a la pagina.
             Atributo src: Ruta del elemento a insertar
                 He usado este atributo para definir 
             Atributo alt: Texto alternativo que se muestra si la ruta no existe
+                He definido este atributo para definir un texto alternativo a la imagen. Para que sea leido por el lector de pantalla y para que sustituya a la imagen en caso de que la imagen no este disponible.
             Atributo usemap: Define el mapa al que pertenece la imagen
                 He usado este atributo para declarar el mapa que usa la imagen
         -->
@@ -18,11 +20,16 @@
         -->
         <map name="map">
             <!--
-                Etiqueta area: Define un área dentro de la imagen mapeada
-                Atributo shape: Tipo de área (rectángulo,círculo o polígono)
-                Atributo coords: Define las coordenadas del área (en este caso ini_x, ini_y, fin_x y fin_y)
+                Etiqueta area: Define un área dentro de la imagen mapeada.
+                    He utilizado esta etiqueta para definir las cuatro cuadrantes de la imagen.
+                Atributo shape: Tipo de área (rectángulo,círculo o polígono).
+                    He utilizado este atributo para definir el tipo de area, en mi caso rect, de rectangulo.
+                Atributo coords: Define las coordenadas del área.
+                    He utilizado este atributo para definir el pixel x e y de inicio y para definir el pixel x e y de fin del area, por cada uno de los areas.
                 Atributo href: Enlace del área
-                Atributo target: Define el destino del enlace (_blank=ventana nueva)
+                    He utilizado este atributo para designar al area un enlace.
+                Atributo target: Define el destino del enlace.
+                    He utilizado este atributo para el enlace se abra en una nueva pestaña del navegador.
             -->
             <area shape="rect" coords="320,0,640,320" href="https://www.w3schools.com/" target="_blank">
             <area shape="rect" coords="320,320,640,640" href="https://ceinmark.net/" target="_blank">
