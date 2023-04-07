@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 /*
  * @author Victor
- * @version 0.2
+ * @version 0.3
  */
 
 public class Vehiculos {
@@ -38,7 +38,7 @@ public class Vehiculos {
     public void setMatricula(String matricula) throws Exception {
         String matriculaPatron="^\\d\\d\\d\\d\\w\\w\\w$";
         if(!Pattern.compile(matriculaPatron).matcher(matricula).find()) {
-           throw new Exception("La matricula no es valida");
+           throw new Exception("\n! La matricula no es valida\n");
         }
         this.matricula=matricula;
     }
@@ -49,7 +49,7 @@ public class Vehiculos {
 
     public void setPlazas(int plazas) throws Exception {
         if(plazas<1||plazas>9) {
-            throw new Exception("El número de plazas no es valido");
+            throw new Exception("\n! El número de plazas no es valido\n");
         }
         this.plazas=plazas;
     }
@@ -58,8 +58,18 @@ public class Vehiculos {
         return combustible;
     }
 
-    public void setCombustible(Combustibles combustible) {
-        this.combustible=combustible;
+    public void setCombustible(String combustible) throws Exception { 
+        if(combustible.equalsIgnoreCase(Combustibles.DIESEL.toString())||combustible.equalsIgnoreCase("D")) {
+            this.combustible=Combustibles.DIESEL;
+        } else if(combustible.equalsIgnoreCase(Combustibles.GAS.toString())||combustible.equalsIgnoreCase("G")) {
+            this.combustible=Combustibles.GAS;
+        } else if(combustible.equalsIgnoreCase(Combustibles.ELECTRICO.toString())||combustible.equalsIgnoreCase("E")) {
+            this.combustible=Combustibles.ELECTRICO;
+        } else if(combustible.equalsIgnoreCase(Combustibles.HIBRIDO.toString())||combustible.equalsIgnoreCase("H")) {
+            this.combustible=Combustibles.HIBRIDO;
+        } else {
+            throw new Exception("\n! Combustible no valido\n");
+        }
     }
 
     public float getPrecio() {
