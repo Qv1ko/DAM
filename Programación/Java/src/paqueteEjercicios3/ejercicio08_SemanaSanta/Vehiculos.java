@@ -2,6 +2,11 @@ package paqueteEjercicios3.ejercicio08_SemanaSanta;
 
 import java.util.regex.Pattern;
 
+/*
+ * @author Victor
+ * @version 0.2
+ */
+
 public class Vehiculos {
 
     private String matricula;
@@ -73,8 +78,12 @@ public class Vehiculos {
         this.alquilado=alquilado;
     }
 
+    private String alquiladoToString() {
+        return (isAlquilado())? "Esta alquilado":"No esta alquilado";
+    }
+
     public String toString() {
-        return "Vehiculo "+getMatricula()+" "+getCombustible().toString()+" con "+getPlazas()+" plazas. "+isAlquilado()+" ha "+getPrecio()+" por día.";
+        return "Vehiculo "+getMatricula()+" a combustible "+getCombustible().toString()+" con "+getPlazas()+" plazas. "+alquiladoToString()+" ha "+getPrecio()+" por día.";
     }
     
 }//class
