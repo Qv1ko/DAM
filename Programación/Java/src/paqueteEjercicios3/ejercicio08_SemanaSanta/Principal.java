@@ -11,22 +11,20 @@ import java.util.ArrayList;
 
 /*
  * @author Victor
- * @version 0.5
+ * @version 0.6
  */
 
 public class Principal {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         int opcion=-1;
         InputStreamReader in=new InputStreamReader(System.in);
         BufferedReader buffer=new BufferedReader(in);
         ArrayList<Vehiculos> vehiculos=new ArrayList<Vehiculos>();
         ArrayList<Reservas> reservas=new ArrayList<Reservas>();
 
-        //  Devolver un vehículo. Se debe controlar que la devolución se pueda realizar, la fecha y hora de devolución será la automática del sistema y se calculara el importe a pagar.
-
         while(opcion!=0) {
-            System.out.print("Alquiler de vehículos:\n\s1) Gestión de vehículos\n\s2) Reservar un vehículo\n\s3) Devolver un vehículo\n\s0) Salir\n\nSeleccione una opción: ");
+            System.out.print("\nAlquiler de vehículos:\n\s1) Gestión de vehículos\n\s2) Reservar un vehículo\n\s3) Devolver un vehículo\n\s0) Salir\n\nSeleccione una opción: ");
             try {
                 opcion=Integer.parseInt(buffer.readLine());
                 switch(opcion) {
@@ -38,31 +36,29 @@ public class Principal {
                 }
             } catch(IOException exc) {
                 System.out.println("\n! Error al introducir la opción\n");
-            } catch(NumberFormatException  exc) {
-                System.out.println("\n! Opción no valida\n");
             }
         }
     }//main
 
     private static void menuVehiculos(ArrayList<Vehiculos> vehiculos,BufferedReader buffer) {
-        int opcion=0;
+        int opcion=-1;
         while(opcion!=0) {
-            System.out.print("Gestión de vehículos:\n\s1) Añadir un nuevo vehículo\n\s2) Listar todos los vehículos\n\s3) Buscar un vehículo\n\s4) Actualizar un vehículo\n\s5) Eliminar un vehículo\n\s0) Salir\n\nSeleccione una opción: ");
+            System.out.print("\nGestión de vehículos:\n\s1) Añadir un nuevo vehículo\n\s2) Listar todos los vehículos\n\s3) Buscar un vehículo\n\s4) Actualizar un vehículo\n\s5) Eliminar un vehículo\n\s0) Salir\n\nSeleccione una opción: ");
             try {
                 opcion=Integer.parseInt(buffer.readLine());
                 switch(opcion) {
-                    case 0 -> System.out.println("\n- Saliendo...\n");
+                    case 0 -> System.out.println("\n- Saliendo...");
                     case 1 -> anadirVehiculo(vehiculos,buffer);
                     case 2 -> listarVehiculos(vehiculos);
                     case 3 -> System.out.println(buscarVehiculo(vehiculos,buffer).toString());
                     case 4 -> actualizarVehiculo(vehiculos,buffer);
                     case 5 -> eliminarVehiculo(vehiculos,buffer);
-                    default -> System.out.println("\n+ Seleccione una opción valida\n");
+                    default -> System.out.println("\n+ Seleccione una opción valida");
                 }
             } catch(IOException exc) {
-                System.out.println("\n! Error al introducir la opción\n");
+                System.out.println("\n! Error al introducir la opción");
             } catch(NumberFormatException  exc) {
-                System.out.println("\n! Opción no valida\n");
+                System.out.println("\n! Opción no valida");
             } catch(Exception exc) {
                 System.out.println(exc.getMessage());
             }
@@ -77,31 +73,31 @@ public class Principal {
         while(correctas<4) {
             try {
                 if(correctas<1) {
-                    System.out.print("\n\sMatricula del vehículo: ");
+                    System.out.print("\nMatricula del vehículo: ");
                     vehiculo.setMatricula(buffer.readLine());
                     correctas++;
                 }
                 if(correctas<2) {
-                    System.out.print("\n\sPlazas del vehículo: ");
+                    System.out.print("\nPlazas del vehículo: ");
                     vehiculo.setPlazas(Integer.parseInt(buffer.readLine()));
                     correctas++;
                 }
                 if(correctas<3) {
-                    System.out.print("\n\sCombustible del vehículo: ");
+                    System.out.print("\nCombustible del vehículo: ");
                     vehiculo.setCombustible(buffer.readLine());
                     correctas++;
                 }
                 if(correctas<4) {
-                    System.out.print("\n\sPrecio/día del vehículo: ");
+                    System.out.print("\nPrecio/día del vehículo: ");
                     vehiculo.setPrecio(buffer.readLine());
                     correctas++;
                 }
                 vehiculo.setAlquilado(false);
                 vehiculos.add(vehiculo);
             } catch(IOException exc) {
-                System.out.println("\n! Error al introducir la opción\n");
+                System.out.println("\n! Error al introducir la opción");
             } catch(NumberFormatException  exc) {
-                System.out.println("\n! El valor de las plazas a de ser númerico\n");
+                System.out.println("\n! El valor de las plazas a de ser númerico");
             } catch(Exception exc) {
                 System.out.println(exc.getMessage());
             }
@@ -118,7 +114,7 @@ public class Principal {
     private static Vehiculos buscarVehiculo(ArrayList<Vehiculos> vehiculos,BufferedReader buffer) throws IOException,Exception {
         Vehiculos vehiculoBuscado=null;
         String matricula="";
-        System.out.println("\nIntroduzca la matricula del vehículo busca: ");
+        System.out.println("\nIntroduzca la matricula del vehículo que busca: ");
         matricula=buffer.readLine();
         for(Vehiculos vehiculo:vehiculos) {
             if(vehiculo.getMatricula().equalsIgnoreCase(matricula)) {
@@ -126,7 +122,7 @@ public class Principal {
             }
         }
         if(vehiculoBuscado.equals(null)) {
-            throw new Exception("\n! El vehículo no ha sido encontrado\n");
+            throw new Exception("\n! El vehículo no ha sido encontrado");
         }
         return vehiculoBuscado;
     }
@@ -139,30 +135,30 @@ public class Principal {
             System.out.println("\nIntroduzca los nuevos datos del vehículo");
             while(correctas<4) {
                 if(correctas<1) {
-                    System.out.print("\n\sMatricula: ");
-                    vehiculoModificado.setMatricula(buffer.readLine());
+                    System.out.print("\nMatricula: ");
+                    vehiculoModificado.setMatricula(GestionAlquileres.validadorMatricula(buffer.readLine()));
                     correctas++;
                 }
                 if(correctas<2) {
-                    System.out.print("\n\sPlazas: ");
+                    System.out.print("\nPlazas: ");
                     vehiculoModificado.setPlazas(Integer.parseInt(buffer.readLine()));
                     correctas++;
                 }
                 if(correctas<3) {
-                    System.out.print("\n\sCombustible: ");
+                    System.out.print("\nCombustible: ");
                     vehiculoModificado.setCombustible(buffer.readLine());
                     correctas++;
                 }
                 if(correctas<4) {
-                    System.out.print("\n\sPrecio por día: ");
+                    System.out.print("\nPrecio por día: ");
                     vehiculoModificado.setPrecio(buffer.readLine());
                     correctas++;
                 }
             }
         } catch(IOException exc) {
-            System.out.println("\n! Error al introducir la opción\n");
+            System.out.println("\n! Error al introducir la opción");
         } catch(NumberFormatException exc) {
-            System.out.println("\n! El valor de las plazas a de ser númerico\n");
+            System.out.println("\n! El valor de las plazas a de ser númerico");
         } catch(Exception exc) {
             System.out.println(exc.getMessage());
         }
@@ -190,7 +186,7 @@ public class Principal {
         while(correctas<4) {
             try {
                 if(correctas<1) {
-                    System.out.print("\n\sDNI del cliente: ");
+                    System.out.print("\nDNI del cliente: ");
                     reserva.setDni(buffer.readLine());
                     correctas++;
                 }
@@ -201,9 +197,9 @@ public class Principal {
                     correctas++;
                 }
                 if(correctas<3) {
-                    System.out.print("\n\sFecha de la reserva: ");
+                    System.out.print("\nFecha de la reserva: ");
                     fecha=LocalDate.parse(buffer.readLine());
-                    System.out.print("\n\sHora de la reserva: ");
+                    System.out.print("\nHora de la reserva: ");
                     hora=LocalTime.parse(buffer.readLine());
                     reserva.setFecha(LocalDateTime.of(fecha,hora));
                     correctas++;
@@ -214,7 +210,7 @@ public class Principal {
             } catch(NumberFormatException  exc) {
                 System.out.println("\n! Escribe la hora en formato 24 horas\n");
             } catch(DateTimeParseException exc) {
-                System.out.println("! El formato es incorrecto\n\sFormato de la fecha: aaaa-mm-dd\n\sFormato de la hora: hh-mm");
+                System.out.println("\n! El formato es incorrecto\n\sFormato de la fecha: aaaa-mm-dd\n\sFormato de la hora: hh-mm");
             } catch(Exception exc) {
                 System.out.println(exc.getMessage());
             }
@@ -224,17 +220,17 @@ public class Principal {
     private static void devolucion(ArrayList<Reservas> reservas,ArrayList<Vehiculos> vehiculos,BufferedReader buffer) {
         String dniCliente="";
         try {
-            System.out.println("Escribe el DNI del cliente que alquilo el vehículo: ");
+            System.out.println("\nEscribe el DNI del cliente que alquilo el vehículo: ");
             dniCliente=buffer.readLine();
             for(Reservas reserva:reservas) {
                 if(reserva.getDni().equalsIgnoreCase(dniCliente)) {
-                    System.out.println("El importe a pagar por la devolucion del vehículo es de "+reserva.importe()+" euros");
+                    System.out.println("\nEl importe a pagar por la devolucion del vehículo es de "+reserva.importe()+" euros");
                     reserva.getVehiculo().setAlquilado(false);
                     reservas.remove(reserva);
                 }
             }
         } catch(IOException exc) {
-            System.out.println("\n! Error al introducir la opción\n");
+            System.out.println("\n! Error al introducir la opción");
         }
     }
 

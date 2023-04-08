@@ -1,10 +1,8 @@
 package paqueteEjercicios3.ejercicio08_SemanaSanta;
 
-import java.util.regex.Pattern;
-
 /*
  * @author Victor
- * @version 0.3
+ * @version 0.4
  */
 
 public class Vehiculos {
@@ -35,11 +33,7 @@ public class Vehiculos {
         return matricula;
     }
 
-    public void setMatricula(String matricula) throws Exception {
-        String matriculaPatron="^\\d\\d\\d\\d\\w\\w\\w$";
-        if(!Pattern.compile(matriculaPatron).matcher(matricula).find()) {
-           throw new Exception("\n! La matricula no es valida\n");
-        }
+    public void setMatricula(String matricula) {
         this.matricula=matricula;
     }
 
