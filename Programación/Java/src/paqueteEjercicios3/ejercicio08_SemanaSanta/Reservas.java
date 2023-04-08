@@ -1,10 +1,11 @@
 package paqueteEjercicios3.ejercicio08_SemanaSanta;
 
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 /*
  * @author Victor
- * @version 0.2
+ * @version 0.3
  */
 
 public class Reservas {
@@ -95,6 +96,10 @@ public class Reservas {
             valido=false;
         }
         return valido;
+    }
+
+    public float importe() {
+        return getVehiculo().getPrecio()*ChronoUnit.DAYS.between(getFecha(),LocalDateTime.now());
     }
 
 }//class

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /*
  * @author Victor
- * @version 0.4
+ * @version 0.5
  */
 
 public class Principal {
@@ -23,7 +23,6 @@ public class Principal {
         ArrayList<Vehiculos> vehiculos=new ArrayList<Vehiculos>();
         ArrayList<Reservas> reservas=new ArrayList<Reservas>();
 
-        //  Realizar una reserva.
         //  Devolver un vehículo. Se debe controlar que la devolución se pueda realizar, la fecha y hora de devolución será la automática del sistema y se calculara el importe a pagar.
 
         while(opcion!=0) {
@@ -223,7 +222,20 @@ public class Principal {
     }
 
     private static void devolucion(ArrayList<Reservas> reservas,ArrayList<Vehiculos> vehiculos,BufferedReader buffer) {
-
+        String dniCliente="";
+        try {
+            System.out.println("Escribe el DNI del cliente que alquilo el vehículo: ");
+            dniCliente=buffer.readLine();
+            for(Reservas reserva:reservas) {
+                if(reserva.getDni().equalsIgnoreCase(dniCliente)) {
+                    System.out.println("El importe a pagar por la devolucion del vehículo es de "+reserva.importe()+" euros");
+                    reserva.getVehiculo().setAlquilado(false);
+                    reservas.remove(reserva);
+                }
+            }
+        } catch(IOException exc) {
+            System.out.println("\n! Error al introducir la opción\n");
+        }
     }
 
 }//class
