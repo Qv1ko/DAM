@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /*
  * @author Victor
- * @version 0.6
+ * @version 0.7
  */
 
 public class Principal {
@@ -22,7 +22,6 @@ public class Principal {
         BufferedReader buffer=new BufferedReader(in);
         ArrayList<Vehiculos> vehiculos=new ArrayList<Vehiculos>();
         ArrayList<Reservas> reservas=new ArrayList<Reservas>();
-
         while(opcion!=0) {
             System.out.print("\nAlquiler de vehículos:\n\s1) Gestión de vehículos\n\s2) Reservar un vehículo\n\s3) Devolver un vehículo\n\s0) Salir\n\nSeleccione una opción: ");
             try {
@@ -32,10 +31,12 @@ public class Principal {
                     case 1 -> menuVehiculos(vehiculos,buffer);
                     case 2 -> reserva(reservas,vehiculos,buffer);
                     case 3 -> devolucion(reservas,vehiculos,buffer);
-                    default -> System.out.println("\n+ Seleccione una opción valida\n");
+                    default -> System.out.println("\n! Seleccione una opción valida");
                 }
             } catch(IOException exc) {
-                System.out.println("\n! Error al introducir la opción\n");
+                System.out.println("\n! Error al introducir la opción");
+            } catch(NumberFormatException  exc) {
+                System.out.println("\n! Opción no valida");
             }
         }
     }//main
@@ -53,7 +54,7 @@ public class Principal {
                     case 3 -> System.out.println(buscarVehiculo(vehiculos,buffer).toString());
                     case 4 -> actualizarVehiculo(vehiculos,buffer);
                     case 5 -> eliminarVehiculo(vehiculos,buffer);
-                    default -> System.out.println("\n+ Seleccione una opción valida");
+                    default -> System.out.println("\n! Seleccione una opción valida");
                 }
             } catch(IOException exc) {
                 System.out.println("\n! Error al introducir la opción");
@@ -74,7 +75,7 @@ public class Principal {
             try {
                 if(correctas<1) {
                     System.out.print("\nMatricula del vehículo: ");
-                    vehiculo.setMatricula(buffer.readLine());
+                    vehiculo.setMatricula(GestionAlquileres.validadorMatricula(buffer.readLine()));
                     correctas++;
                 }
                 if(correctas<2) {
