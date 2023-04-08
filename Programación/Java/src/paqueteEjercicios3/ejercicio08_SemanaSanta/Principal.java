@@ -3,11 +3,15 @@ package paqueteEjercicios3.ejercicio08_SemanaSanta;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
 /*
  * @author Victor
- * @version 0.3
+ * @version 0.4
  */
 
 public class Principal {
@@ -16,11 +20,9 @@ public class Principal {
         int opcion=-1;
         InputStreamReader in=new InputStreamReader(System.in);
         BufferedReader buffer=new BufferedReader(in);
-    
-        //  Menú para la gestión de los vehículos de la empresa:
-            // o Buscar un vehículo (el campo a buscar será la matricula).
-            // o Actualizar un vehículo (se podrá reutilizar la búsqueda del apartado anterior).
-            // o Eliminar un vehículo.
+        ArrayList<Vehiculos> vehiculos=new ArrayList<Vehiculos>();
+        ArrayList<Reservas> reservas=new ArrayList<Reservas>();
+
         //  Realizar una reserva.
         //  Devolver un vehículo. Se debe controlar que la devolución se pueda realizar, la fecha y hora de devolución será la automática del sistema y se calculara el importe a pagar.
 
@@ -30,9 +32,9 @@ public class Principal {
                 opcion=Integer.parseInt(buffer.readLine());
                 switch(opcion) {
                     case 0 -> System.out.println("\n- Saliendo...\n");
-                    case 1 -> menuVehiculos(buffer);
-                    case 2 -> reserva();
-                    case 3 -> devolucion();
+                    case 1 -> menuVehiculos(vehiculos,buffer);
+                    case 2 -> reserva(reservas,vehiculos,buffer);
+                    case 3 -> devolucion(reservas,vehiculos,buffer);
                     default -> System.out.println("\n+ Seleccione una opción valida\n");
                 }
             } catch(IOException exc) {
@@ -43,9 +45,8 @@ public class Principal {
         }
     }//main
 
-    private static void menuVehiculos(BufferedReader buffer) {
+    private static void menuVehiculos(ArrayList<Vehiculos> vehiculos,BufferedReader buffer) {
         int opcion=0;
-        ArrayList<Vehiculos> vehiculos=new ArrayList<Vehiculos>();
         while(opcion!=0) {
             System.out.print("Gestión de vehículos:\n\s1) Añadir un nuevo vehículo\n\s2) Listar todos los vehículos\n\s3) Buscar un vehículo\n\s4) Actualizar un vehículo\n\s5) Eliminar un vehículo\n\s0) Salir\n\nSeleccione una opción: ");
             try {
@@ -56,7 +57,7 @@ public class Principal {
                     case 2 -> listarVehiculos(vehiculos);
                     case 3 -> System.out.println(buscarVehiculo(vehiculos,buffer).toString());
                     case 4 -> actualizarVehiculo(vehiculos,buffer);
-                    // case 5 ->
+                    case 5 -> eliminarVehiculo(vehiculos,buffer);
                     default -> System.out.println("\n+ Seleccione una opción valida\n");
                 }
             } catch(IOException exc) {
@@ -77,22 +78,22 @@ public class Principal {
         while(correctas<4) {
             try {
                 if(correctas<1) {
-                    System.out.print("Matricula del vehículo: ");
+                    System.out.print("\n\sMatricula del vehículo: ");
                     vehiculo.setMatricula(buffer.readLine());
                     correctas++;
                 }
                 if(correctas<2) {
-                    System.out.print("Plazas del vehículo: ");
+                    System.out.print("\n\sPlazas del vehículo: ");
                     vehiculo.setPlazas(Integer.parseInt(buffer.readLine()));
                     correctas++;
                 }
                 if(correctas<3) {
-                    System.out.print("Combustible del vehículo: ");
+                    System.out.print("\n\sCombustible del vehículo: ");
                     vehiculo.setCombustible(buffer.readLine());
                     correctas++;
                 }
                 if(correctas<4) {
-                    System.out.print("Precio/día del vehículo: ");
+                    System.out.print("\n\sPrecio/día del vehículo: ");
                     vehiculo.setPrecio(buffer.readLine());
                     correctas++;
                 }
@@ -139,22 +140,22 @@ public class Principal {
             System.out.println("\nIntroduzca los nuevos datos del vehículo");
             while(correctas<4) {
                 if(correctas<1) {
-                    System.out.print("Matricula: ");
+                    System.out.print("\n\sMatricula: ");
                     vehiculoModificado.setMatricula(buffer.readLine());
                     correctas++;
                 }
                 if(correctas<2) {
-                    System.out.print("Plazas: ");
+                    System.out.print("\n\sPlazas: ");
                     vehiculoModificado.setPlazas(Integer.parseInt(buffer.readLine()));
                     correctas++;
                 }
                 if(correctas<3) {
-                    System.out.print("Combustible: ");
+                    System.out.print("\n\sCombustible: ");
                     vehiculoModificado.setCombustible(buffer.readLine());
                     correctas++;
                 }
                 if(correctas<4) {
-                    System.out.print("Precio por día: ");
+                    System.out.print("\n\sPrecio por día: ");
                     vehiculoModificado.setPrecio(buffer.readLine());
                     correctas++;
                 }
@@ -168,11 +169,60 @@ public class Principal {
         }
     }
 
-    private static void reserva() {
-
+    private static void eliminarVehiculo(ArrayList<Vehiculos> vehiculos,BufferedReader buffer) {
+        try {
+            vehiculos.remove(buscarVehiculo(vehiculos,buffer));
+            System.out.println("\n+ Vehiculo eliminado correctamente\n");
+        } catch(IOException exc) {
+            System.out.println("\n! Error al introducir la opción\n");
+        } catch(Exception exc) {
+            System.out.println(exc.getMessage());
+        }
     }
 
-    private static void devolucion() {
+    private static void reserva(ArrayList<Reservas> reservas,ArrayList<Vehiculos> vehiculos,BufferedReader buffer) {
+        Reservas reserva=null;
+        int correctas=0;
+        Vehiculos vehiculoAlquilado=null;
+        LocalDate fecha=null;
+        LocalTime hora=null;
+        System.out.println("\nIntroduzca los datos de la reserva");
+        reserva=new Reservas();
+        while(correctas<4) {
+            try {
+                if(correctas<1) {
+                    System.out.print("\n\sDNI del cliente: ");
+                    reserva.setDni(buffer.readLine());
+                    correctas++;
+                }
+                if(correctas<2) {
+                    vehiculoAlquilado=buscarVehiculo(vehiculos,buffer);
+                    reserva.setVehiculo(vehiculoAlquilado);
+                    vehiculoAlquilado.setAlquilado(true);
+                    correctas++;
+                }
+                if(correctas<3) {
+                    System.out.print("\n\sFecha de la reserva: ");
+                    fecha=LocalDate.parse(buffer.readLine());
+                    System.out.print("\n\sHora de la reserva: ");
+                    hora=LocalTime.parse(buffer.readLine());
+                    reserva.setFecha(LocalDateTime.of(fecha,hora));
+                    correctas++;
+                }
+                reservas.add(reserva);
+            } catch(IOException exc) {
+                System.out.println("\n! Error al introducir la opción\n");
+            } catch(NumberFormatException  exc) {
+                System.out.println("\n! Escribe la hora en formato 24 horas\n");
+            } catch(DateTimeParseException exc) {
+                System.out.println("! El formato es incorrecto\n\sFormato de la fecha: aaaa-mm-dd\n\sFormato de la hora: hh-mm");
+            } catch(Exception exc) {
+                System.out.println(exc.getMessage());
+            }
+        }
+    }
+
+    private static void devolucion(ArrayList<Reservas> reservas,ArrayList<Vehiculos> vehiculos,BufferedReader buffer) {
 
     }
 
