@@ -1,13 +1,14 @@
 @ECHO OFF
 
-IF EXIST %1 GOTO :copia ELSE :error
+IF EXIST %1 GOTO :copia
 
 :error
 ECHO El archivo no existe.
-PAUSE
-EXIT
+GOTO :salida
 
 :copia
 MKDIR PruebaCopia
 COPY %1 PruebaCopia
+
+:salida
 PAUSE

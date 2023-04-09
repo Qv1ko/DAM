@@ -1,4 +1,5 @@
 @ECHO OFF
+
 ECHO Iniciando Notepad.exe
 START notepad.exe
 PAUSE

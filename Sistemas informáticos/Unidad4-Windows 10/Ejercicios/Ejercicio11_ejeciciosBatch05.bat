@@ -1,15 +1,17 @@
 @ECHO OFF
 
 DIR *.%1
+PAUSE
 
 SET /P destino=Introduce el destino: 
-IF EXIST %destino% GOTO :copia ELSE :error
+IF EXIST %destino% GOTO :copia
 
 :error
 ECHO El directorio no existe.
-PAUSE
-EXIT
+GOTO :salida
 
 :copia
 COPY *.%1 %destino%
+
+:salida
 PAUSE
