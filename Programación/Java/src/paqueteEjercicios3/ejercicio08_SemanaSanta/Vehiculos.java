@@ -2,7 +2,7 @@ package paqueteEjercicios3.ejercicio08_SemanaSanta;
 
 /*
  * @author Victor
- * @version 0.5
+ * @version 0.6
  */
 
 public class Vehiculos {
@@ -21,11 +21,11 @@ public class Vehiculos {
         this.alquilado=false;
     }
 
-    public Vehiculos(String matricula,int plazas,Combustibles combustible,String precio,boolean alquilado) {
+    public Vehiculos(String matricula,int plazas,Combustibles combustible,float precio,boolean alquilado) {
         this.matricula=matricula;
         this.plazas=plazas;
         this.combustible=combustible;
-        this.precio=Float.parseFloat(String.format("%.2f",precio));
+        this.precio=precio;
         this.alquilado=alquilado;
     }
 

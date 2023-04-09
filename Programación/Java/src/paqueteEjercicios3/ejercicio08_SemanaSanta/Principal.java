@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /*
  * @author Victor
- * @version 0.8
+ * @version 0.9
  */
 
 public class Principal {
@@ -168,9 +168,9 @@ public class Principal {
     private static void eliminarVehiculo(ArrayList<Vehiculos> vehiculos,BufferedReader buffer) {
         try {
             vehiculos.remove(buscarVehiculo(vehiculos,buffer));
-            System.out.println("\n+ Vehiculo eliminado correctamente\n");
+            System.out.println("\n+ Vehiculo eliminado correctamente");
         } catch(IOException exc) {
-            System.out.println("\n! Error al introducir la opción\n");
+            System.out.println("\n! Error al introducir la opción");
         } catch(Exception exc) {
             System.out.println(exc.getMessage());
         }
@@ -202,14 +202,14 @@ public class Principal {
                     fecha=LocalDate.parse(buffer.readLine());
                     System.out.print("\nHora de la reserva: ");
                     hora=LocalTime.parse(buffer.readLine());
-                    reserva.setFecha(LocalDateTime.of(fecha,hora));
+                    reserva.setFecha(GestionAlquileres.validarFechaHora(LocalDateTime.of(fecha,hora)));
                     correctas++;
                 }
                 reservas.add(reserva);
             } catch(IOException exc) {
-                System.out.println("\n! Error al introducir la opción\n");
+                System.out.println("\n! Error al introducir la opción");
             } catch(NumberFormatException  exc) {
-                System.out.println("\n! Escribe la hora en formato 24 horas\n");
+                System.out.println("\n! Escribe la hora en formato 24 horas");
             } catch(DateTimeParseException exc) {
                 System.out.println("\n! El formato es incorrecto\n\sFormato de la fecha: aaaa-mm-dd\n\sFormato de la hora: hh-mm");
             } catch(Exception exc) {
@@ -225,7 +225,7 @@ public class Principal {
             dniCliente=buffer.readLine();
             for(Reservas reserva:reservas) {
                 if(reserva.getDni().equalsIgnoreCase(dniCliente)) {
-                    System.out.println("\nEl importe a pagar por la devolucion del vehículo es de "+reserva.importe()+" euros");
+                    System.out.println("\nEl importe a pagar por la devolucion del vehículo es de "+GestionAlquileres.importeDevolucion(reserva)+" euros");
                     reserva.getVehiculo().setAlquilado(false);
                     reservas.remove(reserva);
                 }
