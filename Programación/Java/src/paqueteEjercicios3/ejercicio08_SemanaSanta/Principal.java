@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /*
  * @author Victor
- * @version 0.7
+ * @version 0.8
  */
 
 public class Principal {
@@ -80,17 +80,17 @@ public class Principal {
                 }
                 if(correctas<2) {
                     System.out.print("\nPlazas del vehículo: ");
-                    vehiculo.setPlazas(Integer.parseInt(buffer.readLine()));
+                    vehiculo.setPlazas(GestionAlquileres.validadorPlazas(Integer.parseInt(buffer.readLine())));
                     correctas++;
                 }
                 if(correctas<3) {
                     System.out.print("\nCombustible del vehículo: ");
-                    vehiculo.setCombustible(buffer.readLine());
+                    vehiculo.setCombustible(GestionAlquileres.validadorCombustible(buffer.readLine()));
                     correctas++;
                 }
                 if(correctas<4) {
                     System.out.print("\nPrecio/día del vehículo: ");
-                    vehiculo.setPrecio(buffer.readLine());
+                    vehiculo.setPrecio(GestionAlquileres.validadorPrecio(Float.parseFloat(buffer.readLine().replace(',','.'))));
                     correctas++;
                 }
                 vehiculo.setAlquilado(false);
@@ -98,7 +98,7 @@ public class Principal {
             } catch(IOException exc) {
                 System.out.println("\n! Error al introducir la opción");
             } catch(NumberFormatException  exc) {
-                System.out.println("\n! El valor de las plazas a de ser númerico");
+                System.out.println("\n! El valor ha de ser númerico");
             } catch(Exception exc) {
                 System.out.println(exc.getMessage());
             }
@@ -142,17 +142,17 @@ public class Principal {
                 }
                 if(correctas<2) {
                     System.out.print("\nPlazas: ");
-                    vehiculoModificado.setPlazas(Integer.parseInt(buffer.readLine()));
+                    vehiculoModificado.setPlazas(GestionAlquileres.validadorPlazas(Integer.parseInt(buffer.readLine())));
                     correctas++;
                 }
                 if(correctas<3) {
                     System.out.print("\nCombustible: ");
-                    vehiculoModificado.setCombustible(buffer.readLine());
+                    vehiculoModificado.setCombustible(GestionAlquileres.validadorCombustible(buffer.readLine()));
                     correctas++;
                 }
                 if(correctas<4) {
                     System.out.print("\nPrecio por día: ");
-                    vehiculoModificado.setPrecio(buffer.readLine());
+                    vehiculoModificado.setPrecio(GestionAlquileres.validadorPrecio(Float.parseFloat(buffer.readLine().replace(',','.'))));
                     correctas++;
                 }
             }

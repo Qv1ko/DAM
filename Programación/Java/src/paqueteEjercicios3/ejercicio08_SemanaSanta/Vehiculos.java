@@ -2,7 +2,7 @@ package paqueteEjercicios3.ejercicio08_SemanaSanta;
 
 /*
  * @author Victor
- * @version 0.4
+ * @version 0.5
  */
 
 public class Vehiculos {
@@ -41,10 +41,7 @@ public class Vehiculos {
         return plazas;
     }
 
-    public void setPlazas(int plazas) throws Exception {
-        if(plazas<1||plazas>9) {
-            throw new Exception("\n! El número de plazas no es valido\n");
-        }
+    public void setPlazas(int plazas) {
         this.plazas=plazas;
     }
 
@@ -52,26 +49,16 @@ public class Vehiculos {
         return combustible;
     }
 
-    public void setCombustible(String combustible) throws Exception { 
-        if(combustible.equalsIgnoreCase(Combustibles.DIESEL.toString())||combustible.equalsIgnoreCase("D")) {
-            this.combustible=Combustibles.DIESEL;
-        } else if(combustible.equalsIgnoreCase(Combustibles.GAS.toString())||combustible.equalsIgnoreCase("G")) {
-            this.combustible=Combustibles.GAS;
-        } else if(combustible.equalsIgnoreCase(Combustibles.ELECTRICO.toString())||combustible.equalsIgnoreCase("E")) {
-            this.combustible=Combustibles.ELECTRICO;
-        } else if(combustible.equalsIgnoreCase(Combustibles.HIBRIDO.toString())||combustible.equalsIgnoreCase("H")) {
-            this.combustible=Combustibles.HIBRIDO;
-        } else {
-            throw new Exception("\n! Combustible no valido\n");
-        }
+    public void setCombustible(Combustibles combustible) { 
+        this.combustible=combustible;
     }
 
     public float getPrecio() {
         return precio;
     }
 
-    public void setPrecio(String precio) {
-        this.precio=Float.parseFloat(String.format("%.2f",precio));
+    public void setPrecio(float precio) {
+        this.precio=precio;
     }
 
     public boolean isAlquilado() {
