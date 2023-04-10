@@ -2,7 +2,7 @@ package paqueteEjercicios3.ejercicio08_SemanaSanta;
 
 /**
  * @author Victor
- * @version 0.6
+ * @version 0.7
  */
 
 public class Vehiculos {
@@ -70,11 +70,11 @@ public class Vehiculos {
     }
 
     private String alquiladoToString() {
-        return (isAlquilado())? "Esta alquilado":"No esta alquilado";
+        return (isAlquilado())? "Esta alquilado ha "+getPrecio()+" euros por día.":"Se alquila por "+getPrecio()+" euros al día.";
     }
 
     public String toString() {
-        return "Vehiculo "+getMatricula()+" a combustible "+getCombustible().toString()+" con "+getPlazas()+" plazas. "+alquiladoToString()+" ha "+getPrecio()+" por día.";
+        return "Vehiculo "+getMatricula()+" a combustible "+getCombustible().toString()+" con "+getPlazas()+" plazas. "+alquiladoToString();
     }
     
 }//class

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  * @author Victor
- * @version 1.1
+ * @version 1.2
  */
 
 public class Principal {
@@ -51,7 +51,7 @@ public class Principal {
                     case 0 -> System.out.println("\nSaliendo del menu de gestión...");
                     case 1 -> anadirVehiculo(vehiculos,buffer);
                     case 2 -> listarVehiculos(vehiculos);
-                    case 3 -> System.out.println(buscarVehiculo(vehiculos,buffer).toString());
+                    case 3 -> System.out.println("\nBusqueda finalizada:\n"+buscarVehiculo(vehiculos,buffer).toString());
                     case 4 -> actualizarVehiculo(vehiculos,buffer);
                     case 5 -> eliminarVehiculo(vehiculos,buffer);
                     default -> System.out.println("\n! Seleccione una opción valida");
@@ -119,14 +119,16 @@ public class Principal {
     private static Vehiculos buscarVehiculo(ArrayList<Vehiculos> vehiculos,BufferedReader buffer) throws IOException,Exception {
         Vehiculos vehiculoBuscado=null;
         String matricula="";
+        boolean encontrado=false;
         System.out.println("\nIntroduzca la matricula del vehículo que busca: ");
         matricula=buffer.readLine();
         for(Vehiculos vehiculo:vehiculos) {
             if(vehiculo.getMatricula().equalsIgnoreCase(matricula)) {
+                encontrado=true;
                 vehiculoBuscado=vehiculo;
             }
         }
-        if(vehiculoBuscado.equals(null)) {
+        if(!encontrado) {
             throw new Exception("\n! El vehículo no ha sido encontrado");
         }
         return vehiculoBuscado;
@@ -192,7 +194,7 @@ public class Principal {
             try {
                 if(correctas<1) {
                     System.out.print("\nDNI del cliente: ");
-                    reserva.setDni(buffer.readLine());
+                    reserva.setDni(GestionAlquileres.validarDni(buffer.readLine()));
                     correctas++;
                 }
                 if(correctas<2) {
@@ -215,7 +217,7 @@ public class Principal {
             } catch(NumberFormatException  exc) {
                 System.out.println("\n! Escribe la hora en formato 24 horas");
             } catch(DateTimeParseException exc) {
-                System.out.println("\n! El formato es incorrecto\n\sFormato de la fecha: aaaa-mm-dd\n\sFormato de la hora: hh-mm");
+                System.out.println("\n! El formato es incorrecto\n\sFormato de la fecha: aaaa-mm-dd\n\sFormato de la hora: hh:mm");
             } catch(Exception exc) {
                 System.out.println(exc.getMessage());
             }
