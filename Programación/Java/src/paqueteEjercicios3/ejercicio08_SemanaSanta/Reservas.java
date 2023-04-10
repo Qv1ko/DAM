@@ -2,7 +2,7 @@ package paqueteEjercicios3.ejercicio08_SemanaSanta;
 
 import java.time.LocalDateTime;
 
-/*
+/**
  * @author Victor
  * @version 0.4
  */
