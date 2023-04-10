@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /*
  * @author Victor
- * @version 1.0
+ * @version 1.1
  */
 
 public class Principal {
@@ -27,7 +27,7 @@ public class Principal {
             try {
                 opcion=Integer.parseInt(buffer.readLine());
                 switch(opcion) {
-                    case 0 -> System.out.println("\n- Saliendo...\n");
+                    case 0 -> System.out.println("\nSaliendo...\n");
                     case 1 -> menuVehiculos(vehiculos,buffer);
                     case 2 -> reserva(reservas,vehiculos,buffer);
                     case 3 -> devolucion(reservas,vehiculos,buffer);
@@ -48,7 +48,7 @@ public class Principal {
             try {
                 opcion=Integer.parseInt(buffer.readLine());
                 switch(opcion) {
-                    case 0 -> System.out.println("\n- Saliendo del menu de gestión...");
+                    case 0 -> System.out.println("\nSaliendo del menu de gestión...");
                     case 1 -> anadirVehiculo(vehiculos,buffer);
                     case 2 -> listarVehiculos(vehiculos);
                     case 3 -> System.out.println(buscarVehiculo(vehiculos,buffer).toString());
@@ -106,9 +106,13 @@ public class Principal {
     }
 
     private static void listarVehiculos(ArrayList<Vehiculos> vehiculos) {
-        System.out.println("\nLista de vehiculos de la empresa:");
-        for(Vehiculos vehiculo:vehiculos) {
-            System.out.println("| "+vehiculo);
+        if(vehiculos.size()>0) {
+            System.out.println("\nLista de vehiculos de la empresa:");
+            for(Vehiculos vehiculo:vehiculos) {
+                System.out.println("| "+vehiculo);
+            }
+        } else {
+            System.out.println("\n! No hay vehículos");
         }
     }
 
