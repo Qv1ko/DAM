@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /*
  * @author Victor
- * @version 0.9
+ * @version 1.0
  */
 
 public class Principal {
@@ -48,7 +48,7 @@ public class Principal {
             try {
                 opcion=Integer.parseInt(buffer.readLine());
                 switch(opcion) {
-                    case 0 -> System.out.println("\n- Saliendo...");
+                    case 0 -> System.out.println("\n- Saliendo del menu de gestión...");
                     case 1 -> anadirVehiculo(vehiculos,buffer);
                     case 2 -> listarVehiculos(vehiculos);
                     case 3 -> System.out.println(buscarVehiculo(vehiculos,buffer).toString());
@@ -220,15 +220,20 @@ public class Principal {
 
     private static void devolucion(ArrayList<Reservas> reservas,ArrayList<Vehiculos> vehiculos,BufferedReader buffer) {
         String dniCliente="";
+        boolean encontrado=false;
         try {
             System.out.println("\nEscribe el DNI del cliente que alquilo el vehículo: ");
             dniCliente=buffer.readLine();
             for(Reservas reserva:reservas) {
                 if(reserva.getDni().equalsIgnoreCase(dniCliente)) {
+                    encontrado=true;
                     System.out.println("\nEl importe a pagar por la devolucion del vehículo es de "+GestionAlquileres.importeDevolucion(reserva)+" euros");
                     reserva.getVehiculo().setAlquilado(false);
                     reservas.remove(reserva);
                 }
+            }
+            if(!encontrado) {
+                System.out.println("\n! No se encontro el DNI del cliente");
             }
         } catch(IOException exc) {
             System.out.println("\n! Error al introducir la opción");

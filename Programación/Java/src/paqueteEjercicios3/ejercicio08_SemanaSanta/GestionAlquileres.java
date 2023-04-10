@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 /*
  * @author Victor
- * @version 0.3
+ * @version 0.4
  */
 
 public class GestionAlquileres {
@@ -44,7 +44,8 @@ public class GestionAlquileres {
     }//validadorCombustible
 
     public static float validadorPrecio(float precio) throws Exception,NumberFormatException {
-        precio=Float.parseFloat(new DecimalFormat("#.##").format(precio));
+        precio=Float.parseFloat(new DecimalFormat("#.##").format(precio).replace(',','.'));
+        precio=(float)Math.round(precio*100)/100;
         if(precio<=0) {
             throw new Exception("\n! El precio no puede ser 0 o inferior");
         }
