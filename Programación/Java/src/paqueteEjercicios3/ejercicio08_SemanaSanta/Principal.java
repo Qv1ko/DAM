@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  * @author Victor
- * @version 1.2
+ * @version 1.3
  */
 
 public class Principal {
@@ -51,7 +51,7 @@ public class Principal {
                     case 0 -> System.out.println("\nSaliendo del menu de gestión...");
                     case 1 -> anadirVehiculo(vehiculos,buffer);
                     case 2 -> listarVehiculos(vehiculos);
-                    case 3 -> System.out.println("\nBusqueda finalizada:\n"+buscarVehiculo(vehiculos,buffer).toString());
+                    case 3 -> System.out.println(buscarVehiculo(vehiculos,buffer).toString());
                     case 4 -> actualizarVehiculo(vehiculos,buffer);
                     case 5 -> eliminarVehiculo(vehiculos,buffer);
                     default -> System.out.println("\n! Seleccione una opción valida");
@@ -64,7 +64,7 @@ public class Principal {
                 System.out.println(exc.getMessage());
             }
         }
-    }
+    }//menuVehiculos
 
     private static void anadirVehiculo(ArrayList<Vehiculos> vehiculos,BufferedReader buffer) {
         Vehiculos vehiculo=null;
@@ -95,6 +95,7 @@ public class Principal {
                 }
                 vehiculo.setAlquilado(false);
                 vehiculos.add(vehiculo);
+                System.out.println("\n+ Vehículo añadido correctamente");
             } catch(IOException exc) {
                 System.out.println("\n! Error al introducir la opción");
             } catch(NumberFormatException  exc) {
@@ -103,7 +104,7 @@ public class Principal {
                 System.out.println(exc.getMessage());
             }
         }
-    }
+    }//anadirVehiculo
 
     private static void listarVehiculos(ArrayList<Vehiculos> vehiculos) {
         if(vehiculos.size()>0) {
@@ -114,14 +115,14 @@ public class Principal {
         } else {
             System.out.println("\n! No hay vehículos");
         }
-    }
+    }//listarVehiculos
 
     private static Vehiculos buscarVehiculo(ArrayList<Vehiculos> vehiculos,BufferedReader buffer) throws IOException,Exception {
         Vehiculos vehiculoBuscado=null;
         String matricula="";
         boolean encontrado=false;
-        System.out.println("\nIntroduzca la matricula del vehículo que busca: ");
-        matricula=buffer.readLine();
+        System.out.print("\nIntroduzca la matricula del vehículo que busca: ");
+        matricula=GestionAlquileres.validadorMatricula(buffer.readLine());
         for(Vehiculos vehiculo:vehiculos) {
             if(vehiculo.getMatricula().equalsIgnoreCase(matricula)) {
                 encontrado=true;
@@ -132,7 +133,7 @@ public class Principal {
             throw new Exception("\n! El vehículo no ha sido encontrado");
         }
         return vehiculoBuscado;
-    }
+    }//buscarVehiculo
 
     private static void actualizarVehiculo(ArrayList<Vehiculos> vehiculos,BufferedReader buffer) {
         Vehiculos vehiculoModificado=null;
@@ -162,6 +163,7 @@ public class Principal {
                     correctas++;
                 }
             }
+            System.out.println("\n+ Vehículo actualizado correctamente");
         } catch(IOException exc) {
             System.out.println("\n! Error al introducir la opción");
         } catch(NumberFormatException exc) {
@@ -169,23 +171,23 @@ public class Principal {
         } catch(Exception exc) {
             System.out.println(exc.getMessage());
         }
-    }
+    }//actualizarVehiculo
 
     private static void eliminarVehiculo(ArrayList<Vehiculos> vehiculos,BufferedReader buffer) {
         try {
             vehiculos.remove(buscarVehiculo(vehiculos,buffer));
-            System.out.println("\n+ Vehiculo eliminado correctamente");
+            System.out.println("\n+ Vehículo eliminado correctamente");
         } catch(IOException exc) {
             System.out.println("\n! Error al introducir la opción");
         } catch(Exception exc) {
             System.out.println(exc.getMessage());
         }
-    }
+    }//eliminarVehiculo
 
     private static void reserva(ArrayList<Reservas> reservas,ArrayList<Vehiculos> vehiculos,BufferedReader buffer) {
         Reservas reserva=null;
         int correctas=0;
-        Vehiculos vehiculoAlquilado=null;
+        Vehiculos vehiculo=null;
         LocalDate fecha=null;
         LocalTime hora=null;
         System.out.println("\nIntroduzca los datos de la reserva");
@@ -198,9 +200,9 @@ public class Principal {
                     correctas++;
                 }
                 if(correctas<2) {
-                    vehiculoAlquilado=buscarVehiculo(vehiculos,buffer);
-                    reserva.setVehiculo(vehiculoAlquilado);
-                    vehiculoAlquilado.setAlquilado(true);
+                    vehiculo=buscarVehiculo(vehiculos,buffer);
+                    reserva.setVehiculo(vehiculo);
+                    vehiculo.setAlquilado(true);
                     correctas++;
                 }
                 if(correctas<3) {
@@ -212,6 +214,7 @@ public class Principal {
                     correctas++;
                 }
                 reservas.add(reserva);
+                System.out.println("\n+ El vehículo con matricula "+vehiculo.getMatricula()+" se ha reservado correctamente");
             } catch(IOException exc) {
                 System.out.println("\n! Error al introducir la opción");
             } catch(NumberFormatException  exc) {
@@ -222,14 +225,14 @@ public class Principal {
                 System.out.println(exc.getMessage());
             }
         }
-    }
+    }//reserva
 
     private static void devolucion(ArrayList<Reservas> reservas,ArrayList<Vehiculos> vehiculos,BufferedReader buffer) {
         String dniCliente="";
         boolean encontrado=false;
         try {
-            System.out.println("\nEscribe el DNI del cliente que alquilo el vehículo: ");
-            dniCliente=buffer.readLine();
+            System.out.print("\nEscribe el DNI del cliente que alquilo el vehículo: ");
+            dniCliente=GestionAlquileres.validarDni(buffer.readLine());
             for(Reservas reserva:reservas) {
                 if(reserva.getDni().equalsIgnoreCase(dniCliente)) {
                     encontrado=true;
@@ -243,7 +246,9 @@ public class Principal {
             }
         } catch(IOException exc) {
             System.out.println("\n! Error al introducir la opción");
+        } catch(Exception exc) {
+            System.out.println(exc.getMessage());
         }
-    }
+    }//devolucion
 
 }//class

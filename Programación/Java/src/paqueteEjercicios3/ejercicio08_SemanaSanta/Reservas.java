@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 /**
  * @author Victor
- * @version 0.4
+ * @version 0.5
  */
 
 public class Reservas {
@@ -15,38 +15,38 @@ public class Reservas {
 
     public Reservas() {
         this.dni="99999999R";
-        this.vehiculo=null;
+        this.vehiculo=new Vehiculos();
         this.fecha=LocalDateTime.now();
-    }
+    }//Reservas - Constructor vacio
 
     public Reservas(String dni,Vehiculos vehiculo,LocalDateTime fecha) {
         this.dni=dni;
         this.vehiculo=vehiculo;
         this.fecha=fecha;
-    }
+    }//Reservas
 
     public String getDni() {
         return dni;
-    }
+    }//getDni
 
     public void setDni(String dni) {
         this.dni=dni;
-    }
+    }//setDni
 
     public Vehiculos getVehiculo() {
         return vehiculo;
-    }
+    }//getVehiculo
 
     public void setVehiculo(Vehiculos vehiculo) {
         this.vehiculo=vehiculo;
-    }
+    }//setVehiculo
 
     public LocalDateTime getFecha() {
         return fecha;
-    }
+    }//getFecha
 
     public void setFecha(LocalDateTime fecha) throws Exception {
         this.fecha=fecha;
-    }
+    }//setFecha
 
 }//class
