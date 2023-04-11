@@ -1,9 +1,9 @@
 @ECHO OFF
 
-IF NOT %1=="" GOTO :ayuda
-ECHO ! Error | Formato -> ayuda comando
-
-:ayuda
-%1 /?
-ECHO Pulse una tecla para salir...
-PAUSE > nul
+IF "%1"=="" (
+	ECHO Uso: ayuda comando
+) ELSE (
+	%1 /?
+	ECHO Pulse una tecla para salir...
+	PAUSE > nul
+)
