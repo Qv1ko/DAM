@@ -11,26 +11,24 @@ import java.util.ArrayList;
 
 /**
  * @author Victor
- * @version 1.3
+ * @version 1.4
  */
 
 public class Principal {
 
     public static void main(String[] args) throws Exception {
-        int opcion=-1;
         InputStreamReader in=new InputStreamReader(System.in);
         BufferedReader buffer=new BufferedReader(in);
-        ArrayList<Vehiculos> vehiculos=new ArrayList<Vehiculos>();
-        ArrayList<Reservas> reservas=new ArrayList<Reservas>();
+        int opcion=-1;
         while(opcion!=0) {
             System.out.print("\nAlquiler de vehículos:\n\s1) Gestión de vehículos\n\s2) Reservar un vehículo\n\s3) Devolver un vehículo\n\s0) Salir\n\nSeleccione una opción: ");
             try {
                 opcion=Integer.parseInt(buffer.readLine());
                 switch(opcion) {
                     case 0 -> System.out.println("\nSaliendo...\n");
-                    case 1 -> menuVehiculos(vehiculos,buffer);
-                    case 2 -> reserva(reservas,vehiculos,buffer);
-                    case 3 -> devolucion(reservas,vehiculos,buffer);
+                    case 1 -> menuVehiculos(GestionAlquileres.vehiculos,buffer);
+                    case 2 -> reserva(GestionAlquileres.reservas,GestionAlquileres.vehiculos,buffer);
+                    case 3 -> devolucion(GestionAlquileres.reservas,GestionAlquileres.vehiculos,buffer);
                     default -> System.out.println("\n! Seleccione una opción valida");
                 }
             } catch(IOException exc) {
