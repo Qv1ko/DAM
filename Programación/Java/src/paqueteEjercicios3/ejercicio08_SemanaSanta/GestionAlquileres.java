@@ -3,14 +3,18 @@ package paqueteEjercicios3.ejercicio08_SemanaSanta;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 /**
  * @author Victor
- * @version 0.4
+ * @version 0.5
  */
 
 public class GestionAlquileres {
+
+    public static ArrayList<Vehiculos> vehiculos=new ArrayList<Vehiculos>();
+    public static ArrayList<Reservas> reservas=new ArrayList<Reservas>();
     
     public static String validadorMatricula(String matricula) throws Exception {
         String patronMatricula="^\\d{4}\\w{3}$";
