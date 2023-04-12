@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 /**
  * @author Victor
- * @version 0.8
+ * @version 0.9
  */
 
 public class GestionAlquileres {
@@ -74,7 +74,7 @@ public class GestionAlquileres {
 
     public static LocalDateTime validarFechaHora(LocalDateTime fechaHora) throws Exception {
         if(fechaHora.isAfter(LocalDateTime.now())) {
-            throw new Exception("Fecha invalida");
+            throw new Exception("La fecha debe ser anterior a la fecha actual");
         }
         return fechaHora;
     }//validarFechaHora
