@@ -6,12 +6,13 @@ import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
 /**
  * @author Victor
- * @version 1.5
+ * @version 1.6
  */
 
 public class Principal {
@@ -205,7 +206,7 @@ public class Principal {
                 }
                 if(correctas<3) {
                     System.out.print("\nFecha de la reserva: ");
-                    fecha=LocalDate.parse(buffer.readLine());
+                    fecha=LocalDate.parse(buffer.readLine(),DateTimeFormatter.ofPattern("dd/MM/yyyy"));
                     System.out.print("\nHora de la reserva: ");
                     hora=LocalTime.parse(buffer.readLine());
                     reserva.setFecha(GestionAlquileres.validarFechaHora(LocalDateTime.of(fecha,hora)));
@@ -218,7 +219,7 @@ public class Principal {
             } catch(NumberFormatException  exc) {
                 System.out.println("\n! Escribe la hora en formato 24 horas");
             } catch(DateTimeParseException exc) {
-                System.out.println("\n! El formato es incorrecto\n\sFormato de la fecha: aaaa-mm-dd\n\sFormato de la hora: hh:mm");
+                System.out.println("\n! El formato es incorrecto\n\sFormato de la fecha: dd/mm/aaaa\n\sFormato de la hora: hh:mm");
             } catch(Exception exc) {
                 System.out.println(exc.getMessage());
             }
