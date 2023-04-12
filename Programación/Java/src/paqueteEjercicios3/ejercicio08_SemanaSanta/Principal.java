@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  * @author Victor
- * @version 1.4
+ * @version 1.5
  */
 
 public class Principal {
@@ -190,7 +190,7 @@ public class Principal {
         LocalTime hora=null;
         System.out.println("\nIntroduzca los datos de la reserva");
         reserva=new Reservas();
-        while(correctas<4) {
+        while(correctas<3) {
             try {
                 if(correctas<1) {
                     System.out.print("\nDNI del cliente: ");

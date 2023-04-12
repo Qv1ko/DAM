@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 /**
  * @author Victor
- * @version 0.6
+ * @version 0.7
  */
 
 public class GestionAlquileres {
@@ -73,7 +73,7 @@ public class GestionAlquileres {
     }//validarDni
 
     public static LocalDateTime validarFechaHora(LocalDateTime fechaHora) throws Exception {
-        if(fechaHora.isBefore(LocalDateTime.now())) {
+        if(fechaHora.isAfter(LocalDateTime.now())) {
             throw new Exception("Fecha invalida");
         }
         return fechaHora;
