@@ -35,8 +35,8 @@ public class GestionAlquileres {
         Combustibles tipoCombustible=null;
         if(combustible.equalsIgnoreCase(Combustibles.DIESEL.toString())||combustible.equalsIgnoreCase("D")) {
             tipoCombustible=Combustibles.DIESEL;
-        } else if(combustible.equalsIgnoreCase(Combustibles.GAS.toString())||combustible.equalsIgnoreCase("G")) {
-            tipoCombustible=Combustibles.GAS;
+        } else if(combustible.equalsIgnoreCase(Combustibles.GASOLINA.toString())||combustible.equalsIgnoreCase("G")) {
+            tipoCombustible=Combustibles.GASOLINA;
         } else if(combustible.equalsIgnoreCase(Combustibles.ELECTRICO.toString())||combustible.equalsIgnoreCase("E")) {
             tipoCombustible=Combustibles.ELECTRICO;
         } else if(combustible.equalsIgnoreCase(Combustibles.HIBRIDO.toString())||combustible.equalsIgnoreCase("H")) {
