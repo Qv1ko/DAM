@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 /**
  * @author Victor
- * @version 1.1
+ * @version 1.2
  */
 
 public class GestionAlquileres {
@@ -68,6 +68,11 @@ public class GestionAlquileres {
         } else {
             throw new Exception("\n! Formato incorrecto");
         }
+        for(Reservas reserva:reservas) {
+            if(reserva.getDni().equalsIgnoreCase(dni)) {
+                throw new Exception("! Solo se puede hacer una reserva por persona");
+            }
+        }
         return dni.toUpperCase();
     }//validarDni
 
@@ -76,7 +81,7 @@ public class GestionAlquileres {
             throw new Exception("El vehículo ya esta alquilado");
         }
         return vehiculo;
-    }
+    }//validarAlquilerVehiculo
 
     public static LocalDateTime validarFechaHora(LocalDateTime fechaHora) throws Exception {
         if(fechaHora.isAfter(LocalDateTime.now())) {
