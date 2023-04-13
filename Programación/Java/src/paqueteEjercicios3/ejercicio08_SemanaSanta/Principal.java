@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  * @author Victor
- * @version 1.7
+ * @version 1.8
  */
 
 public class Principal {
@@ -200,7 +200,7 @@ public class Principal {
                 }
                 if(correctas<2) {
                     vehiculo=buscarVehiculo(vehiculos,buffer);
-                    reserva.setVehiculo(vehiculo);
+                    reserva.setVehiculo(GestionAlquileres.validarAlquilerVehiculo(vehiculo));
                     vehiculo.setAlquilado(true);
                     correctas++;
                 }

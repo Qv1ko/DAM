@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 /**
  * @author Victor
- * @version 1.0
+ * @version 1.1
  */
 
 public class GestionAlquileres {
@@ -70,6 +70,13 @@ public class GestionAlquileres {
         }
         return dni.toUpperCase();
     }//validarDni
+
+    public static Vehiculos validarAlquilerVehiculo(Vehiculos vehiculo) throws Exception {
+        if(vehiculo.isAlquilado()) {
+            throw new Exception("El vehículo ya esta alquilado");
+        }
+        return vehiculo;
+    }
 
     public static LocalDateTime validarFechaHora(LocalDateTime fechaHora) throws Exception {
         if(fechaHora.isAfter(LocalDateTime.now())) {
