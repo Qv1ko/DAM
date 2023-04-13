@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 /**
  * @author Victor
- * @version 0.9
+ * @version 1.0
  */
 
 public class GestionAlquileres {
@@ -47,13 +47,12 @@ public class GestionAlquileres {
         return tipoCombustible;
     }//validadorCombustible
 
-    public static float validadorPrecio(float precio) throws Exception,NumberFormatException {
-        precio=Float.parseFloat(new DecimalFormat("#.##").format(precio).replace(',','.'));
-        precio=(float)Math.round(precio*100)/100;
-        if(precio<=0) {
+    public static float validadorPrecio(String precio) throws Exception,NumberFormatException {
+        float precioFinal=Float.parseFloat(new DecimalFormat("#.##").format(Float.parseFloat(precio)).replace(',','.'));
+        if(precioFinal<=0) {
             throw new Exception("\n! El precio no puede ser 0 o inferior");
         }
-        return precio;
+        return precioFinal;
     }//validadorPrecio
 
     public static String validarDni(String dni) throws Exception {

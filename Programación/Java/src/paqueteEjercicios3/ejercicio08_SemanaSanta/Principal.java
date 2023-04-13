@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  * @author Victor
- * @version 1.6
+ * @version 1.7
  */
 
 public class Principal {
@@ -89,7 +89,7 @@ public class Principal {
                 }
                 if(correctas<4) {
                     System.out.print("\nPrecio/día del vehículo: ");
-                    vehiculo.setPrecio(GestionAlquileres.validadorPrecio(Float.parseFloat(buffer.readLine().replace(',','.'))));
+                    vehiculo.setPrecio(GestionAlquileres.validadorPrecio(buffer.readLine().replace(',','.')));
                     correctas++;
                 }
                 vehiculo.setAlquilado(false);
@@ -158,7 +158,7 @@ public class Principal {
                 }
                 if(correctas<4) {
                     System.out.print("\nPrecio por día: ");
-                    vehiculoModificado.setPrecio(GestionAlquileres.validadorPrecio(Float.parseFloat(buffer.readLine().replace(',','.'))));
+                    vehiculoModificado.setPrecio(GestionAlquileres.validadorPrecio(buffer.readLine().replace(',','.')));
                     correctas++;
                 }
             }
