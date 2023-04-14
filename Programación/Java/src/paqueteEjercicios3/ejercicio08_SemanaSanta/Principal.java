@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  * @author Victor
- * @version 2.0
+ * @version 2.2
  */
 
 public class Principal {
@@ -139,17 +139,20 @@ public class Principal {
 
     private static Vehiculos buscarVehiculo(ArrayList<Vehiculos> vehiculos,BufferedReader buffer) throws IOException,Exception {
         Vehiculos vehiculoBuscado=null;
-        String matricula="";
+        String matricula="",ent="";
         boolean encontrado=false;
         if(vehiculos.size()<1) {
             throw new Exception("\n! No hay vehículos");
         }
         System.out.print("\nIntroduzca la matrícula del vehículo que busca: ");
-        matricula=GestionAlquileres.validadorMatricula(buffer.readLine());
-        for(Vehiculos vehiculo:vehiculos) {
-            if(vehiculo.getMatricula().equalsIgnoreCase(matricula)) {
-                encontrado=true;
-                vehiculoBuscado=vehiculo;
+        ent=buffer.readLine();
+        if(!ent.equals("0")) {
+            matricula=GestionAlquileres.validadorMatricula(ent);
+            for(Vehiculos vehiculo:vehiculos) {
+                if(vehiculo.getMatricula().equalsIgnoreCase(matricula)) {
+                    encontrado=true;
+                    vehiculoBuscado=vehiculo;
+                }
             }
         }
         if(!encontrado) {
@@ -291,7 +294,7 @@ public class Principal {
                 } catch(DateTimeParseException exc) {
                     System.out.println("\n! El formato es incorrecto\n\sFormato de la fecha: dd/mm/aaaa\n\sFormato de la hora: hh:mm");
                 } catch(Exception exc) {
-                    if(exc.getMessage().equals("\n! El vehículo con matrícula 0 no ha sido encontrado")) {
+                    if(exc.getMessage().equals("\n! El vehículo con matrícula  no ha sido encontrado")) {
                         System.out.println("\nSaliendo...");
                         break;
                     } else {
