@@ -70,7 +70,7 @@ public class GestionAlquileres {
         }
         for(Reservas reserva:reservas) {
             if(reserva.getDni().equalsIgnoreCase(dni)) {
-                throw new Exception("! Solo se puede hacer una reserva por persona");
+                throw new Exception("\n! Solo se puede hacer una reserva por persona");
             }
         }
         return dni.toUpperCase();
@@ -78,14 +78,14 @@ public class GestionAlquileres {
 
     public static Vehiculos validarAlquilerVehiculo(Vehiculos vehiculo) throws Exception {
         if(vehiculo.isAlquilado()) {
-            throw new Exception("El vehículo ya esta alquilado");
+            throw new Exception("\n! El vehículo ya esta alquilado");
         }
         return vehiculo;
     }//validarAlquilerVehiculo
 
     public static LocalDateTime validarFechaHora(LocalDateTime fechaHora) throws Exception {
         if(fechaHora.isAfter(LocalDateTime.now())) {
-            throw new Exception("La fecha debe ser anterior a la fecha actual");
+            throw new Exception("\n! La fecha debe ser anterior a la fecha actual");
         }
         return fechaHora;
     }//validarFechaHora
