@@ -3,8 +3,8 @@ package paqueteEjercicios3.ejercicio08_SemanaSanta;
 import java.time.LocalDateTime;
 
 /**
- * @author Victor
- * @version 0.5
+ * @author Víctor
+ * @version 0.6
  */
 
 public class Reservas {
@@ -17,7 +17,7 @@ public class Reservas {
         this.dni="99999999R";
         this.vehiculo=new Vehiculos();
         this.fecha=LocalDateTime.now();
-    }//Reservas - Constructor vacio
+    }//Reservas - Constructor vacío
 
     public Reservas(String dni,Vehiculos vehiculo,LocalDateTime fecha) {
         this.dni=dni;

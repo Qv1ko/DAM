@@ -11,8 +11,8 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
 /**
- * @author Victor
- * @version 2.2
+ * @author Víctor
+ * @version 2.3
  */
 
 public class Principal {

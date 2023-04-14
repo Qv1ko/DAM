@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 /**
- * @author Victor
- * @version 1.4
+ * @author Víctor
+ * @version 1.5
  */
 
 public class GestionAlquileres {

@@ -1,8 +1,8 @@
 package paqueteEjercicios3.ejercicio08_SemanaSanta;
 
 /**
- * @author Victor
- * @version 0.8
+ * @author Víctor
+ * @version 0.9
  */
 
 public class Vehiculos {
@@ -19,7 +19,7 @@ public class Vehiculos {
         this.combustible=Combustibles.DIESEL;
         this.precio=(float)Math.random()*1001;
         this.alquilado=false;
-    }//Vehiculos - Constructor vacio
+    }//Vehiculos - Constructor vacío
 
     public Vehiculos(String matricula,int plazas,Combustibles combustible,float precio,boolean alquilado) {
         this.matricula=matricula;
@@ -70,11 +70,11 @@ public class Vehiculos {
     }//setAlquilado
 
     private String alquiladoToString() {
-        return (isAlquilado())? "Esta alquilado ha "+getPrecio()+" euros por día.":"Se alquila por "+getPrecio()+" euros al día.";
+        return (isAlquilado())? "Está alquilado a "+getPrecio()+" euros por día.":"Se alquila por "+getPrecio()+" euros al día.";
     }//alquiladoToString
 
     public String toString() {
-        return "Vehiculo "+getMatricula()+" a combustible "+getCombustible().toString()+" con "+getPlazas()+" plazas. "+alquiladoToString();
+        return "Vehículo "+getMatricula()+" a combustible "+getCombustible().toString()+" con "+getPlazas()+" plazas. "+alquiladoToString();
     }//toString
     
 }//class
