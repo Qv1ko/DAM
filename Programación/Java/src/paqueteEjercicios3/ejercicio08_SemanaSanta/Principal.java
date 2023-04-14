@@ -30,12 +30,12 @@ public class Principal {
                     case 1 -> menuVehiculos(GestionAlquileres.vehiculos,buffer);
                     case 2 -> reserva(GestionAlquileres.reservas,GestionAlquileres.vehiculos,buffer);
                     case 3 -> devolucion(GestionAlquileres.reservas,GestionAlquileres.vehiculos,buffer);
-                    default -> System.out.println("\n! Seleccione una opción valida");
+                    default -> System.out.println("\n! Seleccione una opción válida");
                 }
             } catch(IOException exc) {
                 System.out.println("\n! Error al introducir la opción");
             } catch(NumberFormatException  exc) {
-                System.out.println("\n! Opción no valida");
+                System.out.println("\n! Opción no válida");
             }
         }
     }//main
@@ -47,18 +47,18 @@ public class Principal {
             try {
                 opcion=Integer.parseInt(buffer.readLine());
                 switch(opcion) {
-                    case 0 -> System.out.println("\nSaliendo del menu de gestión...");
+                    case 0 -> System.out.println("\nSaliendo del menú de gestión...");
                     case 1 -> anadirVehiculo(vehiculos,buffer);
                     case 2 -> listarVehiculos(vehiculos);
                     case 3 -> System.out.println(buscarVehiculo(vehiculos,buffer).toString());
                     case 4 -> actualizarVehiculo(vehiculos,buffer);
                     case 5 -> eliminarVehiculo(vehiculos,buffer);
-                    default -> System.out.println("\n! Seleccione una opción valida");
+                    default -> System.out.println("\n! Seleccione una opción válida");
                 }
             } catch(IOException exc) {
                 System.out.println("\n! Error al introducir la opción");
             } catch(NumberFormatException  exc) {
-                System.out.println("\n! Opción no valida");
+                System.out.println("\n! Opción no válida");
             } catch(Exception exc) {
                 System.out.println(exc.getMessage());
             }
@@ -119,7 +119,7 @@ public class Principal {
             } catch(IOException exc) {
                 System.out.println("\n! Error al introducir la opción");
             } catch(NumberFormatException  exc) {
-                System.out.println("\n! El valor ha de ser númerico");
+                System.out.println("\n! El valor ha de ser numérico");
             } catch(Exception exc) {
                 System.out.println(exc.getMessage());
             }
@@ -128,7 +128,7 @@ public class Principal {
 
     private static void listarVehiculos(ArrayList<Vehiculos> vehiculos) {
         if(vehiculos.size()>0) {
-            System.out.println("\nLista de vehiculos de la empresa:");
+            System.out.println("\nLista de vehículos de la empresa:");
             for(Vehiculos vehiculo:vehiculos) {
                 System.out.println("| "+vehiculo);
             }
@@ -144,7 +144,7 @@ public class Principal {
         if(vehiculos.size()<1) {
             throw new Exception("\n! No hay vehículos");
         }
-        System.out.print("\nIntroduzca la matricula del vehículo que busca: ");
+        System.out.print("\nIntroduzca la matrícula del vehículo que busca: ");
         matricula=GestionAlquileres.validadorMatricula(buffer.readLine());
         for(Vehiculos vehiculo:vehiculos) {
             if(vehiculo.getMatricula().equalsIgnoreCase(matricula)) {
@@ -153,7 +153,7 @@ public class Principal {
             }
         }
         if(!encontrado) {
-            throw new Exception("\n! El vehículo con matricula "+matricula+" no ha sido encontrado");
+            throw new Exception("\n! El vehículo con matrícula "+matricula+" no ha sido encontrado");
         }
         return vehiculoBuscado;
     }//buscarVehiculo
@@ -168,7 +168,7 @@ public class Principal {
                     vehiculoModificado=buscarVehiculo(vehiculos,buffer);
                     System.out.println("\nIntroduzca los nuevos datos del vehículo");
                     if(correctas<1) {
-                        System.out.print("\nMatricula: ");
+                        System.out.print("\nMatrícula: ");
                         ent=buffer.readLine();
                         if(ent.equals("0")) {
                             System.out.println("\nSaliendo...");
@@ -211,7 +211,7 @@ public class Principal {
                 } catch(IOException exc) {
                     System.out.println("\n! Error al introducir la opción");
                 } catch(NumberFormatException exc) {
-                    System.out.println("\n! El valor de las plazas a de ser númerico");
+                    System.out.println("\n! El valor de las plazas ha de ser numérico");
                 } catch(Exception exc) {
                     System.out.println(exc.getMessage());
                 }
@@ -283,7 +283,7 @@ public class Principal {
                         correctas++;
                     }
                     reservas.add(reserva);
-                    System.out.println("\n+ El vehículo con matricula "+vehiculo.getMatricula()+" se ha reservado correctamente");
+                    System.out.println("\n+ El vehículo con matrícula "+vehiculo.getMatricula()+" se ha reservado correctamente");
                 } catch(IOException exc) {
                     System.out.println("\n! Error al introducir la opción");
                 } catch(NumberFormatException  exc) {
@@ -291,7 +291,7 @@ public class Principal {
                 } catch(DateTimeParseException exc) {
                     System.out.println("\n! El formato es incorrecto\n\sFormato de la fecha: dd/mm/aaaa\n\sFormato de la hora: hh:mm");
                 } catch(Exception exc) {
-                    if(exc.getMessage().equals("\n! El vehículo con matricula 0 no ha sido encontrado")) {
+                    if(exc.getMessage().equals("\n! El vehículo con matrícula 0 no ha sido encontrado")) {
                         System.out.println("\nSaliendo...");
                         break;
                     } else {
@@ -314,13 +314,13 @@ public class Principal {
                 for(Reservas reserva:reservas) {
                     if(reserva.getDni().equalsIgnoreCase(dniCliente)) {
                         encontrado=true;
-                        System.out.println("\nEl importe a pagar por la devolucion del vehículo es de "+GestionAlquileres.importeDevolucion(reserva)+" euros");
+                        System.out.println("\nEl importe a pagar por la devolución del vehículo es de "+GestionAlquileres.importeDevolucion(reserva)+" euros");
                         reserva.getVehiculo().setAlquilado(false);
                         reservas.remove(reserva);
                     }
                 }
                 if(!encontrado) {
-                    System.out.println("\n! No se encontro el DNI del cliente");
+                    System.out.println("\n! No se encontró el DNI del cliente");
                 }
             } catch(IOException exc) {
                 System.out.println("\n! Error al introducir la opción");

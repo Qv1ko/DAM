@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 /**
  * @author Victor
- * @version 1.3
+ * @version 1.4
  */
 
 public class GestionAlquileres {
@@ -19,14 +19,14 @@ public class GestionAlquileres {
     public static String validadorMatricula(String matricula) throws Exception {
         String patronMatricula="^\\d{4}\\w{3}$";
         if(!Pattern.compile(patronMatricula).matcher(matricula).find()) {
-           throw new Exception("\n! La matricula no es valida");
+           throw new Exception("\n! La matrícula no es válida");
         }
         return matricula.toUpperCase();
     }//validadorMatricula
 
     public static int validadorPlazas(int plazas) throws Exception {
         if(plazas<1||plazas>9) {
-            throw new Exception("\n! El número de plazas no es valido");
+            throw new Exception("\n! El número de plazas no es válido");
         }
         return plazas;
     }//validadorPlazas
@@ -42,7 +42,7 @@ public class GestionAlquileres {
         } else if(combustible.equalsIgnoreCase(Combustibles.HIBRIDO.toString())||combustible.equalsIgnoreCase("H")) {
             tipoCombustible=Combustibles.HIBRIDO;
         } else {
-            throw new Exception("\n! Combustible no valido");
+            throw new Exception("\n! Combustible no válido");
         }
         return tipoCombustible;
     }//validadorCombustible
@@ -63,7 +63,7 @@ public class GestionAlquileres {
                 nif+=dni.charAt(i);
             }
             if(letters[Integer.parseInt(nif)%23]!=dni.charAt(dni.length()-1)) {
-                throw new Exception("\n! DNI invalido");
+                throw new Exception("\n! DNI inválido");
             }
         } else {
             throw new Exception("\n! Formato incorrecto");
@@ -78,7 +78,7 @@ public class GestionAlquileres {
 
     public static Vehiculos validarAlquilerVehiculo(Vehiculos vehiculo) throws Exception {
         if(vehiculo.isAlquilado()) {
-            throw new Exception("\n! El vehículo ya esta alquilado");
+            throw new Exception("\n! El vehículo ya está alquilado");
         }
         return vehiculo;
     }//validarAlquilerVehiculo
