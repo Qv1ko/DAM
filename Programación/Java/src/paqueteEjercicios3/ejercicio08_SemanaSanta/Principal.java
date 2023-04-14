@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  * @author Victor
- * @version 1.9
+ * @version 2.0
  */
 
 public class Principal {
@@ -162,58 +162,62 @@ public class Principal {
         Vehiculos vehiculoModificado=null;
         int correctas=0;
         String ent="";
-        while(correctas<4) {
-            try {
-                vehiculoModificado=buscarVehiculo(vehiculos,buffer);
-                System.out.println("\nIntroduzca los nuevos datos del vehículo");
-                if(correctas<1) {
-                    System.out.print("\nMatricula: ");
-                    ent=buffer.readLine();
-                    if(ent.equals("0")) {
-                        System.out.println("\nSaliendo...");
-                        break;
+        if(vehiculos.size()>0) {
+            while(correctas<4) {
+                try {
+                    vehiculoModificado=buscarVehiculo(vehiculos,buffer);
+                    System.out.println("\nIntroduzca los nuevos datos del vehículo");
+                    if(correctas<1) {
+                        System.out.print("\nMatricula: ");
+                        ent=buffer.readLine();
+                        if(ent.equals("0")) {
+                            System.out.println("\nSaliendo...");
+                            break;
+                        }
+                        vehiculoModificado.setMatricula(GestionAlquileres.validadorMatricula(ent));
+                        correctas++;
                     }
-                    vehiculoModificado.setMatricula(GestionAlquileres.validadorMatricula(ent));
-                    correctas++;
-                }
-                if(correctas<2) {
-                    System.out.print("\nPlazas: ");
-                    ent=buffer.readLine();
-                    if(ent.equals("0")) {
-                        System.out.println("\nSaliendo...");
-                        break;
+                    if(correctas<2) {
+                        System.out.print("\nPlazas: ");
+                        ent=buffer.readLine();
+                        if(ent.equals("0")) {
+                            System.out.println("\nSaliendo...");
+                            break;
+                        }
+                        vehiculoModificado.setPlazas(GestionAlquileres.validadorPlazas(Integer.parseInt(ent)));
+                        correctas++;
                     }
-                    vehiculoModificado.setPlazas(GestionAlquileres.validadorPlazas(Integer.parseInt(ent)));
-                    correctas++;
-                }
-                if(correctas<3) {
-                    System.out.print("\nCombustible: ");
-                    ent=buffer.readLine();
-                    if(ent.equals("0")) {
-                        System.out.println("\nSaliendo...");
-                        break;
+                    if(correctas<3) {
+                        System.out.print("\nCombustible: ");
+                        ent=buffer.readLine();
+                        if(ent.equals("0")) {
+                            System.out.println("\nSaliendo...");
+                            break;
+                        }
+                        vehiculoModificado.setCombustible(GestionAlquileres.validadorCombustible(ent));
+                        correctas++;
                     }
-                    vehiculoModificado.setCombustible(GestionAlquileres.validadorCombustible(ent));
-                    correctas++;
-                }
-                if(correctas<4) {
-                    System.out.print("\nPrecio por día: ");
-                    ent=buffer.readLine();
-                    if(ent.equals("0")) {
-                        System.out.println("\nSaliendo...");
-                        break;
+                    if(correctas<4) {
+                        System.out.print("\nPrecio por día: ");
+                        ent=buffer.readLine();
+                        if(ent.equals("0")) {
+                            System.out.println("\nSaliendo...");
+                            break;
+                        }
+                        vehiculoModificado.setPrecio(GestionAlquileres.validadorPrecio(ent.replace(',','.')));
+                        correctas++;
                     }
-                    vehiculoModificado.setPrecio(GestionAlquileres.validadorPrecio(ent.replace(',','.')));
-                    correctas++;
+                    System.out.println("\n+ Vehículo actualizado correctamente");
+                } catch(IOException exc) {
+                    System.out.println("\n! Error al introducir la opción");
+                } catch(NumberFormatException exc) {
+                    System.out.println("\n! El valor de las plazas a de ser númerico");
+                } catch(Exception exc) {
+                    System.out.println(exc.getMessage());
                 }
-                System.out.println("\n+ Vehículo actualizado correctamente");
-            } catch(IOException exc) {
-                System.out.println("\n! Error al introducir la opción");
-            } catch(NumberFormatException exc) {
-                System.out.println("\n! El valor de las plazas a de ser númerico");
-            } catch(Exception exc) {
-                System.out.println(exc.getMessage());
             }
+        } else {
+            System.out.println("\n! No hay vehículos");
         }
     }//actualizarVehiculo
 
@@ -239,60 +243,64 @@ public class Principal {
         Vehiculos vehiculo=null;
         LocalDate fecha=null;
         LocalTime hora=null;
-        System.out.println("\nIntroduzca los datos de la reserva");
-        reserva=new Reservas();
-        while(correctas<3) {
-            try {
-                if(correctas<1) {
-                    System.out.print("\nDNI del cliente: ");
-                    ent=buffer.readLine();
-                    if(ent.equals("0")) {
+        if(vehiculos.size()>0) {
+            System.out.println("\nIntroduzca los datos de la reserva");
+            reserva=new Reservas();
+            while(correctas<3) {
+                try {
+                    if(correctas<1) {
+                        System.out.print("\nDNI del cliente: ");
+                        ent=buffer.readLine();
+                        if(ent.equals("0")) {
+                            System.out.println("\nSaliendo...");
+                            break;
+                        }
+                        reserva.setDni(GestionAlquileres.validarDni(ent));
+                        correctas++;
+                    }
+                    if(correctas<2) {
+                        vehiculo=buscarVehiculo(vehiculos,buffer);
+                        reserva.setVehiculo(GestionAlquileres.validarAlquilerVehiculo(vehiculo));
+                        vehiculo.setAlquilado(true);
+                        correctas++;
+                    }
+                    if(correctas<3) {
+                        System.out.print("\nFecha de la reserva: ");
+                        ent=buffer.readLine();
+                        if(ent.equals("0")) {
+                            System.out.println("\nSaliendo...");
+                            break;
+                        }
+                        fecha=LocalDate.parse(ent,DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                        System.out.print("\nHora de la reserva: ");
+                        ent=buffer.readLine();
+                        if(ent.equals("0")) {
+                            System.out.println("\nSaliendo...");
+                            break;
+                        }
+                        hora=LocalTime.parse(ent);
+                        reserva.setFecha(GestionAlquileres.validarFechaHora(LocalDateTime.of(fecha,hora)));
+                        correctas++;
+                    }
+                    reservas.add(reserva);
+                    System.out.println("\n+ El vehículo con matricula "+vehiculo.getMatricula()+" se ha reservado correctamente");
+                } catch(IOException exc) {
+                    System.out.println("\n! Error al introducir la opción");
+                } catch(NumberFormatException  exc) {
+                    System.out.println("\n! Escribe la hora en formato 24 horas");
+                } catch(DateTimeParseException exc) {
+                    System.out.println("\n! El formato es incorrecto\n\sFormato de la fecha: dd/mm/aaaa\n\sFormato de la hora: hh:mm");
+                } catch(Exception exc) {
+                    if(exc.getMessage().equals("\n! El vehículo con matricula 0 no ha sido encontrado")) {
                         System.out.println("\nSaliendo...");
                         break;
+                    } else {
+                        System.out.println(exc.getMessage());
                     }
-                    reserva.setDni(GestionAlquileres.validarDni(ent));
-                    correctas++;
-                }
-                if(correctas<2) {
-                    vehiculo=buscarVehiculo(vehiculos,buffer);
-                    reserva.setVehiculo(GestionAlquileres.validarAlquilerVehiculo(vehiculo));
-                    vehiculo.setAlquilado(true);
-                    correctas++;
-                }
-                if(correctas<3) {
-                    System.out.print("\nFecha de la reserva: ");
-                    ent=buffer.readLine();
-                    if(ent.equals("0")) {
-                        System.out.println("\nSaliendo...");
-                        break;
-                    }
-                    fecha=LocalDate.parse(ent,DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-                    System.out.print("\nHora de la reserva: ");
-                    ent=buffer.readLine();
-                    if(ent.equals("0")) {
-                        System.out.println("\nSaliendo...");
-                        break;
-                    }
-                    hora=LocalTime.parse(ent);
-                    reserva.setFecha(GestionAlquileres.validarFechaHora(LocalDateTime.of(fecha,hora)));
-                    correctas++;
-                }
-                reservas.add(reserva);
-                System.out.println("\n+ El vehículo con matricula "+vehiculo.getMatricula()+" se ha reservado correctamente");
-            } catch(IOException exc) {
-                System.out.println("\n! Error al introducir la opción");
-            } catch(NumberFormatException  exc) {
-                System.out.println("\n! Escribe la hora en formato 24 horas");
-            } catch(DateTimeParseException exc) {
-                System.out.println("\n! El formato es incorrecto\n\sFormato de la fecha: dd/mm/aaaa\n\sFormato de la hora: hh:mm");
-            } catch(Exception exc) {
-                if(exc.getMessage().equals("\n! El vehículo con matricula 0 no ha sido encontrado")) {
-                    System.out.println("\nSaliendo...");
-                    break;
-                } else {
-                    System.out.println(exc.getMessage());
                 }
             }
+        } else {
+            System.out.println("\n! No hay vehículos");
         }
     }//reserva
 
