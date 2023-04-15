@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  * @author Víctor
- * @version 2.4
+ * @version 2.5
  */
 
 public class Principal {
@@ -169,7 +169,7 @@ public class Principal {
             while(correctas<5) {
                 try {
                     if(correctas<1) {
-                        vehiculoModificado=buscarVehiculo(vehiculos,buffer);
+                        vehiculoModificado=GestionAlquileres.validarNoAlquilado(buscarVehiculo(vehiculos,buffer));
                         System.out.println("\nIntroduzca los nuevos datos del vehículo");
                         correctas++;
                     }
@@ -230,7 +230,7 @@ public class Principal {
     private static void eliminarVehiculo(ArrayList<Vehiculos> vehiculos,BufferedReader buffer) throws Exception {
         if(vehiculos.size()>0) {
             try {
-                vehiculos.remove(buscarVehiculo(vehiculos,buffer));
+                vehiculos.remove(GestionAlquileres.validarNoAlquilado(buscarVehiculo(vehiculos,buffer)));
                 System.out.println("\n+ Vehículo eliminado correctamente");
             } catch(IOException exc) {
                 System.out.println("\n! Error al introducir la opción");
@@ -317,12 +317,12 @@ public class Principal {
             try {
                 System.out.print("\nEscribe el DNI del cliente que alquilo el vehículo: ");
                 dniCliente=GestionAlquileres.validarDni(buffer.readLine());
-                for(Reservas reserva:reservas) {
-                    if(reserva.getDni().equalsIgnoreCase(dniCliente)) {
+                for(int i=0;i<reservas.size();i++) {
+                    if(reservas.get(i).getDni().equalsIgnoreCase(dniCliente)) {
                         encontrado=true;
-                        System.out.println("\nEl importe a pagar por la devolución del vehículo es de "+GestionAlquileres.importeDevolucion(reserva)+" euros");
-                        reserva.getVehiculo().setAlquilado(false);
-                        reservas.remove(reserva);
+                        System.out.println("\nEl importe a pagar por la devolución del vehículo es de "+GestionAlquileres.importeDevolucion(reservas.get(i))+" euros");
+                        reservas.get(i).getVehiculo().setAlquilado(false);
+                        reservas.remove(reservas.get(i));
                     }
                 }
                 if(!encontrado) {

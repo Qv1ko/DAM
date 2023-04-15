@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 /**
  * @author Víctor
- * @version 1.6
+ * @version 1.7
  */
 
 public class GestionAlquileres {
@@ -93,6 +93,13 @@ public class GestionAlquileres {
         }
         return fechaHora;
     }//validarFechaHora
+
+    public static Vehiculos validarNoAlquilado(Vehiculos vehiculo) throws Exception {
+        if(vehiculo.isAlquilado()) {
+            throw new Exception("\n! El vehículo esta en reserva");
+        }
+        return vehiculo;
+    }
 
     public static float importeDevolucion(Reservas reserva) {
         return reserva.getVehiculo().getPrecio()*(float)ChronoUnit.DAYS.between(reserva.getFecha(),LocalDateTime.now());
