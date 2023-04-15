@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 /**
  * @author Víctor
- * @version 1.7
+ * @version 1.8
  */
 
 public class GestionAlquileres {
@@ -54,6 +54,22 @@ public class GestionAlquileres {
         }
         return precioFinal;
     }//validadorPrecio
+    
+    public static Vehiculos validarNoAlquilado(Vehiculos vehiculo) throws Exception {
+        if(vehiculo.isAlquilado()) {
+            throw new Exception("\n! El vehículo esta en reserva");
+        }
+        return vehiculo;
+    }//validarNoAlquilado
+       
+    public static String validarUnicaReserva(String dni) throws Exception {
+        for(Reservas reserva:reservas) {
+            if(reserva.getDni().equalsIgnoreCase(dni)) {
+                throw new Exception("\n! Solo se puede hacer una reserva por persona");
+            }
+        }
+        return dni.toUpperCase();
+    }//validarUnicaReserva
 
     public static String validarDni(String dni) throws Exception {
         String nif="",patronDni="^\\d{8}\\w$";
@@ -70,15 +86,6 @@ public class GestionAlquileres {
         }
         return dni.toUpperCase();
     }//validarDni
-    
-    public static String validarUnicaReserva(String dni) throws Exception {
-        for(Reservas reserva:reservas) {
-            if(reserva.getDni().equalsIgnoreCase(dni)) {
-                throw new Exception("\n! Solo se puede hacer una reserva por persona");
-            }
-        }
-        return dni.toUpperCase();
-    }
 
     public static Vehiculos validarAlquilerVehiculo(Vehiculos vehiculo) throws Exception {
         if(vehiculo.isAlquilado()) {
@@ -93,13 +100,6 @@ public class GestionAlquileres {
         }
         return fechaHora;
     }//validarFechaHora
-
-    public static Vehiculos validarNoAlquilado(Vehiculos vehiculo) throws Exception {
-        if(vehiculo.isAlquilado()) {
-            throw new Exception("\n! El vehículo esta en reserva");
-        }
-        return vehiculo;
-    }
 
     public static float importeDevolucion(Reservas reserva) {
         return reserva.getVehiculo().getPrecio()*(float)ChronoUnit.DAYS.between(reserva.getFecha(),LocalDateTime.now());
