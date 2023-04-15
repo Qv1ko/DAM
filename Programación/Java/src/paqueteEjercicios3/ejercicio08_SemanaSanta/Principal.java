@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  * @author Víctor
- * @version 2.5
+ * @version 2.6
  */
 
 public class Principal {
@@ -219,7 +219,12 @@ public class Principal {
                 } catch(NumberFormatException exc) {
                     System.out.println("\n! El valor de las plazas ha de ser numérico");
                 } catch(Exception exc) {
-                    System.out.println(exc.getMessage());
+                    if(exc.getMessage().equals("\n! El vehículo con matrícula  no ha sido encontrado")) {
+                        System.out.println("\nSaliendo...");
+                        break;
+                    } else {
+                        System.out.println(exc.getMessage());
+                    }
                 }
             }
         } else {
