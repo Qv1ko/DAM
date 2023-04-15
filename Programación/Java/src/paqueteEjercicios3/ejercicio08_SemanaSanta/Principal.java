@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  * @author Víctor
- * @version 2.3
+ * @version 2.4
  */
 
 public class Principal {
@@ -166,11 +166,14 @@ public class Principal {
         int correctas=0;
         String ent="";
         if(vehiculos.size()>0) {
-            while(correctas<4) {
+            while(correctas<5) {
                 try {
-                    vehiculoModificado=buscarVehiculo(vehiculos,buffer);
-                    System.out.println("\nIntroduzca los nuevos datos del vehículo");
                     if(correctas<1) {
+                        vehiculoModificado=buscarVehiculo(vehiculos,buffer);
+                        System.out.println("\nIntroduzca los nuevos datos del vehículo");
+                        correctas++;
+                    }
+                    if(correctas<2) {
                         System.out.print("\nMatrícula: ");
                         ent=buffer.readLine();
                         if(ent.equals("0")) {
@@ -180,7 +183,7 @@ public class Principal {
                         vehiculoModificado.setMatricula(GestionAlquileres.validadorMatricula(ent));
                         correctas++;
                     }
-                    if(correctas<2) {
+                    if(correctas<3) {
                         System.out.print("\nPlazas: ");
                         ent=buffer.readLine();
                         if(ent.equals("0")) {
@@ -190,7 +193,7 @@ public class Principal {
                         vehiculoModificado.setPlazas(GestionAlquileres.validadorPlazas(Integer.parseInt(ent)));
                         correctas++;
                     }
-                    if(correctas<3) {
+                    if(correctas<4) {
                         System.out.print("\nCombustible: ");
                         ent=buffer.readLine();
                         if(ent.equals("0")) {
@@ -200,7 +203,7 @@ public class Principal {
                         vehiculoModificado.setCombustible(GestionAlquileres.validadorCombustible(ent));
                         correctas++;
                     }
-                    if(correctas<4) {
+                    if(correctas<5) {
                         System.out.print("\nPrecio por día: ");
                         ent=buffer.readLine();
                         if(ent.equals("0")) {
@@ -258,7 +261,7 @@ public class Principal {
                             System.out.println("\nSaliendo...");
                             break;
                         }
-                        reserva.setDni(GestionAlquileres.validarDni(ent));
+                        reserva.setDni(GestionAlquileres.validarUnicaReserva(GestionAlquileres.validarDni(ent)));
                         correctas++;
                     }
                     if(correctas<2) {

@@ -2,7 +2,7 @@ package paqueteEjercicios3.ejercicio08_SemanaSanta;
 
 /**
  * @author Víctor
- * @version 0.9
+ * @version 1.0
  */
 
 public class Vehiculos {
@@ -74,7 +74,7 @@ public class Vehiculos {
     }//alquiladoToString
 
     public String toString() {
-        return "Vehículo "+getMatricula()+" a combustible "+getCombustible().toString()+" con "+getPlazas()+" plazas. "+alquiladoToString();
+        return "Vehículo "+getMatricula()+" a combustible "+getCombustible().toString().toLowerCase()+" con "+getPlazas()+" plazas. "+alquiladoToString();
     }//toString
     
 }//class

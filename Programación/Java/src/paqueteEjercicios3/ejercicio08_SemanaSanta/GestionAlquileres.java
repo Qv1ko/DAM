@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 /**
  * @author Víctor
- * @version 1.5
+ * @version 1.6
  */
 
 public class GestionAlquileres {
@@ -62,19 +62,23 @@ public class GestionAlquileres {
             for(int i=0;i<dni.length()-1;i++) {
                 nif+=dni.charAt(i);
             }
-            if(letters[Integer.parseInt(nif)%23]!=dni.charAt(dni.length()-1)) {
+            if(letters[Integer.parseInt(nif)%23]!=dni.toUpperCase().charAt(dni.length()-1)) {
                 throw new Exception("\n! DNI inválido");
             }
         } else {
             throw new Exception("\n! Formato incorrecto");
         }
+        return dni.toUpperCase();
+    }//validarDni
+    
+    public static String validarUnicaReserva(String dni) throws Exception {
         for(Reservas reserva:reservas) {
             if(reserva.getDni().equalsIgnoreCase(dni)) {
                 throw new Exception("\n! Solo se puede hacer una reserva por persona");
             }
         }
         return dni.toUpperCase();
-    }//validarDni
+    }
 
     public static Vehiculos validarAlquilerVehiculo(Vehiculos vehiculo) throws Exception {
         if(vehiculo.isAlquilado()) {
@@ -91,7 +95,7 @@ public class GestionAlquileres {
     }//validarFechaHora
 
     public static float importeDevolucion(Reservas reserva) {
-        return reserva.getVehiculo().getPrecio()*ChronoUnit.DAYS.between(reserva.getFecha(),LocalDateTime.now());
+        return reserva.getVehiculo().getPrecio()*(float)ChronoUnit.DAYS.between(reserva.getFecha(),LocalDateTime.now());
     }//importeDevolucion
 
 }//class
