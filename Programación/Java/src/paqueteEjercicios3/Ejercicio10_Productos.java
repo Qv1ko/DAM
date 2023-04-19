@@ -22,6 +22,7 @@ public class Ejercicio10_Productos {
     }//Ejercicio10_FileToArray
 
     public Ejercicio10_Productos(String linea) throws NumberFormatException {
+        //Divide el String pasada en diferentes partes y guarda cada una en su variable correspondiente
         this.nombre=linea.split(";")[0];
         this.desc=linea.split(";")[1];
         this.cantidad=Integer.parseInt(linea.split(";")[2]);

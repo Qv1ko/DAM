@@ -21,16 +21,16 @@ public class Ejercicio10_ImportarFichero {
             fr=new FileReader(new File("C:\\Users\\Usuario\\DAM\\Programación\\Java\\src\\paqueteEjercicios3\\ejercicio10_fichero\\productos.csv"));
             br=new BufferedReader(fr);
             br.readLine();
-            while(br.ready()) {
+            while(br.ready()) {//Se ejecutara mientras el buffer este listo
                 // linea=br.readLine();
                 // producto=linea.split(";");
                 // prod=new Ejercicio10_Productos(producto[0],producto[1],Integer.parseInt(producto[2]),Double.parseDouble(producto[3]));
+                linea++;
                 try {
-                    lista.add(new Ejercicio10_Productos(br.readLine()));
+                    lista.add(new Ejercicio10_Productos(br.readLine()));//Pasamos una cadena de texto que se añadira al arrayList
                 } catch(NumberFormatException exc) {
                     System.out.println("\n! Los valores de la linea "+linea+" del fichero son incorrectos\n");
                 }
-                linea++;
             }
             System.out.println(lista.size()+" productos importados");
             for(Ejercicio10_Productos producto:lista) {
