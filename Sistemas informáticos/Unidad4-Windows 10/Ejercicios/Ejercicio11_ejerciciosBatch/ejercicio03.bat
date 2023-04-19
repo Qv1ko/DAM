@@ -1,6 +1,6 @@
 @ECHO OFF
 
-rem Condicion si el parametro no existe va ha :error
+rem Condicion si el parametro no existe va a error
 IF NOT EXIST %1 GOTO error
 IF NOT EXIST %2 GOTO error
 
