@@ -30,6 +30,8 @@ public class Ejercicio10_ImportarFichero {
                     lista.add(new Ejercicio10_Productos(br.readLine()));//Pasamos una cadena de texto que se añadira al arrayList
                 } catch(NumberFormatException exc) {
                     System.out.println("\n! Los valores de la linea "+linea+" del fichero son incorrectos\n");
+                } catch(Exception exc) {
+                    System.out.println("\n! Error en la linea: "+linea+"\n");
                 }
             }
             System.out.println(lista.size()+" productos importados");
