@@ -3,15 +3,11 @@ package paqueteEjercicios3.ejercicio11_Amachon;
 public class Validaciones {
 	
 	public static boolean validarUnidades(int unidades) {		
-		
-		return (unidades >= 1)?true:false;
-		
+		return (unidades>=1)? true:false;
 	}
 	
 	public static boolean validarString(String cadena) {
 		boolean validacionOk;
-
-		//return (!cadena.isEmpty());
 		if(!cadena.isBlank()) {
 			validacionOk=true;
 		}else {
@@ -22,9 +18,7 @@ public class Validaciones {
 	
 	public static boolean validarString(String cadena, int longitudMax) {
 		boolean validacionOk;
-
-		//return (!cadena.isEmpty());
-		if(!cadena.isBlank() && cadena.length() <= longitudMax) {
+		if(!cadena.isBlank()&&cadena.length()<=longitudMax) {
 			validacionOk=true;
 		}else {
 			validacionOk=false;
@@ -34,23 +28,31 @@ public class Validaciones {
 	
 	public static Categorias chkCategorias(String entCat) {
 		Categorias cat=null;
-		char letra = ' ';
-		
-		if(entCat.length() == 1) {
-			letra = entCat.charAt(0);
+		char letra=' ';
+		if(entCat.length()==1) {
+			letra=entCat.charAt(0);
 		}
-		
-		if(entCat.equals(Categorias.CATA.getDesc().toUpperCase().replace("�", "I"))
-				|| letra == '1' || letra == 'A') {
-				cat=Categorias.CATA;
-			}else if(entCat.equals(Categorias.CATB.getDesc().toUpperCase().replace("�", "I"))
-					|| letra == '2' || letra == 'B'){
-				cat = Categorias.CATB;
-			}else if(entCat.equals(Categorias.CATC.getDesc().toUpperCase().replace("�", "I"))
-					|| letra == '3' || letra == 'C') {
-				cat = Categorias.CATC;
-			}
-		
+		if(entCat.equals(Categorias.CATA.getDesc().toUpperCase().replace("Í","I"))||letra == '1'||letra=='A') {
+			cat=Categorias.CATA;
+		}else if(entCat.equals(Categorias.CATB.getDesc().toUpperCase().replace("Í","I"))||letra=='2'||letra=='B'){
+			cat=Categorias.CATB;
+		}else if(entCat.equals(Categorias.CATC.getDesc().toUpperCase().replace("Í","I"))||letra=='3'||letra=='C') {
+			cat=Categorias.CATC;
+		}
+		return cat;
+	}
+
+	public static Categorias chkCategoriasCsv(String entCat) throws Exception {
+		Categorias cat=null;
+		if(entCat.equals("CATA")) {
+			cat=Categorias.CATA;
+		} else if(entCat.equals("CATB")) {
+			cat=Categorias.CATB;
+		} else if(entCat.equals("CATC")) {
+			cat=Categorias.CATC;
+		} else {
+			throw new Exception("Error de categoría");
+		}
 		return cat;
 	}
 	

@@ -9,10 +9,10 @@ public class Productos {
 	private Categorias cate;
 	private float cant;
 	private double precio;
-	
-	//Atributo est�tico 
+
+	//Atributo estático 
 	private static int autoId=0;
-	
+
 	//Constructores
 	public Productos() {
 		this.id = ++autoId;
@@ -22,7 +22,7 @@ public class Productos {
 		this.cant = 0.0f;
 		this.precio = 0.0;		
 	}
-	
+
 	public Productos(String nombre, String desc,Categorias cate, float cant, double precio) {
 		this.id = ++autoId;
 		this.nombre = nombre;
@@ -31,7 +31,7 @@ public class Productos {
 		this.cant = cant;
 		this.precio = precio;
 	}
-	
+
 	public Productos(Productos p) {
 		this.id = ++autoId;
 		this.nombre = p.getNombre();
@@ -39,6 +39,15 @@ public class Productos {
 		this.cate = p.getCate();
 		this.cant = p.getCant();
 		this.precio = p.getPrecio();
+	}
+
+	public Productos(String linea) throws NumberFormatException, NullPointerException, Exception {
+		this.id=Integer.parseInt(linea.split(";")[0]);
+		this.nombre=linea.split(";")[1];
+		this.desc=linea.split(";")[2];
+		this.cate=Validaciones.chkCategoriasCsv(linea.split(";")[3]);
+		this.cant=Float.parseFloat(linea.split(";")[4]);
+		this.precio=Double.parseDouble(linea.split(";")[5]);
 	}
 
 	public int getId() {
@@ -90,17 +99,16 @@ public class Productos {
 	}
 
 	public double getTotal() {	
-		System.out.println(this.cant +" "+ this.precio +" "+ this.cate.getDTO() +" "+ this.cate.getImpuesto());
-		return this.cant * this.precio * this.cate.getDTO() * this.cate.getImpuesto();
+		System.out.println(this.cant+" "+this.precio+" "+this.cate.getDTO()+" "+this.cate.getImpuesto());
+		return this.cant*this.precio*this.cate.getDTO()*this.cate.getImpuesto();
 	}
-	
-	@Override
+
 	public String toString() {
-		return "Producto: " + getId() + ", " + getNombre() + ", " + getDesc()+ ", " + getCate() + ", " + getCant() + ", " + getPrecio()+ "\n Total del producto: " + getTotal();
+		return "Producto: "+getId()+", "+getNombre()+", "+getDesc()+", "+getCate()+", "+getCant()+", "+getPrecio()+"\n Total del producto: "+getTotal();
 	}
-	
+
 	public String toCsv() {
         return getId()+";"+getNombre()+";"+getDesc()+";"+getCate().name()+";"+getCant()+";"+getPrecio();
     }
-	
+
 }
