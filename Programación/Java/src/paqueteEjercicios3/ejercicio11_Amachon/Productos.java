@@ -41,6 +41,15 @@ public class Productos {
 		this.precio = p.getPrecio();
 	}
 
+	public Productos(String linea) throws NumberFormatException, NullPointerException, Exception {
+		this.id=Integer.parseInt(linea.split(";")[0]);
+		this.nombre=linea.split(";")[1];
+		this.desc=linea.split(";")[2];
+		this.cate=Validaciones.chkCategoriasCsv(linea.split(";")[3]);
+		this.cant=Float.parseFloat(linea.split(";")[4]);
+		this.precio=Double.parseDouble(linea.split(";")[5]);
+	}
+
 	public int getId() {
 		return id;
 	}

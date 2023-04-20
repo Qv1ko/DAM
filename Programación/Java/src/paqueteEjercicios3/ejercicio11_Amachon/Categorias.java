@@ -29,8 +29,7 @@ public enum Categorias {
 	}
 	
 	public String toString() {		
-		return this.desc +":\n\tCon el "+ this.impuesto+" % de IVA y "+ this.dto+" % de descuento \n\t"+
-				((this.envFrio)?"Necesita refrigeración":"No necesita refrigeración");
+		return this.desc+":\n\tCon el "+this.impuesto+" % de IVA y "+this.dto+" % de descuento \n\t"+((this.envFrio)?"Necesita refrigeración":"No necesita refrigeración");
 	}
 
 }

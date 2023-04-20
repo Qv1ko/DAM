@@ -29,8 +29,8 @@ public class Validaciones {
 	public static Categorias chkCategorias(String entCat) {
 		Categorias cat=null;
 		char letra=' ';
-		if(entCat.length() == 1) {
-			letra = entCat.charAt(0);
+		if(entCat.length()==1) {
+			letra=entCat.charAt(0);
 		}
 		if(entCat.equals(Categorias.CATA.getDesc().toUpperCase().replace("Í","I"))||letra == '1'||letra=='A') {
 			cat=Categorias.CATA;
@@ -38,6 +38,20 @@ public class Validaciones {
 			cat=Categorias.CATB;
 		}else if(entCat.equals(Categorias.CATC.getDesc().toUpperCase().replace("Í","I"))||letra=='3'||letra=='C') {
 			cat=Categorias.CATC;
+		}
+		return cat;
+	}
+
+	public static Categorias chkCategoriasCsv(String entCat) throws Exception {
+		Categorias cat=null;
+		if(entCat.equals("CATA")) {
+			cat=Categorias.CATA;
+		} else if(entCat.equals("CATB")) {
+			cat=Categorias.CATB;
+		} else if(entCat.equals("CATC")) {
+			cat=Categorias.CATC;
+		} else {
+			throw new Exception("Error de categoría");
 		}
 		return cat;
 	}

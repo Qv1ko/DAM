@@ -1,6 +1,10 @@
 package paqueteEjercicios3.ejercicio11_Amachon;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,17 +18,14 @@ import java.util.Scanner;
 public class CestaAmachon {
 	
 	public static void main(String[] arg) {
-		
-		//Declaramos una lista de tipo ArrayList
-		ArrayList<Productos> lista = new ArrayList<Productos>();
-		Scanner ent = new Scanner(System.in);
+		ArrayList<Productos> lista=new ArrayList<Productos>();
+		readCsv(lista);
+		Scanner ent=new Scanner(System.in);
 		int opcion=0;
-		
 		do {			
-			System.out.println("1) Listar productos \n"+"2) Añadir producto \n" +"3) Modificar producto \n" +"4) Eliminar producto \n" +"0) Salir ");
+			System.out.println("1) Listar productos \n"+"2) Añadir producto \n"+"3) Modificar producto \n"+"4) Eliminar producto \n"+"0) Salir ");
 			try {
-				opcion = Integer.parseInt(ent.nextLine());
-	
+				opcion=Integer.parseInt(ent.nextLine());
 				switch(opcion) {
 					case 1 -> listar(lista);					
 					case 2 -> addProducto(lista,ent);					
@@ -38,14 +39,14 @@ public class CestaAmachon {
 				System.out.println("Dato no numérico");
 				opcion=99;
 			}
-		}while(opcion != 0);
+		}while(opcion!=0);
 		System.out.println("Ádios");
 		ent.close();
 	}
 
 	public static void listar(ArrayList<Productos> lista) {
-		System.out.println("Cesta con " + lista.size() + " producto/s");
-		for(Productos p : lista) {
+		System.out.println("Cesta con "+lista.size()+" producto/s");
+		for(Productos p:lista) {
 			System.out.println(p);
 		}		
 	}
@@ -174,6 +175,32 @@ public class CestaAmachon {
 	public static void eliminar(ArrayList<Productos> lista) {
 		
 		
+	}
+
+	private static void readCsv(ArrayList<Productos> lista) {
+		FileReader fr=null;
+        BufferedReader br=null;
+        int linea=1;
+        try {
+            fr=new FileReader(new File("Programación\\Java\\src\\paqueteEjercicios3\\ejercicio11_Amachon\\productos.csv"));
+            br=new BufferedReader(fr);
+            while(br.ready()) {
+                linea++;
+                try {
+                    lista.add(new Productos(br.readLine()));
+                } catch(NumberFormatException exc) {
+                    System.out.println("\n! Los valores de la linea "+linea+" del fichero son incorrectos\n");
+                } catch(Exception exc) {
+                    System.out.println("\n! Error en la linea: "+linea+"\n");
+                }
+            }
+            System.out.println(lista.size()+" productos importados");
+            br.close();
+        } catch(FileNotFoundException exc) {
+            System.out.println("\n! El archivo no se ha encontrado\n");
+        } catch(IOException exc) {
+            System.out.println("\n! Error en la entrada o salida\n");
+        }
 	}
 
 	private static void writeCsv(ArrayList<Productos> lista) throws IOException {
