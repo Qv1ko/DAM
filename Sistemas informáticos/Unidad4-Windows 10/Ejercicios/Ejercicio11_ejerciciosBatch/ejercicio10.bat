@@ -1,20 +1,18 @@
 @ECHO OFF
 
 CLS
-MKDIR "%USERPROFILE%\Desktop\EJ10bat"
-
-IF EXIST "%USERPROFILE%\Desktop\EJ10bat\recursos.txt" GOTO :existe
-
-:noexiste
-ECHO Creado listado de recursos.
-GOTO :fin
-
-:existe
-ECHO Añadiendo informacion al fichero.
-GOTO :fin
-
-:fin
-DIR "%USERPROFILE%\Desktop" >> "%USERPROFILE%\Desktop\EJ10bat\recursos.txt"
+rem Condicion si la carpeta no existe se crea
+IF NOT EXIST "%USERPROFILE%\Desktop\EJ10bat" MKDIR "%USERPROFILE%\Desktop\EJ10bat"
+rem Condicion si existe el fichero redirecciona sin sobreescribir y si no existe redirecciona sobreescribiendo
+IF EXIST "%USERPROFILE%\Desktop\EJ10bat\recursos.txt" (
+	ECHO Añadiendo informacion al fichero.
+	DIR "%USERPROFILE%\Desktop" >> "%USERPROFILE%\Desktop\EJ10bat\recursos.txt"
+) ELSE (
+	ECHO Creado listado de recursos.
+	DIR "%USERPROFILE%\Desktop" > "%USERPROFILE%\Desktop\EJ10bat\recursos.txt"
+)
 CD "%USERPROFILE%\Desktop"
+rem Imprime por pantalla el contenido del fichero
 TYPE EJ10bat\recursos.txt
-PAUSE
+ECHO Pulsa una tecla para salir...
+PAUSE > nul
