@@ -2,7 +2,7 @@ package paqueteEjercicios3.ejercicio11_Amachon;
 
 public enum Categorias {
 	
-	CATA(21,false,0,"Categor�a A"),CATB(10,false,5,"Categor�a B"),CATC(0,true,0, "Categor�a C");
+	CATA(21,false,0,"Categoría A"),CATB(10,false,5,"Categoría B"),CATC(0,true,0, "Categoría C");
 	
 	private int impuesto;
 	private boolean envFrio;
@@ -15,6 +15,7 @@ public enum Categorias {
 		this.dto = dto;
 		this.desc = desc;
 	}
+	
 	public String getDesc() {
 		return this.desc;
 	}
@@ -29,6 +30,7 @@ public enum Categorias {
 	
 	public String toString() {		
 		return this.desc +":\n\tCon el "+ this.impuesto+" % de IVA y "+ this.dto+" % de descuento \n\t"+
-				((this.envFrio)?"Necesita refrigeraci�n":"No necesita refrigeraci�n");
+				((this.envFrio)?"Necesita refrigeración":"No necesita refrigeración");
 	}
+
 }

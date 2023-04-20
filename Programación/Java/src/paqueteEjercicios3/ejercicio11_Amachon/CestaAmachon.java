@@ -7,11 +7,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * 
- * @author Manuel
- * @version 1.0
- * 
+ * @author Victor
+ * @version 2.2
  */
+
 public class CestaAmachon {
 	
 	public static void main(String[] arg) {
@@ -21,50 +20,26 @@ public class CestaAmachon {
 		Scanner ent = new Scanner(System.in);
 		int opcion=0;
 		
-		/* Men� de opciones
-		 * 
-		 * 1�) Listar productos
-		 * 2�) A�adir producto
-		 * 3�) Modificar producto
-		 * 4�) Eliminar producto
-		 * 0�) Salir
-		 * 
-		 */
-		
 		do {			
-			System.out.println("1�) Listar productos \n"+
-					"2�) A�adir producto \n" +
-					"3�) Modificar producto \n" +
-					"4�) Eliminar producto \n" +
-					"0�) Salir ");
+			System.out.println("1) Listar productos \n"+"2) Añadir producto \n" +"3) Modificar producto \n" +"4) Eliminar producto \n" +"0) Salir ");
 			try {
 				opcion = Integer.parseInt(ent.nextLine());
 	
 				switch(opcion) {
-					case 1:listar(lista);
-						break;
-					
-					case 2:addProducto(lista);
-						break;
-					
-					case 3:modificar(lista);
-						break;
-					
-					case 4:
-						break;
-					
-					case 0: 
-						break;
-					default: System.out.println("Opci�n no v�lida");
+					case 1 -> listar(lista);					
+					case 2 -> addProducto(lista,ent);					
+					case 3 -> modificar(lista);					
+					case 4 -> eliminar(lista);					
+					case 0 -> writeCsv(lista);
+					default -> System.out.println("Opción no válida");
 				
 				}
-				writeCsv(lista);
 			}catch(NumberFormatException | IOException ex) {
-				System.out.println("Dato no num�rico");
+				System.out.println("Dato no numérico");
 				opcion=99;
 			}
 		}while(opcion != 0);
-		System.out.println("�dios");
+		System.out.println("Ádios");
 		ent.close();
 	}
 
@@ -75,9 +50,7 @@ public class CestaAmachon {
 		}		
 	}
 	
-	public static void addProducto(ArrayList<Productos> lista) {
-		
-		Scanner ent = new Scanner(System.in);
+	public static void addProducto(ArrayList<Productos> lista,Scanner ent) {
 		String nombre="", desc="", entTeclado="";
 		float cant=0.0f;
 		double precio=0.0;
@@ -90,40 +63,40 @@ public class CestaAmachon {
 			System.out.println("Introduce el nombre del producto(introduzca salir para parar)");
 			nombre=ent.nextLine().trim();
 			if(nombre.equalsIgnoreCase("salir")){
-				System.out.println("�dios");
+				System.out.println("Ádios");
 				sinErrores=false;
 				salir=true;
 			}else if(!Validaciones.validarString(nombre, 25)) {
-				System.out.println("Nombre no puede ser vac�o o mas de 25 letras");
+				System.out.println("Nombre no puede ser vacío o mas de 25 letras");
 				sinErrores=false;
 			}
 		}while(!sinErrores && !salir);
 		
 		if(!salir) {
-			//Control descripci�n
+			//Control descripción
 			do {
 				sinErrores=true;
-				System.out.println("Introduzca una descripci�n(introduzca salir para parar)");
+				System.out.println("Introduzca una descripción(introduzca salir para parar)");
 				desc = ent.nextLine();
 				
 				if(desc.equalsIgnoreCase("salir")) {
 					sinErrores=false;
 					salir=true;
 				}else if(!Validaciones.validarString(desc, 50)) {
-					System.out.println("Descripci�n no puede ser vac�o o mas de 50 letras");
+					System.out.println("Descripción no puede ser vacío o mas de 50 letras");
 					sinErrores=false;
 				}
 				
 			}while(!sinErrores && !salir);
 		}
 		
-		//Control de la categor�a del producto
+		//Control de la categoría del producto
 		if(!salir) {
 			do {
 				for(int i=0 ; i < Categorias.values().length ; i++) {
-					System.out.println((i +1 ) + "�) " + Categorias.values()[i]);
+					System.out.println((i +1 ) + "º) " + Categorias.values()[i]);
 				}
-				System.out.println("Introduce la categor�a del producto: (introduzca salir para parar)");
+				System.out.println("Introduce la categoría del producto: (introduzca salir para parar)");
 				entTeclado = ent.nextLine().toUpperCase();
 				if(Validaciones.chkCategorias(entTeclado)!= null) {
 					cat = Validaciones.chkCategorias(entTeclado);
@@ -132,7 +105,7 @@ public class CestaAmachon {
 					salir=true;
 					sinErrores=false;
 				}else{
-					System.out.println("Categor�a incorrecta");
+					System.out.println("Categoría incorrecta");
 					sinErrores=false;
 				}
 			
@@ -142,7 +115,7 @@ public class CestaAmachon {
 		//Control de las unidades
 		if(!salir) {
 			do {
-				System.out.println("�Cu�ntas unidades desea?(introduzca salir para parar).");
+				System.out.println("Cuántas unidades desea?(introduzca salir para parar).");
 				try {
 					entTeclado = ent.nextLine().replace(',', '.');
 					cant = Float.parseFloat(entTeclado);
@@ -156,7 +129,7 @@ public class CestaAmachon {
 					if(entTeclado.equalsIgnoreCase("salir")) {
 						salir=true;
 					}else {
-						System.out.println("Dato no n�merico en las unidades");	
+						System.out.println("Dato no númerico en las unidades");	
 						sinErrores=false;
 					}					
 				}
@@ -181,7 +154,7 @@ public class CestaAmachon {
 					if(entTeclado.equalsIgnoreCase("salir")) {
 						salir=true;
 					}else {
-						System.out.println("Dato no n�merico en el precio");	
+						System.out.println("Dato no númerico en el precio");	
 						sinErrores=false;
 					}
 				}
@@ -191,16 +164,20 @@ public class CestaAmachon {
 		if(sinErrores) {
 			lista.add(new Productos(nombre,desc,cat,cant,precio));
 		}
-		ent.close();
 	}
 	
 	public static void modificar(ArrayList<Productos> lista) {
 		
 		
 	}
+	
+	public static void eliminar(ArrayList<Productos> lista) {
+		
+		
+	}
 
 	private static void writeCsv(ArrayList<Productos> lista) throws IOException {
-        BufferedWriter bw=new BufferedWriter(new FileWriter("productos.csv"));
+        BufferedWriter bw=new BufferedWriter(new FileWriter("Programación\\Java\\src\\paqueteEjercicios3\\ejercicio11_Amachon\\productos.csv"));
         for(Productos producto:lista) {
             bw.write(producto.toCsv());
             bw.newLine();
