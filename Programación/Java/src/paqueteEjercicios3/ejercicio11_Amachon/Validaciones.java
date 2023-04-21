@@ -41,19 +41,5 @@ public class Validaciones {
 		}
 		return cat;
 	}
-
-	public static Categorias chkCategoriasCsv(String entCat) throws Exception {
-		Categorias cat=null;
-		if(entCat.equals("CATA")) {
-			cat=Categorias.CATA;
-		} else if(entCat.equals("CATB")) {
-			cat=Categorias.CATB;
-		} else if(entCat.equals("CATC")) {
-			cat=Categorias.CATC;
-		} else {
-			throw new Exception("Error de categoría");
-		}
-		return cat;
-	}
 	
 }

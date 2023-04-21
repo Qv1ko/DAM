@@ -15,37 +15,37 @@ public class Productos {
 
 	//Constructores
 	public Productos() {
-		this.id = ++autoId;
-		this.nombre = "Sin definir";
-		this.desc = "";
-		this.cate = Categorias.CATA;
-		this.cant = 0.0f;
-		this.precio = 0.0;		
+		this.id=++autoId;
+		this.nombre="Sin definir";
+		this.desc="";
+		this.cate=Categorias.CATA;
+		this.cant=0.0f;
+		this.precio=0.0;		
 	}
 
 	public Productos(String nombre, String desc,Categorias cate, float cant, double precio) {
-		this.id = ++autoId;
-		this.nombre = nombre;
-		this.desc = desc;
-		this.cate = cate;
-		this.cant = cant;
-		this.precio = precio;
+		this.id=++autoId;
+		this.nombre=nombre;
+		this.desc=desc;
+		this.cate=cate;
+		this.cant=cant;
+		this.precio=precio;
 	}
 
 	public Productos(Productos p) {
-		this.id = ++autoId;
-		this.nombre = p.getNombre();
-		this.desc = p.getDesc();
-		this.cate = p.getCate();
-		this.cant = p.getCant();
-		this.precio = p.getPrecio();
+		this.id=++autoId;
+		this.nombre=p.getNombre();
+		this.desc=p.getDesc();
+		this.cate=p.getCate();
+		this.cant=p.getCant();
+		this.precio=p.getPrecio();
 	}
 
-	public Productos(String linea) throws NumberFormatException, NullPointerException, Exception {
-		this.id=Integer.parseInt(linea.split(";")[0]);
+	public Productos(String linea) throws NumberFormatException, NullPointerException {
+		this.id=++autoId;
 		this.nombre=linea.split(";")[1];
 		this.desc=linea.split(";")[2];
-		this.cate=Validaciones.chkCategoriasCsv(linea.split(";")[3]);
+		this.cate=Categorias.valueOf(linea.split(";")[3]);
 		this.cant=Float.parseFloat(linea.split(";")[4]);
 		this.precio=Double.parseDouble(linea.split(";")[5]);
 	}
@@ -55,7 +55,7 @@ public class Productos {
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.id=id;
 	}
 
 	public String getNombre() {
@@ -63,7 +63,7 @@ public class Productos {
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.nombre=nombre;
 	}
 
 	public String getDesc() {
@@ -71,7 +71,7 @@ public class Productos {
 	}
 
 	public void setDesc(String desc) {
-		this.desc = desc;
+		this.desc=desc;
 	}
 
 	public Categorias getCate() {
@@ -79,7 +79,7 @@ public class Productos {
 	}
 
 	public void setCate(Categorias cate) {
-		this.cate = cate;
+		this.cate=cate;
 	}
 
 	public float getCant() {
@@ -87,7 +87,7 @@ public class Productos {
 	}
 
 	public void setCant(float cant) {
-		this.cant = cant;
+		this.cant=cant;
 	}
 
 	public double getPrecio() {
@@ -95,7 +95,7 @@ public class Productos {
 	}
 
 	public void setPrecio(double precio) {
-		this.precio = precio;
+		this.precio=precio;
 	}
 
 	public double getTotal() {	
@@ -104,7 +104,7 @@ public class Productos {
 	}
 
 	public String toString() {
-		return "Producto: "+getId()+", "+getNombre()+", "+getDesc()+", "+getCate()+", "+getCant()+", "+getPrecio()+"\n Total del producto: "+getTotal();
+		return "\nProducto "+getId()+": "+getNombre()+"\n\s Descripción: "+getDesc()+"\n\s Categoría: "+getCate()+"\n\s Cantidad: "+getCant()+"\n\s Precio/und: "+getPrecio()+"\n\sTotal del producto: "+getTotal();
 	}
 
 	public String toCsv() {

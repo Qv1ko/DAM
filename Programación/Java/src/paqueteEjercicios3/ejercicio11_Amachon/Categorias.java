@@ -10,10 +10,10 @@ public enum Categorias {
 	private String desc;
 	
 	private Categorias(int impuesto, boolean envFrio, int dto, String desc){
-		this.impuesto = impuesto;
-		this.envFrio = envFrio;
-		this.dto = dto;
-		this.desc = desc;
+		this.impuesto=impuesto;
+		this.envFrio=envFrio;
+		this.dto=dto;
+		this.desc=desc;
 	}
 	
 	public String getDesc() {
@@ -25,11 +25,11 @@ public enum Categorias {
 	}
 	
 	public float getImpuesto() {
-		return (float)(100 + this.impuesto)/100;
+		return (float)(100+this.impuesto)/100;
 	}
 	
 	public String toString() {		
-		return this.desc+":\n\tCon el "+this.impuesto+" % de IVA y "+this.dto+" % de descuento \n\t"+((this.envFrio)?"Necesita refrigeración":"No necesita refrigeración");
+		return this.desc+":\n\sCon el "+this.impuesto+" % de IVA y "+this.dto+" % de descuento \n\s"+((this.envFrio)?"Necesita refrigeración":"No necesita refrigeración");
 	}
 
 }

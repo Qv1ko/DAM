@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 /**
  * @author Victor
- * @version 2.2
+ * @version 2.3
  */
 
 public class CestaAmachon {
@@ -32,11 +32,11 @@ public class CestaAmachon {
 					case 3 -> modificar(lista);					
 					case 4 -> eliminar(lista);					
 					case 0 -> writeCsv(lista);
-					default -> System.out.println("Opción no válida");
+					default -> System.out.println("\n! Opción no válida\n");
 				
 				}
 			}catch(NumberFormatException | IOException ex) {
-				System.out.println("Dato no numérico");
+				System.out.println("\n! Dato no numérico\n");
 				opcion=99;
 			}
 		}while(opcion!=0);
@@ -52,7 +52,7 @@ public class CestaAmachon {
 	}
 	
 	public static void addProducto(ArrayList<Productos> lista,Scanner ent) {
-		String nombre="", desc="", entTeclado="";
+		String nombre="",desc="",entTeclado="";
 		float cant=0.0f;
 		double precio=0.0;
 		Categorias cat=null;
@@ -61,30 +61,30 @@ public class CestaAmachon {
 		//Control del nombre
 		do {
 			sinErrores=true;
-			System.out.println("Introduce el nombre del producto(introduzca salir para parar)");
+			System.out.print("Introduce el nombre del producto(introduzca salir para parar): ");
 			nombre=ent.nextLine().trim();
 			if(nombre.equalsIgnoreCase("salir")){
 				System.out.println("Ádios");
 				sinErrores=false;
 				salir=true;
-			}else if(!Validaciones.validarString(nombre, 25)) {
-				System.out.println("Nombre no puede ser vacío o mas de 25 letras");
+			}else if(!Validaciones.validarString(nombre,25)) {
+				System.out.println("\n! Nombre no puede ser vacío o mas de 25 letras\n");
 				sinErrores=false;
 			}
-		}while(!sinErrores && !salir);
+		}while(!sinErrores&&!salir);
 		
 		if(!salir) {
 			//Control descripción
 			do {
 				sinErrores=true;
-				System.out.println("Introduzca una descripción(introduzca salir para parar)");
-				desc = ent.nextLine();
+				System.out.print("Introduzca una descripción(introduzca salir para parar): ");
+				desc=ent.nextLine();
 				
 				if(desc.equalsIgnoreCase("salir")) {
 					sinErrores=false;
 					salir=true;
-				}else if(!Validaciones.validarString(desc, 50)) {
-					System.out.println("Descripción no puede ser vacío o mas de 50 letras");
+				}else if(!Validaciones.validarString(desc,50)) {
+					System.out.println("\n! Descripción no puede ser vacío o mas de 50 letras\n");
 					sinErrores=false;
 				}
 				
@@ -95,67 +95,66 @@ public class CestaAmachon {
 		if(!salir) {
 			do {
 				for(int i=0 ; i < Categorias.values().length ; i++) {
-					System.out.println((i +1 ) + "º) " + Categorias.values()[i]);
+					System.out.println((i +1 )+"º) "+Categorias.values()[i]);
 				}
-				System.out.println("Introduce la categoría del producto: (introduzca salir para parar)");
-				entTeclado = ent.nextLine().toUpperCase();
-				if(Validaciones.chkCategorias(entTeclado)!= null) {
-					cat = Validaciones.chkCategorias(entTeclado);
+				System.out.print("Introduce la categoría del producto o (introduzca salir para parar): ");
+				entTeclado=ent.nextLine().toUpperCase();
+				if(Validaciones.chkCategorias(entTeclado)!=null) {
+					cat=Validaciones.chkCategorias(entTeclado);
 					sinErrores=true;
 				}else if(entTeclado.equals("salir")) {
 					salir=true;
 					sinErrores=false;
 				}else{
-					System.out.println("Categoría incorrecta");
+					System.out.println("\n! Categoría incorrecta\n");
 					sinErrores=false;
 				}
 			
-			}while(!sinErrores && !salir);
+			}while(!sinErrores&&!salir);
 		}
 		
 		//Control de las unidades
 		if(!salir) {
 			do {
-				System.out.println("Cuántas unidades desea?(introduzca salir para parar).");
+				System.out.print("Cuántas unidades desea?(introduzca salir para parar): ");
 				try {
-					entTeclado = ent.nextLine().replace(',', '.');
-					cant = Float.parseFloat(entTeclado);
-					if(cant > 0) {
-						sinErrores = true;
+					entTeclado=ent.nextLine().replace(',','.');
+					cant=Float.parseFloat(entTeclado);
+					if(cant>0) {
+						sinErrores=true;
 					}else {
-						System.out.println("La cantidad ha de ser mayor que cero");
-						sinErrores = false;
+						System.out.println("\n! La cantidad ha de ser mayor que cero\n");
+						sinErrores=false;
 					}					
 				}catch(NumberFormatException ex) {
 					if(entTeclado.equalsIgnoreCase("salir")) {
 						salir=true;
 					}else {
-						System.out.println("Dato no númerico en las unidades");	
+						System.out.println("\n! Dato no númerico en las unidades\n");	
 						sinErrores=false;
 					}					
 				}
-			}while(!sinErrores && !salir);			
+			}while(!sinErrores&&!salir);			
 		}
-		
-		
+
 		//Control del importe
 		if(!salir) {
 			do {
 				try {
-					System.out.println("Introduzca el importe del producto o salir para parar");
-					entTeclado = ent.nextLine().replace(',', '.');					
-					precio = Double.parseDouble(entTeclado);
-					if(precio > 0) {
-						sinErrores = true;
+					System.out.print("Introduzca el importe del producto o salir para parar: ");
+					entTeclado=ent.nextLine().replace(',','.');					
+					precio=Double.parseDouble(entTeclado);
+					if(precio>0) {
+						sinErrores=true;
 					}else {
-						System.out.println("El importe ha de ser mayor que 0");
-						sinErrores = false;
+						System.out.println("\n! El importe ha de ser mayor que 0\n");
+						sinErrores=false;
 					}
 				}catch(NumberFormatException ex) {
 					if(entTeclado.equalsIgnoreCase("salir")) {
 						salir=true;
 					}else {
-						System.out.println("Dato no númerico en el precio");	
+						System.out.println("\n !Dato no númerico en el precio\n");	
 						sinErrores=false;
 					}
 				}
@@ -194,7 +193,7 @@ public class CestaAmachon {
                     System.out.println("\n! Error en la linea: "+linea+"\n");
                 }
             }
-            System.out.println(lista.size()+" productos importados");
+            System.out.println("\n+ "+lista.size()+" productos importados\n");
             br.close();
         } catch(FileNotFoundException exc) {
             System.out.println("\n! El archivo no se ha encontrado\n");
@@ -211,5 +210,5 @@ public class CestaAmachon {
         }
         bw.close();
     }
-	
+
 }
