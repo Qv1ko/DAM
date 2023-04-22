@@ -1,34 +1,36 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Inter, Roboto, Verdana, Geneva, Tahoma, sans-serif;
 }
 header {
-    background-color: #f0f0f0;
-    padding: 1% 10%;
-    text-align: center;
-}
-.menu  {
+    background-color: #333;
+    color: #fff;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-items: auto;
-    color: black;
+    padding: 1em;
 }
-.menu-button {
-    margin: 0 16px;
+nav ul {
+    display: flex;
+    list-style: none;
 }
-#menu-icon {
+nav li {
+    margin-left: 1em;
 }
-ul {
-    list-style-type: none;
-}
-a {
-    text-decoration: none;
+nav a {
+    
 }
 footer {
     background-color: #f0f0f0;
     padding: 1% 10%;
     text-align: center;
+}
+footer ul {
+    list-style-type: none;
+}
+footer a {
+    text-decoration: none;
 }
 .social-media {
     display: flex;
