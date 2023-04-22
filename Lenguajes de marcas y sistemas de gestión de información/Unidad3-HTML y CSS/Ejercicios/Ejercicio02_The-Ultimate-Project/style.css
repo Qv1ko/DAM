@@ -3,3 +3,23 @@ body {
     padding: 0;
     font-family: Roboto, Verdana, Geneva, Tahoma, sans-serif;
 }
+ul {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+footer {
+    background-color: #f0f0f0;
+    padding: 1% 10%;
+    text-align: center;
+}
+.social-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.icon {
+    width: 32px;
+    margin: 0 16px;
+}
