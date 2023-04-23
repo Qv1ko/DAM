@@ -9,7 +9,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
+    padding: 0 3%;
 }
 nav ul {
     display: flex;
@@ -19,7 +19,17 @@ nav li {
     margin-left: 1em;
 }
 nav a {
-    
+    text-decoration: none;
+    color: #fff;
+}
+nav a:hover {
+    text-decoration: none;
+    color: greenyellow;
+    font-weight: bold;
+}
+section {
+    text-align: center;
+    margin: 1% 10%;
 }
 footer {
     background-color: #f0f0f0;
@@ -40,4 +50,7 @@ footer a {
 .icon {
     width: 32px;
     margin: 0 16px;
+}
+.icon:hover {
+    width: 35px;
 }
