@@ -4,12 +4,15 @@ body {
     font-family: Inter, Roboto, Verdana, Geneva, Tahoma, sans-serif;
 }
 header {
-    background-color: #333;
+    background-color: #252525;
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 3%;
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: #0000001f;
 }
 nav ul {
     display: flex;
@@ -27,12 +30,43 @@ nav a:hover {
     color: greenyellow;
     font-weight: bold;
 }
-section {
+.presentation {
     text-align: center;
-    margin: 1% 10%;
+    margin: 20px 10%;
+}
+.pages-cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+#about-card {
+    text-align: center;
+    padding: 1px 10px;
+    border-width: 2px 2px;
+    border-style: solid;
+}
+#job-card {
+    text-align: center;
+    padding: 1px 10px;
+    border-width: 2px 2px;
+    border-style: solid;
+}
+#hobbies-card {
+    text-align: center;
+    padding: 1px 10px;
+    border-width: 2px 2px;
+    border-style: solid;
+}
+#ai-card {
+    text-align: center;
+    padding: 1px 10px;
+    border-width: 2px 2px;
+    border-style: solid;
 }
 footer {
-    background-color: #f0f0f0;
+    background-color: #252525;
+    color: #fff;
     padding: 1% 10%;
     text-align: center;
 }
