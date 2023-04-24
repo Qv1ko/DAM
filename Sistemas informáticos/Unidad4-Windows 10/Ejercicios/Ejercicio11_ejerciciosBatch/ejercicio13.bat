@@ -16,6 +16,7 @@ PAUSE > nul
 
 rem ---
 
+rem Condicion si existe el almacenamiento E esta conectado
 IF EXIST E: (
 	ECHO USB conectado
 ) ELSE (
