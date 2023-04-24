@@ -10,13 +10,13 @@ public class Vehiculo {
         this.matricula = "Sin definir";
         this.modelo = "Sin definir";
         this.potencia = 0;
-    }// Vehiculos - Constructor vacio
+    }
 
     public Vehiculo(String matricula, String modelo, int potencia) {
         this.matricula = matricula;
         this.modelo = modelo;
         this.potencia = potencia;
-    }// Vehiculos
+    }
 
     public String getMatricula() {
         return matricula;
