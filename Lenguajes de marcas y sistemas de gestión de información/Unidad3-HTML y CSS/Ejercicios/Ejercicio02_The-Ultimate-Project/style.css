@@ -1,4 +1,4 @@
-nav {
+#menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,45 +13,45 @@ nav {
   transition: all 0.5s ease-in-out;
 }
 
-nav.scrolled {
+#menu.scrolled {
   background-color: #111;
   height: 30px;
   padding: 0 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-img {
+#menu img {
   height: 50px;
   width: 50px;
   margin-right: 20px;
   transition: all 0.5s ease-in-out;
 }
 
-nav.scrolled img {
+#menu.scrolled img {
   height: 30px;
   width: 30px;
   margin-right: 10px;
 }
 
-ul {
+#menu ul {
   display: flex;
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-li {
+#menu li {
   margin: 0 20px;
 }
 
-a {
+#menu a {
   color: #00ff00;
   text-decoration: none;
   font-size: 18px;
   position: relative;
 }
 
-a:before {
+#menu li a:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -64,7 +64,7 @@ a:before {
   transition: all 0.3s ease-in-out 0s;
 }
 
-a:hover:before {
+#menu li a:hover:before {
   visibility: visible;
   transform: scaleX(1);
 }
@@ -75,13 +75,3 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-section {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-section:nth-child(even) {
-  background-color: #f0f0f0;
-}
