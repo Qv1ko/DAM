@@ -23,7 +23,7 @@ public class Autobus extends Vehiculo {
     }
 
     public String toString() {
-        return "El autobus con matricula "+getMatricula()+" - "+getModelo()+" - "+getPotencia()+" - Numero de plazas: "+getNumLicencia();
+        return "El autobus con matricula "+getMatricula()+"\n Modelo: "+getModelo()+"\n Potencia: "+getPotencia()+"\n Número de plazas: "+getNumLicencia();
     }
 
 }

@@ -23,7 +23,7 @@ public class Taxi extends Vehiculo {
     }
 
     public String toString() {
-        return "El taxi con matricula "+getMatricula()+" - "+getModelo()+" - "+getPotencia()+" - Numero de licencia: "+getNumLicencia();
+        return "El taxi con matricula "+getMatricula()+"\n Modelo: "+getModelo()+"\n Potencia: "+getPotencia()+"\n Número de licencia: "+getNumLicencia();
     }
 
 }
