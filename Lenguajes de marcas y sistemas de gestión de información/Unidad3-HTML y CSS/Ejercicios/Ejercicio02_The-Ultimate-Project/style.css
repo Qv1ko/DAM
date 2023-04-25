@@ -1,90 +1,87 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #252525;
+  height: 50px;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transition: all 0.5s ease-in-out;
+}
+
+nav.scrolled {
+  background-color: #111;
+  height: 30px;
+  padding: 0 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+img {
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
+  transition: all 0.5s ease-in-out;
+}
+
+nav.scrolled img {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0 20px;
+}
+
+a {
+  color: #00ff00;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+}
+
+a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #00ff00;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+a:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Inter, Roboto, Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  padding-top: 50px;
+  font-family: Arial, Helvetica, sans-serif;
 }
-header {
-    background-color: #252525;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 3%;
-    border-width: 0 0 2px 0;
-    border-style: solid;
-    border-color: #0000001f;
+
+section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-nav ul {
-    display: flex;
-    list-style: none;
-}
-nav li {
-    margin-left: 1em;
-}
-nav a {
-    text-decoration: none;
-    color: #fff;
-}
-nav a:hover {
-    text-decoration: none;
-    color: greenyellow;
-    font-weight: bold;
-}
-.presentation {
-    text-align: center;
-    margin: 20px 10%;
-}
-.pages-cards {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin: 20px 0;
-}
-#about-card {
-    text-align: center;
-    padding: 1px 10px;
-    border-width: 2px 2px;
-    border-style: solid;
-}
-#job-card {
-    text-align: center;
-    padding: 1px 10px;
-    border-width: 2px 2px;
-    border-style: solid;
-}
-#hobbies-card {
-    text-align: center;
-    padding: 1px 10px;
-    border-width: 2px 2px;
-    border-style: solid;
-}
-#ai-card {
-    text-align: center;
-    padding: 1px 10px;
-    border-width: 2px 2px;
-    border-style: solid;
-}
-footer {
-    background-color: #252525;
-    color: #fff;
-    padding: 1% 10%;
-    text-align: center;
-}
-footer ul {
-    list-style-type: none;
-}
-footer a {
-    text-decoration: none;
-}
-.social-media {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.icon {
-    width: 32px;
-    margin: 0 16px;
-}
-.icon:hover {
-    width: 35px;
+
+section:nth-child(even) {
+  background-color: #f0f0f0;
 }
