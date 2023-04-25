@@ -75,3 +75,29 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.black-section {
+  display: flex;
+  align-items: center;
+  background-color: #000000;
+  color: #fff;
+  padding: 50px;
+}
+
+.text {
+  width: 50%;
+}
+
+.image {
+  width: 50%;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  transform: rotate(0deg);
+  transition: transform 0.5s ease-in-out;
+}
+
+img:hover {
+  transform: rotate(25deg);
+}
