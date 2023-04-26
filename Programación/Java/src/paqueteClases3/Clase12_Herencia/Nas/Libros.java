@@ -27,7 +27,7 @@ public class Libros extends Multimedia {
     }
 
     public String toFile() {
-        return "L;"+getTitulo()+getGenero()+getAutor();
+        return "L;"+getTitulo()+";"+getGenero()+";"+getAutor();
     }
 
 }

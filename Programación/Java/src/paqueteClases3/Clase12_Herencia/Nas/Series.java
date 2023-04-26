@@ -27,7 +27,7 @@ public class Series extends Multimedia {
     }
 
     public String toFile() {
-        return "S;"+getTitulo()+getGenero()+getTemporadas();
+        return "S;"+getTitulo()+";"+getGenero()+";"+getTemporadas();
     }
 
 }

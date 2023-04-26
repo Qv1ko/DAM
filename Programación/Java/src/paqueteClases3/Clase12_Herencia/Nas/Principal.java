@@ -52,19 +52,20 @@ public class Principal {
         for (Multimedia m : lista) {
             System.out.println(m.toString());
         }
-        lista.add(new Peliculas("Peter pan", "Infantil", 90));
-        lista.add(new Series("Naruto", "Anime", 17));
-        lista.add(new Libros("El cid Campeador", "Acción", "Cervantes"));
+        // lista.add(new Peliculas("Peter pan", "Infantil", 90));
+        // lista.add(new Series("Naruto", "Anime", 17));
+        // lista.add(new Libros("El cid Campeador", "Acción", "Cervantes"));
         br = new BufferedReader(in);
         try {
             while (opcion != 0) {
-                System.out.print("\nMenu de opciones:\n\s1) Añadir pelicula\n\s2) Añadir serie\n\s3) Añadir libro\n\nSeleccione una opcion:");
+                System.out.print("\nMenu de opciones:\n\s1) Añadir pelicula\n\s2) Añadir serie\n\s3) Añadir libro\n\s0) Salir\n\nSeleccione una opcion: ");
                 opcion = Integer.parseInt(br.readLine());
                 switch (opcion) {
                     case 0 -> System.out.println("\nSaliendo...\n");
                     case 1 -> addPelicula(lista, br);
                     case 2 -> addSerie(lista, br);
                     case 3 -> addLibro(lista, br);
+                    default -> System.out.println("\n! Opcion invalida\n");
                 }
             }
         } catch (IOException exc) {
