@@ -1,6 +1,6 @@
 package paqueteClases3.Clase12_Herencia.Nas;
 
-public class Multimedia {
+public abstract class Multimedia {
     
     private String titulo,genero;
 
@@ -34,8 +34,10 @@ public class Multimedia {
         return getTitulo()+" del genero de "+getGenero();
     }
 
-    public String toCsv() {
-        return getTitulo()+";"+getGenero()+";";
-    }
+    // public String toFile() {
+    //     return ";"+getTitulo()+";"+getGenero()+";";
+    // }
+
+    public abstract String toFile();
 
 }
