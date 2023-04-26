@@ -2,12 +2,11 @@
 DELIMITER //
 CREATE PROCEDURE Fact(n INT,OUT f INT)
 BEGIN
-    DECLARE r INT DEFAULT 1;
-    WHILE n>0 DO 
-        SET r=r*n;
+    SET f=1;
+    WHILE n>1 DO 
+        SET f=f*n;
         SET n=n-1;
     END WHILE;
-    SET f=r;
 END//
 DELIMITER ;
 

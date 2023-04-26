@@ -27,7 +27,7 @@ public class Peliculas extends Multimedia {
     }
 
     public String toFile() {
-        return getTitulo()+";"+getGenero()+";"+getDuracion();
+        return "P;"+getTitulo()+getGenero()+getDuracion();
     }
 
 }
