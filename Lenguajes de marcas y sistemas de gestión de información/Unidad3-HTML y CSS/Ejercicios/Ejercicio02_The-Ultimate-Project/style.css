@@ -70,34 +70,73 @@
 }
 
 body {
+  background-image: url("./content/images/wallpaper.gif");
+  background-position: center;
+  background-attachment: fixed;
   margin: 0;
   padding-top: 50px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.black-section {
+#presentation {
+  background-color: transparent;
+  height: 95vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color: #000000;
-  color: #fff;
-  padding: 50px;
-}
-
-.text {
-  width: 50%;
-}
-
-.image {
-  width: 50%;
   text-align: center;
+  position: relative;
+  padding: 0 15%;
 }
 
-img {
-  max-width: 100%;
-  transform: rotate(0deg);
-  transition: transform 0.5s ease-in-out;
+#presentation h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px #333;
+  animation: zoomIn 1s forwards;
 }
 
-img:hover {
-  transform: rotate(25deg);
+#presentation p {
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 2px 2px #333;
+  animation: zoomIn 1s forwards;
 }
+
+.arrow {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: moveArrow 1s ease-in-out infinite;
+}
+
+.arrow img {
+  width: 50px;
+}
+
+@keyframes moveArrow {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
