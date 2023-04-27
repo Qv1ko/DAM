@@ -153,6 +153,10 @@ body {
   padding: 50px 0;
 }
 
+.card-section a {
+  text-decoration: none;
+}
+
 .card {
   position: relative;
   width: 300px;
