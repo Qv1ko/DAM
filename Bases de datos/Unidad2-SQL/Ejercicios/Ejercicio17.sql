@@ -48,3 +48,20 @@ RETURN contador;
 end//
 DELIMITER ;
 
+-- 8. Modifica la función añadiendo una instrucción antes de END WHILE que muestre el contenido de las variables aux y contador
+DELIMITER //
+CREATE PROCEDURE divide(dividendo int,divisor int,out contador int)
+begin
+    declare aux int;
+    declare resto int;
+    SET contador = 0;
+    SET aux = 0;
+    while (aux + divisor) < dividendo do
+        SET aux = aux + divisor ;
+        SET contador = contador + 1;
+        SELECT aux;
+        SELECT contador;
+    end while;
+    SET resto = dividendo - aux ;
+end//
+DELIMITER ;
