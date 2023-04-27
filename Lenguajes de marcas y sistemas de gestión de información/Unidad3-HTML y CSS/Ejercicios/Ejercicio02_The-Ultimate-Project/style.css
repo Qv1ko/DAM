@@ -80,14 +80,14 @@ body {
 
 #presentation {
   background-color: transparent;
-  height: 95vh;
+  /* height: 95vh; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   position: relative;
-  padding: 0 15%;
+  padding: 120px 15%;
 }
 
 #presentation h1 {
@@ -106,10 +106,11 @@ body {
 }
 
 .arrow {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 120px;
+  text-align: center;
   animation: moveArrow 1s ease-in-out infinite;
 }
 
@@ -137,6 +138,3 @@ body {
     transform: scale(1);
   }
 }
-
-
-
