@@ -1,12 +1,11 @@
 @ECHO OFF
 
-IF NOT EXIST %1 GOTO :error
-MKDIR %1\..\..\nivel2up
-GOTO :salida
-
-:error
-ECHO El directorio no existe
-
-:salida
+rem Condicion si existe el primer parametro introducido
+IF EXIST %USERPROFILE%\Desktop\%1 (
+	CD %USERPROFILE%\Desktop\%1
+	MKDIR ..\..\nivel2up
+) ELSE (
+	ECHO El directorio no existe
+)
 ECHO Pulse una tecla para salir...
 PAUSE > nul
