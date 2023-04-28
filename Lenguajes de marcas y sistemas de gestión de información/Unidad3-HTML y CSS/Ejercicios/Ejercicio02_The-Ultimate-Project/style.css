@@ -149,8 +149,7 @@ body {
 .card-section {
   display: flex;
   justify-content: space-around;
-  background-color: #222;
-  padding: 50px 0;
+  padding: 100px 0;
 }
 
 .card-section a {
