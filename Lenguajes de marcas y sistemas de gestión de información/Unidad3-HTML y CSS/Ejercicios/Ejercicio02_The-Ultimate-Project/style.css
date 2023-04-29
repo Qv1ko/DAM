@@ -143,7 +143,6 @@ body {
   }
 }
 
-
 /* Seccion de tarjetas */
 
 .card-section {
@@ -211,4 +210,77 @@ body {
 .card li {
   margin-bottom: 10px;
   font-size: 16px;
+}
+
+/* Footer */
+
+footer {
+  background-color: #252525;
+  padding: 20px;
+  text-align: center;
+}
+
+footer hr {
+  border: none;
+  border-top: 1px solid #00ff00;
+  margin: 10px auto;
+  width: 50%;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social-media li {
+  margin: 0 10px;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  transition: all 0.2s ease-in-out;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+}
+
+footer p {
+  margin: 20px 0 0 0;
+  font-size: 14px;
+  color: #999;
+}
+
+
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 25%;
+  background-color: #333;
+  transition: background-color 0.3s ease-in-out;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.scroll-top img {
+  width: 30px;
+  height: 30px;
+}
+
+.scroll-top:active {
+  color: #00ff00;
 }
