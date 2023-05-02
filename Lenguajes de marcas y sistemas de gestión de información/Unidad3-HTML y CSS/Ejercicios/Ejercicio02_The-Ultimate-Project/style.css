@@ -7,6 +7,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+hr {
+  border: none;
+  border-top: 1px solid #00ff00;
+  margin: 10px auto;
+  width: 50%;
+}
+
 /* Menu de navegacion */
 
 #menu {
@@ -82,7 +89,7 @@ body {
 
 /* Seccion de presentacion */
 
-#presentation {
+.presentation {
   background-color: transparent;
   /* height: 95vh; */
   display: flex;
@@ -94,7 +101,7 @@ body {
   padding: 120px 15%;
 }
 
-#presentation h1 {
+.presentation h1 {
   font-size: 4rem;
   font-weight: bold;
   color: #fff;
@@ -102,7 +109,15 @@ body {
   animation: zoomIn 1s forwards;
 }
 
-#presentation p {
+.presentation h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px #333;
+  animation: zoomIn 1s forwards;
+}
+
+.presentation p {
   font-size: 2rem;
   color: #fff;
   text-shadow: 2px 2px #333;
@@ -222,13 +237,6 @@ footer {
   background-color: #252525;
   padding: 20px;
   text-align: center;
-}
-
-footer hr {
-  border: none;
-  border-top: 1px solid #00ff00;
-  margin: 10px auto;
-  width: 50%;
 }
 
 .social-media {
