@@ -1,6 +1,6 @@
 package unidad6.ejercicios.ejercicio01_Hospital;
 
-public class Enfermeros extends Empleados {
+public class Enfermeros extends Empleados implements Citas {
 
     private int numeroPacientes;
 
@@ -24,6 +24,10 @@ public class Enfermeros extends Empleados {
 
     public String toString() {
         return "Enfermeros ["+super.toString()+", numeroPacientes=" + numeroPacientes + "]";
+    }
+
+    public void mostrarCitas() {
+        System.out.println("A de atender a " + getNumeroPacientes() + " pacientes");
     }
 
 }

@@ -2,7 +2,7 @@ package unidad6.ejercicios.ejercicio01_Hospital;
 
 import java.time.LocalDate;
 
-public class Pacientes extends Personas {
+public class Pacientes extends Personas implements Citas {
 
     private LocalDate cita;
 
@@ -26,6 +26,10 @@ public class Pacientes extends Personas {
 
     public String toString() {
         return "Pacientes ["+super.toString()+", cita=" + cita + "]";
+    }
+
+    public void mostrarCitas() {
+        System.out.println("Tienes cita el dia " + getCita().getDayOfMonth() + " del " + getCita().getMonthValue() + " del " + getCita().getYear());
     }
 
 }

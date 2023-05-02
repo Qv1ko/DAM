@@ -1,6 +1,6 @@
 package unidad6.ejercicios.ejercicio01_Hospital;
 
-public class Empleados extends Personas {
+public class Empleados extends Personas implements Guardias {
 
     private String especialidad;
     private float sueldo;
@@ -25,17 +25,24 @@ public class Empleados extends Personas {
         this.especialidad = especialidad;
     }
 
-    
     public float getSueldo() {
         return sueldo;
     }
-    
+
     public void setSueldo(float sueldo) {
         this.sueldo = sueldo;
     }
 
     public String toString() {
-        return "Empleados ["+super.toString()+", especialidad=" + especialidad + ", sueldo=" + sueldo + "]";
+        return "Empleados [" + super.toString() + ", especialidad=" + especialidad + ", sueldo=" + sueldo + "]";
+    }
+
+    public float getGuardias(int dias) {
+        return SUELDO * dias;
+    }
+
+    public float getNomina(int dias) {
+        return getSueldo() + getGuardias(dias);
     }
 
 }

@@ -1,6 +1,6 @@
 package unidad6.ejercicios.ejercicio01_Hospital;
 
-public class Doctores extends Empleados {
+public class Doctores extends Empleados implements Citas {
 
     private int licencia;
 
@@ -23,7 +23,11 @@ public class Doctores extends Empleados {
     }
 
     public String toString() {
-        return "Doctores ["+super.toString()+", licencia=" + licencia + "]";
+        return "Doctores [" + super.toString() + ", licencia=" + licencia + "]";
+    }
+
+    public void mostrarCitas() {
+        System.out.println("Tiene " + (int)(Math.random()*11) + " citas");
     }
 
 }
