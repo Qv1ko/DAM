@@ -1,0 +1,16 @@
+CREATE TABLE saldos(
+    saldo INT,
+    id INT PRIMARY KEY
+);
+INSERT INTO saldos VALUES(95,1),(80,2),(34,3);
+
+DELIMITER //
+CREATE TRIGGER chequeMod BEFORE UPDATE ON saldos FOR EACH ROW
+BEGIN
+	IF NEW.saldo < 0 THEN
+		SET NEW.saldo = 0;
+	ELSEIF NEW.saldo > 100 THEN
+		SET NEW.saldo = 100;
+	END IF;
+END//
+DELIMITER ;
