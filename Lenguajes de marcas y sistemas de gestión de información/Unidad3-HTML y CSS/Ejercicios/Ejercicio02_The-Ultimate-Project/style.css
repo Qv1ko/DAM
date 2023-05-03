@@ -21,7 +21,7 @@ hr {
   justify-content: space-between;
   align-items: center;
   background-color: #252525;
-  height: 50px;
+  height: 64px;
   padding: 0 20px;
   position: fixed;
   top: 0;
@@ -39,8 +39,7 @@ hr {
 }
 
 #menu img {
-  height: 50px;
-  width: 50px;
+  width: 64px;
   margin-right: 20px;
   transition: all 0.5s ease-in-out;
 }
@@ -89,19 +88,18 @@ hr {
 
 /* Seccion de presentacion */
 
-.presentation {
+.section-primary {
   background-color: transparent;
-  /* height: 95vh; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   position: relative;
-  padding: 120px 15%;
+  padding: 50px 15%;
 }
 
-.presentation h1 {
+.section-primary h1 {
   font-size: 4rem;
   font-weight: bold;
   color: #fff;
@@ -109,7 +107,7 @@ hr {
   animation: zoomIn 1s forwards;
 }
 
-.presentation h2 {
+.section-primary h2 {
   font-size: 3rem;
   font-weight: bold;
   color: #fff;
@@ -117,8 +115,43 @@ hr {
   animation: zoomIn 1s forwards;
 }
 
-.presentation p {
+.section-primary p {
   font-size: 2rem;
+  color: #fff;
+  text-shadow: 2px 2px #333;
+  animation: zoomIn 1s forwards;
+}
+
+.section-secondary {
+  background-color: #252525;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  position: relative;
+  padding: 25px 15%;
+}
+
+.section-secondary h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px #333;
+  animation: zoomIn 1s forwards;
+}
+
+.section-secondary h2 {
+  font-size: 3rem;
+  font-weight: bold;
+
+  color: #fff;
+  text-shadow: 2px 2px #00ff00;
+  animation: zoomIn 1s forwards;
+}
+
+.section-secondary p {
+  font-size: 1.5rem;
   color: #fff;
   text-shadow: 2px 2px #333;
   animation: zoomIn 1s forwards;
@@ -128,7 +161,7 @@ hr {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 120px;
+  padding-top: 50px;
   text-align: center;
   animation: moveArrow 1s ease-in-out infinite;
 }
