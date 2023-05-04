@@ -88,6 +88,32 @@ hr {
 
 /* Seccion de presentacion */
 
+.presentation {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 175px 15%;
+}
+
+.presentation h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px #333;
+  animation: zoomIn 1s forwards;
+}
+
+.presentation p {
+  font-size: 2rem;
+  color: #fff;
+  text-shadow: 2px 2px #333;
+  animation: zoomIn 1s forwards;
+}
+
 .section-primary {
   background-color: transparent;
   display: flex;
@@ -157,11 +183,15 @@ hr {
   animation: zoomIn 1s forwards;
 }
 
+.section-secondary img {
+  width: 128px;
+}
+
 .arrow {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 50px;
+  padding-top: 100px;
   text-align: center;
   animation: moveArrow 1s ease-in-out infinite;
 }
@@ -196,7 +226,7 @@ hr {
 .card-section {
   display: flex;
   justify-content: space-around;
-  padding: 100px 0;
+  padding: 50px 0;
 }
 
 .card-section a {
