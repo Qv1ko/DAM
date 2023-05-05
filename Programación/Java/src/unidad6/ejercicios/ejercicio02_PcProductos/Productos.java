@@ -1,6 +1,6 @@
 package unidad6.ejercicios.ejercicio02_PcProductos;
 
-public class Productos implements Mostrable {
+public class Productos implements Mostrable, Comparable<Productos> {
 
     private String nombre;
     private float precio;
@@ -19,12 +19,20 @@ public class Productos implements Mostrable {
         return precio;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
     public String verFicha() {
         return "Producto: " + this.nombre + "\n\sPrecio: " + this.precio;
     }
 
     public float calcTasa() {
         return 0.0f;
+    }
+
+    public int compareTo(Productos obj) {
+        return this.getNombre().compareTo(obj.getNombre());
     }
 
 }
