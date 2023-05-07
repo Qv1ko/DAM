@@ -115,6 +115,17 @@ hr {
   animation: zoomIn 1s forwards;
 }
 
+.section-primary div {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.section-primary div img {
+  width: 64px;
+  margin-right: 32px;
+}
+
 .section-primary p {
   font-size: 2rem;
   color: #fff;
@@ -163,7 +174,7 @@ hr {
 .section-secondary div img {
   width: 64px;
   margin-right: 32px;
-} 
+}
 
 .section-secondary p {
   font-size: 1.5rem;
@@ -173,8 +184,6 @@ hr {
   text-shadow: 2px 2px #333;
   animation: zoomIn 1s forwards;
 }
-
-
 
 .arrow {
   position: relative;
