@@ -14,6 +14,10 @@ hr {
   width: 50%;
 }
 
+#non-clickable {
+  cursor: default;
+}
+
 /* Menu de navegacion */
 
 #menu {
