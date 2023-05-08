@@ -91,6 +91,13 @@ hr {
   transform: scaleX(1);
 }
 
+#menu li.cv a {
+  background-color: #00ff00;
+  color: #252525;
+  padding: 8px 16px;
+  font-weight: bold;
+}
+
 /* Seccion de presentacion */
 
 .section-primary {
