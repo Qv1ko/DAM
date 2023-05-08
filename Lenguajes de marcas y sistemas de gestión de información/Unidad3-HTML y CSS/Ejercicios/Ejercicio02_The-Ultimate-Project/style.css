@@ -33,6 +33,7 @@ hr {
   right: 0;
   z-index: 999;
   transition: all 0.5s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 #menu.scrolled {
@@ -189,6 +190,8 @@ hr {
   animation: zoomIn 1s forwards;
 }
 
+/* Flecha */
+
 .arrow {
   position: relative;
   margin-left: auto;
@@ -262,9 +265,12 @@ hr {
 /* Seccion de tarjetas */
 
 .card-section {
+  margin: 125px 0;
+}
+
+.cards {
   display: flex;
   justify-content: space-around;
-  padding: 125px 0;
 }
 
 .card-section h1 {
@@ -273,8 +279,6 @@ hr {
   color: #fff;
   text-align: center;
   text-shadow: 2px 2px #333;
-  /* display: flex;
-  align-content: center; */
   animation: zoomIn 1s forwards;
 }
 
