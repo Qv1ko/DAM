@@ -1,5 +1,11 @@
 package unidad6.ejercicios.ejercicio02_PcProductos;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -17,6 +23,49 @@ public class Principal {
         lista.add(msi);
         lista.add(lavadora);
         lista.add(lavavajillas);
+
+        File directorio = new File("Programación\\Java\\src\\unidad6\\ejercicios\\ejercicio02_PcProductos\\backups");
+
+        if (!directorio.exists()) {
+            directorio.mkdir();
+        }
+
+        int contador = 0;
+        BufferedWriter bw = null;
+        // BufferedReader br = null;
+
+        try {
+            bw = new BufferedWriter(new FileWriter(new File(directorio + "\\listabk.dat")));
+            while (contador < lista.size()) {
+                bw.write(lista.get(contador).verFicha());
+                contador++;
+                bw.newLine();
+            }
+            bw.close();
+            // for (Productos producto : lista) {
+            //     bw.newLine();
+            //     bw.write(producto.verFicha());
+            //     bw.close();
+            // }
+        } catch (NullPointerException exc) {
+            exc.getMessage();
+        } catch (IOException exc) {
+            exc.getMessage();
+        }
+
+        System.out.print("Desea eliminar todo S/N: ");
+        try {
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String res = br.readLine();
+            if(res.equalsIgnoreCase("S") || res.equalsIgnoreCase("si")) {
+                for(File fichero : directorio.listFiles()) {
+                    fichero.delete();
+                }
+                directorio.delete();
+            }
+        } catch (Exception exc) {
+            exc.getMessage();
+        }
 
         for (Productos p : lista) {
             System.out.println(p.verFicha());
