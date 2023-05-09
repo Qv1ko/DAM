@@ -12,6 +12,7 @@ public class Mapeado {
         Hogar lavavajillas = new Hogar("Balay", 200f, false);
 
         Map<String, Productos> lista = new HashMap<String, Productos>();
+        // HashMap<String, Productos> map = new HashMap<String, Productos>();
 
         lista.put("nzxt", nzxt);
         lista.put("msi", msi);
@@ -19,6 +20,17 @@ public class Mapeado {
         lista.put("balay", lavavajillas);
         
         System.out.println(lista.get("msi").verFicha());
+
+        Map<Integer, Productos> mapa = new HashMap<Integer, Productos>();
+
+        mapa.put(1, nzxt);
+        mapa.put(2, msi);
+        mapa.put(3, lavadora);
+        mapa.put(4, lavavajillas);
+        
+        for(Integer s : mapa.keySet()) {
+            System.out.println(mapa.get(s).verFicha());
+        }
 
     }
 
