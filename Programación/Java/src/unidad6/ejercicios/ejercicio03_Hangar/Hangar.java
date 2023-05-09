@@ -16,7 +16,7 @@ public class Hangar {
         // Menu de opciones
         do {
             try {
-                System.out.println("\nMenu de opciones:\n1.) Añadir nave\n2.) Eliminar nave\n3.) Ver naves\n4.) Salir");
+                System.out.print("\nMenu de opciones:\n1.) Añadir nave\n2.) Eliminar nave\n3.) Ver naves\n4.) Salir\nSelecciona una opción: ");
                 opcion = Integer.parseInt(bf.readLine());
                 switch (opcion) {
                     case 1 -> addNave(bf, navesHangar);
@@ -105,6 +105,7 @@ public class Hangar {
     private static void delNave(BufferedReader bf, Map<String, Naves> navesHangar) throws IOException, NullPointerException {
         System.out.print("Introduce la matricula de la nave: ");
         navesHangar.remove(bf.readLine());
+        System.out.println("\nNave eliminada\n");
     }
 
     private static void listNaves(Map<String, Naves> navesHangar) {
