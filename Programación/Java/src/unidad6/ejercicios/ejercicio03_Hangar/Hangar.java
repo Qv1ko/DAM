@@ -15,15 +15,18 @@ public class Hangar {
         // Variables y objetos
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in)), br = null;
         BufferedWriter bw = null;
+        String[] linea = new String[4];
         int opcion = 0;
         Map<String, Naves> navesHangar = new HashMap<String, Naves>();
         // Importar datos
         try {
             br = new BufferedReader(new FileReader("Programación\\Java\\src\\unidad6\\ejercicios\\ejercicio03_Hangar\\Data.csv"));
-            if(br.ready()) {
-                br.readLine().split(";");
+            while (br.ready()) {
+                linea = br.readLine().split(";");
+                navesHangar.put(linea[1], (linea[0].equals("t")) ? new Ties(linea[1], Boolean.parseBoolean(linea[2]), Float.parseFloat(linea[3])) : new Wings(linea[1], Boolean.parseBoolean(linea[2]), Integer.parseInt(linea[3])));
             }
-        } catch(IOException exc) {
+            br.close();
+        } catch (IOException exc) {
             System.out.println("\n! Error de entrada o salida\n");
         }
         // Menu de opciones
@@ -86,7 +89,7 @@ public class Hangar {
         while (run) {
             try {
                 System.out.print("Tipo de nave (Wing/Tie): ");
-                switch(bf.readLine().toLowerCase().charAt(0)) {
+                switch (bf.readLine().toLowerCase().charAt(0)) {
                     case 't':
                         System.out.print("Numero de cilindradas: ");
                         datos[2] = bf.readLine();

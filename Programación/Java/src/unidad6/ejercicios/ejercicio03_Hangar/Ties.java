@@ -27,7 +27,7 @@ public class Ties extends Naves implements Tasas {
     }
 
     public String toFile() {
-        return super.toFile()+cilindrada;
+        return "t;"+super.toFile()+cilindrada;
     }
 
     public float getTotal() {

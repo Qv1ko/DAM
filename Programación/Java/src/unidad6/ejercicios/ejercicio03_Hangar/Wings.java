@@ -27,7 +27,7 @@ public class Wings extends Naves implements Tasas {
     }
 
     public String toFile() {
-        return super.toFile()+motores;
+        return "t;"+super.toFile()+motores;
     }
 
     public float getTotal() {
