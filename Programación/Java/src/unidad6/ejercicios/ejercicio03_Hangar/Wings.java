@@ -26,6 +26,10 @@ public class Wings extends Naves implements Tasas {
         return super.toString() + "Wing [motores=" + motores + "]";
     }
 
+    public String toFile() {
+        return super.toFile()+motores;
+    }
+
     public float getTotal() {
         return (isImperio()) ? getMotores() * IMP : getMotores() * REB;
     }

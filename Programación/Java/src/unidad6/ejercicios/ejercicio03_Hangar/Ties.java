@@ -26,6 +26,10 @@ public class Ties extends Naves implements Tasas {
         return super.toString() + "Tie [cilindrada=" + cilindrada + "]";
     }
 
+    public String toFile() {
+        return super.toFile()+cilindrada;
+    }
+
     public float getTotal() {
         return (isImperio()) ? getCilindrada() * IMP : getCilindrada() * REB;
     }

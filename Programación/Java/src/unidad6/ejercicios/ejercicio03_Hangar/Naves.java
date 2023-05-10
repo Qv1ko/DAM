@@ -35,4 +35,8 @@ public class Naves {
         return "Naves [matricula=" + matricula + ", imperio=" + imperio + "]";
     }
 
+    public String toFile() {
+        return matricula+";"+imperio+";";
+    }
+
 }
