@@ -18,6 +18,18 @@ BEGIN
 END//
 DELIMITER ;
 
+DELIMITER //
+CREATE PROCEDURE ins_dep(pnum INT(2), pnom VARCHAR(14))
+BEGIN
+    DECLARE n INT;
+    SELECT dep_no INTO n FROM departamentos WHERE dep_no = pnum;
+    IF n IS NOT NULL THEN
+        DELETE FROM departamentos WHERE dep_no = pnum;
+    END IF;
+    INSERT INTO departamentos VALUES(pnum, pnom, null);
+END//
+DELIMITER ;
+
 -- 6. Borra el procedimiento ins.
 DROP PROCEDURE ins;
 
@@ -64,7 +76,7 @@ BEGIN
             WHEN edad > 59 THEN "Veterano"
             WHEN edad > 29 AND edad < 60 THEN "Adulto"
             ELSE "Joven"
-        END;
+        END CASE;
     RETURN text;
 END//
 DELIMITER ;
@@ -81,7 +93,7 @@ BEGIN
         SELECT emp_no INTO nume FROM empleados WHERE emp_no=nro LIMIT 1;
         IF nume IS NOT NULL THEN SET err=3;
         ELSE
-            SELECT empleados.dep_no INTO numd FROM empleados WHERE dep_no=dep LIMIT 1;
+            SELECT departamentos.dep_no INTO numd FROM departamentos WHERE dep_no=dep LIMIT 1;
             IF numd IS NULL THEN SET err=4;	
             END IF;
         END IF;
