@@ -23,7 +23,7 @@ public class Ties extends Naves implements Tasas {
     }
 
     public String toString() {
-        return super.toString() + "Tie [cilindrada=" + cilindrada + "]";
+        return super.toString() + " tipo TIE con " + cilindrada + " cilindradas";
     }
 
     public String toFile() {

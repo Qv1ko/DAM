@@ -26,8 +26,9 @@ public class Hangar {
                 navesHangar.put(linea[1], (linea[0].equals("t")) ? new Ties(linea[1], Boolean.parseBoolean(linea[2]), Float.parseFloat(linea[3])) : new Wings(linea[1], Boolean.parseBoolean(linea[2]), Integer.parseInt(linea[3])));
             }
             br.close();
+            System.out.print("\nDatos importados\n");
         } catch (IOException exc) {
-            System.out.println("\n! Error de entrada o salida\n");
+            System.out.print("\n! Error de entrada o salida\n");
         }
         // Menu de opciones
         do {
@@ -57,6 +58,7 @@ public class Hangar {
                 bw.newLine();
             }
             bw.close();
+            System.out.println("\nBackup finalizado\n");
         } catch (IOException exc) {
             System.out.println("\n! Error de entrada o salida\n");
         }
@@ -112,6 +114,7 @@ public class Hangar {
         } else {
             navesHangar.put(datos[0], new Ties(datos[0], Boolean.parseBoolean(datos[1]), Float.parseFloat(datos[2])));
         }
+        System.out.println("\nNave añadida\n");
     }
 
     private static void delNave(BufferedReader bf, Map<String, Naves> navesHangar) throws IOException, NullPointerException {

@@ -32,7 +32,7 @@ public class Naves {
     }
 
     public String toString() {
-        return "Naves [matricula=" + matricula + ", imperio=" + imperio + "]";
+        return "Nave con matricula " + matricula + " del bando " + (isImperio()) != null ? "imperial" : "rebelde";
     }
 
     public String toFile() {
