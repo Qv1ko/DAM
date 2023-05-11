@@ -64,8 +64,8 @@ public class Hangar {
 
     private static void addNave(BufferedReader bf, Map<String, Naves> navesHangar) {
         String[] datos = new String[3];
-        boolean run = true;
-        System.out.println("Introduce los datos de la nave:");
+        boolean run = true, isWing = true;
+        System.out.println("\nIntroduce los datos de la nave:");
         while (run) {
             try {
                 System.out.print("Matricula: ");
@@ -93,11 +93,13 @@ public class Hangar {
                     case 't':
                         System.out.print("Numero de cilindradas: ");
                         datos[2] = bf.readLine();
+                        isWing = false;
                         run = false;
                         break;
                     case 'w':
                         System.out.print("Numero de motores: ");
                         datos[2] = bf.readLine();
+                        isWing = true;
                         run = false;
                         break;
                 }
@@ -105,10 +107,15 @@ public class Hangar {
                 System.out.println("\n! Error al elegir el tipo de nave\n");
             }
         }
+        if(isWing) {
+            navesHangar.put(datos[0], new Wings(datos[0], Boolean.parseBoolean(datos[1]), Integer.parseInt(datos[2])));
+        } else {
+            navesHangar.put(datos[0], new Ties(datos[0], Boolean.parseBoolean(datos[1]), Float.parseFloat(datos[2])));
+        }
     }
 
     private static void delNave(BufferedReader bf, Map<String, Naves> navesHangar) throws IOException, NullPointerException {
-        System.out.print("Introduce la matricula de la nave: ");
+        System.out.print("\nIntroduce la matricula de la nave: ");
         navesHangar.remove(bf.readLine());
         System.out.println("\nNave eliminada\n");
     }
