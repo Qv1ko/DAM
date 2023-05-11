@@ -76,7 +76,7 @@ BEGIN
             WHEN edad > 59 THEN "Veterano"
             WHEN edad > 29 AND edad < 60 THEN "Adulto"
             ELSE "Joven"
-        END CASE;
+        END;
     RETURN text;
 END//
 DELIMITER ;
