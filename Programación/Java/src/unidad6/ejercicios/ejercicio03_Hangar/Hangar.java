@@ -106,7 +106,7 @@ public class Hangar {
                         break;
                 }
             } catch (IOException exc) {
-                System.out.println("\n! Error al elegir el tipo de nave\n");
+                System.out.print("\n! Error al elegir el tipo de nave\n");
             }
         }
         if(isWing) {
@@ -117,16 +117,27 @@ public class Hangar {
         System.out.println("\nNave añadida\n");
     }
 
-    private static void delNave(BufferedReader bf, Map<String, Naves> navesHangar) throws IOException, NullPointerException {
+    private static void delNave(BufferedReader bf, Map<String, Naves> navesHangar) {
+        String matricula="";
+        listNaves(navesHangar);
         System.out.print("\nIntroduce la matricula de la nave: ");
-        navesHangar.remove(bf.readLine());
-        System.out.println("\nNave eliminada\n");
+        try {
+            matricula = bf.readLine();
+            if(navesHangar.containsKey(matricula)) {
+                navesHangar.remove(matricula);
+                System.out.println("\nNave eliminada\n");
+            } else {
+                System.out.println("\n! La matricula no existe\n");
+            }
+        } catch (IOException exc) {
+            System.out.println("\n! Error en la E/S\n");
+        }
     }
 
     private static void listNaves(Map<String, Naves> navesHangar) {
         System.out.println("\nListado de naves del hangar:\n");
         for (String naveKey : navesHangar.keySet()) {
-            System.out.println(navesHangar.get(naveKey).toString());
+            System.out.println(navesHangar.get(naveKey));
         }
     }
 

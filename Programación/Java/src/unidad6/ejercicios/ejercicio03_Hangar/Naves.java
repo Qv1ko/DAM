@@ -31,10 +31,6 @@ public class Naves {
         this.imperio = imperio;
     }
 
-    public String toString() {
-        return "Nave con matricula " + matricula + " del bando " + (isImperio()) != null ? "imperial" : "rebelde";
-    }
-
     public String toFile() {
         return matricula+";"+imperio+";";
     }

@@ -23,7 +23,7 @@ public class Ties extends Naves implements Tasas {
     }
 
     public String toString() {
-        return super.toString() + " tipo TIE con " + cilindrada + " cilindradas";
+        return "Nave con matricula " + super.getMatricula() + " del bando " + (super.isImperio() ? "imperial" : "rebelde") + " tipo TIE con " + cilindrada + " cc";
     }
 
     public String toFile() {

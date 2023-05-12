@@ -23,7 +23,7 @@ public class Wings extends Naves implements Tasas {
     }
 
     public String toString() {
-        return super.toString() + " tipo Wing con " + motores + " motores";
+        return "Nave con matricula " + super.getMatricula() + " del bando " + (super.isImperio() ? "imperial" : "rebelde") + " tipo Wing con " + motores + " motores";
     }
 
     public String toFile() {
