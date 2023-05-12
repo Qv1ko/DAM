@@ -143,6 +143,23 @@ hr {
   margin-right: 32px;
 }
 
+.image-div {
+  display: flex;
+  align-items: center;
+}
+
+#section-primary-image {
+  float: right;
+  margin-left: 64px;
+  width: 85%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+#section-primary-image:hover {
+  transform: scale(1.1);
+}
+
 .section-primary p {
   font-size: 2rem;
   color: #fff;
