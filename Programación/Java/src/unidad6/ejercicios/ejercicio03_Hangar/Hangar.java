@@ -26,9 +26,9 @@ public class Hangar {
                 navesHangar.put(linea[1], (linea[0].equals("t")) ? new Ties(linea[1], Boolean.parseBoolean(linea[2]), Float.parseFloat(linea[3])) : new Wings(linea[1], Boolean.parseBoolean(linea[2]), Integer.parseInt(linea[3])));
             }
             br.close();
-            System.out.print("\nDatos importados\n");
+            System.out.println("\nDatos importados");
         } catch (IOException exc) {
-            System.out.print("\n! Error de entrada o salida\n");
+            System.out.println("\n! Error de entrada o salida");
         }
         // Menu de opciones
         do {
@@ -39,15 +39,15 @@ public class Hangar {
                     case 1 -> addNave(bf, navesHangar);
                     case 2 -> delNave(bf, navesHangar);
                     case 3 -> listNaves(navesHangar);
-                    case 0 -> System.out.println("\n! Saliendo...\n");
-                    default -> System.out.println("\n! Opción no valida\n");
+                    case 0 -> System.out.println("\n! Saliendo...");
+                    default -> System.out.println("\n! Opción no valida");
                 }
             } catch (IOException exc) {
-                System.out.println("\n! Error de entrada o salida\n");
+                System.out.println("\n! Error de entrada o salida");
             } catch (NullPointerException exc) {
-                System.out.println("\n! Nave no encontrada\n");
+                System.out.println("\n! Nave no encontrada");
             } catch (NumberFormatException exc) {
-                System.out.println("\n! Opcion no valida\n");
+                System.out.println("\n! Opcion no valida");
             }
         } while (opcion != 0);
         // Guardar naves
@@ -58,9 +58,9 @@ public class Hangar {
                 bw.newLine();
             }
             bw.close();
-            System.out.println("\nBackup finalizado\n");
+            System.out.println("\nBackup finalizado");
         } catch (IOException exc) {
-            System.out.println("\n! Error de entrada o salida\n");
+            System.out.println("\n! Error de entrada o salida");
         }
     }
 
@@ -71,20 +71,24 @@ public class Hangar {
         while (run) {
             try {
                 System.out.print("Matricula: ");
-                datos[0] = bf.readLine();
+                datos[0] = Validaciones.Matricula(bf.readLine());
                 run = false;
             } catch (IOException exc) {
-                System.out.println("\n! Error al introducir la matricula\n");
+                System.out.println("\n! Error al introducir la matricula");
+            } catch (Exception exc) {
+                exc.getMessage();
             }
         }
         run = true;
         while (run) {
             try {
                 System.out.print("Pertenece al imperio (S/N): ");
-                datos[1] = bf.readLine().toLowerCase();
-                run = !(datos[1].charAt(0) == 's' || datos[1].charAt(0) == 'n');
+                datos[1] = Validaciones.Bando(bf.readLine().toLowerCase());
+                run = false;
             } catch (IOException exc) {
-                System.out.println("\n! Error de entrada o salida\n");
+                System.out.println("\n! Error de entrada o salida");
+            } catch (Exception exc) {
+                exc.getMessage();
             }
         }
         run = true;
@@ -92,50 +96,56 @@ public class Hangar {
             try {
                 System.out.print("Tipo de nave (Wing/Tie): ");
                 switch (bf.readLine().toLowerCase().charAt(0)) {
-                    case 't':
-                        System.out.print("Numero de cilindradas: ");
-                        datos[2] = bf.readLine();
-                        isWing = false;
-                        run = false;
-                        break;
                     case 'w':
                         System.out.print("Numero de motores: ");
-                        datos[2] = bf.readLine();
+                        datos[2] = Validaciones.Motores(bf.readLine());
                         isWing = true;
+                        run = false;
+                        break;
+                    case 't':
+                        System.out.print("Numero de cilindradas: ");
+                        datos[2] = Validaciones.Cilindradas(bf.readLine());
+                        isWing = false;
                         run = false;
                         break;
                 }
             } catch (IOException exc) {
-                System.out.print("\n! Error al elegir el tipo de nave\n");
+                System.out.println("\n! Error al elegir el tipo de nave\n");
+            } catch (NumberFormatException exc) {
+                System.out.println("\n! Error numerico\n");
             }
         }
-        if(isWing) {
-            navesHangar.put(datos[0], new Wings(datos[0], Boolean.parseBoolean(datos[1]), Integer.parseInt(datos[2])));
-        } else {
-            navesHangar.put(datos[0], new Ties(datos[0], Boolean.parseBoolean(datos[1]), Float.parseFloat(datos[2])));
+        try {
+            if (isWing) {
+                navesHangar.put(datos[0], new Wings(datos[0], Boolean.parseBoolean(datos[1]), Integer.parseInt(datos[2])));
+            } else {
+                navesHangar.put(datos[0], new Ties(datos[0], Boolean.parseBoolean(datos[1]), Float.parseFloat(datos[2])));
+            }
+            System.out.println("\nNave añadida");
+        } catch (NumberFormatException exc) {
+            System.out.println("\n! Error numerico");
         }
-        System.out.println("\nNave añadida\n");
     }
 
     private static void delNave(BufferedReader bf, Map<String, Naves> navesHangar) {
-        String matricula="";
+        String matricula = "";
         listNaves(navesHangar);
         System.out.print("\nIntroduce la matricula de la nave: ");
         try {
             matricula = bf.readLine();
-            if(navesHangar.containsKey(matricula)) {
+            if (navesHangar.containsKey(matricula)) {
                 navesHangar.remove(matricula);
-                System.out.println("\nNave eliminada\n");
+                System.out.println("\nNave eliminada");
             } else {
-                System.out.println("\n! La matricula no existe\n");
+                System.out.println("\n! La matricula no existe");
             }
         } catch (IOException exc) {
-            System.out.println("\n! Error en la E/S\n");
+            System.out.println("\n! Error en la E/S");
         }
     }
 
     private static void listNaves(Map<String, Naves> navesHangar) {
-        System.out.println("\nListado de naves del hangar:\n");
+        System.out.println("\nListado de naves del hangar:");
         for (String naveKey : navesHangar.keySet()) {
             System.out.println(navesHangar.get(naveKey));
         }
