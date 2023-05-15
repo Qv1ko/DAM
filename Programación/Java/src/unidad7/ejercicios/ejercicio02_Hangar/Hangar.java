@@ -13,12 +13,11 @@ public class Hangar {
 
     public static void main(String[] args) {
         // Variables y objetos
-        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in)), br = null;
-        BufferedWriter bw = null;
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         int opcion = 0;
         Map<String, Naves> navesHangar = new HashMap<String, Naves>();
         // Importar datos
-        importData(br, navesHangar);
+        importData(navesHangar);
         // Menu de opciones
         do {
             try {
@@ -40,7 +39,7 @@ public class Hangar {
             }
         } while (opcion != 0);
         // Exportar datos
-        exportData(bw, navesHangar);
+        exportData(navesHangar);
     }
 
     private static void addNave(BufferedReader bf, Map<String, Naves> navesHangar) {
@@ -128,7 +127,8 @@ public class Hangar {
         }
     }
 
-    private static void importData(BufferedReader br, Map<String, Naves> navesHangar) {
+    private static void importData(Map<String, Naves> navesHangar) {
+        BufferedReader br = null;
         String[] linea = new String[4];
         try {
             br = new BufferedReader(new FileReader("Programación\\Java\\src\\unidad7\\ejercicios\\ejercicio02_Hangar\\Data.csv"));
@@ -143,7 +143,8 @@ public class Hangar {
         }
     }
 
-    private static void exportData(BufferedWriter bw, Map<String, Naves> navesHangar) {
+    private static void exportData(Map<String, Naves> navesHangar) {
+        BufferedWriter bw = null;
         try {
             bw = new BufferedWriter(new FileWriter("Programación\\Java\\src\\unidad7\\ejercicios\\ejercicio02_Hangar\\Data.csv"));
             for (String naveKey : navesHangar.keySet()) {
