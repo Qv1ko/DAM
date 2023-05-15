@@ -112,7 +112,7 @@ hr {
 }
 
 .section-primary h1 {
-  font-size: 4rem;
+  font-size: 64px;
   font-weight: bold;
   color: #fff;
   text-shadow: 2px 2px #333;
@@ -120,7 +120,7 @@ hr {
 }
 
 .section-primary h2 {
-  font-size: 3rem;
+  font-size: 48px;
   font-weight: bold;
   color: #fff;
   text-shadow: 2px 2px #333;
@@ -157,7 +157,7 @@ hr {
 }
 
 .section-primary p {
-  font-size: 2rem;
+  font-size: 24px;
   color: #fff;
   text-align: justify;
   text-shadow: 2px 2px #333;
@@ -177,7 +177,7 @@ hr {
 }
 
 .section-secondary h1 {
-  font-size: 4rem;
+  font-size: 64px;
   font-weight: bold;
   color: #fff;
   text-align: center;
@@ -186,7 +186,7 @@ hr {
 }
 
 .section-secondary h2 {
-  font-size: 3rem;
+  font-size: 48px;
   font-weight: bold;
   color: #fff;
   align-items: flex-start;
@@ -207,7 +207,7 @@ hr {
 }
 
 .section-secondary p {
-  font-size: 1.5rem;
+  font-size: 24px;
   color: #fff;
   text-align: justify;
   align-items: flex-start;
@@ -299,7 +299,7 @@ hr {
 }
 
 .card-section h1 {
-  font-size: 4rem;
+  font-size: 64px;
   font-weight: bold;
   color: #fff;
   text-align: center;
@@ -365,12 +365,12 @@ hr {
 
 .card li {
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .card p {
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* Galeria de prompts */
