@@ -1,4 +1,4 @@
-package unidad5.clases.clase01Horas;
+package unidad5.clases.clase01_Horas;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
