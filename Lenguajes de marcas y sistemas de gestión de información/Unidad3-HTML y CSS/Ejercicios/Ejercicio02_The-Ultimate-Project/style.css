@@ -375,6 +375,50 @@ hr {
 
 /* Galeria de prompts */
 
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 125px 0;
+}
+
+.container .box {
+  flex: 1;
+  max-width: 300px;
+  padding: 20px;
+  margin: 10px;
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.container h2 {
+  color: #333;
+}
+
+.container p {
+  color: #666;
+  text-align: justify;
+}
+
+.container button {
+  background-color: #00ff00;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.container button:hover {
+  animation: none;
+  transform: scale(1.1);
+}
+
+.container ol {
+  margin-top: 10px;
+  color: #999;
+  text-align: justify;
+}
+
 /* Footer */
 
 footer {
