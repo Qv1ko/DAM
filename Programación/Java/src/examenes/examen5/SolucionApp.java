@@ -45,6 +45,7 @@ public class SolucionApp {
                 System.out.println("\n! Taller erroneo "+Arrays.toString(linea));
             }
         }
+        br.close();
     }
 
     private static void escribirFichero(ArrayList<SolucionEmpleados> lista) throws IOException {
