@@ -21,7 +21,7 @@ public class SolucionOficinistas extends SolucionEmpleados implements SolucionSu
     }
 
     public float getSueldos() {
-        
+        return 0.0f;
     }
 
     public String toFichero() {

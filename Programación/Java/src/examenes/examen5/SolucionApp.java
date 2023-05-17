@@ -14,10 +14,10 @@ import java.util.Arrays;
 public class SolucionApp {
 
     public static void main(String[] args) {
-        ArrayList<Empleados> lista = new ArrayList<Empleados>();
+        ArrayList<SolucionEmpleados> lista = new ArrayList<SolucionEmpleados>();
         try {
             leerFichajes(lista);
-            // for(Empleados empleado:lista) {
+            // for(SolucionEmpleados empleado:lista) {
             //     System.out.println(empleado.toFichero());
             // }
             escribirFichero(lista);
@@ -28,16 +28,16 @@ public class SolucionApp {
         }
     }
 
-    private static void leerFichajes(ArrayList<Empleados> lista) throws FileNotFoundException, IOException {
+    private static void leerFichajes(ArrayList<SolucionEmpleados> lista) throws FileNotFoundException, IOException {
         BufferedReader br = new BufferedReader(new FileReader("Programación\\Java\\src\\examenes\\examen5\\fichajes.csv"));
         String[] linea = null;
         while (br.ready()) {
             br.readLine().split(";");
             try {
                 if(linea[3].equalsIgnoreCase("operador")) {
-                    lista.add(new Operadores(linea[0], linea[1], linea[2], LocalTime.parse(linea[5]), LocalTime.parse(linea[6]), Integer.parseInt(linea[4])));
+                    lista.add(new SolucionOperadores(linea[0], linea[1], linea[2], LocalTime.parse(linea[5]), LocalTime.parse(linea[6]), Integer.parseInt(linea[4])));
                 } else if(linea[3].equalsIgnoreCase("oficina")) {
-                    lista.add(new Oficinistas(linea[0], linea[1], linea[2], LocalTime.parse(linea[5]), LocalTime.parse(linea[6]), linea[4]));
+                    lista.add(new SolucionOficinistas(linea[0], linea[1], linea[2], LocalTime.parse(linea[5]), LocalTime.parse(linea[6]), linea[4]));
                 }
             } catch(DateTimeException exc) {
                 System.out.println("\n! Error de fecha "+Arrays.toString(linea));
@@ -47,13 +47,13 @@ public class SolucionApp {
         }
     }
 
-    private static void escribirFichero(ArrayList<Empleados> lista) throws IOException {
+    private static void escribirFichero(ArrayList<SolucionEmpleados> lista) throws IOException {
         BufferedWriter bw = new BufferedWriter(new FileWriter("Programación\\Java\\src\\examenes\\examen5\\nominasSolucion.csv"));
-        for(Empleados e:lista) {
-            bw.write(e.toFichero());
-            bw.newLine();
-        }
-        bw.close();
+        for(SolucionEmpleados e : lista) {
+			bw.write(e.toFichero());
+			bw.newLine();
+		}
+		bw.close();
     }
 
 }
