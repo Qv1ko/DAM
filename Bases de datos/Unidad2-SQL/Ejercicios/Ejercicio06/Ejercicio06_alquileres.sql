@@ -69,14 +69,14 @@ DELETE FROM contratos WHERE numcontrato BETWEEN 28 AND 29 OR numcontrato BETWEEN
 
 --15. Crear un fichero de texto con los datos de todos los clientes
 SELECT * FROM clientes 
-    INTO OUTFILE "C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio4_txts\\Ejercicio4_alquileres5_clientes.txt";
+    INTO OUTFILE "C:\\Users\\Usuario\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio06\\Ejercicio06_txts\\Ejercicio4_alquileres5_clientes.txt";
 
 /*16. Crear un fichero de texto con el nombre, apellidos e importe relativo a todos los 
 contratos finalizados */
 SELECT nombre AS Nombre,apellidos AS Apellidos,ABS(DATEDIFF(ffinal,finicial)*precio) AS "Importe relativo"
     FROM clientes INNER JOIN contratos ON clientes.dni=contratos.dni_clientes INNER JOIN automoviles ON contratos.matricula_automoviles=automoviles.matricula 
     WHERE ffinal IS NOT NULL 
-        INTO OUTFILE "C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio4_txts\\Ejercicio4_alquileres5_contratos_finalizados.txt";
+        INTO OUTFILE "C:\\Users\\Usuario\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio06\\Ejercicio06_txts\\Ejercicio4_alquileres5_contratos_finalizados.txt";
 
 --17. Poner el contrato 16 con fecha final 19 de abril de 2009, y kilómetros finales 24756
 UPDATE contratos
