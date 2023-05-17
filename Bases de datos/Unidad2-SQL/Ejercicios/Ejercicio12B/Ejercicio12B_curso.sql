@@ -4,5 +4,3 @@ ALTER TABLE cursadas ADD CHECK(nota2<=10);
 ALTER TABLE cursadas ADD CHECK(nota3<=10);
 ALTER TABLE cursadas ADD CHECK(notafinal<=10);
 ALTER TABLE cursadas ADD CHECK(notarecu<=10);
-
---
