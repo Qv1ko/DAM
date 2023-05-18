@@ -354,7 +354,7 @@ hr {
 
 .card h2 {
   font-size: 24px;
-  margin-top: 40px;
+  margin-top: 24px;
 }
 
 .card ul {
@@ -407,7 +407,7 @@ hr {
 
 .container h2 {
   font-size: 24px;
-  margin-top: 40px;
+  margin-top: 24px;
 }
 
 .container p {
@@ -416,6 +416,17 @@ hr {
 }
 
 .container button {
+  background-color: #00ff00;
+  font-size: 18px;
+  color: #252525;
+  padding: 8px 16px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.container a {
   background-color: #00ff00;
   font-size: 18px;
   color: #252525;
