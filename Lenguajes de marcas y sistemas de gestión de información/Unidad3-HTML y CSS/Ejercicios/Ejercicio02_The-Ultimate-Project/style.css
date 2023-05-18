@@ -377,7 +377,7 @@ hr {
 
 .container {
   color: #fff;
-  margin: 125px 20px;
+  margin: 32px 32px;
   padding: 0 20px;
 }
 
@@ -390,6 +390,7 @@ hr {
 .container h1 {
   font-size: 64px;
   font-weight: bold;
+  margin-top: 125px;
   color: #fff;
   text-align: center;
   text-shadow: 2px 2px #333;
@@ -428,12 +429,11 @@ hr {
 
 .container a {
   background-color: #00ff00;
+  text-decoration: none;
   font-size: 18px;
   color: #252525;
   padding: 8px 16px;
   margin: 8px 0;
-  border: none;
-  cursor: pointer;
   font-weight: bold;
 }
 
