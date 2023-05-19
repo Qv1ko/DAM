@@ -7,13 +7,17 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Estilos para la línea horizontal */
 hr {
+  /* Elimina el borde estableciendo unicamente uno superior */
   border: none;
   border-top: 1px solid #00ff00;
+  /* Centra el elemento estableciendo un ancho del 50% */
   margin: 10px auto;
   width: 50%;
 }
 
+/* Establece el cursor predeterminado, sin efecto de link */
 #non-clickable {
   cursor: default;
 }
@@ -251,6 +255,33 @@ hr {
   }
 }
 
+@keyframes moveUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 /* Contacto */
 
 .sidebar {
@@ -289,16 +320,16 @@ hr {
 
 /* Seccion de tarjetas */
 
-.card-section {
+.dynamic-boxes {
   margin: 125px 0;
 }
 
-.cards {
+.dynamic-boxes .boxes {
   display: flex;
   justify-content: space-around;
 }
 
-.card-section h1 {
+.dynamic-boxes h1 {
   font-size: 64px;
   font-weight: bold;
   color: #fff;
@@ -307,11 +338,11 @@ hr {
   animation: zoomIn 1s forwards;
 }
 
-.card-section a {
+.dynamic-boxes a {
   text-decoration: none;
 }
 
-.card {
+.dynamic-boxes .box {
   position: relative;
   width: 300px;
   height: 300px;
@@ -324,12 +355,12 @@ hr {
   transition: all 0.5s ease-in-out;
 }
 
-.card:hover {
+.dynamic-boxes .box:hover {
   transform: translateY(-20px);
   box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.5);
 }
 
-.card img {
+.dynamic-boxes .box img {
   position: absolute;
   top: 0;
   left: 0;
@@ -341,53 +372,53 @@ hr {
   z-index: -1;
 }
 
-.card:hover img {
+.dynamic-boxes .box:hover img {
   opacity: 0.32;
   z-index: 1;
 }
 
-.card a {
+.dynamic-boxes .box a {
   display: block;
   position: relative;
   z-index: 2;
 }
 
-.card h2 {
+.dynamic-boxes .box h2 {
   font-size: 24px;
   margin-top: 24px;
 }
 
-.card ul {
+.dynamic-boxes .box ul {
   margin-top: 30px;
   list-style: none;
   padding: 0;
 }
 
-.card li {
+.dynamic-boxes .box li {
   margin-bottom: 10px;
   font-size: 18px;
 }
 
-.card p {
+.dynamic-boxes .box p {
   margin-bottom: 10px;
   font-size: 18px;
 }
 
 /* Galeria de prompts */
 
-.container {
+.static-boxes {
   color: #fff;
   margin: 32px 32px;
   padding: 0 20px;
 }
 
-.container .boxes {
+.static-boxes .boxes {
   display: flex;
   justify-content: space-around;
   text-align: justify;
 }
 
-.container h1 {
+.static-boxes h1 {
   font-size: 64px;
   font-weight: bold;
   margin-top: 125px;
@@ -397,7 +428,7 @@ hr {
   animation: zoomIn 1s forwards;
 }
 
-.container .box {
+.static-boxes .box {
   flex: 1;
   padding: 20px;
   margin: 20px;
@@ -406,17 +437,17 @@ hr {
   text-align: center;
 }
 
-.container h2 {
+.static-boxes h2 {
   font-size: 24px;
   margin-top: 24px;
 }
 
-.container p {
+.static-boxes p {
   font-size: 18px;
   margin-bottom: 10px;
 }
 
-.container button {
+.static-boxes button {
   background-color: #00ff00;
   font-size: 18px;
   color: #252525;
@@ -427,7 +458,7 @@ hr {
   font-weight: bold;
 }
 
-.container a {
+.static-boxes a {
   background-color: #00ff00;
   text-decoration: none;
   font-size: 18px;
@@ -437,14 +468,14 @@ hr {
   font-weight: bold;
 }
 
-.container ol {
+.static-boxes ol {
   padding: 0 20px;
   font-size: 18px;
   margin: 16px;
   text-align: justify;
 }
 
-.container li {
+.static-boxes li {
   margin-bottom: 10px;
   font-size: 18px;
 }
@@ -457,7 +488,7 @@ footer {
   text-align: center;
 }
 
-.social-media {
+footer .social-media {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -465,17 +496,17 @@ footer {
   list-style: none;
 }
 
-.social-media li {
+footer .social-media li {
   margin: 0 20px;
 }
 
-.icon {
+footer .icon {
   width: 32px;
   height: 32px;
   transition: all 0.2s ease-in-out;
 }
 
-.icon:hover {
+footer .icon:hover {
   transform: scale(1.2);
 }
 
