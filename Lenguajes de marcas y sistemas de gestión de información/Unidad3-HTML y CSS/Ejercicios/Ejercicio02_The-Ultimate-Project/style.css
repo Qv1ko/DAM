@@ -1,9 +1,15 @@
 body {
+  /* Fondo de la web */
   background-image: url("./content/images/wallpaper.gif");
+  /* Fondo centrado y estatico */
   background-position: center;
   background-attachment: fixed;
+  background-size: cover;
+  /* Elimina los margenes */
   margin: 0;
+  /* Padding superior */
   padding-top: 50px;
+  /* Fuente de la web */
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -23,7 +29,6 @@ hr {
 }
 
 /* Menu de navegacion */
-
 #menu {
   display: flex;
   justify-content: space-between;
@@ -39,44 +44,37 @@ hr {
   transition: all 0.5s ease-in-out;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
-
 #menu.scrolled {
   background-color: #111;
   height: 30px;
   padding: 0 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
-
 #menu img {
   width: 64px;
   margin-right: 20px;
   transition: all 0.5s ease-in-out;
 }
-
 #menu.scrolled img {
   height: 30px;
   width: 30px;
   margin-right: 10px;
 }
-
 #menu ul {
   display: flex;
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-
 #menu li {
   margin: 0 20px;
 }
-
 #menu a {
   color: #00ff00;
   text-decoration: none;
   font-size: 18px;
   position: relative;
 }
-
 #menu li a:before {
   content: "";
   position: absolute;
@@ -89,12 +87,10 @@ hr {
   transform: scaleX(0);
   transition: all 0.3s ease-in-out 0s;
 }
-
 #menu li a:hover:before {
   visibility: visible;
   transform: scaleX(1);
 }
-
 #menu li.cv a {
   background-color: #00ff00;
   color: #252525;
@@ -104,7 +100,7 @@ hr {
 
 /* Seccion de presentacion */
 
-.section-primary {
+.primary-section {
   background-color: transparent;
   display: flex;
   flex-direction: column;
@@ -115,7 +111,7 @@ hr {
   padding: 125px 15%;
 }
 
-.section-primary h1 {
+.primary-section h1 {
   font-size: 64px;
   font-weight: bold;
   color: #fff;
@@ -123,7 +119,7 @@ hr {
   animation: zoomIn 1s forwards;
 }
 
-.section-primary h2 {
+.primary-section h2 {
   font-size: 48px;
   font-weight: bold;
   color: #fff;
@@ -131,23 +127,23 @@ hr {
   animation: zoomIn 1s forwards;
 }
 
-.section-primary div {
+.primary-section div {
   display: flex;
   align-items: center;
   margin: 10px 0;
 }
 
-.section-primary div img {
+.primary-section div img {
   width: 64px;
   margin-right: 32px;
 }
 
-.image-div {
+.primary-section .image-div {
   display: flex;
   align-items: center;
 }
 
-#section-primary-image {
+#primary-section-image {
   float: right;
   margin-left: 64px;
   width: 408px;
@@ -156,11 +152,11 @@ hr {
   transition: transform 0.5s ease;
 }
 
-#section-primary-image:hover {
+#primary-section-image:hover {
   transform: scale(1.1);
 }
 
-.section-primary p {
+.primary-section p {
   font-size: 24px;
   color: #fff;
   text-align: justify;
@@ -168,7 +164,7 @@ hr {
   animation: zoomIn 1s forwards;
 }
 
-.section-secondary {
+.secondary-section {
   background-color: #252525;
   display: flex;
   flex-direction: column;
@@ -176,11 +172,11 @@ hr {
   padding: 50px 15%;
 }
 
-.section-secondary hr {
+.secondary-section hr {
   margin-left: 0;
 }
 
-.section-secondary h1 {
+.secondary-section h1 {
   font-size: 64px;
   font-weight: bold;
   color: #fff;
@@ -189,7 +185,7 @@ hr {
   animation: zoomIn 1s forwards;
 }
 
-.section-secondary h2 {
+.secondary-section h2 {
   font-size: 48px;
   font-weight: bold;
   color: #fff;
@@ -199,18 +195,18 @@ hr {
   animation: zoomIn 1s forwards;
 }
 
-.section-secondary div {
+.secondary-section div {
   display: flex;
   align-items: center;
   margin: 10px 0;
 }
 
-.section-secondary div img {
+.secondary-section div img {
   width: 64px;
   margin-right: 32px;
 }
 
-.section-secondary p {
+.secondary-section p {
   font-size: 24px;
   color: #fff;
   text-align: justify;
