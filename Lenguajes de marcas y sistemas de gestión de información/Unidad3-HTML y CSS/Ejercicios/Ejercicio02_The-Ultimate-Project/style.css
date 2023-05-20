@@ -1,3 +1,4 @@
+/* Estilos generales */
 body {
   /* Fondo de la web */
   background-image: url("./content/images/wallpaper.gif");
@@ -33,32 +34,19 @@ hr {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
   background-color: #252525;
   height: 64px;
   padding: 0 20px;
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 999;
-  transition: all 0.5s ease-in-out;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-#menu.scrolled {
-  background-color: #111;
-  height: 30px;
-  padding: 0 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 #menu img {
   width: 64px;
   margin-right: 20px;
-  transition: all 0.5s ease-in-out;
-}
-#menu.scrolled img {
-  height: 30px;
-  width: 30px;
-  margin-right: 10px;
 }
 #menu ul {
   display: flex;
@@ -75,6 +63,7 @@ hr {
   font-size: 18px;
   position: relative;
 }
+/* Línea de abajo al hacer hover */
 #menu li a:before {
   content: "";
   position: absolute;
@@ -91,6 +80,7 @@ hr {
   visibility: visible;
   transform: scaleX(1);
 }
+/* Boton de cv */
 #menu li.cv a {
   background-color: #00ff00;
   color: #252525;
@@ -98,8 +88,7 @@ hr {
   font-weight: bold;
 }
 
-/* Seccion de presentacion */
-
+/* Seccion primaria */
 .primary-section {
   background-color: transparent;
   display: flex;
@@ -110,7 +99,6 @@ hr {
   position: relative;
   padding: 125px 15%;
 }
-
 .primary-section h1 {
   font-size: 64px;
   font-weight: bold;
@@ -118,7 +106,6 @@ hr {
   text-shadow: 2px 2px #333;
   animation: zoomIn 1s forwards;
 }
-
 .primary-section h2 {
   font-size: 48px;
   font-weight: bold;
@@ -126,18 +113,15 @@ hr {
   text-shadow: 2px 2px #333;
   animation: zoomIn 1s forwards;
 }
-
 .primary-section div {
   display: flex;
   align-items: center;
   margin: 10px 0;
 }
-
 .primary-section div img {
   width: 64px;
   margin-right: 32px;
 }
-
 .primary-section .image-div {
   display: flex;
   align-items: center;
