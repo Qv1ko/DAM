@@ -99,21 +99,19 @@ hr {
   position: relative;
   padding: 125px 15%;
 }
-.primary-section h1 {
-  font-size: 64px;
+.primary-section h1, .primary-section h2 {
   font-weight: bold;
   color: #fff;
   text-shadow: 2px 2px #333;
   animation: zoomIn 1s forwards;
+}
+.primary-section h1 {
+  font-size: 64px;
 }
 .primary-section h2 {
   font-size: 48px;
-  font-weight: bold;
-  color: #fff;
-  text-shadow: 2px 2px #333;
-  animation: zoomIn 1s forwards;
 }
-.primary-section div {
+.primary-section div, .primary-section .image-div {
   display: flex;
   align-items: center;
   margin: 10px 0;
@@ -122,32 +120,24 @@ hr {
   width: 64px;
   margin-right: 32px;
 }
-.primary-section .image-div {
-  display: flex;
-  align-items: center;
+.primary-section p {
+  font-size: 24px;
+  text-align: justify;
+  color: #fff;
+  text-shadow: 2px 2px #333;
 }
-
 #primary-section-image {
   float: right;
   margin-left: 64px;
   width: 408px;
-  height: auto;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   transition: transform 0.5s ease;
 }
-
 #primary-section-image:hover {
   transform: scale(1.1);
 }
 
-.primary-section p {
-  font-size: 24px;
-  color: #fff;
-  text-align: justify;
-  text-shadow: 2px 2px #333;
-  animation: zoomIn 1s forwards;
-}
-
+/* Seccion secundaria */
 .secondary-section {
   background-color: #252525;
   display: flex;
@@ -155,20 +145,16 @@ hr {
   position: relative;
   padding: 50px 15%;
 }
-
 .secondary-section hr {
   margin-left: 0;
 }
-
 .secondary-section h1 {
   font-size: 64px;
   font-weight: bold;
   color: #fff;
   text-align: center;
   text-shadow: 2px 2px #333;
-  animation: zoomIn 1s forwards;
 }
-
 .secondary-section h2 {
   font-size: 48px;
   font-weight: bold;
@@ -176,31 +162,25 @@ hr {
   align-items: flex-start;
   text-shadow: 2px 2px #333;
   margin-bottom: 0;
-  animation: zoomIn 1s forwards;
 }
-
 .secondary-section div {
   display: flex;
   align-items: center;
   margin: 10px 0;
 }
-
 .secondary-section div img {
   width: 64px;
   margin-right: 32px;
 }
-
 .secondary-section p {
   font-size: 24px;
   color: #fff;
   text-align: justify;
   align-items: flex-start;
   text-shadow: 2px 2px #333;
-  animation: zoomIn 1s forwards;
 }
 
 /* Flecha */
-
 .arrow {
   position: relative;
   margin-left: auto;
@@ -209,11 +189,9 @@ hr {
   text-align: center;
   animation: moveArrow 1s ease-in-out infinite;
 }
-
 .arrow img {
   width: 50px;
 }
-
 @keyframes moveArrow {
   0% {
     transform: translateY(0);
@@ -226,44 +204,7 @@ hr {
   }
 }
 
-@keyframes zoomIn {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes moveUp {
-  0% {
-    transform: translateY(100%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes moveLeft {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes moveRight {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
 /* Contacto */
-
 .sidebar {
   position: fixed;
   top: 50%;
@@ -280,7 +221,6 @@ hr {
   padding: 20px;
   z-index: 999;
 }
-
 .sidebar a {
   color: #fff;
   font-size: 0;
@@ -288,40 +228,32 @@ hr {
   text-align: center;
   display: block;
 }
-
 .sidebar a img {
   width: 32px;
   height: 32px;
 }
-
 .sidebar a:hover {
   transform: scale(1.2);
 }
 
-/* Seccion de tarjetas */
-
+/* Cajas dinamicas */
 .dynamic-boxes {
   margin: 125px 0;
 }
-
 .dynamic-boxes .boxes {
   display: flex;
   justify-content: space-around;
 }
-
 .dynamic-boxes h1 {
   font-size: 64px;
   font-weight: bold;
   color: #fff;
   text-align: center;
   text-shadow: 2px 2px #333;
-  animation: zoomIn 1s forwards;
 }
-
 .dynamic-boxes a {
   text-decoration: none;
 }
-
 .dynamic-boxes .box {
   position: relative;
   width: 300px;
@@ -334,12 +266,10 @@ hr {
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 }
-
 .dynamic-boxes .box:hover {
   transform: translateY(-20px);
   box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.5);
 }
-
 .dynamic-boxes .box img {
   position: absolute;
   top: 0;
@@ -351,53 +281,44 @@ hr {
   transition: all 0.5s ease-in-out;
   z-index: -1;
 }
-
 .dynamic-boxes .box:hover img {
   opacity: 0.32;
   z-index: 1;
 }
-
 .dynamic-boxes .box a {
   display: block;
   position: relative;
   z-index: 2;
 }
-
 .dynamic-boxes .box h2 {
   font-size: 24px;
   margin-top: 24px;
 }
-
 .dynamic-boxes .box ul {
   margin-top: 30px;
   list-style: none;
   padding: 0;
 }
-
 .dynamic-boxes .box li {
   margin-bottom: 10px;
   font-size: 18px;
 }
-
 .dynamic-boxes .box p {
   margin-bottom: 10px;
   font-size: 18px;
 }
 
-/* Galeria de prompts */
-
+/* Cajas estaticas */
 .static-boxes {
   color: #fff;
   margin: 32px 32px;
   padding: 0 20px;
 }
-
 .static-boxes .boxes {
   display: flex;
   justify-content: space-around;
   text-align: justify;
 }
-
 .static-boxes h1 {
   font-size: 64px;
   font-weight: bold;
@@ -405,9 +326,7 @@ hr {
   color: #fff;
   text-align: center;
   text-shadow: 2px 2px #333;
-  animation: zoomIn 1s forwards;
 }
-
 .static-boxes .box {
   flex: 1;
   padding: 20px;
@@ -416,17 +335,14 @@ hr {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   text-align: center;
 }
-
 .static-boxes h2 {
   font-size: 24px;
   margin-top: 24px;
 }
-
 .static-boxes p {
   font-size: 18px;
   margin-bottom: 10px;
 }
-
 .static-boxes button {
   background-color: #00ff00;
   font-size: 18px;
@@ -437,7 +353,6 @@ hr {
   cursor: pointer;
   font-weight: bold;
 }
-
 .static-boxes a {
   background-color: #00ff00;
   text-decoration: none;
@@ -447,27 +362,23 @@ hr {
   margin: 8px 0;
   font-weight: bold;
 }
-
 .static-boxes ol {
   padding: 0 20px;
   font-size: 18px;
   margin: 16px;
   text-align: justify;
 }
-
 .static-boxes li {
   margin-bottom: 10px;
   font-size: 18px;
 }
 
-/* Footer */
-
+/* Pie de pagina */
 footer {
   background-color: #252525;
   padding: 20px;
   text-align: center;
 }
-
 footer .social-media {
   display: flex;
   justify-content: center;
@@ -475,27 +386,24 @@ footer .social-media {
   margin: 40px 0;
   list-style: none;
 }
-
 footer .social-media li {
   margin: 0 20px;
 }
-
 footer .icon {
   width: 32px;
   height: 32px;
   transition: all 0.2s ease-in-out;
 }
-
 footer .icon:hover {
   transform: scale(1.2);
 }
-
 footer p {
   margin: 20px 0 0 0;
   font-size: 16px;
   color: #999;
 }
 
+/* Boton se subir */
 .scroll-top {
   position: fixed;
   bottom: 20px;
@@ -514,12 +422,57 @@ footer p {
   font-size: 14px;
   font-weight: bold;
 }
-
 .scroll-top img {
   width: 32px;
   height: 32px;
 }
-
 .scroll-top:active {
   color: #00ff00;
+}
+
+/* Animaciones */
+#zoom-animation {
+  animation: zoom 1s forwards;
+}
+/* forwards */
+@keyframes zoom {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+#up-animation {
+  animation: move-up 1s ease-in-out;
+}
+@keyframes move-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+#left-animation {
+  animation: move-left 1s ease-in-out;
+}
+@keyframes move-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+#right-animation {
+  animation: move-right 1s ease-in-out;
+}
+@keyframes move-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
