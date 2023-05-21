@@ -136,7 +136,7 @@ hr {
   transform: scale(1.1);
 }
 
-/* Seccion secundaria */
+/* Sección secundaria */
 .secondary-section {
   background-color: #252525;
   display: flex;
@@ -158,7 +158,7 @@ hr {
   font-size: 48px;
   font-weight: bold;
   color: #fff;
-  align-items: flex-start;
+  align-self: flex-start;
   text-shadow: 2px 2px #333;
   margin-bottom: 0;
 }
@@ -175,31 +175,29 @@ hr {
   font-size: 24px;
   color: #fff;
   text-align: justify;
-  align-items: flex-start;
+  align-self: flex-start;
   text-shadow: 2px 2px #333;
 }
 
 /* Flecha */
 .arrow {
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   padding-top: 100px;
   text-align: center;
   animation: moveArrow 1s ease-in-out infinite;
 }
+
 .arrow img {
   width: 50px;
 }
+
 @keyframes moveArrow {
-  0% {
+  0%, 100% {
     transform: translateY(0);
   }
   50% {
     transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0);
   }
 }
 
@@ -227,15 +225,15 @@ hr {
   text-align: center;
   display: block;
 }
-.sidebar a img {
+.sidebar .icon {
   width: 32px;
-  height: 32px;
+  transition: transform 0.2s ease-in-out;
 }
-.sidebar a:hover {
+.sidebar .icon:hover {
   transform: scale(1.2);
 }
 
-/* Cajas dinamicas */
+/* Cajas dinámicas */
 .dynamic-boxes {
   margin: 125px 0;
 }
@@ -263,7 +261,7 @@ hr {
   padding: 20px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  transition: all 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 .dynamic-boxes .box:hover {
   transform: translateY(-20px);
@@ -277,7 +275,7 @@ hr {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: all 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
   z-index: -1;
 }
 .dynamic-boxes .box:hover img {
@@ -309,7 +307,7 @@ hr {
   text-shadow: 2px 2px #333;
 }
 
-/* Cajas estaticas */
+/* Cajas estáticas */
 .static-boxes {
   color: #fff;
   margin: 32px 32px;
@@ -353,18 +351,13 @@ hr {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   padding: 8px 16px;
   margin: 8px 0;
-  border: none;
-  cursor: pointer;
   font-weight: bold;
+  cursor: pointer;
+  border: none;
 }
 .static-boxes a {
-  background-color: #00ff00;
   text-decoration: none;
-  font-size: 18px;
   color: #252525;
-  padding: 8px 16px;
-  margin: 8px 0;
-  font-weight: bold;
 }
 .static-boxes ol {
   padding: 0 20px;
@@ -377,7 +370,7 @@ hr {
   font-size: 18px;
 }
 
-/* Pie de pagina */
+/* Pie de página */
 footer {
   background-color: #252525;
   padding: 20px;
@@ -395,8 +388,7 @@ footer .social-media li {
 }
 footer .icon {
   width: 32px;
-  height: 32px;
-  transition: all 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 footer .icon:hover {
   transform: scale(1.2);
@@ -407,7 +399,7 @@ footer p {
   color: #999;
 }
 
-/* Boton se subir */
+/* Botón de subir */
 .scroll-top {
   position: fixed;
   bottom: 20px;
