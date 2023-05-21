@@ -25,7 +25,7 @@ hr {
 }
 
 /* Establece el cursor predeterminado, sin efecto de link */
-.non-clickable {
+#non-clickable {
   cursor: default;
 }
 
