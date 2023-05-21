@@ -346,6 +346,7 @@ hr {
   background-color: #00ff00;
   font-size: 18px;
   color: #252525;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   padding: 8px 16px;
   margin: 8px 0;
   border: none;
