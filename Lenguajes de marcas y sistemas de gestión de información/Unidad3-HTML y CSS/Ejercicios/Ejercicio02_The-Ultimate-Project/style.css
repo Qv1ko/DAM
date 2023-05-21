@@ -1,35 +1,28 @@
 /* Estilos generales */
 body {
-  /* Fondo de la web */
-  background-image: url("./content/images/wallpaper.gif");
-  /* Fondo centrado y estatico */
+  background-image: url("./content/images/wallpaper.gif"); /* Fondo de la web */
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  /* Fuente de la web */
-  font-family: Arial, Helvetica, sans-serif;
-  /* Elimina los margenes */
+  font-family: Arial, Helvetica, sans-serif; /* Fuente de la web */
   margin: 0;
-  /* Padding superior */
   padding-top: 50px;
 }
 
-/* Estilos para la línea horizontal */
+/* Línea horizontal */
 hr {
-  /* Elimina el borde estableciendo unicamente uno superior */
   border: none;
   border-top: 1px solid #00ff00;
-  /* Centra el elemento estableciendo un ancho del 50% */
   margin: 10px auto;
   width: 50%;
 }
 
-/* Establece el cursor predeterminado, sin efecto de link */
+/* Cursor sin efecto de enlace */
 #non-clickable {
   cursor: default;
 }
 
-/* Menu de navegación */
+/* Menú de navegación */
 #menu {
   position: fixed;
   top: 0;
@@ -41,8 +34,8 @@ hr {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  z-index: 999;
+  justify-content: space-between; /* Distribución equitativa de los elementos internos */
+  z-index: 999; /* Apilamiento superior del resto de elementos */
 }
 #menu img {
   width: 64px;
@@ -50,7 +43,7 @@ hr {
 }
 #menu ul {
   display: flex;
-  list-style-type: none;
+  list-style-type: none; /* Lista sin viñetas */
   margin: 0;
   padding: 0;
 }
@@ -60,27 +53,26 @@ hr {
 #menu a {
   position: relative;
   color: #00ff00;
-  text-decoration: none;
+  text-decoration: none; /* Sin decoración de texto */
   font-size: 18px;
 }
-/* Línea de abajo al hacer hover */
 #menu li a:before {
-  content: "";
+  content: ""; /* Contenido vacío */
   position: absolute;
   width: 100%;
   height: 2px;
-  bottom: -5px;
+  bottom: -5px; /* Posicionado por debajo del elemento padre */
   left: 0;
   background-color: #00ff00;
-  visibility: hidden;
-  transform: scaleX(0);
-  transition: all 0.3s ease-in-out 0s;
+  visibility: hidden; /* Oculta */
+  transform: scaleX(0); /* Escala horizontal de 0% */
+  transition: all 0.3s ease-in-out 0s; /* Animación durante 0.3 segundos */
 }
 #menu li a:hover:before {
   visibility: visible;
-  transform: scaleX(1);
+  transform: scaleX(1); /* Escala horizontal al 100% */
 }
-/* Boton de cv */
+/* Botón de cv */
 #menu li.cv a {
   padding: 8px 16px;
   font-weight: bold;
@@ -88,7 +80,7 @@ hr {
   color: #252525;
 }
 
-/* Seccion primaria */
+/* Sección primaria */
 .primary-section {
   position: relative;
   display: flex;
@@ -130,10 +122,10 @@ hr {
   margin-left: 64px;
   width: 408px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-  transition: transform 0.5s ease;
+  transition: transform 0.5s ease; /* Animación de la imagen */
 }
 #primary-section-image:hover {
-  transform: scale(1.1);
+  transform: scale(1.2); /* Escala de la imagen */
 }
 
 /* Sección secundaria */
@@ -185,28 +177,28 @@ hr {
   margin: 0 auto;
   padding-top: 100px;
   text-align: center;
-  animation: moveArrow 1s ease-in-out infinite;
+  animation: moveArrow 1s ease-in-out infinite; /* Animación de la flecha */
 }
 .arrow img {
   width: 50px;
 }
 @keyframes moveArrow {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(0); /* Posición vertical del inicio y fin de la animación */
   }
   50% {
-    transform: translateY(10px);
+    transform: translateY(10px); /* Desplazamiento vertical del punto medio de la animación */
   }
 }
 
 /* Contacto */
 .sidebar {
   position: fixed;
-  top: 50%;
+  top: 50%; /* Centrar en la mitad superior de la ventana */
   left: 0;
   transform: translateY(-50%);
   width: 32px;
-  height: auto;
+  height: auto; /* Altura automática según su contenido */
   background-color: #333;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   display: flex;
@@ -214,7 +206,7 @@ hr {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  z-index: 999;
+  z-index: 999; /* Apilamiento superior del resto de elementos */
 }
 .sidebar a {
   display: block;
@@ -225,10 +217,10 @@ hr {
 }
 .sidebar .icon {
   width: 32px;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out; /* Animación del icono */
 }
 .sidebar .icon:hover {
-  transform: scale(1.2);
+  transform: scale(1.2); /* Escala el icono al hacer hover */
 }
 
 /* Cajas dinámicas */
@@ -243,7 +235,7 @@ hr {
   text-shadow: 2px 2px #333;
 }
 .dynamic-boxes a {
-  text-decoration: none;
+  text-decoration: none; /* Sin decoración de texto */
 }
 .dynamic-boxes .boxes {
   display: flex;
@@ -258,11 +250,11 @@ hr {
   text-align: center;
   padding: 20px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
+  cursor: pointer; /* Cambia el cursor al hacer hover */
   transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 .dynamic-boxes .box:hover {
-  transform: translateY(-20px);
+  transform: translateY(-20px); /* Desplazamiento vertical al hacer hover */
   box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.5);
 }
 .dynamic-boxes .box img {
@@ -271,19 +263,19 @@ hr {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  z-index: -1;
+  object-fit: cover; /* Ajuste de la imagen para cubrir la caja */
+  opacity: 0; /* Opacidad inicial de la imagen */
+  transition: opacity 0.5s ease-in-out; /* Animación para la opacidad de la imagen */
+  z-index: -1; /* Apilamiento inferior del resto de elementos */
 }
 .dynamic-boxes .box:hover img {
-  opacity: 0.32;
-  z-index: 1;
+  opacity: 0.32; /* Opacidad de la imagen al hacer hover */
+  z-index: 1; /* Apilamiento superior del resto de elementos */
 }
 .dynamic-boxes .box a {
   display: block;
   position: relative;
-  z-index: 2;
+  z-index: 2; /* Apilamiento superior del resto de elementos */
 }
 .dynamic-boxes .box h2 {
   font-size: 24px;
@@ -292,7 +284,7 @@ hr {
 }
 .dynamic-boxes .box ul {
   margin-top: 30px;
-  list-style: none;
+  list-style: none; /* Sin estilo para la lista */
   padding: 0;
 }
 .dynamic-boxes .box li {
@@ -313,7 +305,7 @@ hr {
 }
 .static-boxes .boxes {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-around; /* Espacio uniforme alrededor de los elementos internos */
   text-align: justify;
 }
 .static-boxes h1 {
@@ -325,7 +317,7 @@ hr {
   text-shadow: 2px 2px #333;
 }
 .static-boxes .box {
-  flex: 1;
+  flex: 1; /* El elemento ocupará todo el espacio disponible dentro del contenedor */
   padding: 20px;
   margin: 20px;
   background-color: #333;
@@ -350,7 +342,7 @@ hr {
   padding: 8px 16px;
   margin: 8px 0;
   font-weight: bold;
-  cursor: pointer;
+  cursor: pointer; /* Cambia el cursor al hacer hover */
   border: none;
 }
 .static-boxes a {
@@ -379,17 +371,17 @@ footer .social-media {
   justify-content: center;
   align-items: center;
   margin: 40px 0;
-  list-style: none;
+  list-style: none; /* Elimina los estilos de lista */
 }
 footer .social-media li {
   margin: 0 20px;
 }
 footer .icon {
   width: 32px;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out; /* Animación transform */
 }
 footer .icon:hover {
-  transform: scale(1.2);
+  transform: scale(1.2); /* Escala del icono al hacer hover */
 }
 footer p {
   margin: 20px 0 0 0;
@@ -399,10 +391,10 @@ footer p {
 
 /* Botón de subir */
 .scroll-top {
-  position: fixed;
+  position: fixed; /* Posición fija */
   bottom: 20px;
   right: 20px;
-  z-index: 100;
+  z-index: 100; /* Apilamiento superior del resto de elementos */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -410,8 +402,7 @@ footer p {
   height: 40px;
   background-color: #333;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-  transition: background-color 0.3s ease-in-out;
-  text-decoration: none;
+  text-decoration: none; /* Sin decoración de texto */
   color: #fff;
   font-size: 14px;
   font-weight: bold;
