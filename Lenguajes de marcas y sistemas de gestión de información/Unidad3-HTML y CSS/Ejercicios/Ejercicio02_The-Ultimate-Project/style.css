@@ -292,6 +292,7 @@ hr {
 .dynamic-boxes .box h2 {
   font-size: 24px;
   margin-top: 24px;
+  text-shadow: 2px 2px #333;
 }
 .dynamic-boxes .box ul {
   margin-top: 30px;
@@ -305,6 +306,7 @@ hr {
 .dynamic-boxes .box p {
   margin-bottom: 10px;
   font-size: 18px;
+  text-shadow: 2px 2px #333;
 }
 
 /* Cajas estaticas */
@@ -337,10 +339,12 @@ hr {
 .static-boxes h2 {
   font-size: 24px;
   margin-top: 24px;
+  text-shadow: 2px 2px #333;
 }
 .static-boxes p {
   font-size: 18px;
   margin-bottom: 10px;
+  text-shadow: 2px 2px #333;
 }
 .static-boxes button {
   background-color: #00ff00;
