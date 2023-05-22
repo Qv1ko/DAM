@@ -1,0 +1,5 @@
+Las manzanas te cuestan: 2.7
+Las peras te cuestan: 2.6999998
+Las naranjas te cuestan: 22.9
+Las tomates te cuestan: 9.6
+Las platanos te cuestan: 6.8999996
