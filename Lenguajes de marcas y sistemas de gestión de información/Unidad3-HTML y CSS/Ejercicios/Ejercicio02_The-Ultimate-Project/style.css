@@ -117,14 +117,14 @@ hr {
   text-align: justify;
   text-shadow: 2px 2px #333;
 }
-#primary-section-image {
+#section-image {
   float: right;
   margin-left: 64px;
   width: 408px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   transition: transform 0.5s ease; /* Animación de la imagen */
 }
-#primary-section-image:hover {
+#section-image:hover {
   transform: scale(1.2); /* Escala de la imagen */
 }
 
@@ -164,6 +164,49 @@ hr {
   margin-right: 32px;
 }
 .secondary-section p {
+  font-size: 24px;
+  color: #fff;
+  text-align: justify;
+  align-self: flex-start;
+  text-shadow: 2px 2px #333;
+}
+
+/* Sección terciaria */
+.tertiary-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #252525;
+  padding: 50px 15%;
+}
+.tertiary-section hr {
+  margin-left: 0;
+}
+.tertiary-section h1 {
+  font-size: 64px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  text-shadow: 2px 2px #333;
+}
+.tertiary-section h2 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+  align-self: flex-start;
+  margin-bottom: 0;
+  text-shadow: 2px 2px #333;
+}
+.tertiary-section div {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+.tertiary-section div img {
+  width: 64px;
+  margin-right: 32px;
+}
+.tertiary-section p {
   font-size: 24px;
   color: #fff;
   text-align: justify;
@@ -418,6 +461,79 @@ footer p {
 
 /* Responsive */
 @media (max-width: 932px) {
+  /* Sección primaria */
+  .primary-section {
+    padding: 32px;
+  }
+  .primary-section h1 {
+    font-size: 32px;
+  }
+  .primary-section h2 {
+    font-size: 24px;
+  }
+  .primary-section p {
+    font-size: 16px;
+  }
+  .primary-section div {
+    flex-direction: column;
+  }
+  .primary-section div img {
+    width: 48px;
+    margin-right: 0;
+  }
+  /* Sección secundaria */
+  .secondary-section {
+    padding: 32px;
+  }
+  .secondary-section h1 {
+    font-size: 32px;
+  }
+  .secondary-section h2 {
+    font-size: 24px;
+  }
+  .secondary-section p {
+    font-size: 16px;
+  }
+  .secondary-section div {
+    flex-direction: column;
+  }
+  /* Sección terciaria */
+  .tertiary-section {
+    flex-direction: column;
+    align-self: center;
+    padding: 32px;
+  }
+  .tertiary-section hr {
+    margin: 10px auto;
+  }
+  .tertiary-section h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+  .tertiary-section h2 {
+    font-size: 24px;
+    align-self: center;
+    text-align: center;
+  }
+  .tertiary-section p {
+    font-size: 16px;
+    align-self: center;
+    text-align: center;
+  }
+  .tertiary-section div {
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+  }
+  .tertiary-section div img {
+    width: 64px;
+    margin: 0;
+  }
+  /* Sección de imagen */
+  #section-image {
+    margin: 20px 0;
+    width: 256px;
+  }
   /* Flecha */
   .arrow {
     padding-top: 20px;
@@ -434,7 +550,7 @@ footer p {
     align-items: center;
   }
   .dynamic-boxes .box {
-    margin: 20px 0;
+    margin : 24px 0;
   }
   .dynamic-boxes .box h2 {
     font-size: 24px;
@@ -448,10 +564,11 @@ footer p {
   /* Cajas estáticas */
   .static-boxes {
     margin: 0 32px;
-    padding: 0 20px;
+    padding: 32px 20px;
   }
   .static-boxes h1 {
     font-size: 32px;
+    margin-top: 20px;
   }
   .static-boxes h2 {
     font-size: 24px;
