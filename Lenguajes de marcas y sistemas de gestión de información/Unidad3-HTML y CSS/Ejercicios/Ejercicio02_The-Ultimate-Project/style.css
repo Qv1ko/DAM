@@ -371,6 +371,7 @@ footer .social-media {
   justify-content: center;
   align-items: center;
   margin: 40px 0;
+  padding-left: 0;
   list-style: none; /* Elimina los estilos de lista */
 }
 footer .social-media li {
@@ -413,4 +414,56 @@ footer p {
 }
 .scroll-top:active {
   color: #00ff00;
+}
+
+/* Responsive */
+@media (max-width: 932px) {
+  /* Cajas dinámicas */
+  .dynamic-boxes {
+    margin: 20px 0;
+  }
+  .dynamic-boxes h1 {
+    font-size: 32px;
+  }
+  .dynamic-boxes .boxes {
+    flex-direction: column;
+    align-items: center;
+  }
+  .dynamic-boxes .box {
+    margin: 20px 0;
+  }
+  .dynamic-boxes .box h2 {
+    font-size: 24px;
+  }
+  .dynamic-boxes .box li {
+    font-size: 16px;
+  }
+  .dynamic-boxes .box p {
+    font-size: 16px;
+  }
+  /* Cajas estáticas */
+  .static-boxes {
+    margin: 0 32px;
+    padding: 0 20px;
+  }
+  .static-boxes h1 {
+    font-size: 32px;
+  }
+  .static-boxes h2 {
+    font-size: 24px;
+  }
+  .static-boxes p {
+    font-size: 16px;
+  }
+  .static-boxes .boxes {
+    flex-direction: column;
+  }
+  /* Pie de página */
+  footer .social-media {
+    flex-wrap: wrap;
+    margin: 20px 0;
+  }
+  footer .social-media li {
+    margin: 10px;
+  }
 }
