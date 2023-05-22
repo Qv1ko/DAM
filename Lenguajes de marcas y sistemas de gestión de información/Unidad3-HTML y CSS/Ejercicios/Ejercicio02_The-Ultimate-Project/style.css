@@ -418,6 +418,10 @@ footer p {
 
 /* Responsive */
 @media (max-width: 932px) {
+  /* Flecha */
+  .arrow {
+    padding-top: 20px;
+  }
   /* Cajas dinámicas */
   .dynamic-boxes {
     margin: 20px 0;
