@@ -28,7 +28,6 @@ hr {
   top: 0;
   right: 0;
   left: 0;
-  height: 64px;
   padding: 0 20px;
   background-color: #252525;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -87,7 +86,6 @@ hr {
   top: 0;
   right: 0;
   left: 0;
-  height: 64px;
   background-color: #252525;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   z-index: 999; /* Apilamiento superior del resto de elementos */
