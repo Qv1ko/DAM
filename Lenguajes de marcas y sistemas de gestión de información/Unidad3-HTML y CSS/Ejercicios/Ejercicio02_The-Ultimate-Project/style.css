@@ -79,13 +79,13 @@ hr {
   color: #252525;
 }
 
-/* Menu responsive */
+/* Menú responsive */
 #mobile-menu {
-  visibility: hidden;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
+  visibility: hidden;
   background-color: #252525;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   z-index: 999; /* Apilamiento superior del resto de elementos */
@@ -581,7 +581,7 @@ footer p {
     align-items: center;
   }
   .dynamic-boxes .box {
-    margin : 24px 0;
+    margin: 24px 0;
   }
   .dynamic-boxes .box h2 {
     font-size: 24px;
