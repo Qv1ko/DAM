@@ -80,6 +80,31 @@ hr {
   color: #252525;
 }
 
+/* Menu responsive */
+#mobile-menu {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 64px;
+  background-color: #252525;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 999; /* Apilamiento superior del resto de elementos */
+}
+#mobile-menu img {
+  width: 40px;
+}
+#mobile-menu ul {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 8px;
+  list-style: none; /* Elimina los estilos de lista */
+}
+#mobile-menu li {
+  margin: 0 8px;
+}
+
 /* Sección primaria */
 .primary-section {
   position: relative;
@@ -460,6 +485,14 @@ footer p {
 }
 
 /* Responsive */
+@media (max-width: 1112px) {
+  #menu {
+    visibility: hidden;
+  }
+  #mobile-menu {
+    visibility: visible;
+  }
+}
 @media (max-width: 932px) {
   /* Sección primaria */
   .primary-section {
