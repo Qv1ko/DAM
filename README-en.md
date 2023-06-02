@@ -5,7 +5,7 @@ Repository of activities carried out in the higher level training cycle of Multi
 - 🇪🇸 [Spanish](./README.md)
 - 🇺🇸 **English**
 
-## Table of Contents
+## Contents
 ### First course
 - [Databases](./Bases%20de%20datos/)
 - [Development Environments](./Entornos%20de%20desarrollo/)
