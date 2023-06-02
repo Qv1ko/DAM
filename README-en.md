@@ -1,7 +1,7 @@
 # DAM
 Repository of activities carried out in the Higher Level Training Cycle of Multiplatform Applications Development (2022-).
 
-### Language of the README
+### README language
 - 🇪🇸 [Spanish](./README.md)
 - 🇺🇸 **English**
 

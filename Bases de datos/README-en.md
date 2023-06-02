@@ -1,8 +1,8 @@
 # Database Module
 
-### README Language
-- 🇪🇸 **Spanish**
-- 🇺🇸 [English](./README-en.md)
+### README language
+- 🇪🇸 [Spanish](./README.md)
+- 🇺🇸 **English**
 
 ## Syllabus
 ### Unit 1 - Database Design
