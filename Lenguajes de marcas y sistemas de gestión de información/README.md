@@ -6,12 +6,17 @@
 
 ## Temario
 ### Unidad 1 - Conceptos iniciales
-- [Apuntes](./Unidad1-Diagramas%20de%20flujo/Apuntes/)
-- [Ejercicios](./Unidad1-Diagramas%20de%20flujo/Ejercicios/)
+- [Apuntes](./Unidad1-Conceptos%20iniciales/Apuntes/)
+- [Ejercicios](./Unidad1-Conceptos%20iniciales/Ejercicios/)
+- [Proyecto](./Unidad1-Conceptos%20iniciales/Proyecto/)
 ### Unidad 2 - WordPress
-- [Apuntes](./Unidad2-Desarrollo%20de%20software/Apuntes/)
-- [Ejercicios](./Unidad2-Desarrollo%20de%20software/Ejercicios/)
-### Unidad 3 - HTML y CSS
-- [Apuntes](./Unidad3-Entornos%20de%20desarrollo%20integrados/Apuntes/)
-- [Ejercicios](./Unidad3-Entornos%20de%20desarrollo%20integrados/Ejercicios/)
-- [Examen](./Unidad3-Entornos%20de%20desarrollo%20integrados/Examen/)
+- [Apuntes](./Unidad2-WordPress/Apuntes/)
+- [Proyecto](./Unidad2-WordPress/Proyecto/)
+### Unidad 3 - HTML
+- [Apuntes](./Unidad3-HTML/Apuntes/)
+- [Clases](./Unidad3-HTML/Clases/)
+- [Ejercicios](./Unidad3-HTML/Ejercicios/)
+### Unidad 4 - CSS
+- [Apuntes](./Unidad4-CSS/Apuntes/)
+- [Clases](./Unidad4-CSS/Clases/)
+- [Proyecto](./Unidad4-CSS/Proyecto/)
