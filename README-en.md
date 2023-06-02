@@ -1,5 +1,5 @@
 # DAM
-Repository of activities carried out in the higher level training cycle of Multiplatform Applications Development (2022-).
+Repository of activities carried out in the Higher Level Training Cycle of Multiplatform Applications Development (2022-).
 
 ### Language of the README
 - 🇪🇸 [Spanish](./README.md)
