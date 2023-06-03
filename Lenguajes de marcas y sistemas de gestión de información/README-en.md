@@ -5,7 +5,7 @@
 - 🇺🇸 **English**
 
 ## Syllabus
-### Unit 1 - Initial Concepts
+### Unit 1 - Initial concepts
 - [Notes](./Unit1-Conceptos%20iniciales/Apuntes/)
 - [Exercises](./Unit1-Conceptos%20iniciales/Ejercicios/)
 - [Project](./Unit1-Conceptos%20iniciales/Proyecto/)

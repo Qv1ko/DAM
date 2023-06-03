@@ -5,10 +5,10 @@
 - 🇺🇸 **English**
 
 ## Syllabus
-### Unit 1 - Introduction to Computer Systems
+### Unit 1 - Introduction to computer systems
 - [Notes](./Unidad1-Introduccio%CC%81n%20a%20los%20sistemas%20informa%CC%81ticos/Apuntes/)
 - [Exercises](./Unidad1-Introduccio%CC%81n%20a%20los%20sistemas%20informa%CC%81ticos/Ejercicios/)
-### Unit 2 - Hardware Fundamentals
+### Unit 2 - Hardware fundamentals
 - [Notes](./Unidad2-Fundamentos%20de%20hardware/Apuntes/)
 - [Exercises](./Unidad2-Fundamentos%20de%20hardware/Ejercicios/)
 ### Unit 3 - Introduction to operating systems

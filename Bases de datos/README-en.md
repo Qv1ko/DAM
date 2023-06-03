@@ -5,7 +5,7 @@
 - 🇺🇸 **English**
 
 ## Syllabus
-### Unit 1 - Database Design
+### Unit 1 - Database design
 - [Entity-Relationship Model](./Unidad1-Dise%C3%B1o%20de%20bases%20de%20datos/Modelo%20Entidad-Relaci%C3%B3n/)
     - [Notes](./Unidad1-Dise%C3%B1o%20de%20bases%20de%20datos/Modelo%20Entidad-Relaci%C3%B3n/Apuntes/)
     - [Exercises](./Unidad1-Dise%C3%B1o%20de%20bases%20de%20datos/Modelo%20Entidad-Relaci%C3%B3n/Ejercicios/)
