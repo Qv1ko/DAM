@@ -6,7 +6,7 @@ let input: string | null = prompt("Ingresa un número:")
 if (input !== null) {
     number1 = parseInt(input)
 } else {
-    console.log("No ingresaste ningún valor");
+    console.log("No ingresaste ningún valor")
 }
 
 input = prompt("Ingresa otro número:")
@@ -14,7 +14,7 @@ input = prompt("Ingresa otro número:")
 if (input !== null) {
     number2 = parseInt(input)
 } else {
-    console.log("No ingresaste ningún valor");
+    console.log("No ingresaste ningún valor")
 }
 
 if (number1 != number2) {
