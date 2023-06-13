@@ -1,4 +1,4 @@
-package unidad9.clases;
+package unidad9.clases.web.src.main.java;
 
 public class Persona {
 
