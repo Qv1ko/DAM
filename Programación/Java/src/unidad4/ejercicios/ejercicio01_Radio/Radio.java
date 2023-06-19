@@ -3,33 +3,33 @@ package unidad4.ejercicios.ejercicio01_Radio;
 public class Radio {
     
     //Declaracion de atributos
-    private double frequencia;
+    private double frecuencia;
     public static final double fMax=180.0;
     public static final double fMin=80.0;
 
     //Construcctores
     public Radio() {
-        this.frequencia=fMin;
+        this.frecuencia=fMin;
     }//Ejercicio08_Radio
 
-    public Radio(double frequencia){
-        this.frequencia=(frequencia<fMin)? fMin:(frequencia>fMax)? fMax:frequencia;
+    public Radio(double frecuencia){
+        this.frecuencia=(frecuencia<fMin)? fMin:(frecuencia>fMax)? fMax:frecuencia;
     }//Ejercicio08_Radio
 
     public double getFrecuencia() {
-        return this.frequencia;
+        return this.frecuencia;
     }//getFrecuencia
 
-    public void setFrequencia(double frequencia) {
-        this.frequencia=frequencia;
-    }//setFrequencia
+    public void setFrecuencia(double frecuencia) {
+        this.frecuencia=frecuencia;
+    }//setFrecuencia
 
     public void subirSintonia() {
-        this.frequencia=(this.frequencia<fMax)? this.frequencia+0.5:fMin;
+        this.frecuencia=(this.frecuencia<fMax)? this.frecuencia+0.5:fMin;
     }//subirSintonia
 
     public void bajarSintonia() {
-        this.frequencia=(this.frequencia>fMin)? this.frequencia-0.5:fMax;
+        this.frecuencia=(this.frecuencia>fMin)? this.frecuencia-0.5:fMax;
     }//bajarSintonia
 
     public String toString() {
