@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
-        "Programación\\Java\\src"
+        "Programación/Java/src",
+        "Verano/Java"
     ],
     "java.project.outputPath": "Programación\\Java\\bin",
     "java.project.referencedLibraries": [
