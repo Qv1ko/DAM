@@ -21,8 +21,6 @@ public class Ejercicio01 {
         boolean isDrowned = false;
         int day = 0;
 
-        System.out.println(PIT);
-
         while (snail < 0 && !isDrowned) {
 
             day++;
