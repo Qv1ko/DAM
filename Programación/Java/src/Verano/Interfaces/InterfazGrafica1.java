@@ -4,7 +4,7 @@ import java.awt.Frame;
 
 import javax.swing.*;
 
-public class Interfaces1 {
+public class InterfazGrafica1 {
     
 
     public static void main(String[] args) {
