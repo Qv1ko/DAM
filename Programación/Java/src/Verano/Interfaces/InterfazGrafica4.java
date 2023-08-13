@@ -8,7 +8,7 @@ public class InterfazGrafica4 {
 
     public static void main(String[] args) {
 
-        drawingWindow window = new drawingWindow();
+        DrawingWindow window = new DrawingWindow();
 
         window.setVisible(true);
 
@@ -18,15 +18,15 @@ public class InterfazGrafica4 {
 
 }
 
-class drawingWindow extends JFrame {
+class DrawingWindow extends JFrame {
 
-    public drawingWindow() {
+    public DrawingWindow() {
 
         setTitle("Drawing Window");
 
         setSize(400, 400);
 
-        figureLayer layer1 = new figureLayer();
+        FigureLayer layer1 = new FigureLayer();
 
         add(layer1);
 
@@ -34,7 +34,7 @@ class drawingWindow extends JFrame {
 
 }
 
-class figureLayer extends JPanel {
+class FigureLayer extends JPanel {
 
     public void paintComponent(Graphics g) {
 
