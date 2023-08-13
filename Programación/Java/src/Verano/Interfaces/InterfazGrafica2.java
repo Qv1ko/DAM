@@ -7,7 +7,7 @@ public class InterfazGrafica2 {
 
     public static void main(String[] args) {
 
-        centerWindow window = new centerWindow();
+        CenterWindow window = new CenterWindow();
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -17,9 +17,9 @@ public class InterfazGrafica2 {
 
 }
 
-class centerWindow extends JFrame {
+class CenterWindow extends JFrame {
 
-    public centerWindow() {
+    public CenterWindow() {
 
         // Objeto pantalla
         Toolkit screen = Toolkit.getDefaultToolkit();

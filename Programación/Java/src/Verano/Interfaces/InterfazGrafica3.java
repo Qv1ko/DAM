@@ -8,7 +8,7 @@ public class InterfazGrafica3 {
     
     public static void main(String[] args) {
         
-        textWindow window = new textWindow();
+        TextWindow window = new TextWindow();
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -16,9 +16,9 @@ public class InterfazGrafica3 {
 
 }
 
-class textWindow extends JFrame {
+class TextWindow extends JFrame {
 
-    public textWindow() {
+    public TextWindow() {
 
         setVisible(true);
 
@@ -29,14 +29,14 @@ class textWindow extends JFrame {
         setTitle("Text Window");
 
         // Añadimos la capa de texto a la ventana
-        layer layer1 = new layer();
+        TextLayer layer1 = new TextLayer();
         add(layer1);
 
     }
 
 }
 
-class layer extends JPanel {
+class TextLayer extends JPanel {
 
     public void paintComponent(Graphics g) {
 

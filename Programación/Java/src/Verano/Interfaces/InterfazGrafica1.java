@@ -1,7 +1,5 @@
 package Verano.Interfaces;
 
-import java.awt.Frame;
-
 import javax.swing.*;
 
 public class InterfazGrafica1 {
@@ -9,24 +7,24 @@ public class InterfazGrafica1 {
 
     public static void main(String[] args) {
         
-        window w = new window();        
+        Window w = new Window();
+
+        // Hacer la ventana visible
+        w.setVisible(true);
+        
+        // Funcion para que al cerrar la ventana el programa finalice
+        w.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 
 }
 
-class window extends JFrame {
+class Window extends JFrame {
 
-    public window(){
+    public Window(){
 
         // Dimensiones de la ventana
         // setSize(500, 300);
-
-        // Hacer la ventana visible
-        setVisible(true);
-
-        // Funcion para que al cerrar la ventana el programa finalice
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Localizacion de la ventana en un eje de cordenadas (pantalla)
         // setLocation(500,300);
