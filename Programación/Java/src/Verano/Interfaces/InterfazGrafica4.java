@@ -1,6 +1,9 @@
 package Verano.Interfaces;
 
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
 
 import javax.swing.*;
 
@@ -47,7 +50,35 @@ class FigureLayer extends JPanel {
         // g.drawLine(100, 100, 300, 200);
 
         // Arco
-        g.drawArc(50, 100, 100, 200, 120, 150);
+        // g.drawArc(50, 100, 100, 200, 120, 150);
+
+
+        // Figuras 2D
+
+        Graphics2D g2d = (Graphics2D) g;
+
+        // Rectangulo
+        Rectangle2D rect = new Rectangle2D.Double(100, 100, 200.25, 150);
+        // g2d.draw(rect);
+
+        // Elipse
+        Ellipse2D ellip = new Ellipse2D.Double();
+        // Usamos el rectangulo para definir las dimensiones de la elipse
+        ellip.setFrame(rect);
+        g2d.draw(ellip);
+
+        // Linea
+        g2d.draw(new Line2D.Double(100, 100, 350, 250));
+
+
+        // Elipse
+        double xCenter = rect.getCenterX();
+        double yCenter = rect.getCenterY();
+        double radio = 150;
+
+        Ellipse2D elli = new Ellipse2D.Double();
+        elli.setFrame(xCenter, yCenter, xCenter + radio, yCenter + radio);
+        g2d.draw(elli);
 
     }
 
