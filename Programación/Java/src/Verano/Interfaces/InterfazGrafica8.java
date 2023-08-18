@@ -38,19 +38,40 @@ class ImageWindow extends JFrame {
 
 class ImageLayer extends JPanel {
 
-    public void paintComponent(Graphics g) {
-
-        super.paintComponent(g);
+    public ImageLayer() {
 
         // File myImage = new File("Programación\\Java\\src\\Verano\\Interfaces\\content\\icon.png");
-
+    
         try {
             image = ImageIO.read(new File("Programación\\Java\\src\\Verano\\Interfaces\\content\\icon.png"));
         } catch (IOException exc) {
             System.out.println(exc.getMessage());
         }
 
-        g.drawImage(image, 5, 5, null);
+    }
+
+    public void paintComponent(Graphics g) {
+
+        super.paintComponent(g);
+
+        // Valores de la imagen
+        int widthImage = image.getWidth(this);
+        int heigthImage = image.getHeight(this);
+
+        g.drawImage(image, 0, 0, null);
+
+        // Mosaico de la imagen
+        for (int i = 0; i < 300; i ++) {
+
+            for (int j = 0; j < 200; j ++) {
+
+                if (i + j > 0) {
+                    g.copyArea(0, 0, widthImage, heigthImage, i * 200, j * 200);
+                }
+                
+            }
+
+        }
 
     }
 
