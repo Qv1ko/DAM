@@ -1,4 +1,4 @@
-package Verano.Interfaces;
+package verano.interfaces;
 
 import java.awt.GraphicsEnvironment;
 import java.io.BufferedReader;

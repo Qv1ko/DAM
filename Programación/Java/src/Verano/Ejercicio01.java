@@ -1,4 +1,4 @@
-package Verano;
+package verano;
 
 public class Ejercicio01 {
 

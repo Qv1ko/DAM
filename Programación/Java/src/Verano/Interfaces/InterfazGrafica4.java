@@ -1,4 +1,4 @@
-package Verano.Interfaces;
+package verano.interfaces;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
