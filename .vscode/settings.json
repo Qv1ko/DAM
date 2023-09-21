@@ -1,10 +1,11 @@
 {
     "java.project.sourcePaths": [
         "Programación/Java/src",
-        "Verano/Java"
+        "Programación de servicios y procesos\\Java\\src"
     ],
     "java.project.outputPath": "Programación\\Java\\bin",
     "java.project.referencedLibraries": [
-        "Programación\\Java\\lib\\**\\*.jar"
+        "Programación\\Java\\lib\\**\\*.jar",
+        "Programación de servicios y procesos\\Java\\lib\\**\\*.jar"
     ]
 }
