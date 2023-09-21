@@ -2,6 +2,6 @@
     "java.project.sourcePaths": ["src"],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "Programación\\Java\\lib\\**\\*.jar"
+        "Programación de servicios y procesos\\Java\\lib\\**\\*.jar"
     ]
 }
