@@ -143,7 +143,7 @@ Ejemplos: JavaScript, Python y Ruby
 
 Ejemplos: Java, Kotlin y Scala
 
-![imagen1](./Imagenes/imagen1.jpg)
+![imagen1](./Imágenes/imagen1.jpg)
 
 ## Java RegEx
 
