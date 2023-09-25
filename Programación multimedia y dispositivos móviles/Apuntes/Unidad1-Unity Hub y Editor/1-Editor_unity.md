@@ -4,7 +4,7 @@
 
 El diseño predeterminado de Unity Editor está organizado con las ventanas más importantes que necesitarás ubicar para ayudarte a completar las actividades básicas.
 
-![imagen3](./Imágenes/imagen3.png)
+![Untitled](Editor%20Unity%2088421946b5cc45ccb66289f6b8bc6145/Untitled.png)
 
 Hay cinco áreas clave de la interfaz básica del Editor.
 
@@ -106,7 +106,7 @@ Nota: Si estás en una escena sin ningún GameObjects para practicar, haz clic d
 
 Los atajos de teclado para las barras de herramientas corresponden a las teclas `QWERTY` en la parte superior izquierda de un teclado estándar. Con estas teclas, puede cambiar rápidamente entre las herramientas y mantener el mouse en la vista de escena.
 
-![imagen4](./Imágenes/imagen4.png)
+![Untitled](Editor%20Unity%2088421946b5cc45ccb66289f6b8bc6145/Untitled%201.png)
 
 `Q` → Herramienta Manual, para realizar una panorámica de la vista
 
@@ -122,6 +122,6 @@ Los atajos de teclado para las barras de herramientas corresponden a las teclas 
 
 Para cada una de las herramientas de transformación, aparece un Gizmo que te permite manipular el GameObject a lo largo de cada eje específico. A medida que manipula estos controles, los valores en el componente de transformación cambian en consecuencia.
 
-![imagen5](./Imágenes/imagen5.png)
+![Untitled](Editor%20Unity%2088421946b5cc45ccb66289f6b8bc6145/Untitled%202.png)
 
 Descubrirás tu propio sistema para navegar por la vista de escena y manipular GameObjects de manera eficiente. Por ejemplo, su sistema podría consistir en apoyar los dedos de la mano que no es el mouse en las teclas `QWER` para cambiar de herramienta, apoyar el pulgar en la tecla `ALT` para orbitar su vista de la escena y mover el dedo índice a la tecla `F` para céntrese en un GameObject según sea necesario.
