@@ -128,3 +128,6 @@ La interfaz se tiene que dirigir a un público objetivo.
 32. Frecuentes cambios en la interfaz, lo que hace que la curva de aprendizaje de la aplicación sea alta
     - Si se hacen cambios continuaos en la interfaz la curva de aprendizaje será mayor
 33. Abrumadora
+34. Que no tenga el idioma del público objetivo
+    - No tenga selector de idiomas
+    - Que la aplicación mezcle idiomas
