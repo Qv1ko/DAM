@@ -6,25 +6,24 @@ public class TablaVerdad {
     private final static int CANTIDADRETRASOS = 20;
     private final static int CANTIDADERRORES = 16;
     private final static boolean RECARGA = true;
-    private final boolean CARGATOTAL = false;
+    private final static boolean CARGATOTAL = false;
     private final static double PORCENTAJECARGA = 19.80;
     private final static boolean ENERGIA = false;
     
     public static void main(String[] args) {
         
-        System.out.println(verdad01());
-        System.out.println(verdad02());
-        System.out.println(verdad03());
-        System.out.println(verdad04());
-        System.out.println(verdad05());
-        System.out.println(verdad06());
-        System.out.println(verdad07());
-        System.out.println(verdad08());
-        System.out.println(verdad09());
-        System.out.println(verdad10());
-        System.out.println(verdad11());
-        System.out.println(verdad12());
-        System.out.println(verdad13());
+        System.out.println("numero > 5 -> " + verdad01());
+        System.out.println("numero = 5 -> " + verdad02());
+        System.out.println("numero > 5 o numero = 5 ->" + verdad03());
+        System.out.println("cantidadErrores y cantidadRetrasos son pares -> " + verdad04());
+        System.out.println("cantidadErrores es menor que 6 o cantidadRetrasos es menor que 5 -> " + verdad05());
+        System.out.println("cantidadRetrasos > 8 y cantidadErrorres > 5 -> " + verdad06());
+        System.out.println("recarga es verdad y porcentajeCarga es menor de 20.00 y energia es verdad -> " + verdad07());
+        System.out.println("recarga es verdad y energia es falso -> " + verdad08());
+        System.out.println("cargaTotal es falso y recarga es verdad y energia es verdad -> " + verdad09());
+        System.out.println("cargaTotal es verdad y recarga es falso y energia es falso -> " + verdad10());
+        System.out.println("Si porcentajeCarga es igual a 100.00, entonces cargaTotal es verdad y recarga es falso -> " + verdad11());
+        System.out.println("(cantidadErrores es mayor que 10 y energia es verdad) o (numero es 5 y cantidadRetrasos es menor que 20) -> " + verdad12());
         
     }
     
@@ -64,33 +63,28 @@ public class TablaVerdad {
     }
 
     private static boolean verdad08() {
-        // 
-        return 1==2;
+        // recarga es verdad y energia es falso
+        return RECARGA && !ENERGIA;
     }
 
     private static boolean verdad09() {
-        // 
-        return 1==2;
+        // cargaTotal es falso y recarga es verdad y energia es verdad
+        return !CARGATOTAL && RECARGA && ENERGIA;
     }
 
     private static boolean verdad10() {
-        // 
-        return 1==2;
+        // cargaTotal es verdad y recarga es falso y energia es falso
+        return CARGATOTAL && !RECARGA && !ENERGIA;
     }
 
     private static boolean verdad11() {
-        // 
-        return 1==2;
+        // Si porcentajeCarga es igual a 100.00, entonces cargaTotal es verdad y recarga es falso
+        return (PORCENTAJECARGA == 100.00) ? CARGATOTAL && !RECARGA : !CARGATOTAL && RECARGA;
     }
 
     private static boolean verdad12() {
-        // 
-        return 1==2;
-    }
-
-    private static boolean verdad13() {
-        // 
-        return 1==2;
+        // (cantidadErrores es mayor que 10 y energia es verdad) o (numero es 5 y cantidadRetrasos es menor que 20)
+        return (CANTIDADERRORES > 10 && ENERGIA) || (NUMERO == 5 && CANTIDADRETRASOS < 20);
     }
 
 }
