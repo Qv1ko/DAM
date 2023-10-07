@@ -19,7 +19,7 @@ Existen muchos tipos de diagramas UML, aunque en la práctica no siempre será n
 - **Estructura** o visión estática del proyecto: para describir el sistema a través de los elementos que lo forman.
 - **Comportamiento** o visión dinámica del proyecto: para describir el sistema explicando lo que ha de pasar.
 
-![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled.png)
+![imagen1](./Imágenes/imagen1.png)
 
 ## Conceptos básicos sobre el paradigma de la programación orientado a objetos
 
@@ -32,7 +32,7 @@ Existen muchos tipos de diagramas UML, aunque en la práctica no siempre será n
 
 Es un diagrama que relaciona las clases y sus diferentes operaciones entre si.
 
-![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%201.png)
+![imagen2](./Imágenes/imagen2.png)
 
 ## Notación de los diagramas de clases
 
@@ -62,7 +62,7 @@ Los atributos y los métodos tienen una visibilidad:
     - Puede tener una cardinalidad
     - Puede ser tanto composición como una agregación
     
-    ![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%202.png)
+    ![imagen3](./Imágenes/imagen3.png)
     
 - Composición
     
@@ -71,7 +71,7 @@ Los atributos y los métodos tienen una visibilidad:
     - La clase que contiene la composición no tiene sentido de existencia si las agregadas desaparecen.
     - Se representa con una flecha con un robo relleno en una de sus puntas, la clase destino es apuntada por el rombo de la relación.
     
-    ![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%203.png)
+    ![imagen4](./Imágenes/imagen4.png)
     
 - Agregación
     - Asociación que indica que una clase es parte de otra clase (composición débil).
@@ -88,19 +88,19 @@ Representar las relaciones
 
 - Asociación: indica alguna colaboración de objetos entre si. Puede ser una composición o una agregación.
     
-    ![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%204.png)
+    ![imagen5](./Imágenes/imagen5.png)
     
 - Composición: una clase forma parte integral de otra clase. La clase base se construye a partir de la clase incluida (sin ella no existiría).
     
-    ![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%205.png)
+    ![imagen6](./Imágenes/imagen6.png)
     
 - Agregación: una clase puede formar parte de otra clase, pero no está ligada a ella. La clase base utiliza el agregado por su funcionamiento.
     
-    ![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%206.png)
+    ![imagen7](./Imágenes/imagen7.png)
     
 - Herencia: la herencia representa clases y subclases (clases más especificas de una general)
     
-    ![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%207.png)
+    ![imagen8](./Imágenes/imagen8.png)
     
 
 ### Cardinalidad
@@ -126,13 +126,13 @@ Ejemplo Libreta de contactos
 - Cada contacto tiene nombre, email, teléfono y dirección.
 - Podemos insertar un nuevo contacto, buscar uno por nombre , y obtenerlos todos.
 
-![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%208.png)
+![imagen9](./Imágenes/imagen9.png)
 
-![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%209.png)
+![imagen10](./Imágenes/imagen10.png)
 
 Las dos clases están relacionadas…
 
-![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%2010.png)
+![imagen11](./Imágenes/imagen11.png)
 
 **Relación**: la libreta se compone de (una lista de) contactos.
 
@@ -140,25 +140,25 @@ Las dos clases están relacionadas…
 
 Ahora queremos poder añadir grupos de contactos en nuestra libreta de contactos. Por tanto, la libreta contendrá tantos grupos de contactos como contactos, ya que habrá contactos que no estarán en un grupo.
 
-![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%2011.png)
+![imagen12](./Imágenes/imagen12.png)
 
 Añadir grupos de contactos en nuestra libreta de contactos.
 
 La libreta contendrá tanto grupos de contactos como contactos, ya que habrá contactos que no estarán en un grupo.
 
-![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%2012.png)
+![imagen13](./Imágenes/imagen13.png)
 
-![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%2013.png)
+![imagen14](./Imágenes/imagen14.png)
 
 Crear cuenta de usuario para acceder a nuestra libreta de contactos.
 
 La cuenta tendrá un nombre de cuenta y un email y podrá acceder a la libreta.
 
-![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%2014.png)
+![imagen15](./Imágenes/imagen15.png)
 
 Cada contacto puede ser de trabajo o de familia. Para cada uno de ellos queremos guardar el tipo de relación
 
-![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%2015.png)
+![imagen16](./Imágenes/imagen16.png)
 
 ## Ejemplo práctico
 
@@ -174,11 +174,11 @@ Cada actividad a desarrollar tendrá un valor numérico con el que se establecer
 
 1. Extraer clases (azul)
     
-    ![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%2016.png)
+    ![imagen17](./Imágenes/imagen17.png)
     
 2. Asociar atributos y métodos a las clases (subrayado)
     
-    ![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%2017.png)
+    ![imagen18](./Imágenes/imagen18.png)
     
 3. Relaciones entre las clases
     - Un Site tiene un dominio y una fecha de publicación
@@ -187,22 +187,22 @@ Cada actividad a desarrollar tendrá un valor numérico con el que se establecer
     - El TeamLeader se encarga de subir a producción
     - Herencia → Developers y TeamLeaders heredan los atributos de Persona
         
-        ![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%2018.png)
+        ![imagen19](./Imágenes/imagen19.png)
         
     - Un Site tiene actividades a desarrollar
     - Cada Site podrá tener desde una a muchas (de forma indefinida) actividades a desarrollar, pero una actividad a desarrollar solo podrá pertenecer a un Site.
     - Composición → Cada actividad forma parte de un Site
         
-        ![Consideramos que un Site no tiene sentido de existir si no está asignado a un TeamLeader](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%2019.png)
+        ![image20](./Imágenes/imagen20.png)
         
         Consideramos que un Site no tiene sentido de existir si no está asignado a un TeamLeader
         
     - Agregación → Un TeamLeader solo podrá gestionar uno o dos Sites
         
-        ![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%2020.png)
+        ![imagen21](./Imágenes/imagen21.png)
         
 
-![Untitled](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/Untitled%2021.png)
+![imagen22](./Imágenes/imagen22.png)
 
 ## Ejemplos
 
@@ -210,10 +210,42 @@ HERENCIA: Realizar el diagrama de clases, que represente que Rectángulo, Cuadra
 
 Con la herencia, nos evitamos además tener que definir los métodos “Dibujar” de las clases heredadas, pues se encuentra implícito en el diagrama que cualquiera de ellas puede ser invocada para ser dibujadas.
 
-![herencia.png](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/herencia.png)
+![imagen23](./Imágenes/imagen23.png)
 
 RELACIONES: Definimos nuestra clase, la llamamos Familia, repetiremos la operación creando otra clase llamada Persona. Deberemos añadir los atributos que correspondan para que el diagrama tenga sentido, es decir, sabemos que una familia es un conjunto de personas.
 
 Vamos a realizar también una relación de herencia, ya que sabemos que una familia se compone de un padre, una madre e hijos, es decir, las personas incluidas en una familia están relacionadas entre sí. Suponemos que una familia debe tener un solo padre y una sola madre, y que ellos pueden tener varios niños en conjunto.
 
-![relaciones.png](Diagramas%20de%20clases%20en%20UML%20fbcedf24761948d9ada561a4a75f0f98/relaciones.png)
+![imagen24](./Imágenes/imagen24.png)
+
+## Resumen Agregación y Composición
+
+Relación de Agregación
+
+- La agregación es un tipo de asociación que indica que una clase es parte de otra clase (composición débil).
+- La destrucción del compuesto no conlleva la destrucción de los componentes.
+- Habitualmente se da con mayor frecuencia que la composición.
+- La agregación se representa en UML mediante un diamante de color blanco colocado en el extremo en el que está la clase que representa el “todo”.
+    
+    
+    ![imagen25](./Imágenes/imagen25.png)
+    
+    - Tenemos una clase Empresa.
+    - Tenemos una clase Cliente.
+    - Una empresa agrupa a varios clientes.
+    
+
+Relación de Composición
+
+- Composición es una forma fuerte de composición donde la vida de la clase contenida debe coincidir con la vida de la clase contenedor.
+- Los componentes constituyen una parte del objeto compuesto.
+- Los componentes no pueden ser compartidos por varios objetos compuestos.
+- La supresión del objeto compuesto conlleva la supresión de los componentes.
+- El símbolo de composición es un diamante de color negro colocado en el extremo en el que está la clase que representa el “todo” (Compuesto).
+    
+    
+    ![imagen26](./Imágenes/imagen26.png)
+    
+    - Tenemos una clase Empresa.
+    - Un objeto Empresa está a su vez compuesto por uno o varios objetos del tipo empleado.
+    - El tiempo de vida de los objetos Empleado depende del tiempo de vida de Empresa, ya que si no existe una Empresa no pueden existir sus empleados.
