@@ -34,7 +34,8 @@ public class TablaVerdad {
 
     private static boolean verdad02() {
         // numero = 5
-        return NUMERO == 5;
+        // return NUMERO == 5;
+        return true;
     }
 
     private static boolean verdad03() {
