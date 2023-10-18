@@ -1,4 +1,4 @@
-package unidad1.ejercicios.ejercicio03_Metodos;
+package unidad1.ejercicios.ejercicio03_Constructores;
 
 public class Estadio {
     
