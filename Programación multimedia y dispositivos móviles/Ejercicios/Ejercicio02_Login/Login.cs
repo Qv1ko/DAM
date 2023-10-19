@@ -1,26 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Login : MonoBehaviour {
 
-    public const string USER = "admin", PASSWORD = "admin";
-    public bool correctUser = false, correctPass = false;
+    // Atributos o propiedades
+    public TMP_InputField userInput, passInput;
+    public TMP_Text attemptsText;
+    private const string USER = "admin", PASS = "admin";
+    private int attempts = 3;
 
-    public void SaveUser(string user) {
-        correctUser = user.Equals(USER);
-    }
-
-    public void SavePass(string pass) {
-        correctPass = pass.Equals(PASSWORD);
+    void Start() {
+        attemptsText.text = "Intentos disponibles: " + attempts;
     }
 
     public void AccessCheck() {
-        if (correctUser && correctPass) {
-            SceneManager.LoadScene(1);
+
+        Debug.Log("Usuario: " + userInput.text + "Contraseña: " + passInput.text);
+
+        if (userInput.text.Equals(USER) && passInput.text.Equals(PASS)) {
+            SceneManager.LoadScene("Main");
+        } else {
+            attempts--;
+            attemptsText.text = "Intentos disponibles: " + attempts;
         }
+
+        if (attempts == 0) {
+            Application.Quit();
+        }
+
     }
 
 }
