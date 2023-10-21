@@ -16,7 +16,7 @@ public class Login : MonoBehaviour {
 
     public void AccessCheck() {
 
-        Debug.Log("Usuario: " + userInput.text + "Contraseña: " + passInput.text);
+        Debug.Log("Usuario: " + userInput.text + "ContraseÃ±a: " + passInput.text);
 
         if (userInput.text.Equals(USER) && passInput.text.Equals(PASS)) {
             SceneManager.LoadScene("Main");
