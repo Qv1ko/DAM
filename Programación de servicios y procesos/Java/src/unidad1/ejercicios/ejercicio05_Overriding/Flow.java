@@ -3,7 +3,7 @@ package unidad1.ejercicios.ejercicio05_Overriding;
 class Flow {
 
     public static void main(String[] args) {
-        
+
         AulaInformatica obj = new AulaInformatica();
 
         obj.setNumeroPlazas(24);
@@ -19,13 +19,17 @@ class Flow {
 
 }
 
-class Aula {
+abstract class Aula {
 
-    private int numeroPlazas = 0;
-    private boolean disponible = false;
-    public boolean ocupada = false;
-    
+    private int numeroPlazas;
+    private boolean disponible;
+    public boolean ocupada;
+
     public Aula() {
+
+        this.numeroPlazas = 0;
+        this.disponible = false;
+        this.ocupada = false;
 
     }
 
@@ -53,20 +57,22 @@ class Aula {
         this.disponible = disponible;
     }
 
-    public boolean estaDisponible() {
-        return this.disponible;
-    }
+    public boolean estaDisponible;
 
     public void imprimirEstado() {
-        String estado = (getNumeroPlazas() > 0 && !getOcupada()) ? "está disponible" : "no está disponible";
-        System.out.println("El aula " + estado);
-    }    
-    
+        System.out.println(
+                (getNumeroPlazas() > 0 && !getOcupada()) ? "El aula está disponible" : "El aula no está disponible");
+    }
+
 }
 
 class AulaInformatica extends Aula {
 
-    private boolean habilitada = false;
+    private boolean habilitada;
+
+    public AulaInformatica() {
+        this.habilitada = false;
+    }
 
     public boolean getHabilitada() {
         return this.habilitada;
@@ -80,9 +86,11 @@ class AulaInformatica extends Aula {
         return super.getDisponible();
     }
 
+    @Override
     public void imprimirEstado() {
-        String estado = (super.getNumeroPlazas() > 0 && !getOcupada() && getDisponible()) ? "está disponible" : "no está disponible";
-        System.out.println("El aula de informática " + estado);
-    } 
+        System.out.println(
+                (getNumeroPlazas() > 0 && !getOcupada() && getHabilitada()) ? "El aula de informática está disponible"
+                        : "El aula de informática no está disponible");
+    }
 
 }

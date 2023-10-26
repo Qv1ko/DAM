@@ -1,6 +1,6 @@
 {
     "java.project.sourcePaths": [
-        "Programación\\Java\\src",
+        "Programación/Java/src",
         "Programación de servicios y procesos\\Java\\src"
     ],
     "java.project.referencedLibraries": [
