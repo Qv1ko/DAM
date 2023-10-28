@@ -10,7 +10,7 @@ USE alquiler_portatiles;
 -- alumnos
 
 CREATE OR REPLACE TABLE alumnos(
-  id_alumno varchar(8) AUTO_INCREMENT,
+  id_alumno integer AUTO_INCREMENT,
   dni varchar(8),
   nombre varchar(24),
   apellidos varchar(48),
@@ -18,16 +18,16 @@ CREATE OR REPLACE TABLE alumnos(
   aula varchar(4),
   turno varchar(8),
   estado_matricula varchar(8),
-  id_portatil varchar(8),
-  id_cargador varchar(8),
-  id_raton varchar(8),
+  id_portatil integer,
+  id_cargador integer,
+  id_raton integer,
   PRIMARY KEY (id_alumno)
 );
 
 -- portátiles
 
 CREATE OR REPLACE TABLE portatiles(
-  id_portatil varchar(8) AUTO_INCREMENT,
+  id_portatil integer AUTO_INCREMENT,
   codigo varchar(8),
   marca varchar(24),
   modelo varchar(16),
@@ -36,49 +36,49 @@ CREATE OR REPLACE TABLE portatiles(
   dispositivo_almacenamiento varchar(24),
   capacidad_almacenamiento integer(8),
   estado_alquiler varchar(24),
-  id_cargador varchar(8),
-  id_raton varchar(8),
-  id_almacen varchar(8),
+  id_cargador integer,
+  id_raton integer,
+  id_almacen integer,
   PRIMARY KEY (id_portatil)
 );
 
 -- aplicaciones instaladas
 
 CREATE OR REPLACE TABLE aplicaciones_instaladas(
-  id_aplicacion varchar(8) AUTO_INCREMENT,
+  id_aplicacion integer AUTO_INCREMENT,
   aplicacion varchar(32),
-  id_portatil varchar(8),
+  id_portatil integer,
   PRIMARY KEY (id_aplicacion)
 );
 
 -- cargadores
 
 CREATE OR REPLACE TABLE cargadores(
-  id_cargador varchar(8) AUTO_INCREMENT,
+  id_cargador integer AUTO_INCREMENT,
   codigo varchar(8),
   potencia integer(8),
   estado_alquiler varchar(24),
-  id_almacen varchar(8),
+  id_almacen integer,
   PRIMARY KEY (id_cargador)
 );
 
 -- ratones
 
 CREATE OR REPLACE TABLE ratones(
-  id_raton varchar(8) AUTO_INCREMENT,
+  id_raton integer AUTO_INCREMENT,
   codigo varchar(8),
   marca varchar(24),
   modelo varchar(16),
   tipo_conector varchar(8),
   estado_alquiler varchar(24),
-  id_almacen varchar(8),
+  id_almacen integer,
   PRIMARY KEY (id_raton)
 );
 
 -- almacenes
 
 CREATE OR REPLACE TABLE almacenes(
-  id_almacen varchar(8) AUTO_INCREMENT,
+  id_almacen integer AUTO_INCREMENT,
   aula varchar(4),
   capacidad integer(4),
   PRIMARY KEY (id_almacen)
