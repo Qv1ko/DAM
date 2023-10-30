@@ -17,7 +17,7 @@ CREATE OR REPLACE TABLE alumnos(
   curso varchar(96),
   aula varchar(4),
   turno varchar(8),
-  estado_matricula varchar(8),
+  estado_matricula varchar(16),
   id_portatil integer,
   id_cargador integer,
   id_raton integer,
@@ -28,9 +28,9 @@ CREATE OR REPLACE TABLE alumnos(
 
 CREATE OR REPLACE TABLE portatiles(
   id_portatil integer AUTO_INCREMENT,
-  codigo varchar(8),
+  codigo varchar(4),
   marca varchar(24),
-  modelo varchar(16),
+  modelo varchar(24),
   procesador varchar(24),
   memoria_ram integer(4),
   dispositivo_almacenamiento varchar(24),
@@ -55,7 +55,7 @@ CREATE OR REPLACE TABLE aplicaciones_instaladas(
 
 CREATE OR REPLACE TABLE cargadores(
   id_cargador integer AUTO_INCREMENT,
-  codigo varchar(8),
+  codigo varchar(4),
   potencia integer(8),
   estado_alquiler varchar(24),
   id_almacen integer,
@@ -66,9 +66,9 @@ CREATE OR REPLACE TABLE cargadores(
 
 CREATE OR REPLACE TABLE ratones(
   id_raton integer AUTO_INCREMENT,
-  codigo varchar(8),
+  codigo varchar(4),
   marca varchar(24),
-  modelo varchar(16),
+  modelo varchar(24),
   tipo_conector varchar(8),
   estado_alquiler varchar(24),
   id_almacen integer,
