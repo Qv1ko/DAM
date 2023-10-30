@@ -1,0 +1,24 @@
+Acrobat reader
+Audacity
+Contasol
+dbForge
+Dia
+Eclipse
+Edge
+Excel
+Figma
+Gimp
+Git
+Google Chrome
+Illustrator
+Notepad++
+Photoshop
+PowerPoint
+Unity
+VirtualBox
+Visual Studio
+Visual Studio Code
+VLC
+WinRAR
+Word
+Xampp
