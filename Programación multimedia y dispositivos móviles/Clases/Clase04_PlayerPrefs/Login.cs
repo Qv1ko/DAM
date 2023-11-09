@@ -14,7 +14,7 @@ public class Login : MonoBehaviour {
 
     public void AccessCheck() {
 
-        if (PlayerPrefs.HasKey("") && PlayerPrefs.GetString(userInput.text).Equals(passInput.text)) {
+        if (PlayerPrefs.GetString(userInput.text).Equals(passInput.text) && userInput.text.Length > 0 && passInput.text.Length > 0) {
             PlayerPrefs.SetString("user", name);
             SceneManager.LoadScene("Main");
         } else {
