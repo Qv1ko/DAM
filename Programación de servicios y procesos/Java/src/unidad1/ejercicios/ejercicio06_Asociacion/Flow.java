@@ -8,6 +8,9 @@ public class Flow {
         Sensor sensorPuerta = new Sensor();
         Actuador alarmaSeguridad = new Actuador();
 
+        alarmaSeguridad.comprobarDisparador(sensorPuerta.getIntruso());
+        alarmaSeguridad.alarma();
+
         casa.setIntruso(true);
         sensorPuerta.comprobarActivo(casa.getIntruso());
         alarmaSeguridad.comprobarDisparador(sensorPuerta.getActivo());
