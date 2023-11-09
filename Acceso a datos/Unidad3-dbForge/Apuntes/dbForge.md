@@ -64,3 +64,11 @@ Clic en una tabla de la base de datos → Ver la estructura de la tabla y script
 2. Añadimos la conexión
 3. Marcamos las tablas y la base de datos a documentar
 4. Generate → Seleccionas el formato → Generate
+
+### Crear backup
+
+1. Clic derecho en la base de datos
+2. Backup and restore → Backup Database…
+3. Backup Content → Seleccionar estructura que se guardara en el Backup
+4. Options → General script options → Include CREATE DATABASE statement
+5. Clic al botón de Backup
