@@ -1,0 +1,15 @@
+// Objeto
+{
+
+	"id":1,
+	"nombre":"Víctor",
+	"apellido":"García",
+	"telefono":"777777777"
+
+},
+{
+	"id":2,
+	"nombre":"Alvaro",
+	"apellidos":"nose",
+	"telefono":"123456789"
+}
