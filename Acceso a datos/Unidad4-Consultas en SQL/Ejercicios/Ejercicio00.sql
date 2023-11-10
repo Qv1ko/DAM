@@ -1,10 +1,10 @@
 ﻿-- Encontra la provincia menos poblada de la autonomia mas poblada
 
--- autonomiaCautonomia, SUM(poblacion) as pobauto (provincias) -> c1
--- CMAX(pobauto) (c1) -> c2
+-- autonomiaĢautonomia, SUM(poblacion) as pobauto (provincias) -> c1
+-- ĢMAX(pobauto) (c1) -> c2
 -- Πautonomia(σpobauto=c2 (c1)) -> c3
 -- Πprovincia,poblacion(σautonomia=c3 (provincias)) -> c4
--- CMIN(poblacion) (c4) -> c5
+-- ĢMIN(poblacion) (c4) -> c5
 -- Πprovincia(σpoblacion=c5 (c4))
 
 
