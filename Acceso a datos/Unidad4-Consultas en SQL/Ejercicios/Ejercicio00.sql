@@ -21,7 +21,7 @@ SELECT MAX(c1.pobauto) FROM (
   )c1;
 
 -- c3 - Autonimía más poblada
-SELECT c1.autonomia FROM (
+SELECT DISTINCT c1.autonomia FROM (
   SELECT autonomia, SUM(poblacion) AS pobauto FROM provincias
   GROUP BY autonomia
   )c1
@@ -33,9 +33,9 @@ SELECT c1.autonomia FROM (
   );
 
 -- c4 - Tabla con las provincias de la autonomía más poblada y sus valores de población
-SELECT provincia, poblacion FROM provincias
+SELECT DISTINCT provincia, poblacion FROM provincias
   WHERE autonomia = (
-    SELECT c1.autonomia FROM (
+    SELECT DISTINCT c1.autonomia FROM (
     SELECT autonomia, SUM(poblacion) AS pobauto FROM provincias
     GROUP BY autonomia
     )c1
@@ -49,9 +49,9 @@ SELECT provincia, poblacion FROM provincias
 
 -- c5 - Valor mínimo de población de la tabla con las provincias de la autonomía más poblada y su población
 SELECT MIN(c4.poblacion) FROM (
-  SELECT provincia, poblacion FROM provincias
+  SELECT DISTINCT provincia, poblacion FROM provincias
     WHERE autonomia = (
-      SELECT c1.autonomia FROM (
+      SELECT DISTINCT c1.autonomia FROM (
       SELECT autonomia, SUM(poblacion) AS pobauto FROM provincias
       GROUP BY autonomia
       )c1
@@ -65,10 +65,10 @@ SELECT MIN(c4.poblacion) FROM (
   )c4;
 
 -- Solución: El nombre de la provincia menos poblada de la autonomía más poblada
-SELECT c4.provincia FROM (
-  SELECT provincia, poblacion FROM provincias
+SELECT DISTINCT c4.provincia FROM (
+  SELECT DISTINCT provincia, poblacion FROM provincias
     WHERE autonomia = (
-      SELECT c1.autonomia FROM (
+      SELECT DISTINCT c1.autonomia FROM (
       SELECT autonomia, SUM(poblacion) AS pobauto FROM provincias
       GROUP BY autonomia
       )c1
@@ -82,9 +82,9 @@ SELECT c4.provincia FROM (
   )c4
   WHERE poblacion = (
     SELECT MIN(c4.poblacion) FROM (
-    SELECT provincia, poblacion FROM provincias
+    SELECT DISTINCT provincia, poblacion FROM provincias
       WHERE autonomia = (
-        SELECT c1.autonomia FROM (
+        SELECT DISTINCT c1.autonomia FROM (
         SELECT autonomia, SUM(poblacion) AS pobauto FROM provincias
         GROUP BY autonomia
         )c1
