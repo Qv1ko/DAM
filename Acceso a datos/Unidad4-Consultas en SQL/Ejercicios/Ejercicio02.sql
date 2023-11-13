@@ -1,4 +1,4 @@
-﻿USE ciclistas; -- σ Π Ģ
+﻿USE ciclistas;
 
 -- 1. Número de ciclistas que hay
 
@@ -48,19 +48,30 @@ SELECT COUNT(nompuerto) FROM puerto
 
 -- 9. Listar el nombre de los equipos que tengan más de 4 ciclistas
 
--- nomequipoĢcount(nombre) (ciclista) -> c1
-SELECT COUNT(nombre) FROM ciclista
+-- nomequipoĢnomequipo,count(nomequipo) (ciclista) -> c1
+SELECT nomequipo, COUNT(nomequipo) AS numciclistas FROM ciclista
   GROUP BY nomequipo;
--- Πnomequipo (σc1>4 (ciclista))
-SELECT DISTINCT nomequipo FROM ciclista
-  WHERE (
-    SELECT COUNT(nombre) FROM ciclista
+-- Πnomequipo (σnumciclistas>4 (c1))
+SELECT DISTINCT nomequipo FROM (
+    SELECT nomequipo, COUNT(nomequipo) AS numciclistas FROM ciclista
     GROUP BY nomequipo
-  )>4;
+  )c1
+  WHERE c1.numciclistas>4;
+
 
 -- 10. Listar el nombre de los equipos que tengan más de 4 ciclistas cuya edad esté entre 28 y 32
 
--- 
+-- nomequipoĢnomequipo,count(nomequipo) (σedad between 28 and 32 (ciclista)) -> c1
+SELECT nomequipo, COUNT(nomequipo) AS numciclistas FROM ciclista
+  WHERE edad BETWEEN 28 AND 32
+  GROUP BY nomequipo;
+-- Πnomequipo (σnumciclistas>4 (c1))
+SELECT DISTINCT c1.nomequipo FROM (
+    SELECT nomequipo, COUNT(nomequipo) AS numciclistas FROM ciclista
+    WHERE edad BETWEEN 28 AND 32
+    GROUP BY nomequipo
+  )c1
+  WHERE c1.numciclistas>4;
 
 -- 11. Indícame el número de etapas que ha ganado cada uno de los ciclistas
 
@@ -71,4 +82,13 @@ SELECT COUNT(numetapa) FROM etapa
 
 -- 12. Indícame el dorsal de los ciclistas que hayan ganado más de una etapa
 
--- 
+-- dorsalĢdorsal,count(numetapa) (etapa) -> c1
+SELECT dorsal, COUNT(numetapa) AS etapasganadas FROM etapa
+  GROUP BY dorsal;
+
+-- Πdorsal (σetapasganadas>1 (c1))
+SELECT DISTINCT c1.dorsal FROM (
+    SELECT dorsal, COUNT(numetapa) AS etapasganadas FROM etapa
+    GROUP BY dorsal
+  )c1
+  WHERE c1.etapasganadas>1;
