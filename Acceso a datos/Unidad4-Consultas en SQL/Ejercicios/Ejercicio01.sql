@@ -37,23 +37,23 @@ SELECT DISTINCT nombre FROM ciclista
 
 -- 7. Lístame el nombre y el dorsal de todos los ciclistas mostrando un campo nuevo denominado nombre mayúsculas que debe mostrar el nombre en mayúsculas
 
--- Ģnombre,dorsal,upper(nombre) (ciclista)
-SELECT nombre, dorsal, UPPER(nombre) AS 'Nombre mayúsculas' FROM ciclista;
+-- Πnombre,dorsal,upper(nombre) (ciclista)
+SELECT DISTINCT nombre, dorsal, UPPER(nombre) AS 'Nombre mayúsculas' FROM ciclista;
 
 -- 8. Listar todos los ciclistas que han ganado el maillot MGE (amarillo) en alguna etapa
 
--- Π(σcódigo='MGE') (ciclista,lleva)
-SELECT DISTINCT c.* FROM ciclista c INNER JOIN lleva l ON c.dorsal = l.dorsal
-    WHERE l.código='MGE';
+-- Πdorsal (σcódigo='MGE' (lleva))
+SELECT DISTINCT dorsal FROM lleva
+    WHERE código='MGE';
 
 -- 9. Listar el nombre de los puertos cuya altura sea mayor de 1500 
 
--- Πnompuerto (σaltura>1500) (puerto)
+-- Πnompuerto (σaltura>1500 (puerto))
 SELECT DISTINCT nompuerto FROM puerto
   WHERE altura>1500;
 
 -- 10. Listar el dorsal de los ciclistas que hayan ganado algun puerto cuya pendiente sea mayor que 8 o cuya altura esté entre 1800 y 3000
 
--- Πdorsal(σpendiente>8 v altura>=1800 ^ altura<=3000) (ciclista,puerto)
-SELECT DISTINCT c.dorsal FROM ciclista c INNER JOIN puerto p ON c.dorsal = p.dorsal
-  WHERE p.pendiente>8 OR p.altura BETWEEN 1800 AND 3000;
+-- Πdorsal (σpendiente>8 v altura between 1800 and 3000 (puerto))
+SELECT DISTINCT dorsal FROM puerto
+  WHERE pendiente>8 OR altura BETWEEN 1800 AND 3000;
