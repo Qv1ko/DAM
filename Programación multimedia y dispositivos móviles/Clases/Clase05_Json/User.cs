@@ -2,14 +2,19 @@
 
 public class User {
 
-    public int id;
     public string name, lastName, phoneNumber;
+    //public string[] phoneNumbers;
 
-    public User(int id, string name, string lastName, string phoneNumber) {
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-    }
+    //public string GetPhoneNumbers() {
+
+    //    string str = "";
+
+    //    foreach (string number in this.phoneNumbers) {
+    //        str += number.ToString() + " - ";
+    //    }
+
+    //    return str;
+
+    //}
 
 }

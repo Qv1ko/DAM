@@ -1,15 +1,9 @@
-// Objeto
 {
-
-	"id":1,
-	"nombre":"Víctor",
-	"apellido":"García",
-	"telefono":"777777777"
-
-},
-{
-	"id":2,
-	"nombre":"Alvaro",
-	"apellidos":"nose",
-	"telefono":"123456789"
+    "name": "Víctor",
+    "lastName": "García",
+    "phoneNumber": [
+		"123444555",
+		"123456789",
+		"666666666"
+	]
 }

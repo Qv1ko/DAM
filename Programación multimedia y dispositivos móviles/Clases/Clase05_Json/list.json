@@ -1,0 +1,19 @@
+{
+    "users": [
+        {
+            "name": "Víctor",
+            "lastName": "García",
+            "phoneNumber": "123123123"
+        },
+        {
+            "name": "Alvaro",
+            "lastName": "Bellón",
+            "phoneNumber": "123456789"
+        },
+        {
+            "name": "Andres",
+            "lastName": "Padin",
+            "phoneNumber": "333666999"
+        }
+    ]
+}
