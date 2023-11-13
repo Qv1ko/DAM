@@ -1,4 +1,6 @@
-﻿-- 1. Número de ciclistas que hay
+﻿USE ciclistas; -- σ Π Ģ
+
+-- 1. Número de ciclistas que hay
 
 
 -- 2. Número de ciclistas que hay del equipo Banesto
