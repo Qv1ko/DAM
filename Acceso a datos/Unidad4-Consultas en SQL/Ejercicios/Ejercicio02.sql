@@ -2,13 +2,13 @@
 
 -- 1. Número de ciclistas que hay
 
--- Ģcount(nombre) (ciclista)
-SELECT COUNT(nombre) FROM ciclista;
+-- Ģcount(*) (ciclista)
+SELECT COUNT(*) FROM ciclista;
 
 -- 2. Número de ciclistas que hay del equipo Banesto
 
--- Ģcount(nombre) (σnomequipo='Banesto' (ciclista))
-SELECT COUNT(nombre) FROM ciclista
+-- Ģcount(*) (σnomequipo='Banesto' (ciclista))
+SELECT COUNT(*) FROM ciclista
   WHERE nomequipo='Banesto';
 
 -- 3. Edad media de los ciclistas
@@ -30,8 +30,8 @@ SELECT AVG(edad) FROM ciclista
 
 -- 6. El número de ciclistas por equipo
 
--- nomequipoĢcount(nombre) (ciclista)
-SELECT COUNT(nombre) FROM ciclista
+-- nomequipoĢcount(*) (ciclista)
+SELECT COUNT(*) FROM ciclista
   GROUP BY nomequipo;
 
 

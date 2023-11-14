@@ -46,7 +46,7 @@ SELECT DISTINCT nombre, dorsal, UPPER(nombre) AS 'Nombre mayúsculas' FROM cicli
 SELECT DISTINCT dorsal FROM lleva
     WHERE código='MGE';
 
--- 9. Listar el nombre de los puertos cuya altura sea mayor de 1500 
+-- 9. Listar el nombre de los puertos cuya altura sea mayor de 1500
 
 -- Πnompuerto (σaltura>1500 (puerto))
 SELECT DISTINCT nompuerto FROM puerto
@@ -57,3 +57,9 @@ SELECT DISTINCT nompuerto FROM puerto
 -- Πdorsal (σpendiente>8 v altura between 1800 and 3000 (puerto))
 SELECT DISTINCT dorsal FROM puerto
   WHERE pendiente>8 OR altura BETWEEN 1800 AND 3000;
+
+-- 11. Listar el dorsal de los ciclistas que hayan ganado algún puerto cuya pendiente sea mayor que 8 y cuya altura esté entre 1800 y 3000
+
+-- Πdorsal (σpendiente>8 ^ altura between 1800 and 3000 (puerto))
+SELECT DISTINCT dorsal FROM puerto
+  WHERE pendiente>8 AND altura BETWEEN 1800 AND 3000;
