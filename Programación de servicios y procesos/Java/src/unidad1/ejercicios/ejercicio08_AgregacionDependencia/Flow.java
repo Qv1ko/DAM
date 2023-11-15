@@ -37,20 +37,20 @@ class TablaDescripcion {
     public double grosor;
 
     TablaDescripcion() {
-        this.codigo = new Tabla();
+        this.codigo = new Tabla("");
         this.largo = 0;
         this.ancho = 0;
         this.grosor = 0;
     }
 
     TablaDescripcion(String codigo, double largo, double ancho, double grosor) {
-        this.codigo = codigo;
+        this.codigo = new Tabla(codigo);
         this.largo = largo;
         this.ancho = ancho;
         this.grosor = grosor;
     }
 
-    public String getCodigo() {
+    public Tabla getCodigo() {
         return codigo;
     }
 
@@ -66,7 +66,7 @@ class TablaDescripcion {
         return grosor;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(Tabla codigo) {
         this.codigo = codigo;
     }
 
