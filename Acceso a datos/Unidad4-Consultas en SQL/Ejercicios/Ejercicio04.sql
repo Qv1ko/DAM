@@ -64,4 +64,6 @@ SELECT dorsal, código, COUNT(*) FROM lleva
 
 -- 9. Listar el dorsal, el código de etapa, el ciclista y el número de maillots que ese ciclista ha llevado en cada etapa
 
--- 
+-- numetapaĢdorsal,numetapa,count(*) (lleva)
+  SELECT dorsal, numetapa, COUNT(*) FROM lleva
+    GROUP BY numetapa;
