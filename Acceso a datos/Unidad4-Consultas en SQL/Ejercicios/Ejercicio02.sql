@@ -37,37 +37,41 @@ SELECT COUNT(*) FROM ciclista
 
 -- 7. El número total de puertos
 
--- Ģcount(nompuerto) (puerto)
-SELECT COUNT(nompuerto) FROM puerto;
+-- Ģcount(*) (puerto)
+SELECT COUNT(*) FROM puerto;
 
 -- 8. El número total de puertos mayores de 1500
 
--- Ģcount(nompuerto) (σaltura>1500 (puerto))
-SELECT COUNT(nompuerto) FROM puerto
+-- Ģcount(*) (σaltura>1500 (puerto))
+SELECT COUNT(*) FROM puerto
   WHERE altura>1500;
 
 -- 9. Listar el nombre de los equipos que tengan más de 4 ciclistas
 
--- nomequipoĢnomequipo,count(nomequipo) (ciclista) -> c1
-SELECT nomequipo, COUNT(nomequipo) AS numciclistas FROM ciclista
+-- nomequipoĢnomequipo,count(*) numciclistas (ciclista) -> c1
+SELECT nomequipo, COUNT(*) AS numciclistas FROM ciclista
   GROUP BY nomequipo;
 -- Πnomequipo (σnumciclistas>4 (c1))
-SELECT DISTINCT nomequipo FROM (
-    SELECT nomequipo, COUNT(nomequipo) AS numciclistas FROM ciclista
+SELECT DISTINCT c1.nomequipo FROM (
+    SELECT nomequipo, COUNT(*) AS numciclistas FROM ciclista
     GROUP BY nomequipo
   )c1
   WHERE c1.numciclistas>4;
 
+SELECT DISTINCT nomequipo FROM ciclista
+  GROUP BY nomequipo
+  HAVING COUNT(*)>4;
+
 
 -- 10. Listar el nombre de los equipos que tengan más de 4 ciclistas cuya edad esté entre 28 y 32
 
--- nomequipoĢnomequipo,count(nomequipo) (σedad between 28 and 32 (ciclista)) -> c1
-SELECT nomequipo, COUNT(nomequipo) AS numciclistas FROM ciclista
+-- nomequipoĢnomequipo,count(*) (σedad between 28 and 32 (ciclista)) -> c1
+SELECT nomequipo, COUNT(*) AS numciclistas FROM ciclista
   WHERE edad BETWEEN 28 AND 32
   GROUP BY nomequipo;
 -- Πnomequipo (σnumciclistas>4 (c1))
 SELECT DISTINCT c1.nomequipo FROM (
-    SELECT nomequipo, COUNT(nomequipo) AS numciclistas FROM ciclista
+    SELECT nomequipo, COUNT(*) AS numciclistas FROM ciclista
     WHERE edad BETWEEN 28 AND 32
     GROUP BY nomequipo
   )c1
