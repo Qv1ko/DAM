@@ -1,4 +1,4 @@
-﻿USE ciclistas; -- σ Π Ģ
+﻿USE ciclistas;
 
 -- 1. Listar el número de etapas que tengan puerto
 
