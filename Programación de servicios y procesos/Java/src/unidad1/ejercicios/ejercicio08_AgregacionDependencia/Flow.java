@@ -6,6 +6,34 @@ public class Flow {
     
     public static void main(String[] args) {
         
+        ArrayList<Tabla> tablas = new ArrayList<Tabla>();
+        ArrayList<Tornillo> tornillos = new ArrayList<Tornillo>();
+        ArrayList<Pata> patas = new ArrayList<Pata>();
+        
+        Mesa mesaClase = new Mesa("223", tablas, tornillos, patas);    
+
+        mesaClase.meterTablas(new Tabla("TAB001"));
+
+        mesaClase.meterTornillo(new Tornillo("TOR001"));
+        mesaClase.meterTornillo(new Tornillo("TOR002"));
+        mesaClase.meterTornillo(new Tornillo("TOR003"));
+        mesaClase.meterTornillo(new Tornillo("TOR004"));
+        mesaClase.meterTornillo(new Tornillo("TOR005"));
+        mesaClase.meterTornillo(new Tornillo("TOR006"));
+        mesaClase.meterTornillo(new Tornillo("TOR007"));
+        mesaClase.meterTornillo(new Tornillo("TOR008"));
+        mesaClase.meterTornillo(new Tornillo("TOR009"));
+        mesaClase.meterTornillo(new Tornillo("TOR010"));
+
+        mesaClase.meterPata(new Pata("PAT001"));
+        mesaClase.meterPata(new Pata("PAT002"));
+        mesaClase.meterPata(new Pata("PAT003"));
+        mesaClase.meterPata(new Pata("PAT004"));
+        mesaClase.meterPata(new Pata("PAT005"));
+        mesaClase.meterPata(new Pata("PAT006"));
+
+        mesaClase.mostrarPiezasMesa();
+
     }
 
 }
@@ -16,6 +44,13 @@ class Mesa {
     private ArrayList<Tabla> tablas;
     private ArrayList<Tornillo> tornillos;
     private ArrayList<Pata> patas;
+
+    public Mesa() {
+        this.codigo = "";
+        this.tablas = null;
+        this.tornillos = null;
+        this.patas = null;
+    }
 
     public Mesa(String codigo, ArrayList<Tabla> tablas, ArrayList<Tornillo> tornillos, ArrayList<Pata> patas) {
         this.codigo = codigo;
@@ -40,16 +75,16 @@ class Mesa {
 
         System.out.println("\n\nMesa " + this.codigo + "\n-------------------------");
         System.out.println("\n\nTablas:" + "\n---------");
-        for (int i = 0; i > tablas.size(); i++) {
-            System.out.println("Tabla " + (i + 1) + " : " + tablas.get(i).getCodigo());
+        for (int i = 0; i > this.tablas.size(); i++) {
+            System.out.println("Tabla " + (i + 1) + " : " + this.tablas.get(i).getCodigo());
         }
         System.out.println("\n\nTornillos:" + "\n------------");
-        for (int i = 0; i > tornillos.size(); i++) {
-            System.out.println("Tornillo " + (i + 1) + " : " + tornillos.get(i).getTornillo());
+        for (int i = 0; i > this.tornillos.size(); i++) {
+            System.out.println("Tornillo " + (i + 1) + " : " + this.tornillos.get(i).getTornillo());
         }
         System.out.println("\n\nPatas:" + "\n--------");
-        for (int i = 0; i > patas.size(); i++) {
-            System.out.println("Pata " + (i + 1) + " : " + patas.get(i).getPata());
+        for (int i = 0; i > this.patas.size(); i++) {
+            System.out.println("Pata " + (i + 1) + " : " + this.patas.get(i).getPata());
         }
         
     }
@@ -59,6 +94,10 @@ class Mesa {
 class Tabla {
 
     private String codigo;
+
+    public Tabla() {
+        this.codigo = null;
+    }
 
     public Tabla(String codigo) {
         this.codigo = codigo;
@@ -140,6 +179,10 @@ class Tornillo {
 
     private String codigo;
 
+    public Tornillo() {
+        this.codigo = null;
+    }
+
     public Tornillo(String codigo) {
         this.codigo = codigo;
     }
@@ -157,6 +200,10 @@ class Tornillo {
 class Pata {
 
     private String codigo;
+
+    public Pata() {
+        this.codigo = null;
+    }
 
     public Pata(String codigo) {
         this.codigo = codigo;
