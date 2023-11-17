@@ -34,21 +34,27 @@ SELECT AVG(altura) FROM puerto;
 -- numetapaĢnumetapa,avg(altura) (puerto) -> c1
 SELECT numetapa, AVG(altura) alturamedia FROM puerto
   GROUP BY numetapa;
--- Πnumetapa (σalturamedia>1500 (puerto))
+-- Πnumetapa (σalturamedia>1500 (c1))
 SELECT DISTINCT c1.numetapa FROM (
     SELECT numetapa, AVG(altura) alturamedia FROM puerto
     GROUP BY numetapa
   )c1
   WHERE c1.alturamedia>1500;
 
+SELECT DISTINCT numetapa FROM puerto
+  GROUP BY numetapa
+  HAVING AVG(altura)>1500;
+
 -- 6. Indicar el número de etapas que cumplen la condición anterior
 
--- Ģcount(numetapa) (σalturamedia>1500 (puerto))
-SELECT COUNT(c1.numetapa) FROM (
-    SELECT numetapa, AVG(altura) alturamedia FROM puerto
+-- numetapaĢnumetapa,avg(altura) (puerto) -> c1
+-- Πnumetapa (σalturamedia>1500 (c1)) -> c2
+-- Ģcount(*) (c2)
+SELECT COUNT(*) FROM (
+    SELECT DISTINCT numetapa FROM puerto
     GROUP BY numetapa
-  )c1
-  WHERE c1.alturamedia>1500;
+    HAVING AVG(altura)>1500
+  )c2;
 
 -- 7. Listar el dorsal del ciclista con el número de veces que ha llevado algún maillot
 
@@ -64,6 +70,6 @@ SELECT dorsal, código, COUNT(*) FROM lleva
 
 -- 9. Listar el dorsal, el código de etapa, el ciclista y el número de maillots que ese ciclista ha llevado en cada etapa
 
--- numetapaĢdorsal,numetapa,count(*) (lleva)
-  SELECT dorsal, numetapa, COUNT(*) FROM lleva
-    GROUP BY numetapa;
+-- dorsal,numetapaĢdorsal,numetapa,count(*) (lleva)
+SELECT dorsal, numetapa, COUNT(*) FROM lleva
+  GROUP BY dorsal, numetapa;
