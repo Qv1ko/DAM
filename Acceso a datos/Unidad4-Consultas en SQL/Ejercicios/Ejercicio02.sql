@@ -65,34 +65,51 @@ SELECT DISTINCT nomequipo FROM ciclista
 
 -- 10. Listar el nombre de los equipos que tengan más de 4 ciclistas cuya edad esté entre 28 y 32
 
--- nomequipoĢnomequipo,count(*) (σedad between 28 and 32 (ciclista)) -> c1
-SELECT nomequipo, COUNT(*) AS numciclistas FROM ciclista
-  WHERE edad BETWEEN 28 AND 32
-  GROUP BY nomequipo;
--- Πnomequipo (σnumciclistas>4 (c1))
-SELECT DISTINCT c1.nomequipo FROM (
-    SELECT nomequipo, COUNT(*) AS numciclistas FROM ciclista
+-- σedad between 28 and 32 (ciclista) -> c1
+SELECT * FROM ciclista
+  WHERE edad BETWEEN 28 AND 32;
+
+-- nomequipoĢnomequipo,count(*) numciclistas (c1) -> c2
+SELECT nomequipo, COUNT(*) AS numciclistas FROM (
+    SELECT * FROM ciclista
     WHERE edad BETWEEN 28 AND 32
-    GROUP BY nomequipo
   )c1
-  WHERE c1.numciclistas>4;
+  GROUP BY nomequipo;
+-- Πnomequipo (σnumciclistas>4 (c2))
+SELECT DISTINCT c2.nomequipo FROM (
+    SELECT nomequipo, COUNT(*) AS numciclistas FROM (
+      SELECT * FROM ciclista
+      WHERE edad BETWEEN 28 AND 32
+    )c1
+    GROUP BY nomequipo
+  )c2
+  WHERE c2.numciclistas>4;
+
+SELECT DISTINCT nomequipo FROM ciclista
+  WHERE edad BETWEEN 28 AND 32
+  GROUP BY nomequipo
+  HAVING COUNT(*)>4;
 
 -- 11. Indícame el número de etapas que ha ganado cada uno de los ciclistas
 
--- dorsalĢcount(numetapa) (etapa)
-SELECT COUNT(numetapa) FROM etapa
+-- dorsalĢdorsal,count(*) (etapa)
+SELECT dorsal, COUNT(*) FROM etapa
   GROUP BY dorsal;
 
 
 -- 12. Indícame el dorsal de los ciclistas que hayan ganado más de una etapa
 
--- dorsalĢdorsal,count(numetapa) (etapa) -> c1
-SELECT dorsal, COUNT(numetapa) AS etapasganadas FROM etapa
+-- dorsalĢdorsal,count(*) (etapa) -> c1
+SELECT dorsal, COUNT(*) AS etapasganadas FROM etapa
   GROUP BY dorsal;
 
 -- Πdorsal (σetapasganadas>1 (c1))
 SELECT DISTINCT c1.dorsal FROM (
-    SELECT dorsal, COUNT(numetapa) AS etapasganadas FROM etapa
+    SELECT dorsal, COUNT(*) AS etapasganadas FROM etapa
     GROUP BY dorsal
   )c1
   WHERE c1.etapasganadas>1;
+
+SELECT DISTINCT dorsal FROM etapa
+  GROUP BY dorsal
+  HAVING COUNT(*)>1;

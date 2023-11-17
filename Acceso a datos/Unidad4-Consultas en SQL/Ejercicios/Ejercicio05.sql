@@ -33,8 +33,8 @@ SELECT DISTINCT dorsal, nombre FROM ciclista INNER JOIN lleva USING(dorsal) INNE
 
 -- 7. Listar el dorsal de los ciclistas que hayan llevado algún maillot y que hayan ganado etapas
 
--- Πdorsal (lleva)
-SELECT DISTINCT dorsal FROM lleva;
+-- Πdorsal (lleva * etapa) 2
+SELECT DISTINCT l.dorsal FROM lleva l INNER JOIN etapa USING(numetapa);
 
 
 -- 8. Indicar el numetapa de las etapas que tengan puertos
@@ -44,13 +44,13 @@ SELECT DISTINCT numetapa FROM puerto;
 
 -- 9. Listar el número de ciclistas que hayan ganado alguna etapa con puerto
 
--- Ģcount(*) (ciclista * etapa * puerto)
+-- Ģcount(*) (ciclista * etapa * puerto) 2
 SELECT COUNT(*) FROM etapa INNER JOIN puerto USING(numetapa);
 
 -- 10. Indicar el nombre de los puertos que hayan sido ganados por ciclistas de Banesto
 
-
+-- 2
 
 -- 11. Listar el número de las etapas que tengan puerto que hayan sido ganadas por ciclistas de Banesto con más de 200km
 
-
+-- 3
