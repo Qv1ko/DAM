@@ -1,4 +1,4 @@
-﻿USE ciclistas; -- Π σ Ģ * IX
+﻿USE ciclistas;
 
 -- 1. Listar el nombre y edad de los ciclistas que han ganado etapas
 
@@ -59,6 +59,6 @@ SELECT DISTINCT p.nompuerto FROM puerto p INNER JOIN ciclista c USING(dorsal)
 
 -- 11. Listar el número de las etapas que tengan puerto que hayan sido ganadas por ciclistas de Banesto con más de 200km
 
--- Ģcount(*) (σnomequipo='Banesto' ^ kms>200 (etapa * puerto * ciclista))
-SELECT COUNT(*) FROM etapa e INNER JOIN puerto p USING(numetapa) INNER JOIN ciclista c USING(dorsal)
+-- Ģcount(*) (σnomequipo='Banesto' ^ kms>200 (etapa *numetapa puerto *dorsal ciclista))
+SELECT COUNT(*) FROM etapa e INNER JOIN puerto p USING(numetapa) INNER JOIN ciclista c ON p.dorsal = c.dorsal
   WHERE c.nomequipo='Banesto' AND e.kms>200;
