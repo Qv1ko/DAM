@@ -16,7 +16,7 @@ public class DataReader : MonoBehaviour {
         // Read file
         data = File.ReadAllText(file);
 
-        // Cargamos la información del fichero en el objeto user
+        // Cargamos la informaciÃ³n del fichero en el objeto user
         //user = JsonUtility.FromJson<User>(data);
         users = JsonUtility.FromJson<UsersList>(data);
 
@@ -37,7 +37,7 @@ public class DataReader : MonoBehaviour {
 
     public void Save() {
 
-        // Volcamos la información de los inputs al objetivo
+        // Volcamos la informaciï¿½n de los inputs al objetivo
         //users.name = inputName.text;
         //users.lastName = inputLastname.text;
         //users.phoneNumber = inputNumber.text;
