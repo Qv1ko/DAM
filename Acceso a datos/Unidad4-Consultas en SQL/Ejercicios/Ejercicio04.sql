@@ -20,7 +20,7 @@ SELECT COUNT(*) FROM (
 
 -- 3. Listar el código de la etapa con el número de puertos que tiene
 
--- numetapaĢcount(*) (puerto)
+-- numetapaĢumetapa,count(*) (puerto)
 SELECT numetapa, COUNT(*) FROM puerto
   GROUP BY numetapa;
 
