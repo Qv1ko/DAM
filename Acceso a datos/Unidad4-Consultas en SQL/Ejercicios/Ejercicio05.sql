@@ -44,12 +44,8 @@ SELECT DISTINCT numetapa FROM puerto;
 
 -- 9. Listar el número de ciclistas que hayan ganado alguna etapa con puerto
 
--- Πdorsal,numetapa (etapa) -> c1
-SELECT DISTINCT dorsal, numetapa FROM etapa;
--- Ģcount(*) (c1 ⦻numetapa puerto)
-SELECT COUNT(*) FROM (
-    SELECT DISTINCT dorsal, numetapa FROM etapa
-  )c1 INNER JOIN puerto USING(numetapa);
+--  Πdorsal (etapa ⦻numetapa puerto)
+SELECT DISTINCT e.dorsal FROM  etapa e INNER JOIN puerto p USING(numetapa);
 
 -- 10. Indicar el nombre de los puertos que hayan sido ganados por ciclistas de Banesto
 
@@ -59,6 +55,6 @@ SELECT DISTINCT p.nompuerto FROM puerto p INNER JOIN ciclista c USING(dorsal)
 
 -- 11. Listar el número de las etapas que tengan puerto que hayan sido ganadas por ciclistas de Banesto con más de 200km
 
--- Ģcount(*) (σnomequipo='Banesto' ^ kms>200 (etapa ⦻numetapa puerto ⦻dorsal ciclista))
-SELECT COUNT(*) FROM etapa e INNER JOIN puerto p USING(numetapa) INNER JOIN ciclista c ON p.dorsal = c.dorsal
+-- Πnumetapa (σnomequipo='Banesto' ^ kms>200 (etapa ⦻numetapa puerto ⦻dorsal ciclista))
+SELECT DISTINCT e.numetapa FROM etapa e INNER JOIN puerto p USING(numetapa) INNER JOIN ciclista c ON p.dorsal = c.dorsal
   WHERE c.nomequipo='Banesto' AND e.kms>200;
