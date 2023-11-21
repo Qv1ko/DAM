@@ -37,7 +37,7 @@ public class DataReader : MonoBehaviour {
 
     public void Save() {
 
-        // Volcamos la informaci�n de los inputs al objetivo
+        // Volcamos la información de los inputs al objetivo
         //users.name = inputName.text;
         //users.lastName = inputLastname.text;
         //users.phoneNumber = inputNumber.text;
