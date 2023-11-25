@@ -1,0 +1,19 @@
+{
+    "vehiculos": [
+        {
+            "modelo": "Ford Fiesta",
+            "matricula": "2891IAY",
+            "precio": 8000
+        },
+        {
+            "modelo": "Opel Astra",
+            "matricula": "7835DJT",
+            "precio": 3200
+        },
+        {
+            "modelo": "Peugeot 405",
+            "matricula": "8482KCO",
+            "precio": 3500.75
+        }
+    ]
+}
