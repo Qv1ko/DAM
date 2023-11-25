@@ -1,4 +1,4 @@
-﻿USE ciclistas; -- Π σ Ģ * IX
+﻿USE ciclistas; -- Π σ Ģ * IX ∉
 
 -- 1. Nombre y edad de los ciclistas que NO han ganado etapas
 
@@ -56,4 +56,20 @@ SELECT distinct e.dorsal FROM puerto p RIGHT JOIN etapa e ON p.numetapa = e.nume
 
 -- 10. Listar el dorsal de los ciclistas que hayan ganado únicamente etapas que no tengan puertos
 
-
+-- Πnumetapa,dorsal (puerto) -> c1
+SELECT DISTINCT numetapa, dorsal FROM puerto;
+-- Πnumetapa (σnumetapa∉c1 (etapa)) -> c2
+SELECT distinct numetapa FROM etapa
+  WHERE numetapa NOT IN (
+    SELECT DISTINCT numetapa, dorsal FROM puerto
+  );
+-- Πdorsal (σdorsal∉c1 (c2))
+SELECT DISTINCT dorsal FROM (
+  SELECT distinct numetapa FROM etapa
+  WHERE numetapa NOT IN (
+    SELECT DISTINCT numetapa, dorsal FROM puerto
+  )
+  )c2
+  WHERE dorsal NOT IN (
+    SELECT DISTINCT numetapa, dorsal FROM puerto
+  );
