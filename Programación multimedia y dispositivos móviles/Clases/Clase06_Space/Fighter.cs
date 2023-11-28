@@ -5,7 +5,7 @@ public class Fighter : MonoBehaviour {
     private int speed = 8;
     private float hInput = 0.0f, vInput = 0.0f;
     private float padding = -8.7f;
-    public GameObject bullet, rightGun;
+    public GameObject bullet, leftGun, rightGun;
 
     void Update() {
 
@@ -23,9 +23,18 @@ public class Fighter : MonoBehaviour {
         this.transform.position = new Vector3(newX, newY, 0);
 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            Instantiate(bullet, this.transform.position, Quaternion.identity);
-            Instantiate(bullet, rightGun.transform.position, Quaternion.identity);
+            InvokeRepeating("Fire", 0, 0.2f);
+        } else if(Input.GetKeyUp(KeyCode.Space)) {
+            CancelInvoke("Fire");
         }
+
+    }
+
+    private void Fire() {
+
+        //Instantiate(bullet, this.transform.position, Quaternion.identity);
+        Instantiate(bullet, leftGun.transform.position, Quaternion.identity);
+        Instantiate(bullet, rightGun.transform.position, Quaternion.identity);
 
     }
 
