@@ -39,10 +39,6 @@ SELECT DISTINCT c.dorsal, c.nombre FROM lleva l RIGHT JOIN ciclista c USING(dors
 
 -- 5. Dorsal y nombre de los ciclistas que NO hayan llevado el maillot amarillo NUNCA
 
--- Πdorsal,nombre (σcolor='Amarillo' IS NULL (ciclista IXdorsal lleva IXcódigo maillot))
--- SELECT DISTINCT c.dorsal, c.nombre FROM ciclista c LEFT JOIN lleva l USING(dorsal) LEFT JOIN maillot m USING(código)
---   WHERE m.color='Amarillo' IS NULL;
-
 -- Πdorsal (σcolor='Amarillo' (lleva *código maillot)) -> c1
 -- Πdorsal,nombre (σc1.dorsal is null (ciclista IXdorsal c1))
 SELECT DISTINCT dorsal, nombre FROM ciclista LEFT JOIN (
