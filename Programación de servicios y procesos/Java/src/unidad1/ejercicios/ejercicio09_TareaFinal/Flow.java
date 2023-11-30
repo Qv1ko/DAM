@@ -85,7 +85,7 @@ public class Flow {
 
 		System.out.println("\n\n---------------- FINAL DE LA CHAMPIONS ----------------");
 		System.out
-				.println("\nEl ganador de la Champions es el " + finalChampions.jugarPartido().getNombre().toUpperCase());
+				.println("\nEl ganador de la UEFA Champions League es el " + finalChampions.jugarPartido().getNombre().toUpperCase());
 
 	}
 
