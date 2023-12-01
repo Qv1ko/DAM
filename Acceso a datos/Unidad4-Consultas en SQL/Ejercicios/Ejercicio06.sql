@@ -1,4 +1,4 @@
-﻿USE ciclistas; -- Π σ Ģ * IX ∉
+﻿USE ciclistas;
 
 -- 1. Nombre y edad de los ciclistas que NO han ganado etapas
 
