@@ -6,13 +6,13 @@ public class CorreccionFlow {
 
         final double LARGO = 1.8, ANCHO = 0.5;
 
-        CorrecionTableroFabrica tablaFabrica;
-        CorrecionTableroCarpinteria tablaCarpinteria;
+        CorreccionTableroFabrica tablaFabrica;
+        CorreccionTableroCarpinteria tablaCarpinteria;
         
         try {
 
-            tablaFabrica = new CorrecionTableroFabrica(LARGO, ANCHO);
-            tablaCarpinteria = new CorrecionTableroCarpinteria((int)Math.ceil(LARGO), (int)Math.ceil(ANCHO));
+            tablaFabrica = new CorreccionTableroFabrica(LARGO, ANCHO);
+            tablaCarpinteria = new CorreccionTableroCarpinteria((int)Math.ceil(LARGO), (int)Math.ceil(ANCHO));
 
             System.out.println("La tabla de fabrica: " + tablaFabrica.area() + " m²");
             System.out.println("La tabla de carpinteria: " + tablaCarpinteria.area() + " m²");

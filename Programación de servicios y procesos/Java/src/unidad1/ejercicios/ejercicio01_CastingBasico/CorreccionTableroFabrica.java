@@ -1,39 +1,39 @@
 package unidad1.ejercicios.ejercicio01_CastingBasico;
 
-public class CorrecionTableroCarpinteria {
+public class CorreccionTableroFabrica {
     
-    private int largo, ancho;
+    private double largo, ancho;
 
-    CorrecionTableroCarpinteria(int largo, int ancho) throws Exception {
+    CorreccionTableroFabrica(double largo, double ancho) throws Exception { 
         setLargo(largo);
         setAncho(ancho);
     }
 
-    private int getLargo() {
+    private double getLargo() {
         return largo;
     }
 
-    private void setLargo(int largo) throws Exception {
+    private void setLargo(double largo) throws Exception{
         this.largo = validar(largo);
     }
 
-    private int getAncho() {
+    private double getAncho() {
         return ancho;
     }
 
-    private void setAncho(int ancho) throws Exception {
+    private void setAncho(double ancho) throws Exception {
         this.ancho = validar(ancho);
     }
 
-    private int validar(int metros) throws Exception {
+    private double validar(double metros) throws Exception {
         if (metros == 0) {
             throw new Exception();
         }
         return (metros > 0) ? metros : Math.abs(metros);
     }
 
-    public int area() {
+    public double area() {
         return getLargo() * getAncho();
     }
-    
+
 }
