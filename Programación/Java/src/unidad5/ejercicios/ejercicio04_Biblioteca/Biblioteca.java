@@ -18,7 +18,7 @@ public class Biblioteca {
         } else {
             System.out.println("Libro devuelto con antelación");
         }
-        //Correción
+        //Corrección
         // if(fechaDevolucion.compareTo(LocalDate.now())<0) {
         //     System.out.println("Debe "+ChronoUnit.DAYS.between(fechaDevolucion,LocalDate.now())*1.5f);
         // } else if(fechaDevolucion.compareTo(LocalDate.now())>0) {
