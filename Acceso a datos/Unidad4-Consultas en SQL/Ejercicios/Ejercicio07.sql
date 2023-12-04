@@ -1,4 +1,4 @@
-﻿USE provincias; -- ΠσĢ
+﻿USE provincias;
 
 -- 1. Listado de provincias
 
@@ -22,7 +22,7 @@ SELECT DISTINCT autonomia FROM provincias;
 
 -- 5. Provincias que empiezan por A
 
--- Πprovincia (σprovincia LIKE 'A%' (provincias))
+-- Πprovincia (σprovincia like 'A%' (provincias))
 SELECT DISTINCT provincia FROM provincias
   WHERE provincia LIKE 'A%';
 
@@ -45,25 +45,25 @@ SELECT DISTINCT provincia FROM provincias
 
 -- 9. Provincias que contienen el diptongo 'ue'
 
--- Πprovincia (σprovincia LIKE '%ue%' (provincias))
+-- Πprovincia (σprovincia like '%ue%' (provincias))
 SELECT DISTINCT provincia FROM provincias
   WHERE provincia LIKE '%ue%';
 
 -- 10. ¿Qué provincias tienen nombre compuesto?
 
--- Πprovincia (σprovincia LIKE '% %' (provincias))
+-- Πprovincia (σprovincia like '% %' (provincias))
 SELECT DISTINCT provincia FROM provincias
   WHERE provincia LIKE '% %';
 
 -- 11. ¿Qué provincias tienen nombre simple?
 
--- Πprovincia (σprovincia NOT LIKE '% %' (provincias))
+-- Πprovincia (σprovincia not like '% %' (provincias))
 SELECT DISTINCT provincia FROM provincias
   WHERE provincia NOT LIKE '% %';
 
 -- 12. Autonomías terminadas en 'ana'
 
--- Πautonomia (σautonomia LIKE '%ana' (provincias))
+-- Πautonomia (σautonomia like '%ana' (provincias))
 SELECT DISTINCT autonomia FROM provincias
   WHERE autonomia LIKE '%ana';
 
@@ -75,14 +75,14 @@ SELECT DISTINCT autonomia, CHAR_LENGTH(autonomia) FROM provincias
 
 -- 14. ¿Qué autonomías tienen nombre compuesto? Ordena el resultado alfabéticamente en orden inverso
 
--- Πprovincia (σprovincia LIKE '% %' (provincias))
+-- Πprovincia (σprovincia like '% %' (provincias))
 SELECT DISTINCT provincia FROM provincias
   WHERE provincia LIKE '% %'
   ORDER BY provincia DESC;
 
 -- 15. ¿Qué autonomías tienen provincias con nombre compuesto? Ordenar el resultado alfabéticamente
 
--- 
+-- Πautonomia (σprovincia like '% %' (provincias))
 SELECT DISTINCT autonomia FROM provincias
   WHERE provincia LIKE '% %'
-  ORDER BY;
+  ORDER BY autonomia ASC;
