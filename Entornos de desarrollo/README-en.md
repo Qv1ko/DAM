@@ -22,3 +22,9 @@
 - [Notes](./Unidad5-Optimizar%20y%20documentar%20el%20c%C3%B3digo/Apuntes/)
 - [Exercises](./Unidad5-Optimizar%20y%20documentar%20el%20c%C3%B3digo/Ejercicios/)
 - [Exam](./Unidad5-Optimizar%20y%20documentar%20el%20c%C3%B3digo/Examen/)
+### Unit 6 - Class Diagrams in UML
+- [Notes](./Unidad6-Diagramas%20de%20clases%20en%20UML/Apuntes/)
+- [Exercises](./Unidad6-Diagramas%20de%20clases%20en%20UML/Ejercicios/)
+### Unit 7 - Behavioral Diagrams in UML
+- [Notes](./Unidad7-Diagramas%20de%20comportamiento%20en%20UML/Apuntes/)
+- [Exercises](./Unidad7-Diagramas%20de%20comportamiento%20en%20UML/Ejercicios/)
