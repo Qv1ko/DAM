@@ -6,14 +6,11 @@
 
 ## Syllabus
 ### Unit 1 - Database design
-- [Entity-Relationship Model](./Unidad1-Dise%C3%B1o%20de%20bases%20de%20datos/Modelo%20Entidad-Relaci%C3%B3n/)
-    - [Notes](./Unidad1-Dise%C3%B1o%20de%20bases%20de%20datos/Modelo%20Entidad-Relaci%C3%B3n/Apuntes/)
-    - [Exercises](./Unidad1-Dise%C3%B1o%20de%20bases%20de%20datos/Modelo%20Entidad-Relaci%C3%B3n/Ejercicios/)
-    - [Exams](./Unidad1-Dise%C3%B1o%20de%20bases%20de%20datos/Modelo%20Entidad-Relaci%C3%B3n/Examenes/)
-- [Relational Model](./Unidad1-Dise%C3%B1o%20de%20bases%20de%20datos/Modelo%20Relacional/)
-    - [Notes](./Unidad1-Dise%C3%B1o%20de%20bases%20de%20datos/Modelo%20Relacional/Apuntes/)
-    - [Exercises](./Unidad1-Dise%C3%B1o%20de%20bases%20de%20datos/Modelo%20Relacional/Ejercicios/)
-    - [Exams](./Unidad1-Dise%C3%B1o%20de%20bases%20de%20datos/Modelo%20Relacional/Examenes/)
+- [Notes](./Unidad1-Diseño%20de%20bases%20de%20datos/Apuntes/)
+    - [Entity-Relationship Model](./Unidad1-Diseño%20de%20bases%20de%20datos/Apuntes/Unidad1-Modelo%20entidad-relación/)
+    - [Relational Model](./Unidad1-Diseño%20de%20bases%20de%20datos/Apuntes/Unidad2-Modelo%20relacional/)
+- [Exercises](./Unidad1-Diseño%20de%20bases%20de%20datos/Ejercicios/)
+- [Exam](./Unidad1-Diseño%20de%20bases%20de%20datos/Examen/)
 ### Unit 2 - SQL
 - [Notes](./Unidad2-SQL/Apuntes/)
 - [Exercises](./Unidad2-SQL/Ejercicios/)
