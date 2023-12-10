@@ -214,7 +214,7 @@ Ejemplo: blog_id → representa el id de la clave foránea de la tabla blog
 - Seleccionar todo entre dos tablas menos las relaciones -> `SELECT * FROM A OUTER JOIN B ON A.key=B.key WHERE A IS NULL OR B IS NULL;`
 - Unir el resultado de dos consultas -> `SELECT * FROM nombreTabla1 UNION SELECT * FROM nombreTabla2;`
 
-![imagen1](./Im%C3%A1genes/imagen1.jpeg)
+![imagen1](./Imágenes/imagen1.jpeg)
 
 ### Consultas de resumen
 

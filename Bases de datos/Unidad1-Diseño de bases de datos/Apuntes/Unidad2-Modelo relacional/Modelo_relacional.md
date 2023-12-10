@@ -26,7 +26,7 @@ Atributo opcional → NombreAtributo*
 
 - Ejemplo:
     
-    ![imagen1.png](/Imagenes/imagen1.png)
+    ![imagen1.png](./Imágenes/imagen1.png)
     
     Artista(Codigo,~~dni~~,nombre,apellidos*,nacionalidad*,especialidad):DominioNacionalidad=(Francia,Alemania,Polinia,Rusia)
     
@@ -52,7 +52,7 @@ Atributo opcional → NombreAtributo*
 2. Representación → Flecha que relaciona la columna de la clave foranea con la tabla donde pertenece la clave. Tienen que tener el mismo tipo de valor.
 - Ejemplo
     
-    ![imagen2.png](/Imagenes/imagen2.png)
+    ![imagen2.png](./Imágenes/imagen2.png)
     
     - En algunos casos se escribe encima de la tabla el nombre de la tabla donde esta la clave
 
@@ -72,4 +72,4 @@ Tambien puede indicar ciertas caracteristicas de la clave ajena a la hora de act
     1. Se pone el nombre de la clave de la tabla con 1 de cardinalidad maxima en la tabla de cardinalidad multiple
     2. Si hay atributos en la tabla no se puede propagar la clave, se hara una nueva tabla
 
-![imagen3.png](/Imagenes/imagen3.png)
+![imagen3.png](./Imágenes/imagen3.png)
