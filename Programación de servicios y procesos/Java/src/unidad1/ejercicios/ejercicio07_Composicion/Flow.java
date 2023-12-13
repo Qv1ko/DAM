@@ -45,9 +45,9 @@ class Monoplaza {
         return alto;
     }
     
-        public int getPeso() {
-            return peso;
-        }
+    public int getPeso() {
+        return peso;
+    }
 
     public void setLargo(double largo) {
         this.largo = largo;
@@ -126,13 +126,13 @@ class Formula1 extends Monoplaza {
         this.potencia = potencia;
     }
     
-        public void setAceleracion(double aceleracion) {
-            this.aceleracion = aceleracion;
-        }
-    
-        public void setDrs(boolean drs) {
-            this.drs = drs;
-        }
+    public void setAceleracion(double aceleracion) {
+        this.aceleracion = aceleracion;
+    }
+
+    public void setDrs(boolean drs) {
+        this.drs = drs;
+    }
 
     public void setDepositoCombustible(int depositoCombustible) {
         this.depositoCombustible = depositoCombustible;
