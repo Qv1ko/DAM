@@ -1,4 +1,4 @@
-package unidad1.ejercicios.ejercicio09_TareaFinal;
+package unidad1.ejercicios.tareaFinal;
 
 public class Equipo extends Estadio {
 
