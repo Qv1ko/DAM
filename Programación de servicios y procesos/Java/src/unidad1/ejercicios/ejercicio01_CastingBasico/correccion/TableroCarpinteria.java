@@ -1,10 +1,10 @@
-package unidad1.ejercicios.ejercicio01_CastingBasico;
+package unidad1.ejercicios.ejercicio01_CastingBasico.correccion;
 
-public class CorreccionTableroCarpinteria {
+public class TableroCarpinteria {
     
     private int largo, ancho;
 
-    CorreccionTableroCarpinteria(int largo, int ancho) throws Exception {
+    TableroCarpinteria(int largo, int ancho) throws Exception {
         setLargo(largo);
         setAncho(ancho);
     }

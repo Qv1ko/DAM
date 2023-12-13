@@ -1,10 +1,10 @@
-package unidad1.ejercicios.ejercicio01_CastingBasico;
+package unidad1.ejercicios.ejercicio01_CastingBasico.correccion;
 
-public class CorreccionTableroFabrica {
+public class TableroFabrica {
     
     private double largo, ancho;
 
-    CorreccionTableroFabrica(double largo, double ancho) throws Exception { 
+    TableroFabrica(double largo, double ancho) throws Exception { 
         setLargo(largo);
         setAncho(ancho);
     }
