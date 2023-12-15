@@ -10,8 +10,14 @@ public class NinjaController : MonoBehaviour {
 
     void Update() {
         ninjaAnimator.SetBool("IsRunning", (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) ? true : false);
-        if (Input.GetKeyUp(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
             ninjaAnimator.SetTrigger("JumpTrigger");
+        } else if (Input.GetKeyDown(KeyCode.LeftControl)) {
+            ninjaAnimator.SetTrigger("SlideTrigger");
+        } else if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            ninjaAnimator.SetTrigger("AttackTrigger");
+        } else  if (Input.GetKeyDown(KeyCode.Alpha3)) {
+            ninjaAnimator.SetTrigger("ThrowTrigger");
         }
     }
 
