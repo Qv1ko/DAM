@@ -1,4 +1,4 @@
-﻿USE provincias; -- σΠĢ
+﻿USE provincias;
 
 -- 1. Provincia más poblada de las inferiores a 1 millón de habitantes
 
@@ -44,8 +44,21 @@ SELECT DISTINCT provincia FROM provincias
 
 -- 4. ¿Qué porcentaje del total nacional representa Cantabria en población?
 
--- Ģsum(poblacion)/((Ģsum(poblacion) (σautonomia='Cantabria' (provincias)))*100) (provincias)
-SELECT SUM(poblacion) / ((SELECT SUM(poblacion) FROM provincias WHERE autonomia = 'Cantabria') * 100) FROM provincias;
+-- ((Ģsum(poblacion) (σautonomia='Cantabria' (provincias)))*100)/Ģsum(poblacion) (provincias)
+SELECT ((SELECT SUM(poblacion) FROM provincias WHERE autonomia = 'Cantabria') * 100) / SUM(poblacion) FROM provincias;
+
+-- Ģsum(poblacion) (σautonomia='Cantabria' (provincias)) -> c1
+SELECT SUM(poblacion) FROM provincias
+  WHERE autonomia = 'Cantabria';
+-- Ģsum(poblacion) (provincias) -> c2
+SELECT SUM(poblacion) FROM provincias;
+-- (c1 * 100) / c2
+SELECT ((
+  SELECT SUM(poblacion) FROM provincias
+  WHERE autonomia = 'Cantabria'
+  ) * 100) / (
+  SELECT SUM(poblacion) FROM provincias
+  );
 
 -- 5. ¿En qué posición del ranking autonómico por población de mayor a menor está Cantabria?
 
@@ -72,8 +85,8 @@ SELECT COUNT(*) + 1 FROM (
   GROUP BY autonomia
   )c2;
 
-USE ciclistas;
 
+USE ciclistas;
 
 -- 6. Obtener el nombre de los puertos de montaña que tienen una altura superior a la altura media de todos los puertos
 
@@ -86,9 +99,16 @@ SELECT DISTINCT nompuerto FROM puerto
     );
 
 
--- 7. Obtener el nombre y el equipo de los ciclistas que han llevado algún maillot o que han ganado algun puerto. Muestra la lista ordenada. Recuerda la diferencia entre UNION y UNION ALL
+-- 7. Obtener el nombre y el equipo de los ciclistas que han llevado algún maillot o que han ganado algun puerto. Muestra la lista ordenada.
 
-
+-- Πdorsal (lleva) ∪ Πdorsal (puerto) -> c1
+SELECT distinct dorsal FROM lleva UNION SELECT DISTINCT dorsal FROM puerto;
+-- Πnombre,equipo (σdorsal in c1 (ciclista))
+SELECT DISTINCT nombre, nomequipo FROM (ciclista)
+  WHERE dorsal IN (
+    SELECT distinct dorsal FROM lleva UNION SELECT DISTINCT dorsal FROM puerto
+    )
+  ORDER BY nombre;
 
 -- 8. ¿Qué códigos de maillots ha llevado Alfonso Gutierrez en los puertos que haya ganado
 
@@ -98,8 +118,41 @@ SELECT DISTINCT l.código FROM lleva l JOIN ciclista c USING(dorsal)
 
 -- 9. ¿Qué equipos no han ganado ningún puerto de montaña?
 
-
+-- Πnomequipo (ciclista *dorsal puerto) -> c1
+SELECT DISTINCT nomequipo FROM ciclista JOIN puerto USING(dorsal);
+-- Πnomequipo (σnomequipo not in c1 (ciclista))
+SELECT DISTINCT nomequipo FROM ciclista
+  WHERE nomequipo NOT IN (
+  SELECT DISTINCT nomequipo FROM ciclista JOIN puerto USING(dorsal)
+  );
 
 -- 10. Obtener el nombre de los ciclistas, ordenados alfabéticamente, que pertenecen a un equipo de más de cinco ciclistas y que han ganado alguna etapa, indicando también cuántas etapas han ganado
 
-
+-- nomequipoĢnomequipo,count(*) numciclistas (ciclista) -> c1
+SELECT nomequipo, COUNT(*) numciclistas FROM ciclista
+  GROUP BY nomequipo;
+-- Πnomequipo (σnumciclistas>5 (c1)) -> c2
+SELECT DISTINCT nomequipo FROM (
+  SELECT nomequipo, COUNT(*) numciclistas FROM ciclista
+  GROUP BY nomequipo
+  )c1
+  WHERE numciclistas > 5;
+-- Πdorsal (etapa) -> c3
+SELECT DISTINCT dorsal FROM etapa;
+-- dorsalĢdorsal,count(*) numetapasganadas (ciclista *dorsal etapa) -> c4
+SELECT dorsal, nombre, nomequipo, count(*) numetapasganadas FROM ciclista INNER JOIN etapa USING(dorsal)
+  GROUP BY dorsal;
+-- Πnombre,numetapasganadas (σnomequipo in c2 ^ dorsal in c3 (c4))
+SELECT DISTINCT nombre, numetapasganadas from (
+  SELECT dorsal, nombre, nomequipo, count(*) numetapasganadas FROM ciclista INNER JOIN etapa USING(dorsal) GROUP BY dorsal
+  )c4
+  WHERE nomequipo in (
+  SELECT DISTINCT nomequipo FROM (
+    SELECT nomequipo, COUNT(*) numciclistas FROM ciclista
+    GROUP BY nomequipo
+    )c1
+    WHERE numciclistas > 5
+  ) AND dorsal in (
+  SELECT DISTINCT dorsal FROM etapa
+  )
+  ORDER BY nombre;
