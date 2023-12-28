@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 class Clase08_GuiBasico {
 
     public static void main(String[] args) {
-        Front window = new Front();
+        new Front();
     }
 
 }
