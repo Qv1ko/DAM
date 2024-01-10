@@ -1,4 +1,4 @@
-package unidad1.ejercicios.ejercicio09_Polimorfismo;
+package unidad1.ejercicios.ejercicio10_Polimorfismo;
 
 abstract class Monoplaza {
 

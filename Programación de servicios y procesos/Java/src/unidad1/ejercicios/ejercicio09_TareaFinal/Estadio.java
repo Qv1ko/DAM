@@ -1,4 +1,4 @@
-package unidad1.ejercicios.tareaFinal;
+package unidad1.ejercicios.ejercicio09_TareaFinal;
 
 public class Estadio {
 

@@ -1,4 +1,4 @@
-package unidad1.ejercicios.ejercicio10_Gui;
+package unidad1.ejercicios.ejercicio11_Gui;
 
 import java.awt.Color;
 import java.awt.Font;
