@@ -6,9 +6,17 @@ import java.awt.*;
 class Clase10_MVC {
 
 	public static void main(String[] args) {
+		
 		MvcView view = new MvcView();
 		Controller controller = new Controller();
 		NumberModel number = new NumberModel();
+
+		controller.setMvcView(view);
+        controller.setNumber(number);
+       
+        view.setController(controller);
+        number.setController(controller);
+
 	}
 
 }
@@ -16,13 +24,13 @@ class Clase10_MVC {
 class Controller {
 
 	private MvcView view;
-	private Number number;
+	private NumberModel number;
 
 	public void setMvcView(MvcView view) {
 		this.view = view;
 	}
 
-	public void setNumber(Number number) {
+	public void setNumber(NumberModel number) {
 		this.number = number;
 	}
 
@@ -35,6 +43,8 @@ class Controller {
 		} catch (Exception exc) {
 			aux = 0;
 		}
+
+		this.number.setN(aux);
 
 	}
 
@@ -115,7 +125,7 @@ class MvcView {
 
 	}
 
-	public void setNumber(String s) {
+	public void setNumberModel(String s) {
 		numberText.setText(s);
 	}
 
