@@ -2,16 +2,20 @@ package unidad1.clases;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-class Clase10_MVC {
+class Clase10_ModeloVistaControlador {
 
 	public static void main(String[] args) {
 		
-		MvcView view = new MvcView();
+		View view = new View();
 		Controller controller = new Controller();
 		NumberModel number = new NumberModel();
 
-		controller.setMvcView(view);
+		controller.setView(view);
         controller.setNumber(number);
        
         view.setController(controller);
@@ -23,10 +27,10 @@ class Clase10_MVC {
 
 class Controller {
 
-	private MvcView view;
+	private View view;
 	private NumberModel number;
 
-	public void setMvcView(MvcView view) {
+	public void setView(View view) {
 		this.view = view;
 	}
 
@@ -46,6 +50,10 @@ class Controller {
 
 		this.number.setN(aux);
 
+	}
+
+	public String getNumber() {
+		return String.valueOf(this.number.getN());
 	}
 
 }
@@ -77,7 +85,7 @@ class NumberModel {
 
 }
 
-class MvcView {
+class View {
 
 	private JFrame frame;
 	private JLabel numberText;
@@ -86,7 +94,7 @@ class MvcView {
 	private JTextArea displayArea;
 	private Controller controller;
 
-	public MvcView() {
+	public View() {
 
 		this.frame = new JFrame();
 		this.frame.setBounds(200, 200, 232, 264);
@@ -105,21 +113,40 @@ class MvcView {
 		this.clearButton = new JButton("Limpiar");
 		this.clearButton.setBounds(112, 48, 88, 24);
         this.clearButton.setFont(new Font("Dialog", Font.PLAIN, 14));
+		clearButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent me) {
+				numberText.setText("");
+				displayArea.setText("");
+			}
+		});
 		this.frame.getContentPane().add(this.clearButton);
 	
-		this.displayButton = new JButton("Mostrar");
-		this.displayButton.setBounds(16, 80, 88, 24);
-		this.displayButton.setFont(new Font("Dialog", Font.PLAIN, 14));
-        this.frame.getContentPane().add(this.displayButton);
-	
+		this.saveButton = new JButton("Guardar");
+		this.saveButton.setBounds(16, 80, 88, 24);
+        this.saveButton.setFont(new Font("Dialog", Font.PLAIN, 14));
+		saveButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent me) {
+				controller.saveNumber(numberField.getText());
+			}
+		});
+		this.frame.getContentPane().add(this.saveButton);
+		
 		this.displayArea = new JTextArea();
 		this.displayArea.setBounds(16, 112, 88, 64);
         this.frame.getContentPane().add(this.displayArea);
-	
-		this.saveButton = new JButton("Guardar");
-		this.saveButton.setBounds(16, 184, 88, 24);
-        this.saveButton.setFont(new Font("Dialog", Font.PLAIN, 14));
-		this.frame.getContentPane().add(this.saveButton);
+		
+		this.displayButton = new JButton("Mostrar");
+		this.displayButton.setBounds(16, 184, 88, 24);
+		this.displayButton.setFont(new Font("Dialog", Font.PLAIN, 14));
+		displayButton.addActionListener((new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent ae) {
+				displayArea.setText(controller.getNumber());
+			}
+		}));
+        this.frame.getContentPane().add(this.displayButton);
 	
 		this.frame.setVisible(true);
 
@@ -129,7 +156,13 @@ class MvcView {
 		numberText.setText(s);
 	}
 
-
+	public int getNumberModel() {
+		try {
+			return Integer.parseInt(numberField.getText());
+		} catch (NumberFormatException exc) {
+			return 0;
+		}
+	}
 
 	public void setController(Controller controller) {
 		this.controller = controller;
