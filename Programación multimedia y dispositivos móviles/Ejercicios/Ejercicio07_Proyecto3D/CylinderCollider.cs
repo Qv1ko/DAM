@@ -51,7 +51,7 @@ public class CylinderCollider : MonoBehaviour {
             Vector3 pointRight = GetPointPosition(sinRight, cosRight);
 
             float boxThikness = Vector3.Distance(pointLeft, pointRight);
-            float boxRadius = Mathf.Max(sinLeft, sinRight, cosLeft, cosRight) * radius * 2;
+            float boxRadius = radius * 2;
 
             Vector3 size = new Vector3(boxThikness, height, boxRadius);
             col.size = size;
