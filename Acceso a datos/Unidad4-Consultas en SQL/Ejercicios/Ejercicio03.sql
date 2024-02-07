@@ -54,7 +54,7 @@ SELECT DISTINCT nompuerto FROM puerto
 
 -- 9. Listar el dorsal de los ciclistas que hayan ganado los puertos cuya altura esté entre 1000 y 2000 o que la altura sea mayor que 2400
 
--- Πdorsal σaltura between 1000 and 2000 v altura>2400 (puerto)
+-- Πdorsal (σaltura between 1000 and 2000 v altura>2400 (puerto))
 SELECT DISTINCT dorsal FROM puerto
   WHERE altura BETWEEN 1000 AND 2000 OR altura>2400;
 
