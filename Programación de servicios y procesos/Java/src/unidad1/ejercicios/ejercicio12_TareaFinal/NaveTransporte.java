@@ -1,16 +1,16 @@
 package unidad1.ejercicios.ejercicio12_TareaFinal;
 
-public class NaveTransporte extends Nave implements Volador {
+public class NaveTransporte extends Nave {
 	
-    private int cargaMaxima;
+    private int carga;
 
-    public NaveTransporte(String modelo, int capacidad, int cargaMaxima) {
-        super(modelo, capacidad);
-        this.cargaMaxima = cargaMaxima;
+    public NaveTransporte(String codigo, String modelo, int tripulacion, int carga) {
+        super(codigo, modelo, tripulacion);
+        this.carga = carga;
     }
 
-    public int getCargaMaxima() {
-        return cargaMaxima;
+    public int getCarga() {
+        return this.carga;
     }
 
     @Override
@@ -22,9 +22,16 @@ public class NaveTransporte extends Nave implements Volador {
     public void aterrizar() {
         System.out.println("La nave de transporte " + getModelo() + " est� aterrizando.");
     }
-
+    
     @Override
-    public void volar() {
-    	System.out.println("La nave de transporte " + getModelo() + " est� volando.");
-    }
+	public String toString() {
+		return null;
+	}
+
+	@Override
+	public void imprimir() {
+		toString();
+	}
+	
+	
 }

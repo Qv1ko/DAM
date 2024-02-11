@@ -2,28 +2,32 @@ package unidad1.ejercicios.ejercicio12_TareaFinal;
 
 public abstract class Nave {
 	
-	protected int codigo;
+	protected String codigo;
 	protected String modelo;
-    protected int capacidad;
-    protected Bando bando;
+    protected int tripulacion;
 
-    public Nave(String modelo, int capacidad) {
+    public Nave(String codigo, String modelo, int tripulacion) {
+    	this.codigo = codigo;
         this.modelo = modelo;
-        this.capacidad = capacidad;
+        this.tripulacion = tripulacion;
     }
 
-    public abstract void despegar();
-    public abstract void aterrizar();
-
+    
+    protected String getCodigo() {
+		return this.codigo;
+	}
+	
     public String getModelo() {
         return this.modelo;
     }
 
-    public int getCapacidad() {
-    	return this.capacidad;
+    public int getTripulacion() {
+    	return this.tripulacion;
     }
     
-    public void volar() {
-        System.out.println("La nave est� volando.");
-    }
+    
+    public abstract String toString();
+    public abstract void imprimir();
+	public abstract void despegar();
+    public abstract void aterrizar();
 }

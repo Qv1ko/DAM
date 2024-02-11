@@ -1,17 +1,17 @@
 package unidad1.ejercicios.ejercicio12_TareaFinal;
 
-public class NaveMilitar extends Nave implements Volador {
+public class NaveMilitar extends Nave {
 	
-    private int armamento;
+    private Bandos bando;
 
-    public NaveMilitar(String modelo, int capacidad, int armamento) {
-        super(modelo, capacidad);
-        this.armamento = armamento;
+    public NaveMilitar(String codigo, String modelo, int tripulacion, Bandos bando) {
+        super(codigo, modelo, tripulacion);
+        this.bando = bando;
     }
 
-    public int getArmamento() {
-        return armamento;
-    }
+    protected Bandos getBando() {
+		return this.bando;
+	}
 
     @Override
     public void despegar() {
@@ -23,8 +23,13 @@ public class NaveMilitar extends Nave implements Volador {
         System.out.println("La nave militar " + getModelo() + " est� aterrizando.");
     }
 
-    @Override
-    public void volar() {
-    	System.out.println("La nave militar " + getModelo() + " est� volando.");
-    }
+	@Override
+	public String toString() {
+		return null;
+	}
+
+	@Override
+	public void imprimir() {
+		toString();
+	}
 }
