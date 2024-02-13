@@ -4,7 +4,7 @@ public class NaveTransporte extends Nave {
 	
     private int carga;
 
-    public NaveTransporte(String codigo, String modelo, int tripulacion, int carga) {
+    public NaveTransporte(String codigo, Modelo modelo, int tripulacion, int carga) {
         super(codigo, modelo, tripulacion);
         this.carga = carga;
     }
@@ -15,12 +15,12 @@ public class NaveTransporte extends Nave {
 
     @Override
     public void despegar() {
-        System.out.println("La nave de transporte " + getModelo() + " est� despegando.");
+        System.out.println("La nave de transporte " + getModelo() + " está despegando.");
     }
 
     @Override
     public void aterrizar() {
-        System.out.println("La nave de transporte " + getModelo() + " est� aterrizando.");
+        System.out.println("La nave de transporte " + getModelo() + " está aterrizando.");
     }
     
     @Override

@@ -1,6 +1,6 @@
 package unidad1.ejercicios.ejercicio12_TareaFinal;
 
-public enum Modelos {
+public enum Modelo {
     CAZA_ARC170, CAZA_BELBULLAB22, CAZA_ALAB, CAZA_BTL_ALAY, CAZA_Z95, CAZA_N1,
     CARGUERO_YT1300, CARGUERO_BFF1, CARGUERO_HT2200, CARGUERO_AA9,
     CAÑONERA_LAATI,
