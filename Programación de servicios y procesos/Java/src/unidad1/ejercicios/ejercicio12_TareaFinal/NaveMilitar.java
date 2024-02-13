@@ -2,14 +2,14 @@ package unidad1.ejercicios.ejercicio12_TareaFinal;
 
 public class NaveMilitar extends Nave {
 	
-    private Bandos bando;
+    private Bando bando;
 
-    public NaveMilitar(String codigo, String modelo, int tripulacion, Bandos bando) {
+    public NaveMilitar(String codigo, Modelo modelo, int tripulacion, Bando bando) {
         super(codigo, modelo, tripulacion);
         this.bando = bando;
     }
 
-    protected Bandos getBando() {
+    protected Bando getBando() {
 		return this.bando;
 	}
 
