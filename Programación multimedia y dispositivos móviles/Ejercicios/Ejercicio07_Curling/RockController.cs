@@ -7,7 +7,8 @@ public class RockController : MonoBehaviour {
 	[SerializeField] private LineRenderer lineRenderer;
 
     //private float shotPower = new System.Random().Next(90, 101);
-    private float shotPower = 100;
+    private float shotPower = 100f;
+    private float broomPower = 0.009f;
     private float stopVelocity = 0.5f;
     private float stopPower = 0.997f;
     private bool isIdle;
@@ -40,6 +41,22 @@ public class RockController : MonoBehaviour {
 
         ProcessAim();
 
+        Controls();
+
+    }
+
+    private void Controls() {
+        if (!isAiming || !isIdle && Vector3.Dot(rb.velocity, transform.forward) > stopVelocity) {
+            if (Input.GetKeyDown(KeyCode.UpArrow)) {
+                rb.velocity += transform.forward * broomPower;
+            } else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+                rb.velocity += -transform.right * broomPower;
+            } else if (Input.GetKeyDown(KeyCode.RightArrow)) {
+                rb.velocity += transform.right * broomPower;
+            } else if (Input.GetKeyDown(KeyCode.DownArrow)) {
+                rb.velocity += -transform.forward * 5f;
+            }
+        }
     }
 
     private void OnMouseDown() {
