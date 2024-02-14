@@ -13,6 +13,7 @@ public class RockController : MonoBehaviour {
     private float stopPower = 0.997f;
     private bool isIdle;
     private bool isAiming;
+    private int rocks = 16;
 
     private Rigidbody rb;
     public String vel = "";
@@ -54,7 +55,10 @@ public class RockController : MonoBehaviour {
             } else if (Input.GetKeyDown(KeyCode.RightArrow)) {
                 rb.velocity += transform.right * broomPower;
             } else if (Input.GetKeyDown(KeyCode.DownArrow)) {
-                rb.velocity += -transform.forward * 5f;
+                Vector3 newForce = rb.velocity + (-transform.forward * broomPower);
+                if ((Vector3.Dot(newForce.normalized, transform.forward) >= 0) && (Vector3.Dot(rb.velocity.normalized, transform.forward) > 0)) {
+                    rb.velocity = newForce;
+                }
             }
         }
     }
@@ -92,7 +96,7 @@ public class RockController : MonoBehaviour {
 
         Vector3 horizontalWorldPoint = new Vector3(worldPoint.x, transform.position.y,  worldPoint.z);
         Vector3 direction = (horizontalWorldPoint - transform.position).normalized;
-        float strength = Mathf.Clamp(Vector3.Distance(transform.position, horizontalWorldPoint), 5f, 60f);
+        float strength = Mathf.Clamp(Vector3.Distance(transform.position, horizontalWorldPoint), 5f, 50f);
 
         rb.AddForce(direction * strength * shotPower);
 
