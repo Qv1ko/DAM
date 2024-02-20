@@ -1,4 +1,4 @@
-package unidad1.ejercicios.ejercicio12_TareaFinal;
+package unidad1.ejercicios.ejercicio12_TareaFinal.version2;
 
 import javax.swing.*;
 import java.awt.*;

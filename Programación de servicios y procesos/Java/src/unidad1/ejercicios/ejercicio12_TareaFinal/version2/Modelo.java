@@ -1,4 +1,4 @@
-package unidad1.ejercicios.ejercicio12_TareaFinal;
+package unidad1.ejercicios.ejercicio12_TareaFinal.version2;
 
 public enum Modelo {
     CAZA_ARC170, CAZA_BELBULLAB22, CAZA_ALAB, CAZA_BTL_ALAY, CAZA_Z95, CAZA_N1,
