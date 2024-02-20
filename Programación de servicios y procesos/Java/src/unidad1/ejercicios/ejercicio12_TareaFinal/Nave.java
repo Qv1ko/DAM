@@ -1,32 +1,41 @@
 package unidad1.ejercicios.ejercicio12_TareaFinal;
 
-public abstract class Nave {
-	
-	protected String codigo;
-	protected Modelo modelo;
-    protected int tripulacion;
+public abstract class Nave implements ControlTorre {
 
-    public Nave(String codigo, Modelo modelo, int tripulacion) {
-    	this.codigo = codigo;
-        this.modelo = modelo;
-        this.tripulacion = tripulacion;
+    protected int codigo;
+    protected String nombre;
+    protected int capacidad;
+    protected boolean estado;
+    private Controler controler;
+
+    public Nave() {
+        this.codigo=0;
+        this.nombre="";
+        this.capacidad = 0;
+        this.estado=true;
     }
 
-    protected String getCodigo() {
-		return this.codigo;
-	}
-	
-    public Modelo getModelo() {
-        return this.modelo;
+    public Nave(int codigo, String nombre,int capacidad, boolean estado) {
+        this.codigo=codigo;
+        this.nombre=nombre;
+        this.capacidad = capacidad;
+        this.estado=estado;
     }
 
-    public int getTripulacion() {
-    	return this.tripulacion;
+	public abstract String despegar();
+    public abstract String aterrizar();
+
+    public void setControler(Controler controler) {
+    	this.controler=controler;
     }
-    
-    public abstract String toString();
-    public abstract void imprimir();
-	public abstract void despegar();
-    public abstract void aterrizar();
+  
+    public String solicitarDespegar() {
+		return null;	
+    }
+
+    public String solicitarAterrizar() {
+		return null;
+    	
+    }
 
 }

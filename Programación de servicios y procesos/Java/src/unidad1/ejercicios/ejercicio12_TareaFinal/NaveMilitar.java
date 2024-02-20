@@ -1,35 +1,43 @@
 package unidad1.ejercicios.ejercicio12_TareaFinal;
 
 public class NaveMilitar extends Nave {
+
+	private int armamento;
+
+	public NaveMilitar() {
+		super();
+		this.armamento=0;
+	}
 	
-    private Bando bando;
-
-    public NaveMilitar(String codigo, Modelo modelo, int tripulacion, Bando bando) {
-        super(codigo, modelo, tripulacion);
-        this.bando = bando;
-    }
-
-    protected Bando getBando() {
-		return this.bando;
+	public NaveMilitar(int codigo, String nombre,int capacidad, boolean estado, int armamento) {	
+		super(codigo, nombre,capacidad, estado);
+		this.armamento=armamento;
 	}
 
-    @Override
-    public void despegar() {
-        System.out.println("La nave militar " + getModelo() + " est� despegando.");
-    }
-
-    @Override
-    public void aterrizar() {
-        System.out.println("La nave militar " + getModelo() + " est� aterrizando.");
-    }
-
+	public int getArmamento() {
+		return armamento;
+	}
+	 
 	@Override
-	public String toString() {
-		return null;
+	public String despegar() {
+		return "La nave militar "+super.nombre+" está despegando.";
 	}
 
 	@Override
-	public void imprimir() {
-		toString();
+	public String aterrizar() {
+		return "La nave militar "+super.nombre+" está aterrizando.";
 	}
+
+    @Override
+    public String solicitarAterrizar() {
+        String mensaje="Nave militar "+super.nombre+ " solicitando permiso para aterrizar...";
+		return mensaje;
+    }
+
+    @Override
+    public String solicitarDespegar() {
+		String mensaje="Nave militar "+super.nombre+" solicitando permiso para despegar...";
+		return mensaje;
+    }
+
 }
