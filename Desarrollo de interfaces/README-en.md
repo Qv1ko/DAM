@@ -9,7 +9,7 @@
 - [Notes](./Unidad0-Interfaces/Apuntes/)
 - [Projects](./Unidad0-Interfaces/Proyectos/)
     - [Project 0](./Unidad0-Interfaces/Proyectos/Proyecto0/)
-    - [Project 1](./Unidad0-Interfaces/Proyectos/Proyecto1-Color%20y%20tipografía/)
+    - [Project 1](./Unidad0-Interfaces/Proyectos/Proyecto1-Color_y_tipografía/)
 ### Unit 1 - Figma
 - [Projects](./Unidad1-Figma/Proyectos/)
     - [Project 1](./Unidad1-Figma/Proyectos/Proyecto1/)

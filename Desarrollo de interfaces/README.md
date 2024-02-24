@@ -9,7 +9,7 @@
 - [Apuntes](./Unidad0-Interfaces/Apuntes/)
 - [Proyectos](./Unidad0-Interfaces/Proyectos/)
     - [Proyecto 0](./Unidad0-Interfaces/Proyectos/Proyecto0/)
-    - [Proyecto 1](./Unidad0-Interfaces/Proyectos/Proyecto1-Color%20y%20tipografía/)
+    - [Proyecto 1](./Unidad0-Interfaces/Proyectos/Proyecto1-Color_y_tipografía/)
 ### Unidad 1 - Figma
 - [Proyectos](./Unidad1-Figma/Proyectos/)
     - [Proyecto 1](./Unidad1-Figma/Proyectos/Proyecto1/)
