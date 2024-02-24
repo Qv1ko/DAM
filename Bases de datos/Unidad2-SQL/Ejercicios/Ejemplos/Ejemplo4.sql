@@ -1,38 +1,47 @@
-CREATE DATABASE ejercicio6;
+CREATE DATABASE ejercicio5;
 
-USE ejercicio6;
+USE ejercicio5;
 
-CREATE TABLE cursos(
-    curso INT PRIMARY KEY,
-    nombre CHAR(3)
+CREATE TABLE comidas(
+    nombre CHAR(15) PRIMARY KEY,
+    precio int
 );
 
-CREATE TABLE alumnos(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre CHAR(10),
-    curso_cursos INT,
-    FOREIGN KEY(curso_cursos) REFERENCES cursos(curso)
-);
+CREATE TABLE postres LIKE comidas;
 
-INSERT INTO cursos
-    VALUES(1,"AYF"),
-    (2,"DSA"),
-    (3,"DAM");
+INSERT INTO comidas
+    VALUES("Ensalada", 8),
+    ("Lentejas", 10),
+    ("Paella", 10);
 
-INSERT INTO alumnos(nombre,curso_cursos)
-    VALUES("Eva",1),
-    ("Luis",3),
-    ("Juana",1),
-    ("Ramon",3);
+INSERT INTO postres
+    VALUES('Fruta', 5),
+    ("Yogurt", 4),
+    ("Tarta", 10);
 
-SELECT alumnos.nombre,cursos.nombre FROM alumnos INNER JOIN cursos ON alumnos.curso_cursos=cursos.curso;
+SELECT * FROM comidas;
 
-ALTER TABLE cursos CHANGE nombre nom char(3);
+SELECT * FROM postres;
 
-DESC cursos;
+--Producto cartesiano
+SELECT * FROM comidas,postres;
+SELECT * FROM comidas CROSS JOIN postres;
 
-SELECT * FROM alumnos NATURAL JOIN cursos;
+SELECT comidas.nombre,postres.nombre FROM comidas,postres;
 
-SELECT nombre,nom FROM alumnos NATURAL JOIN cursos;
+--Seleccion con alias
+SELECT c.nombre,p.nombre,c.precio+p.precio AS total FROM  comidas AS c, postres p;
 
-SELECT nombre,cursos.* FROM alumnos NATURAL JOIN cursos;
+SELECT * FROM comidas c1, comidas c2 WHERE c1.nombre<>c2.nombre;
+
+SELECT c.nombre FROM comidas c, postres p WHERE c.precio=p.precio AND p.nombre = "Tarta";
+
+
+SELECT nombre,precio FROM comidas WHERE precio=(SELECT precio FROM postres WHERE nombre="Tarta");
+
+--Devuelve el nombre y precio de las comidas con el mismo precio que los postres que empiezan con P
+SELECT nombre,precio FROM postres WHERE precio IN (SELECT precio FROM comidas WHERE nombre LIKE "p%");
+--Devuelve el nombre y precio de las comidas con menor precio que todos los postres que empiezan con P
+SELECT nombre,precio FROM postres WHERE precio <ALL (SELECT precio FROM comidas WHERE nombre LIKE "p%");
+--Devuelve el nombre y precio de las comidas con menor precio que algunos postres que empiezan con P
+SELECT nombre,precio FROM postres WHERE precio <ANY (SELECT precio FROM comidas WHERE nombre LIKE "p%");

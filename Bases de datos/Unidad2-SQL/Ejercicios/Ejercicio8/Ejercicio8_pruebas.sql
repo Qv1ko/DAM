@@ -37,13 +37,13 @@ SHOW TABLES;
 
 /*7. Carga la tablas usando los datos contenidos en los archivos de texto alumnos_frances.txt, 
 alumnos_ingles.txt, empleados.txt y notas.txt */
-LOAD DATA LOCAL INFILE './Ejercicio7_txts/Alumnos_frances.txt'
+LOAD DATA LOCAL INFILE 'C:/Users/Usuario/DAM/Bases de datos/Unidad2-SQL/Ejercicios/Ejercicio8/Ejercicio8_txts/Alumnos_frances.txt'
     INTO TABLE alumnos_frances IGNORE 1 LINES;
-LOAD DATA LOCAL INFILE './Ejercicio7_txts/Alumnos_ingles.txt'
+LOAD DATA LOCAL INFILE 'C:/Users/Usuario/DAM/Bases de datos/Unidad2-SQL/Ejercicios/Ejercicio8/Ejercicio8_txts/Alumnos_ingles.txt'
     INTO TABLE alumnos_ingles IGNORE 1 LINES;
-LOAD DATA LOCAL INFILE './Ejercicio7_txts/Empleados.txt'
+LOAD DATA LOCAL INFILE 'C:/Users/Usuario/DAM/Bases de datos/Unidad2-SQL/Ejercicios/Ejercicio8/Ejercicio8_txts/Empleados.txt'
     INTO TABLE empleados IGNORE 1 LINES;
-LOAD DATA LOCAL INFILE './Ejercicio7_txts/Notas.txt'
+LOAD DATA LOCAL INFILE 'C:/Users/Usuario/DAM/Bases de datos/Unidad2-SQL/Ejercicios/Ejercicio8/Ejercicio8_txts/Notas.txt'
     INTO TABLE notas IGNORE 1 LINES;
 
 --8. Visualiza los datos que se han cargado en cada tabla

@@ -49,7 +49,7 @@ SELECT usuarios.nombre,cursos.nombre FROM usuarios LEFT JOIN cursos ON usuarios.
     UNION SELECT usuarios.nombre,cursos.nombre FROM usuarios RIGHT JOIN cursos ON usuarios.curso=cursos.id;
 
 --8. Haz una copia de seguridad de la base de datos P8
-mysqldump -u root -p ejercicio8_p8 > "C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio8_p8_backup.sql"
+mysqldump -u root -p ejercicio8_p8 > "C:\\Users\\Usuario\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio8\\Ejercicio9_p8_backup.sql"
 
 --9. Luego Borra la base de datos
 DROP DATABASE ejercicio8_p8;

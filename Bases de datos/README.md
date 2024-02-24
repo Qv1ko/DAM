@@ -14,4 +14,4 @@
 ### Unidad 2 - SQL
 - [Apuntes](./Unidad2-SQL/Apuntes/)
 - [Ejercicios](./Unidad2-SQL/Ejercicios/)
-- [Exámenes](./Unidad2-SQL/Examenes/)
+- [Exámenes](./Unidad2-SQL/Exámenes/)

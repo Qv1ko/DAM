@@ -1,52 +1,105 @@
--- 1. Cread la tabla NOTAS en la base de Datos P19 y añadir los datos
-CREATE DATABASE P19;
+-- 2. Muestra la descripción y contenidos de las tablas departamentos y empleados
+DESC departamentos;
+DESC empleados;
 
-USE P19;
-CREATE TABLE Notas(nombre varchar(20), nota dec(3,1));
-
-INSERT INTO Notas VALUES("Arturo",4.2),("Olivia",8.8),("Braulio",10),("Elena",1);
-
--- Cread el trigger
+-- 3. Crea un procedimiento llamado 'ins' sin parámetros que introduzca el número de Departamento 66  en la tabla con nombre AUDITORIA  y localidad TORRELAVEGA en Departamentos.
 DELIMITER //
-CREATE TRIGGER NOTAS_BI BEFORE INSERT ON Notas FOR EACH ROW
+CREATE PROCEDURE ins()
 BEGIN
-    IF NEW.nota < 0 THEN
-        SET NEW.nota = 0;
-    ELSEIF NEW.nota > 10 THEN
-        SET NEW.nota = 10;
+    INSERT INTO departamentos VALUES(66,"Auditoria","Torrelavega");
+END//
+DELIMITER ;
+
+-- 4. Crea el procedimiento ins_dep con dos parámetros de entrada pnum y pnom que permita hacer el ejercicio anterior indicando el número y el nombre del departamento a introducir.
+DELIMITER //
+CREATE PROCEDURE ins_dep(pnum INT(2), pnom VARCHAR(14))
+BEGIN
+    INSERT INTO departamentos VALUES(pnum, pnom, null);
+END//
+DELIMITER ;
+
+DELIMITER //
+CREATE PROCEDURE ins_dep(pnum INT(2), pnom VARCHAR(14))
+BEGIN
+    DECLARE n INT;
+    SELECT dep_no INTO n FROM departamentos WHERE dep_no = pnum;
+    IF n IS NOT NULL THEN
+        DELETE FROM departamentos WHERE dep_no = pnum;
     END IF;
+    INSERT INTO departamentos VALUES(pnum, pnom, null);
 END//
 DELIMITER ;
 
--- Inserta los valores en la tabla Notas
-INSERT INTO Notas VALUES(“Amelia”,7),(“Bernardo”,18.6),(“Carlota”,-5),(“Dario”,2.5);
+-- 6. Borra el procedimiento ins.
+DROP PROCEDURE ins;
 
--- 2. Cread la tabla Bajas
-CREATE TABLE Bajas(nombre VARCHAR(20), fecha DATE);
-
+-- 7. Ejecuta y explica que hace este procedimiento.
 DELIMITER //
-CREATE TRIGGER NOTAS_AD AFTER DELETE ON Notas FOR EACH ROW
+CREATE PROCEDURE Crea_Logistica()
 BEGIN
-    INSERT INTO Bajas VALUES(OLD.nombre,CURDATE());
+    DECLARE num INT DEFAULT 0;
+    SELECT emp_no INTO num FROM empleados ORDER BY emp_no DESC LIMIT 1;
+    SET num=num+1;
+    INSERT INTO departamentos VALUES (80,'LOGISTICA','RENEDO');
+    INSERT INTO empleados(emp_no,apellido,dep_no) VALUES (num,'ROMERALES',80);
+    SET num=num+1;
+    INSERT INTO empleados(emp_no,apellido,dep_no) VALUES (num,'LOBATO',80);
+    UPDATE empleados SET salario = 999 WHERE dep_no=80 AND salario IS NULL;
 END//
 DELIMITER ;
 
--- Borra los siguientes registros
-DELETE FROM Notas WHERE nombre="Elena" OR nombre="Amelia" OR nombre="Bruno" OR nombre="Dario";
-
--- 3. Crea el trigger
+-- 8. Explica que hace este procedimiento, corrige los errores y ejecútalo.
 DELIMITER //
-CREATE TRIGGER Notas_BU BEFORE UPDATE ON Notas FOR EACH ROW
+CREATE PROCEDURE s_altos()
 BEGIN
-    IF NEW.nota < OLD.nota THEN
-        SET NEW.nota = OLD.nota;
+    SELECT apellido, salario FROM empleados WHERE salario > 2000;
+    SELECT count(*) 'Total' FROM empleados WHERE salario > 2000;
+END//
+DELIMITER ;
+
+-- 9. Modifica el procedimiento anterior para que el valor con que se compara el sueldo se pase como parámetro de entrada y el número de empleados lo devuelva en un parámetro de salida.
+DELIMITER //
+CREATE PROCEDURE s_altos2(sueldo FLOAT(6,2),OUT c_emp INT)
+BEGIN
+    SELECT apellido, salario FROM empleados WHERE salario > sueldo;
+    SELECT count(*) INTO c_emp FROM empleados WHERE salario > sueldo;
+END//
+DELIMITER ;
+
+-- 10. Hacer una función utilizando CASE que reciba como parámetro de entrada la edad de un vendedor y devuelva el texto.
+DELIMITER //
+CREATE FUNCTION case_edad(edad INT) RETURNS VARCHAR(10)
+BEGIN
+    DECLARE text VARCHAR(10);
+    SET text =
+        CASE
+            WHEN edad > 59 THEN "Veterano"
+            WHEN edad > 29 AND edad < 60 THEN "Adulto"
+            ELSE "Joven"
+        END;
+    RETURN text;
+END//
+DELIMITER ;
+
+-- 11. Explica que hace este procedimiento y prueba los distintos casos que pueden darse, valores correctos y errores.
+DELIMITER //
+CREATE PROCEDURE ins_empleado(nro INT, ape VARCHAR(10), f_alt DATE, dep INT)
+BEGIN
+    DECLARE nume INT;
+    DECLARE numd INT;
+    DECLARE err INT DEFAULT 1;
+    IF f_alt > CURDATE() THEN SET err = 2;
     ELSE
-        SET NEW.nota = OLD.nota+2;
-    END IF;		
+        SELECT emp_no INTO nume FROM empleados WHERE emp_no=nro LIMIT 1;
+        IF nume IS NOT NULL THEN SET err=3;
+        ELSE
+            SELECT departamentos.dep_no INTO numd FROM departamentos WHERE dep_no=dep LIMIT 1;
+            IF numd IS NULL THEN SET err=4;	
+            END IF;
+        END IF;
+    END IF;
+    IF err=1 THEN INSERT INTO empleados(emp_no,apellido,fecha_alta,dep_no) VALUES (nro,ape,f_alt,dep);	
+    END IF;
+    SELECT ELT(err,"Empleado insertado","Fecha incorrecta","Ese nro de empleado ya existe","Departamento inexistente") AS 'Resultado';
 END//
 DELIMITER ;
-
--- Modifica las siguientes notas
-UPDATE Notas SET nota=9 WHERE nombre="Arturo" AND nota=4.2;
-UPDATE Notas SET nota=3 WHERE nombre="Olivia" AND nota=8.8;
-UPDATE Notas SET nota=4 WHERE nombre="Braulio" AND nota=10;

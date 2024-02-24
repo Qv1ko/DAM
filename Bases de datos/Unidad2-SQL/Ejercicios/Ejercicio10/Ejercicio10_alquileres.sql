@@ -1,87 +1,107 @@
-/*1 En la base de datos ALQUILERES visualizar los precios de alquiler diario de los automóviles de la marca SEAT actuales, los mismos valores incrementados en 
-un 4.5% redondeando el nuevo precio a entero hacia arriba e incrementados en un 4.5% redondeados a entero */
-SELECT precio,precio*1.045,CEIL(precio*1.045),ROUND(precio*1.045) FROM automoviles WHERE marca_marcas="Seat";
+--1. Inicia una transacción
+START TRANSACTION;
 
-/*2 Obtener, para todos los contratos de alquiler realizados, la relación entre los días de duración de cada contrato y el precio de alquiler del correspondiente 
-automóvil. Obtener esa relación de las formas: truncada con dos decimales y truncada con cuatro decimales y redondeada con dos decimales. */
-SELECT TRUNCATE(DATEDIFF(contratos.ffinal,contratos.finicial)*automoviles.precio,4) AS "Trucate de 4",
-    TRUNCATE(DATEDIFF(contratos.ffinal,contratos.finicial)*automoviles.precio,2) AS "Trucate de 2",
-    ROUND(DATEDIFF(contratos.ffinal,contratos.finicial)*automoviles.precio,2) AS "Redondeo de 2",numcontrato FROM contratos 
-    INNER JOIN automoviles ON contratos.matricula_automoviles=automoviles.matricula WHERE contratos.ffinal IS NOT NULL;
+--2. Eliminar de la tabla CONTRATOS el contrato número 40
+DELETE FROM contratos WHERE numcontrato=40;
 
---3 Obtener una lista con los 10 primeros caracteres de los apellidos y los 6 primeros de los nombres de todos los clientes
-SELECT LEFT(apellidos,10),LEFT(nombre,6) FROM clientes;
+--3. Eliminar en la tabla CONTRATOS los contratos de número superior a 24
+DELETE FROM contratos WHERE numcontrato>24;
 
---4 Obtener una lista con los apellidos y los nombres de todos los clientes separados con 8 guiones
-SELECT CONCAT_WS("--------",apellidos,nombre) AS "Nombres y apellidos" FROM clientes;
-SELECT CONCAT_WS(REPEAT('-',8),apellidos,nombre) AS "Nombres y apellidos" FROM clientes;
+--4. Eliminar en la tabla CONTRATOS los contratos realizados sobre algún BMW
+DELETE FROM contratos WHERE matricula_automoviles IN (SELECT matricula FROM automoviles WHERE marca_marcas="BMW");
 
---5 Obtener una lista de las matrículas en formato tabla
-SELECT matricula AS Matricula,ELT(alquilado+1,"libre","ocupado") AS Estado FROM automoviles;
+/*5. Eliminar de la tabla CONTRATOS los contratos realizados por los clientes de apellidos 
+Fuentes Rojas */
+DELETE FROM contratos WHERE dni_clientes IN (SELECT dni FROM clientes WHERE apellidos="Fuentes Rojas");
 
-/*6 Obtener una lista con las marcas y modelos de los automóviles en una misma columna que ocupa 40 caracteres (los sobrantes se rellenan con puntos por la 
-derecha) y los precios de alquiler ocupando 10 caracteres (los sobrantes se rellenan con puntos por la izquierda) Encabezar el listado como "Lista de precios" */
-SELECT CONCAT(RPAD(CONCAT(marca_marcas,' ',modelo),40,'.'),LPAD(precio,10,'.')) AS "Lista de precios" FROM automoviles;
+--6. Eliminar en la tabla CLIENTES los clientes de apellidos Fuentes Rojas
+DELETE FROM clientes WHERE apellidos="Fuentes Rojas";
 
---7 Obtener los nombres y apellidos de todos los clientes que tienen alguna letra ‘O’ en sus apellidos
-SELECT nombre,apellidos FROM clientes WHERE apellidos LIKE "%o%";
+/*7. Eliminar de la tabla CONTRATOS los contratos realizados por Ismael Poza Rincón sobre el 
+automóvil Audi A4 */
+DELETE FROM contratos WHERE dni_clientes IN (SELECT dni FROM clientes WHERE nombre="Ismael" AND apellidos="Poza Rincón") AND 
+    matricula_automoviles IN (SELECT matricula FROM automoviles WHERE marca_marcas="Audi" AND modelo="A4");
+DELETE contratos FROM contratos INNER JOIN clientes ON contratos.dni_clientes=clientes.dni 
+    INNER JOIN automoviles ON contratos.matricula_automoviles=automoviles.matricula
+        WHERE apellidos="Poza Rincón" AND nombre="Ismael" AND modelo="A4" AND marca_marcas="Audi";
 
---8 Modificar las marcas de todos los automóviles para que queden almacenados en mayúsculas
-UPDATE automoviles SET marca_marcas=UPPER(marca_marcas);
-UPDATE automoviles SET marca_marcas=UCASE(marca_marcas);
+/*8. Eliminar de la tabla AUTOMÓVILES los registros que tengan un precio de alquiler superior 
+al Mercedes 500 E */
+DELETE a1 FROM automoviles AS a1,automoviles AS a2 WHERE a1.precio>a2.precio AND a2.marca_marcas="Mercedes" AND a2.modelo="500 E";
 
---9 Obtener la lista de los apellidos de los clientes y su longitud en caracteres
-SELECT nombre,apellidos,CHAR_LENGTH(apellidos) AS "Longitud apellidos" FROM clientes;
-SELECT nombre,apellidos,LENGTH(apellidos) AS "Longitud apellidos" FROM clientes;
+--9. Eliminar todos los registros de la tabla contratos sucursal 2
+DELETE FROM contratos2;
 
---10 Obtener los apellidos de todos los clientes sustituyendo los caracteres de los apellidos comprendidos entre el tercero y séptimo por la cadena 'MYSQL'
-SELECT nombre,INSERT(apellidos,3,5,"MYSQL") FROM clientes;
-SELECT CONCAT(LEFT(apellidos,2),"MYSQL",RIGHT(apellidos,LENGTH(apellidos)-2)) FROM clientes;
+--Modificamos la foreign key a cascade para continuar
+SHOW CREATE TABLE contratos;
+ALTER TABLE contratos DROP FOREIGN KEY contratos_ibfk_1;
+ALTER TABLE contratos ADD FOREIGN KEY(dni_clientes) REFERENCES clientes(dni) ON UPDATE CASCADE ON DELETE CASCADE;
 
---11 Repetir pero ahora sin sustitución de caracteres, es decir, insertando MySQL a partir del segundo carácter del apellido
-SELECT nombre,INSERT(apellidos,2,0,"MYSQL") FROM clientes;
+--10. Eliminar de la tabla CLIENTES el cliente de dni 09856064
+DELETE FROM clientes WHERE dni="09856064";
 
---12 Obtener para todos los clientes, su dirección y la posición de dirección donde se encuentra la primera coma
-SELECT nombre,direccion,INSTR(direccion,',') AS Posicion FROM clientes;
-SELECT nombre,direccion,INSERT(direccion,INSTR(direccion,','),1,'-') AS Posicion FROM clientes;
+--11. Eliminar de la tabla CLIENTES el cliente de nombre Mariano Dorado
+DELETE FROM clientes WHERE nombre="Mariano" AND apellidos="Dorado";
+DELETE FROM clientes WHERE apellidos LIKE "Dorado%" AND nombre="Mariano";
 
---13 Obtener para todos los clientes, su nombre, apellidos, dirección sustituyendo la coma por un guión
-SELECT nombre,apellidos,REPLACE(direccion,',','-') FROM clientes;
+/*12. Eliminar en la tabla CONTRATOS todos los contratos finalizados por automóviles de la 
+marca SEAT */
+DELETE FROM contratos WHERE ffinal IS NOT NULL AND matricula_automoviles IN (SELECT matricula FROM automoviles WHERE marca_marcas="SEAT");
+DELETE c FROM contratos c INNER JOIN automoviles a ON c.matricula_automoviles=a.matricula WHERE ffinal IS NOT NULL AND marca_marcas="SEAT";
 
---14 Los nombres y apellidos de los clientes cuyo permiso de conducir fue expedido en el mes de octubre
-SELECT nombre,apellidos FROM clientes WHERE MONTH(fechaexp)=10;
+/*13. Eliminar en la tabla CONTRATOS todos los contratos no finalizados por automóviles de la 
+marca SEAT */
+DELETE FROM contratos WHERE ffinal IS NULL AND matricula_automoviles IN (SELECT matricula FROM automoviles WHERE marca_marcas="SEAT");
 
-/*15 Los nombres, apellidos y fechas de expedición del permiso de conducir de los 4 clientes con fecha de expedición más reciente. La fecha de expedición se ha 
-de presentar con el formato "El día 12 de diciembre de 2022" */
-SELECT nombre,apellidos,CONCAT("El dia ",DAY(fechaexp)," de ",ELT(MONTH(fechaexp),'Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre',
-    'Octubre','Nobiembre','Diciembre')," de ",YEAR(fechaexp)) AS "Fecha de expedición" FROM clientes ORDER BY fechaexp DESC LIMIT 4;
---Cambio de valor de la variable para que salga el mes en español
-SET lc_time_names='ja_Ja';
-SELECT nombre,apellidos,CONCAT("El dia ",DAY(fechaexp)," de ",MONTHNAME(fechaexp)," de ",YEAR(fechaexp)) AS "Fecha de expedición" 
-    FROM clientes ORDER BY fechaexp DESC LIMIT 4;
-SELECT nombre,apellidos,DATE_FORMAT(fechaexp,"El dia %e de %b de %Y") FROM clientes ORDER BY fechaexp DESC LIMIT 4;
+--14. Eliminar en la tabla Automóviles todos los automóviles de la marca SEAT
+DELETE FROM automoviles WHERE marca_marcas="SEAT";
 
---16 Cual es la hora actual con el formato "Son las 15 horas 13 minutos"
-SELECT DATE_FORMAT(CURTIME(),"Son las %H horas %i minutos");
+--15. Eliminar todos los clientes que no viven ni en Cuenca ni en Toledo
+DELETE FROM clientes WHERE localidad<>"Cuenca" AND localidad!="Toledo";
 
---17 El nombre del día de la semana (castellano) en que naciste encabezado por "Nací en"
-SELECT CONCAT("Nací en ",ELT(WEEKDAY("1998-08-08")+1,"Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo")) AS "Día de nacimiento";
+--16. Eliminar todos los contratos
+DELETE FROM contratos;
 
---18 El número de días que has vivido hasta la fecha actual
-SELECT DATEDIFF(NOW(),"2004-11-04") AS "Días vividos";
+--17. Eliminar todos los clientes
+DELETE FROM clientes;
 
---19 La fecha y el nombre del día de la semana que será dentro de tres meses
-SELECT DATE(ADDDATE(NOW(),INTERVAL 3 MONTH)) AS "Fecha",
-    ELT(WEEKDAY(ADDDATE(NOW(),INTERVAL 3 MONTH))+1,"Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo") AS "Día de la semana";
+--18. Ejecuta la orden necesaria para que todas las operaciones anteriores queden anuladas
+ROLLBACK;
 
-/*20 Todos los datos de los contratos asociando a cada uno de ellos 1 si tienen uno o dos días de duración, 2 si tienen una duración entre 3 y 5 días, 3 si 
-tienen una duración entre 6 y 10 días y 4 si tienen una duración mayor */
-SELECT *,INTERVAL(DATEDIFF(ffinal,finicial),0,3,6,11) AS "Tipo de duración" FROM contratos WHERE ffinal IS NOT NULL;
+--19. Establece lo necesario para que el servidor MYSQL trabaje en modo transaccional
+SET AUTOCOMMIT=0;
 
---21 Obtén los nombres de las marcas de cohes junto con una lista con los modelos de cada una, separándolos con tres guiones
-SELECT marca_marcas,GROUP_CONCAT(modelo SEPARATOR "---") FROM automoviles GROUP BY marca_marcas;
+--20. Inserta un nuevo automóvil en la tabla automóviles
+INSERT INTO automoviles
+    VALUES("4578ZXB","Ford","Mondeo","Gris",50,1000,"AA,ABS",0);
 
-/*22 Crea una tabla con una sola columna que contenga el valor encriptado de los nombres y apellidos de los clientes mediante alguno de los sistemas de 
-encriptación usando la clave FEBRERO. Comprueba que se desencripta correctamente */
-CREATE TABLE clientese SELECT ENCODE(CONCAT(nombre,apellidos),"FEBRERO") AS "Nombre" FROM clientes;
-SELECT DECODE(nombre,"FEBRERO") FROM clientese;
+--21. Inserta un nuevo contrato sobre el automóvil anterior por el cliente que decidas
+INSERT INTO contratos(matricula_automoviles,dni_clientes,finicial,kinicial)
+    VALUES("4578ZXB","09856064",CURDATE(),1000);
+
+--22. Deshaz las inserciones anteriores y comprueba que se han deshecho tales operaciones
+ROLLBACK;
+SELECT * FROM automoviles;
+SELECT * FROM contratos;
+
+--23. Vuelve a realizar las inserciones del apartado 20 y 21 con COMMIT
+INSERT INTO automoviles
+    VALUES("4578ZXB","Ford","Mondeo","Gris",50,1000,"AA,ABS",0);
+INSERT INTO contratos(matricula_automoviles,dni_clientes,finicial,kinicial)
+    VALUES("4578ZXB","09856064",CURDATE(),1000);
+COMMIT;
+
+--24. Vuelve a establecer que se validen las instrucciones o sentencias de forma automática
+SET AUTOCOMMIT=1;
+
+--25. Mostrar automóviles con un precio superior a la media de su marca
+SELECT * FROM automoviles a1 WHERE a1.precio>(SELECT AVG(precio) FROM automoviles a2 WHERE a1.marca_marcas=a2.marca_marcas);
+
+--26. Mostrar el valor de la variable AUTOCOMMIT
+SELECT @@AUTOCOMMIT;
+
+--27. Mostrar el valor de todas las variables que empiezan por A
+SHOW VARIABLES LIKE "a%";
+
+--28. Mostrar los automóviles que no han sido contratados nunca
+SELECT automoviles.* FROM automoviles LEFT JOIN contratos ON automoviles.matricula=contratos.matricula_automoviles WHERE automoviles.matricula NOT IN (SELECT matricula_automoviles FROM contratos);

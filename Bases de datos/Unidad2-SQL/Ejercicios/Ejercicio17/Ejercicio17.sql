@@ -1,67 +1,35 @@
--- 1. Crea la base de datos P17 y en ella tablas
-CREATE DATABASE P17;
-USE P17;
-CREATE TABLE ninos(edad int, nombre varchar(50));
-CREATE TABLE adultos(edad int, nombre varchar(50));
-
--- 2. Creamos el procedimiento almacenado
+-- 2. Crea un procedimiento llamado Fact con un parámetro n de entrada entero y otro de salida f también entero en donde se almacene el factorial del número n.
 DELIMITER //
-CREATE procedure introPersona(ed int, nom varchar(50))
-begin
-    IF ed < 18 then
-        INSERT INTO ninos VALUES(ed,nom);
-    else
-        INSERT INTO adultos VALUES(ed,nom);
-    end IF;
-end//
-DELIMITER ;
-
-/* 4. Haz un procedimiento llamado INTROADULTO con dos parámetros de entrada que permita introducir registros en la tabla adultos y muestre un mensaje de error
-si la edad es menor de 18 años y no introduzca dicho registro en ninguna tabla. */
-DELIMITER //
-CREATE PROCEDURE INTROADULTO(edad INT, nombre VARCHAR(50))
+CREATE PROCEDURE Fact(n INT,OUT f INT)
 BEGIN
-    IF edad<18 THEN
-        SELECT "ERROR - Edad inferior a 18 años";
-    ELSE
-        INSERT INTO adultos VALUES(edad,nombre);
-    END IF;
+    SET f=1;
+    WHILE n>1 DO 
+        SET f=f*n;
+        SET n=n-1;
+    END WHILE;
 END//
 DELIMITER ;
 
-
--- 6. Crea la función.
+-- 4. Crea una función llamada Facto con un parámetro n de entrada entero y que devuelva un valor de tipo BIGINT con el factorial del número n.
 DELIMITER //
-CREATE FUNCTION divide(dividendo int,divisor int) returns int
-begin
-    declare aux int;
-    declare contador int;
-    declare resto int;
-    SET contador = 0;
-    SET aux = 0;
-    while (aux + divisor) < dividendo do
-        SET aux = aux + divisor ;
-        SET contador = contador + 1;
-    end while;
-    SET resto = dividendo - aux ;
-RETURN contador;
-end//
+CREATE FUNCTION Facto(n INT) RETURNS BIGINT
+BEGIN
+    DECLARE r INT DEFAULT 1;
+    WHILE n>0 DO 
+        SET r=r*n;
+        SET n=n-1;
+    END WHILE;
+    RETURN r;
+END//
 DELIMITER ;
 
--- 8. Modifica la función añadiendo una instrucción antes de END WHILE que muestre el contenido de las variables aux y contador
+-- 5. Crea un procedimiento en la base de datos ALQUILERES que reciba el DNI de un cliente y escriba en un parámetro de salida c el número de contratos de ese cliente.
 DELIMITER //
-CREATE PROCEDURE divide(dividendo int,divisor int,out contador int)
-begin
-    declare aux int;
-    declare resto int;
-    SET contador = 0;
-    SET aux = 0;
-    while (aux + divisor) < dividendo do
-        SET aux = aux + divisor ;
-        SET contador = contador + 1;
-        SELECT aux;
-        SELECT contador;
-    end while;
-    SET resto = dividendo - aux ;
-end//
+CREATE PROCEDURE numContratos(dni CHAR(9),OUT c INT)
+BEGIN
+    SELECT count(*) INTO c FROM contratos WHERE dni_clientes=dni;
+END//
 DELIMITER ;
+
+-- 7. Utiliza el procedimiento anterior para ver en cuantos contratos realizó Natalia Montoya.
+CALL numContratos((SELECT dni FROM clientes WHERE nombre="Natalia" AND apellidos="Montoya"),@c);

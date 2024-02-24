@@ -1,121 +1,52 @@
--- 1. Corrige los errores y explica.
+-- 1. Cread la tabla NOTAS en la base de Datos P19 y añadir los datos
+CREATE DATABASE P19;
+
+USE P19;
+CREATE TABLE Notas(nombre varchar(20), nota dec(3,1));
+
+INSERT INTO Notas VALUES("Arturo",4.2),("Olivia",8.8),("Braulio",10),("Elena",1);
+
+-- Cread el trigger
 DELIMITER //
-CREATE PROCEDURE s_max()
-BEGIN	
-    DECLARE sal_pre DEC(8,2);
-    SELECT max(salario) INTO @s FROM empleados;
-    SELECT salario INTO sal_pre FROM empleados WHERE oficio="PRESIDENTE";
-    SELECT @s AS 'Maximo', sal_pre AS 'PRESIDENTE';
-    IF (@s=sal_pre) THEN
-        SELECT "Gana mas el presidente";
-    ELSE
-        SELECT "No gana mas el presidente";
+CREATE TRIGGER NOTAS_BI BEFORE INSERT ON Notas FOR EACH ROW
+BEGIN
+    IF NEW.nota < 0 THEN
+        SET NEW.nota = 0;
+    ELSEIF NEW.nota > 10 THEN
+        SET NEW.nota = 10;
     END IF;
 END//
 DELIMITER ;
 
--- 2. Haz un procedimiento que escriba el salario medio y nos diga si este salario medio de los empleados está por encima o por debajo de 1000€.
+-- Inserta los valores en la tabla Notas
+INSERT INTO Notas VALUES(“Amelia”,7),(“Bernardo”,18.6),(“Carlota”,-5),(“Dario”,2.5);
+
+-- 2. Cread la tabla Bajas
+CREATE TABLE Bajas(nombre VARCHAR(20), fecha DATE);
+
 DELIMITER //
-CREATE PROCEDURE s_medio()
+CREATE TRIGGER NOTAS_AD AFTER DELETE ON Notas FOR EACH ROW
 BEGIN
-    DECLARE media DEC(8,2);
-    SELECT AVG(salario) INTO media FROM empleados;
-    SELECT media AS "Euros de media de sueldo";
-    IF media<1000 THEN
-        SELECT "Media por debajo de 1000 euros" AS "Media de sueldo";
+    INSERT INTO Bajas VALUES(OLD.nombre,CURDATE());
+END//
+DELIMITER ;
+
+-- Borra los siguientes registros
+DELETE FROM Notas WHERE nombre="Elena" OR nombre="Amelia" OR nombre="Bruno" OR nombre="Dario";
+
+-- 3. Crea el trigger
+DELIMITER //
+CREATE TRIGGER Notas_BU BEFORE UPDATE ON Notas FOR EACH ROW
+BEGIN
+    IF NEW.nota < OLD.nota THEN
+        SET NEW.nota = OLD.nota;
     ELSE
-        SELECT "Media por encima de 1000 euros" AS "Media de sueldo";
-    END IF;
+        SET NEW.nota = OLD.nota+2;
+    END IF;		
 END//
 DELIMITER ;
 
--- 3. Haz una función que le pasemos la comisión y nos devuelva el tipo de vendedor.
-DELIMITER //
-CREATE FUNCTION tip_ven(comi FLOAT(6,2)) RETURNS VARCHAR(15)
-BEGIN
-    DECLARE text VARCHAR(15);
-    SET text =
-        CASE
-            WHEN comi < 999.99 THEN "Buen vendedor"
-            WHEN comi < 500 THEN "Mal vendedor"
-            ELSE "Vendedor medio"
-        END;
-    RETURN text;
-END//
-DELIMITER ;
-
--- 4. Escribe el nombre de los vendedores de la tabla empleados y el tipo usando la función anterior.
-SELECT apellido,tip_ven(comision) FROM empleados;
-
-/* 5. Crea una tabla temporal que contenga solo un número. Con un procedimiento que se le pase como parámetros el valor inicial (valor que lo decrementamos de 5 
-    en 5, no se almacenaran números negativos). */
-DELIMITER //
-CREATE PROCEDURE num_tab(num INT)
-BEGIN
-    CREATE TEMPORARY TABLE tempNum(
-        num INT NOT NULL,
-        PRIMARY KEY (num)
-    );
-    WHILE num > 0 DO
-        INSERT INTO tempNum VALUES(num);
-        SET num = num - 5;
-    END WHILE;
-END//
-DELIMITER ;
-
--- 6. Crea una tabla temporal que contenga un número decreciente con un procedimiento que se le pasen como parámetros el valor inicial y el salto.
-DELIMITER //
-CREATE PROCEDURE numtab2(num INT, sal INT)
-BEGIN
-    CREATE TEMPORARY TABLE tnum(
-        num INT NOT NULL,
-        PRIMARY KEY (num)
-    );
-    REPEAT
-        INSERT INTO tnum VALUES(num);
-        SET num = num - sal;
-    UNTIL num < 0
-    END REPEAT;
-END//
-DELIMITER ;
-
--- 7. Crea una tabla temporal llamada DNIS con un campo nro de tipo INT clave principal.
-CREATE TEMPORARY TABLE dnis(
-    nro INT NOT NULL PRIMARY KEY
-);
-DELIMITER //
-CREATE PROCEDURE INSERTA_DNIS()
-BEGIN
-    DECLARE n INT;
-    DECLARE c SMALLINT;
-    TRUNCATE DNIS;
-    REPEAT
-        SET n = FLOOR(RAND()*8000000)+15000001; 
-        -- Multiplicamos por 8 millones y sumamos 15 millones 
-        SELECT COUNT(*) INTO c FROM DNIS;
-        INSERT INTO DNIS VALUES(n);
-    UNTIL c = 20
-    END REPEAT;
-    SELECT * FROM DNIS;
-END //
-DELIMITER ;
-
--- 8. Crea la función letra_nif que reciba un DNI y calcule la letra del NIF correspondiente.
-DELIMITER //
-CREATE FUNCTION letra_nif(nif INT) RETURNS CHAR(1)
-BEGIN
-    DECLARE res INT;
-    SET res = nif % 23;
-    RETURN ELT(res+1,"T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E");
-END//
-DELIMITER ;
-
-DELIMITER //
-CREATE FUNCTION letra_nif(nif INT) RETURNS CHAR(1)
-BEGIN
-    RETURN MID("TRWAGMYFPDXBNJZSQVHLCKE",nif % 23+1,1);
-END//
-DELIMITER ;
-
--- 9. Usa la función anterior mostrar los números de la tabla DNIS con su letra correspondiente.
-SELECT CONCAT(nro,letra_nif(nro)) AS DNI FROM dnis;
+-- Modifica las siguientes notas
+UPDATE Notas SET nota=9 WHERE nombre="Arturo" AND nota=4.2;
+UPDATE Notas SET nota=3 WHERE nombre="Olivia" AND nota=8.8;
+UPDATE Notas SET nota=4 WHERE nombre="Braulio" AND nota=10;

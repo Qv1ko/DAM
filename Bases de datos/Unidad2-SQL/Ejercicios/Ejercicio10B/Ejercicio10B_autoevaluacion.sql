@@ -19,7 +19,7 @@ ALTER TABLE mascotas ADD especie VARCHAR(20) default "caiman";
 UPDATE mascotas SET especie="Perro" WHERE id IN (1,2);
 
 --3. Haz una copia de seguridad de la base de datos TEST
-mysqldump -u root -p test > "C:\\Users\\Usuario\\DAM.git\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio9_autoevaluacion_backup.sql"
+mysqldump -u root -p test > "C:\\Users\\Usuario\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio10B\\Ejercicio10B_autoevaluacion.sql"
 
 --4. Borra la base de datos TEST
 DROP DATABASE test;

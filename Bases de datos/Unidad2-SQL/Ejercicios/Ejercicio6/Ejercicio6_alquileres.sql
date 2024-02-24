@@ -1,147 +1,88 @@
-/*1. Insertar un BMW 520 TDI color azul, matrícula 7600CFG, 1200 kilómetros, 140 euros de 
-precio de alquiler, no alquilado y extras AA, EE, DA, CC, CD, ABS */
-INSERT INTO automoviles(marca_marcas,modelo,color,matricula,kilometros,precio,alquilado,extras)
-    VALUES("BMW","520 TDI","Azul","7600CFG",1200,140,0,"AA, EE, DA, CC, CD, ABS");
+--1. Obtener el número total de contratos
+SELECT COUNT(*) FROM contratos;
 
-/*2. Insertar un Citroen C2 color gris, matrícula 2300CFG, 1120 kilómetros, 85 euros de precio
-de alquiler */
-INSERT INTO automoviles(marca_marcas,modelo,color,matricula,kilometros,precio)
-    VALUES("Citroen","C2","Gris","2300CFG",1120,85);
+--2. Obtener el número de clientes de cada ciudad
+SELECT localidad,COUNT(dni) AS clientes FROM clientes GROUP BY localidad;
 
---3. Insertar un Audi A6 negro, 1000 kilómetros, precio 120 euros y matricula 2301CFG
-INSERT INTO automoviles(marca_marcas,modelo,color,kilometros,precio,matricula)
-    VALUES("Audi","A6","Negro",1000,120,"2301CFG");
+--3. Obtener el número de clientes de cada ciudad que tengan permiso de tipo B
+SELECT localidad,COUNT(dni) AS clientes FROM clientes WHERE carnet="B" GROUP BY localidad;
 
---4. Insertar un SEAT Toledo gris matrícula 1234BMY, precio 120 euros
-INSERT INTO automoviles(marca_marcas,modelo,color,matricula,precio)
-    VALUES("SEAT","Toledo","Gris","123BMR",120);
+--4. Obtener el número de clientes de cada ciudad excepto de Madrid
+SELECT localidad,COUNT(dni) AS clientes FROM clientes WHERE localidad<>"Madrid"  GROUP BY localidad;
 
-/*5. Insertar un contrato del automóvil matrícula 4387BDD, para el cliente de DNI 02748375, 
-con fecha inicial 12 de octubre de 2007 y kilómetros iniciales 23057 */
-INSERT INTO contratos(matricula_automoviles,dni_clientes,finicial,kinicial)
-    VALUES("4387BDD","02748375","2007-10-12",23057);
+/*5. Obtener las matrículas, marcas, modelos y precios de alquiler de los automóviles que 
+tienen un precio de alquiler superior al automóvil de matrícula 3765BSD */
+SELECT matricula,marca_marcas,modelo,precio FROM automoviles WHERE precio>(SELECT precio from automoviles WHERE matricula="3765BSD");
 
-/*6. Insertar un contrato de número 50 para el cliente 00445760 sobre el coche matrícula 
-5678BRZ con fecha inicial el día actual */
-INSERT INTO contratos(numcontrato,dni_clientes,matricula_automoviles,finicial)
-    VALUES(50,"00445760","5678BRZ",CURDATE());
+/*6. Obtener el número de clientes de cada ciudad que tengan permiso tipo B siempre que ese 
+número sea superior o igual a 1 */
+SELECT localidad,COUNT(dni) AS clientes FROM clientes WHERE carnet="B" GROUP BY localidad HAVING COUNT(dni)>=1;
 
-/*7. Insertar un contrato para el cliente de DNI 11223344 sobre el coche matrícula 3765BSD 
-con la fecha actual. */
-INSERT INTO contratos(dni_clientes,matricula_automoviles,finicial)
-    VALUES("11223344","3765BSD",CURDATE());
+--7. Mostrar las matrículas y fecha inicial de los tres últimos contratos realizados
+SELECT matricula_automoviles,finicial FROM contratos ORDER BY finicial DESC LIMIT 3;
 
-/*8. Insertar un contrato para el cliente de DNI 58347695 sobre el coche matrícula 2300CFG 
-con la fecha actual */
-INSERT INTO contratos(dni_clientes,matricula_automoviles,finicial)
-    VALUES("58347695","2300CFG",CURDATE());
+--8. Obtener el precio de alquiler máximo de cada marca
+SELECT marca_marcas AS Marca,MAX(precio) AS Precio FROM automoviles GROUP BY marca_marcas;
 
-/*9. Insertar un contrato de numero 16 sobre el coche de matrícula 1732CBS con 2500 
-kilómetros iniciales */
-INSERT INTO contratos(numcontrato,matricula_automoviles,dni_clientes,kinicial)
-    VALUES(24,"1732CBS","58347695",2500);
+/*9. Obtener el precio de alquiler máximo de cada marca excepto de aquellas cuyo precio medio 
+sea superior a 100 Euros */
+SELECT marca_marcas AS Marca,MAX(precio) AS Precio FROM automoviles GROUP BY marca_marcas HAVING AVG(precio)<=100;
 
---10. Insertar todas las filas de la tabla contratos2 en la tabla contratos
-INSERT INTO contratos
-    SELECT * from contratos2;
+--10. Obtener la frecuencia de cada tipo de carnet de conducir entre los clientes de cada ciudad
+SELECT localidad,COUNT(carnet) AS frecuencia,carnet FROM clientes GROUP BY localidad,carnet;
 
-/*11. Añadir un contrato correspondiente a que el cliente de DNI 12348630 ha contratado el 
-Mercedes 500 E en la fecha de hoy con los kilómetros iniciales que este coche tiene en la 
-tabla AUTOMOVILES */
-INSERT INTO contratos(numcontrato,matricula_automoviles,dni_clientes,finicial,kinicial)
-    VALUES(28,(SELECT matricula FROM automoviles 
-        WHERE marca_marcas="Mercedes" AND modelo="500 E"),"12348630",CURDATE(),(SELECT kilometros FROM automoviles 
-            WHERE marca_marcas="Mercedes" AND modelo="500 E"));
+--11. Obtener el/los DNI/s de cliente/s que hayan hecho mayor número de contratos
+SELECT dni_clientes,COUNT(*)
+    FROM contratos
+    GROUP BY dni_clientes HAVING COUNT(*)=(SELECT COUNT(*) FROM contratos GROUP BY dni_clientes ORDER BY COUNT(*) DESC LIMIT 1);
 
-/*12. Añadir un contrato correspondiente a que Natalia Montoya ha contratado el coche de 
-matrícula 4387BDD en la fecha de hoy */
-INSERT INTO contratos(numcontrato,matricula_automoviles,dni_clientes,finicial)
-    VALUES(29,"4387BDD",(SELECT dni FROM clientes WHERE nombre="Natalia" AND apellidos="Montoya"),CURDATE());
+/*12. Obtener la mayor antigüedad de permiso de conducir de los clientes de cada uno de los 
+grupos formados por igual ciudad */
+SELECT localidad,MIN(fechaexp) FROM clientes GROUP BY localidad;
 
-/*13. Añadir lo necesario para registrar que Natalia Montoya ha contratado en la fecha de hoy 
-todos los automóviles de azules y rojos poniendo los kilómetros iniciales a 0 */
-INSERT INTO contratos(matricula_automoviles,dni_clientes,finicial,kinicial)
-    SELECT matricula,dni,CURDATE(),0 FROM automoviles INNER JOIN clientes 
-        WHERE (color="Rojo" OR color="Azul") AND (nombre="Natalia" AND apellidos="Montoya");
+--13. Consulta para obtener cuantos vehículos hay de cada marca en la tabla automóviles
+SELECT marca_marcas AS Marca,COUNT(matricula) AS Vehiculos FROM automoviles GROUP BY marca_marcas;
 
---14. Eliminar los contratos añadidos en los ejercicios 11, 12 y 13
-DELETE FROM contratos WHERE numcontrato BETWEEN 28 AND 29 OR numcontrato BETWEEN 54 AND 62;
+/*14. Obtener la mayor antigüedad de permiso de conducir de los clientes de cada uno de los 
+grupos formados por igual ciudad e igual tipo de permiso */
+SELECT localidad AS Localidad,MIN(fechaexp),carnet AS Carnet FROM clientes GROUP BY localidad,carnet;
 
---15. Crear un fichero de texto con los datos de todos los clientes
-SELECT * FROM clientes 
-    INTO OUTFILE ".\\Ejercicio6_txts\\Ejercicio4_alquileres5_clientes.txt";
+--15. Obtener el precio medio de alquiler de todos los vehículos de la tabla automóviles
+SELECT AVG(precio) AS "Precio medio" FROM automoviles;
 
-/*16. Crear un fichero de texto con el nombre, apellidos e importe relativo a todos los 
-contratos finalizados */
-SELECT nombre AS Nombre,apellidos AS Apellidos,ABS(DATEDIFF(ffinal,finicial)*precio) AS "Importe relativo"
-    FROM clientes INNER JOIN contratos ON clientes.dni=contratos.dni_clientes INNER JOIN automoviles ON contratos.matricula_automoviles=automoviles.matricula 
-    WHERE ffinal IS NOT NULL 
-        INTO OUTFILE ".\\Ejercicio6_txts\\Ejercicio4_alquileres5_contratos_finalizados.txt";
+--16. Obtener la media de precios de alquiler de cada marca
+SELECT marca_marcas AS Marca,AVG(precio) AS "Media de precios" FROM automoviles GROUP BY marca_marcas;
 
---17. Poner el contrato 16 con fecha final 19 de abril de 2009, y kilómetros finales 24756
-UPDATE contratos
-    SET ffinal="2009-04-19",kfinal=24756 WHERE numcontrato=16;
+--17. Obtener el total de ingresos por alquileres de cada día
+SELECT finicial AS Fecha,SUM(precio) AS Ingreso FROM automoviles INNER JOIN contratos GROUP BY finicial;
 
---18. Poner los kilómetros finales del contrato 17 a 12267
-UPDATE contratos
-    SET kfinal=12267 WHERE numcontrato=17;
+/*18. Mostrar la matrícula y días de contrato de los vehículos que han finalizado contrato y 
+que han sido contratados durante más de 5 días */
+SELECT matricula_automoviles AS Matricula,DATEDIFF(ffinal,finicial) AS "Dias de contrato"
+    FROM contratos
+    WHERE ffinal<>0 AND DATEDIFF(ffinal,finicial)>5;
 
---19. Cambiar el color del Ford Focus a color rojo
-UPDATE automoviles
-    SET color="Rojo" WHERE marca_marcas="Ford" AND modelo="Focus";
+/*19. Obtener un listado de los clientes y el número de años que hace que tienen permiso de 
+conducir */
+SELECT dni,nombre,apellidos,TRUNCATE(DATEDIFF(CURDATE(),fechaexp)/365,0) AS "Nº de años" FROM clientes;
 
-/*20. Poner la fecha final de los contratos 18 y 19 a 7 días más que su fecha inicial y los 
-kilómetros finales a 2200 kilómetros más que los iniciales */
-UPDATE contratos
-    SET finicial=ADDDATE(finicial,7),kfinal=(kinicial+2200) WHERE numcontrato=18 OR numcontrato=19;
+--20. Obtener la mayor antigüedad del permiso de conducir entre todos los clientes
+SELECT fechaexp,dni AS DNI FROM clientes GROUP BY fechaexp ASC LIMIT 1;
 
---21. Poner en la tabla automóviles todos los coches como disponibles
-UPDATE automoviles
-    SET alquilado=0 WHERE alquilado=1;
+--21. Obtener el nombre del Cliente que tiene carnet desde hace más tiempo
+SELECT nombre AS Nombre FROM clientes GROUP BY fechaexp ASC LIMIT 1;
 
-/*22. Poner en la tabla automóviles como no disponibles todos los coches que se hayan 
-alquilado y no hayan finalizado su contrato */
-UPDATE automoviles NATURAL JOIN contratos
-    SET alquilado=true WHERE ffinal IS NULL;
+--22. Obtener el número de contrato que ha generado el mayor importe
+SELECT numcontrato,DATEDIFF(ffinal,finicial)*precio AS imp FROM contratos INNER JOIN automoviles WHERE ffinal IS NOT NULL GROUP BY imp DESC LIMIT 1;
 
-/*23. Insertar un nuevo contrato para el cliente con dni 09856064 sobre el coche matrícula 
-4738CBJ, fecha inicial la actual y kilómetros iniciales el contenido de la columna kilómetros */
-INSERT INTO contratos(dni_clientes,matricula_automoviles,finicial,kinicial)
-    VALUES ("09856064","4738CBJ",CURDATE(),(SELECT kilometros FROM automoviles WHERE matricula="4738CBJ"));
+--23. Obtener el nombre y apellidos del cliente que ha generado el mayor importe
+SELECT nombre AS Nombre,apellidos AS apellidos
+    FROM clientes
+    WHERE dni=(SELECT dni_clientes FROM contratos INNER JOIN automoviles WHERE ffinal IS NOT NULL
+        GROUP BY DATEDIFF(ffinal,finicial)*precio DESC LIMIT 1);
 
---24. Modificar los contratos números 20,21,22,23 para que tengan los números 40,41,42,43
-UPDATE contratos
-    SET numcontrato=numcontrato+20 WHERE numcontrato BETWEEN 20 and 23;
+--24. El total del kilometraje de todos los automóviles no alquilados
+SELECT SUM(kilometros) AS "Kilometraje total" FROM automoviles WHERE alquilado=0;
 
---25. Modificar el número de contrato 16 para que tenga el número 6
-UPDATE contratos
-    SET numcontrato=66 WHERE numcontrato=16;
-
-/*26. Modificar el contrato número 15 para que quede realizado sobre el automóvil de 
-matrícula 5031BHL */
-UPDATE contratos
-    SET matricula_automoviles="5031BHL" WHERE numcontrato=15;
-
---Modificacion de la foreign key a cascade para poder realizar el ejercicio siguiente
-SHOW CREATE TABLE contratos;
-ALTER TABLE contratos DROP FOREIGN KEY contratos_ibfk_2;
-ALTER TABLE contratos ADD FOREIGN KEY(matricula_automoviles) REFERENCES automoviles(matricula) ON UPDATE CASCADE ON DELETE CASCADE;
-
---27. Modificar la matrícula del Audi A3 para que pase a ser 4783CBJ
-UPDATE automoviles
-    SET matricula="4783CBJ" WHERE marca_marcas="Audi" AND modelo="A3";
-
-/*28. Poner en kilómetros del automóvil correspondiente al contrato número 15 los kilómetros 
-finales que figuran en dicho contrato */
-UPDATE automoviles INNER JOIN contratos ON matricula=matricula_automoviles
-    SET kilometros=kfinal WHERE numcontrato=15;
-
-/*29. Actualizar todos los precios de alquiler de los automóviles para incrementar su precio 
-en un 2% */
-UPDATE automoviles
-    SET precio=precio*1.02;
-
-/*30. Modificar los kilómetros de todos los automóviles que finalizaron su contrato entre el 
-4 de marzo y el 15 de abril de 2007 con los kilómetros finales de dichos contratos */
-UPDATE automoviles INNER JOIN contratos ON matricula=matricula_automoviles
-    SET kilometros=kfinal WHERE ffinal BETWEEN "2017-03-04" AND "2017-04-15";
+--25. El total de kilometraje de los automóviles de cada marca
+SELECT marca_marcas AS Marca,SUM(kilometros) AS Kilometraje FROM automoviles GROUP BY marca_marcas;
