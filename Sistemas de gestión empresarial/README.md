@@ -6,15 +6,18 @@
 
 ## Temario
 ### Unidad 1 - Introducción a sistemas ERP-CRM
-- [Apuntes](./Unidad1-Introducción%20a%20sistemas%20ERP-CRM/Apuntes/)
-- [Ejercicios](./Unidad1-Introducción%20a%20sistemas%20ERP-CRM/Ejercicios/)
+- [Apuntes](./Unidad1-Introducción_a_sistemas_ERP_CRM/Apuntes/)
+- [Ejercicio](./Unidad1-Introducción_a_sistemas_ERP_CRM/Ejercicio/)
 ### Unidad 2 - Configuración de Odoo
-- [Apuntes](./Unidad2-Configuración%20de%20Odoo/Apuntes/)
-- [Ejercicios](./Unidad2-Configuración%20de%20Odoo/Ejercicios/)
+- [Apuntes](./Unidad2-Configuración_de_Odoo/Apuntes/)
+- [Ejercicio](./Unidad2-Configuración_de_Odoo/Ejercicio/)
 ### Unidad 3 - Módulos de operaciones
-- [Apuntes](./Unidad3-Módulos%20de%20operaciones/Apuntes/)
-- [Ejercicios](./Unidad3-Módulos%20de%20operaciones/Ejercicios/)
+- [Apuntes](./Unidad3-Módulos_de_operaciones/Apuntes/)
+- [Ejercicios](./Unidad3-Módulos_de_operaciones/Ejercicios/)
 ### Unidad 4 - Módulos de ventas
-- [Ejercicios](./Unidad4-Módulos%20de%20ventas/Ejercicios/)
+- [Ejercicios](./Unidad4-Módulos_de_ventas/Ejercicios/)
+
+---
+
 ### Proyecto
 - [Proyecto](./Proyecto/)
