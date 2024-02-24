@@ -6,7 +6,7 @@
 
 ## Syllabus
 ### Unit 0 - Video game development phases
-- [Notes](./Unidad0-Fases%20de%20desarrollo%20de%20videojuegos/Apuntes/)
+- [Notes](./Unidad0-Fases_de_desarrollo_de_videojuegos/Apuntes/)
 ### Unit 1 - UI
 - [Notes](./Unidad1-UI/Apuntes/)
 - [Classes](./Unidad1-UI/Clases/)

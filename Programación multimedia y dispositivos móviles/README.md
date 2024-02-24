@@ -6,7 +6,7 @@
 
 ## Temario
 ### Unidad 0 - Fases de desarrollo de videojuegos
-- [Apuntes](./Unidad0-Fases%20de%20desarrollo%20de%20videojuegos/Apuntes/)
+- [Apuntes](./Unidad0-Fases_de_desarrollo_de_videojuegos/Apuntes/)
 ### Unidad 1 - UI
 - [Apuntes](./Unidad1-UI/Apuntes/)
 - [Clases](./Unidad1-UI/Clases/)
