@@ -1,1 +1,0 @@
-Intel I[3579] Gen 1[0-9]|Intel I[3579] Gen [4-9]|Intel Celeron|Intel Pentium|AMD Athlon|AMD Ryzen [3579] [34578][1-9]{3}
