@@ -28,5 +28,8 @@
 - [Exam](./Unidad5-Yii/Examen/)
 ### Unit 6 - Programming
 - [Notes](./Unidad6-Programación/Apuntes/)
+
+---
+
 ### Review
-- [Review](./Unidad7-Repaso/Apuntes/)
+- [Review](./Repaso/)
