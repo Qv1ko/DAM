@@ -6,25 +6,25 @@
 
 ## Syllabus
 ### Unit 1 - Flow diagrams
-- [Notes](./Unidad1-Diagramas%20de%20flujo/Apuntes/)
-- [Exercises](./Unidad1-Diagramas%20de%20flujo/Ejercicios/)
+- [Notes](./Unidad1-Diagramas_de_flujo/Apuntes/)
+- [Exercises](./Unidad1-Diagramas_de_flujo/Ejercicios/)
 ### Unit 2 - Software development
-- [Notes](./Unidad2-Desarrollo%20de%20software/Apuntes/)
-- [Exercises](./Unidad2-Desarrollo%20de%20software/Ejercicios/)
+- [Notes](./Unidad2-Desarrollo_de_software/Apuntes/)
+- [Exercises](./Unidad2-Desarrollo_de_software/Ejercicios/)
 ### Unit 3 - Integrated development environments
-- [Notes](./Unidad3-Entornos%20de%20desarrollo%20integrados/Apuntes/)
-- [Exercises](./Unidad3-Entornos%20de%20desarrollo%20integrados/Ejercicios/)
-- [Exam](./Unidad3-Entornos%20de%20desarrollo%20integrados/Examen/)
+- [Notes](./Unidad3-Entornos_de_desarrollo_integrados/Apuntes/)
+- [Exercises](./Unidad3-Entornos_de_desarrollo_integrados/Ejercicios/)
+- [Exam](./Unidad3-Entornos_de_desarrollo_integrados/Examen/)
 ### Unit 4 - Software testing
-- [Notes](./Unidad4-Pruebas%20de%20software/Apuntes/)
-- [Exercises](./Unidad4-Pruebas%20de%20software/Ejercicios/)
+- [Notes](./Unidad4-Pruebas_de_software/Apuntes/)
+- [Exercises](./Unidad4-Pruebas_de_software/Ejercicios/)
 ### Unit 5 - Optimizing and documenting code
-- [Notes](./Unidad5-Optimizar%20y%20documentar%20el%20c%C3%B3digo/Apuntes/)
-- [Exercises](./Unidad5-Optimizar%20y%20documentar%20el%20c%C3%B3digo/Ejercicios/)
-- [Exam](./Unidad5-Optimizar%20y%20documentar%20el%20c%C3%B3digo/Examen/)
+- [Notes](./Unidad5-Optimizar_y_documentar_el_código/Apuntes/)
+- [Exercises](./Unidad5-Optimizar_y_documentar_el_código/Ejercicios/)
+- [Exam](./Unidad5-Optimizar_y_documentar_el_código/Examen/)
 ### Unit 6 - Class Diagrams in UML
-- [Notes](./Unidad6-Diagramas%20de%20clases%20en%20UML/Apuntes/)
-- [Exercises](./Unidad6-Diagramas%20de%20clases%20en%20UML/Ejercicios/)
+- [Notes](./Unidad6-Diagramas_de_clases_en_UML/Apuntes/)
+- [Exercises](./Unidad6-Diagramas_de_clases_en_UML/Ejercicios/)
 ### Unit 7 - Behavioral Diagrams in UML
-- [Notes](./Unidad7-Diagramas%20de%20comportamiento%20en%20UML/Apuntes/)
-- [Exercises](./Unidad7-Diagramas%20de%20comportamiento%20en%20UML/Ejercicios/)
+- [Notes](./Unidad7-Diagramas_de_comportamiento_en_UML/Apuntes/)
+- [Exercises](./Unidad7-Diagramas_de_comportamiento_en_UML/Ejercicios/)
