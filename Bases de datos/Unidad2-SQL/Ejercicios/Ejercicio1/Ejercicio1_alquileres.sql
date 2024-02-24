@@ -78,29 +78,29 @@ DESC contratos2;
 DESC marcas;
 
 --14. Carga archivos de texto en cada una de las tablas
-LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio01\\Ejercicio01_txts\\marcas.txt'
+LOAD DATA LOCAL INFILE '.\\Ejercicio1_txts\\Marcas.txt'
     INTO TABLE marcas
     LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
-LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio01\\Ejercicio01_txts\\automoviles.txt'
+LOAD DATA LOCAL INFILE '.\\Ejercicio1_txts\\Automoviles.txt'
     INTO TABLE automoviles
     FIELDS TERMINATED BY '\t'
     LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
-LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio01\\Ejercicio01_txts\\clientes.txt'
+LOAD DATA LOCAL INFILE '.\\Ejercicio1_txts\\Clientes.txt'
     INTO TABLE clientes
     FIELDS TERMINATED BY '\t'
     LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
-LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio01\\Ejercicio01_txts\\contratos.txt'
+LOAD DATA LOCAL INFILE '.\\Ejercicio1_txts\\Contratos.txt'
     INTO TABLE contratos
     FIELDS TERMINATED BY '\t'
     LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
-LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio01\\Ejercicio01_txts\\contratos2.txt'
+LOAD DATA LOCAL INFILE '.\\Ejercicio1_txts\\Contratos2.txt'
     INTO TABLE contratos2
     FIELDS TERMINATED BY '\t'
     LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
 
 CREATE TABLE contratos3 LIKE contratos;
 
-LOAD DATA LOCAL INFILE 'C:\\Users\\Usuario\\DAM\\Bases de datos\\Unidad2-SQL\\Ejercicios\\Ejercicio01\\Ejercicio01_txts\\contratos3.txt'
+LOAD DATA LOCAL INFILE '.\\Ejercicio01_txts\\Contratos3.txt'
     INTO TABLE contratos3
     FIELDS TERMINATED BY '\t'
     LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
