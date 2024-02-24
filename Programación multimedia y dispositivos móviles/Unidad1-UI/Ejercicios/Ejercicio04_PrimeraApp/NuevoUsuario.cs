@@ -24,9 +24,9 @@ public class NuevoUsuario : MonoBehaviour {
         usuarioNuevo = true;
 
         if (!Regex.IsMatch(inputNombre.text, patronNombre)) {
-            textoAviso.text = "El nombre solo puede tener letras y números";
+            textoAviso.text = "El nombre solo puede tener letras y nÃºmeros";
         } else if (inputNombre.text.Length < 4 || inputPass.text.Length < 4) {
-            textoAviso.text = "El nombre y la contraseña tienen que tener como minimo 4 caracteres";
+            textoAviso.text = "El nombre y la contraseÃ±a tienen que tener como minimo 4 caracteres";
         } else {
 
             textoAviso.text = "";
