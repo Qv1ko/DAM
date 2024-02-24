@@ -6,9 +6,9 @@
 
 ## Temario
 ### Unidad 1 - Conceptos iniciales
-- [Apuntes](./Unidad1-Conceptos%20iniciales/Apuntes/)
-- [Ejercicios](./Unidad1-Conceptos%20iniciales/Ejercicios/)
-- [Proyecto](./Unidad1-Conceptos%20iniciales/Proyecto/)
+- [Apuntes](./Unidad1-Conceptos_iniciales/Apuntes/)
+- [Ejercicios](./Unidad1-Conceptos_iniciales/Ejercicios/)
+- [Proyecto](./Unidad1-Conceptos_iniciales/Proyecto/)
 ### Unidad 2 - WordPress
 - [Apuntes](./Unidad2-WordPress/Apuntes/)
 - [Proyecto](./Unidad2-WordPress/Proyecto/)

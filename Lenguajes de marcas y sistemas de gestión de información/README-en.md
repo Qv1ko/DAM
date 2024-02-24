@@ -6,9 +6,9 @@
 
 ## Syllabus
 ### Unit 1 - Initial concepts
-- [Notes](./Unit1-Conceptos%20iniciales/Apuntes/)
-- [Exercises](./Unit1-Conceptos%20iniciales/Ejercicios/)
-- [Project](./Unit1-Conceptos%20iniciales/Proyecto/)
+- [Notes](./Unidad1-Conceptos_iniciales/Apuntes/)
+- [Exercises](./Unidad1-Conceptos_iniciales/Ejercicios/)
+- [Project](./Unidad1-Conceptos_iniciales/Proyecto/)
 ### Unit 2 - WordPress
 - [Notes](./Unit2-WordPress/Apuntes/)
 - [Project](./Unit2-WordPress/Proyecto/)
