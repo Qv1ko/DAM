@@ -16,4 +16,4 @@
 ---
 
 ### Repaso
-- [Repaso](./Repaso/)
+- [Repaso](./Java/Apuntes/Repaso/)
