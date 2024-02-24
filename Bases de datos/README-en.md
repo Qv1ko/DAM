@@ -1,4 +1,4 @@
-# Database Module
+# Database module
 
 ### README language
 - 🇪🇸 [Spanish](./README.md)

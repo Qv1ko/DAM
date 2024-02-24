@@ -1,4 +1,4 @@
-# Data Access Module
+# Data Access module
 
 ### README language
 - 🇪🇸 [Spanish](./README.md)
@@ -16,7 +16,7 @@
 ### Unit 3 - dbForge
 - [Notes](./Unidad3-dbForge/Apuntes/)
 - [Project](./Unidad3-dbForge/Proyecto/)
-### Unit 4 - SQL Queries
+### Unit 4 - SQL queries
 - [Notes](./Unidad4-Consultas%20en%20SQL/Apuntes/)
 - [Classes](./Unidad4-Consultas%20en%20SQL/Clases/)
 - [Exercises](./Unidad4-Consultas%20en%20SQL/Ejercicios/)

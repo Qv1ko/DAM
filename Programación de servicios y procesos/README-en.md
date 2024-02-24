@@ -1,4 +1,4 @@
-# Services and Processes Scheduling Module
+# Services and Processes Scheduling module
 
 ### README language
 - 🇪🇸 [Spanish](./README.md)

@@ -1,4 +1,4 @@
-# Interface Development Module
+# Interface Development module
 
 ### README language
 - 🇪🇸 [Spanish](./README.md)

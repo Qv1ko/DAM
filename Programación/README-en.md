@@ -1,4 +1,4 @@
-# Programming Module
+# Programming module
 
 ### README language
 - 🇪🇸 [Spanish](./README.md)

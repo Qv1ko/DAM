@@ -1,4 +1,4 @@
-# Módulo de Programación multimedia y dispositivos móviles
+# Módulo de Programación Multimedia y Dispositivos Móviles
 
 ### Lenguaje del README
 - 🇪🇸 **Español**

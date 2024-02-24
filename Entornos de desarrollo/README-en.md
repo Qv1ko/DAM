@@ -1,4 +1,4 @@
-# Development Environments Module
+# Development Environments module
 
 ### README language
 - 🇪🇸 [Spanish](./README.md)

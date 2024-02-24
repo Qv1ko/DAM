@@ -1,4 +1,4 @@
-# Markup Languages and Information Management Systems Module
+# Markup Languages and Information Management Systems module
 
 ### README language
 - 🇪🇸 [Spanish](./README.md)
