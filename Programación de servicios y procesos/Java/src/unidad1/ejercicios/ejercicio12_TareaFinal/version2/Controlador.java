@@ -7,15 +7,15 @@ import java.util.Random;
 public class Controlador {
 
     private ArrayList<Nave> registro;
-    private HashMap<String, Nave> navesDespegar;
-    private HashMap<String, Nave> navesAterrizar;
-    private HashMap<String, Nave> navesHangar;
+    private ArrayList<Nave> navesDespegar;
+    private ArrayList<Nave> navesAterrizar;
+    private ArrayList<Nave> navesHangar;
 
     public Controlador() {
         this.registro = new ArrayList<Nave>();
-        this.navesDespegar = new HashMap<String, Nave>();
-        this.navesAterrizar = new HashMap<String, Nave>();
-        this.navesHangar = new HashMap<String, Nave>();
+        this.navesDespegar = new ArrayList<Nave>();
+        this.navesAterrizar = new ArrayList<Nave>();
+        this.navesHangar = new ArrayList<Nave>();
     }
 
     public ArrayList<Nave> getRegistro() {
@@ -26,27 +26,27 @@ public class Controlador {
         this.registro = registro;
     }
 
-    public HashMap<String, Nave> getNavesDespegar() {
+    public ArrayList<Nave> getNavesDespegar() {
         return navesDespegar;
     }
 
-    public void setNavesDespegar(HashMap<String, Nave> navesDespegar) {
+    public void setNavesDespegar(ArrayList<Nave> navesDespegar) {
         this.navesDespegar = navesDespegar;
     }
 
-    public HashMap<String, Nave> getNavesAterrizar() {
+    public ArrayList<Nave> getNavesAterrizar() {
         return navesAterrizar;
     }
 
-    public void setNavesAterrizar(HashMap<String, Nave> navesAterrizar) {
+    public void setNavesAterrizar(ArrayList<Nave> navesAterrizar) {
         this.navesAterrizar = navesAterrizar;
     }
 
-    public HashMap<String, Nave> getNavesHangar() {
+    public ArrayList<Nave> getNavesHangar() {
         return navesHangar;
     }
 
-    public void setNavesHangar(HashMap<String, Nave> navesHangar) {
+    public void setNavesHangar(ArrayList<Nave> navesHangar) {
         this.navesHangar = navesHangar;
     }
 
@@ -62,19 +62,28 @@ public class Controlador {
 
     public void cambioEstado() {
         for (Nave nave : registro) {
-            if (nave.getEstado() == null) {
-                if (probabilidad()) {
-                    nave.setEstado(estadoGen());
-                    if (nave.getEstado().equals(Accion.DESPEGUE)) {
-                        getNavesDespegar().put(nave.getCodigo(), nave);
-                    } else if (nave.getEstado().equals(Accion.ATERRIZAJE)) {
-                        getNavesDespegar().put(nave.getCodigo(), nave);
-                    }
+            if (nave.getEstado() == null && tripleBool()) {
+
+                Accion nuevoEstado = estadoGen();
+                nave.setEstado(nuevoEstado);
+
+                switch (nuevoEstado) {
+                    case DESPEGUE:
+                        getNavesDespegar().add(nave);
+                        break;
+                    case ATERRIZAJE:
+                        getNavesAterrizar().add(nave);
+                        break;
+                    default:
+                        break;
                 }
+
                 break;
+
             }
         }
     }
+    
 
     private void despegar(String codigo) {
         getNavesDespegar().remove(codigo);
@@ -88,8 +97,8 @@ public class Controlador {
         return ((int) (Math.random() * 2) == 0) ? true : false;
     }
 
-    private boolean probabilidad() {
-        return bool() && bool() && bool();
+    private boolean tripleBool() {
+        return bool() && bool() & bool();
     }
 
     private String codigoGen(String tipo) {

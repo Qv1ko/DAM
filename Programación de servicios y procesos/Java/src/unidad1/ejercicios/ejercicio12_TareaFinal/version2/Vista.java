@@ -12,6 +12,8 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.ActionEvent;
 
 public class Vista {
@@ -22,7 +24,7 @@ public class Vista {
 	private JTextPane infoHangar;
 	private JButton actualizar;
 	private JTextPane infoNave;
-	private JTextPane listaDepegar;
+	private JTextPane listaDespegar;
 	private JTextFieldPlaceholder textField;
 	private JButton aceptar;
 	private JButton denegar;
@@ -43,15 +45,8 @@ public class Vista {
 	}
 
 	public Vista() throws IOException {
-
-		controlador.generadorNaves(5, 20, 100f);
-
-		for (Nave nave : controlador.getRegistro()) {
-			nave.imprimir();
-		}
-
+		controlador.generadorNaves(100, 20, 100f);
 		initialize();
-		
 	}
 	
 	private void initialize() throws IOException {
@@ -65,25 +60,28 @@ public class Vista {
 		
 		titulo = new JLabel("TORRE DE CONTROL");
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);
-		titulo.setFont(new Font("Arial", Font.BOLD, 24));
-		titulo.setBounds(0, 11, 684, 23);
+		titulo.setFont(new Font("Arial", Font.BOLD, 32));
+		titulo.setBounds(0, 16, 684, 24);
 		torre.getContentPane().add(titulo);		
 		
 		listaAterrizar = new JTextPane();
 		listaAterrizar.setEditable(false);
+		listaAterrizar.setFont(new Font("Arial", Font.PLAIN, 20));
 		listaAterrizar.setBounds(30, 75, 150, 256);
 		torre.getContentPane().add(listaAterrizar);
 		
 		
 		infoHangar = new JTextPane();
 		infoHangar.setEditable(false);
+		infoHangar.setFont(new Font("Arial", Font.PLAIN, 20));
 		infoHangar.setBounds(220, 75, 250, 124);
 		torre.getContentPane().add(infoHangar);
 
 		actualizar = new JButton("ACTUALIZAR");
 		actualizar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlador.cambioEstado();
+				actualizarListas();
+				actualizarInfoHangar();
 			}
 		});
 
@@ -97,11 +95,28 @@ public class Vista {
 		infoNave.setEditable(false);
 		infoNave.setBounds(220, 256, 250, 75);
 		torre.getContentPane().add(infoNave);
+		infoNave.addKeyListener(new KeyListener() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// Código para manejar la pulsación de tecla
+			}
 		
-		listaDepegar = new JTextPane();
-		listaDepegar.setEditable(false);
-		listaDepegar.setBounds(510, 75, 150, 256);
-		torre.getContentPane().add(listaDepegar);
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// Código para manejar la liberación de tecla
+			}
+		
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// Código para manejar la escritura de tecla
+			}
+		});
+		
+		listaDespegar = new JTextPane();
+		listaDespegar.setEditable(false);
+		listaDespegar.setFont(new Font("Arial", Font.PLAIN, 20));
+		listaDespegar.setBounds(510, 75, 150, 256);
+		torre.getContentPane().add(listaDespegar);
 		
 		textField = new JTextFieldPlaceholder("Introduzca el código...");
 		textField.setFont(new Font("Arial", Font.PLAIN, 12));
@@ -114,7 +129,8 @@ public class Vista {
 		aceptar = new JButton("ACEPTAR");
 		aceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlador.cambioEstado();
+				actualizarListas();
+				actualizarInfoHangar();
 			}
 		});
 
@@ -128,8 +144,8 @@ public class Vista {
 		denegar.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				denegar.setBackground(new Color(255, 122, 122));
-				controlador.cambioEstado();
+				actualizarListas();
+				actualizarInfoHangar();
 			}
 
 		});
@@ -156,10 +172,54 @@ public class Vista {
 
 	private void actualizarListas() {
 
+		String navesAterrizar = "";
+		String navesDespegar = "";
+	
+		controlador.cambioEstado();
+	
+		for (Nave nave : controlador.getNavesAterrizar()) {
+			navesAterrizar += nave.getCodigo() + "\n";
+		}
+	
+		for (Nave nave : controlador.getNavesDespegar()) {
+			navesDespegar += nave.getCodigo() + "\n";
+		}
+	
+		listaAterrizar.setText(navesAterrizar);
+		listaDespegar.setText(navesDespegar);
 
+	}
 
-		listaAterrizar.setText("Texto a agregar al JTextPane");
-		listaDepegar.setText("null");
+	private void actualizarInfoHangar()	 {
+
+		String info = "";
+		int navesImperio = 0;
+		int navesRebeldes = 0;
+		int navesTransporte = 0;
+
+		for (Nave nave : controlador.getNavesHangar()) {
+			if (nave instanceof NaveMilitar) {
+				if (((NaveMilitar) nave).getBando().equals(Bando.IMPERIAL)) {
+					navesImperio++;
+				} else if (((NaveMilitar) nave).getBando().equals(Bando.REBELDE)) {
+					navesRebeldes++;
+				}
+			} else if (nave instanceof NaveTransporte) {
+				navesTransporte++;
+			}
+		}
+
+		info += "INFORMACIÓN HANGAR\n";
+		info += "Naves del imperio: " + navesImperio + "\n";
+		info += "Naves rebeldes: " + navesRebeldes + "\n";
+		info += "Naves de transporte: " + navesTransporte + "\n";
+
+		infoHangar.setText(info);
+
+	}
+
+	private void actualizarInfoNave() {
+
 	}
 
 }
