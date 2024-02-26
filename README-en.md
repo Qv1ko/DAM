@@ -18,3 +18,15 @@ Repository of activities carried out in the Higher Level Training Cycle of Multi
 - [Multimedia Programming and Mobile Devices](./Programación%20multimedia%20y%20dispositivos%20móviles/)
 - [Programming Services and Processes](./Programación%20de%20servicios%20y%20procesos/)
 - [Enterprise Management Systems](./Sistemas%20de%20gestión%20empresarial/)
+
+## Final Degree Work
+Web application designed to manage devices in study centers.
+- [Project in GitHub](https://github.com/Qv1ko/GDCE)
+- [Project in GitLab](https://gitlab.com/vgarcia3301646/gdce)
+### Documentation
+- [Planning](https://github.com/Qv1ko/GDCE/tree/master/documents/planning)
+- [Analysis](https://github.com/Qv1ko/GDCE/tree/master/documents/analysis)
+- [Desing](https://github.com/Qv1ko/GDCE/tree/master/documents/design)
+- [Implementation](https://github.com/Qv1ko/GDCE/tree/master/documents/implementation)
+- [Tests](https://github.com/Qv1ko/GDCE/tree/master/documents/tests)
+- [Diary](https://github.com/Qv1ko/GDCE/tree/master/documents/diary)

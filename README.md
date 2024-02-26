@@ -26,7 +26,7 @@ Aplicación web diseñada para gestionar dispotivos en centros de estudios.
 ### Documentación
 - [Planificación](https://github.com/Qv1ko/GDCE/tree/master/documents/planning)
 - [Análisis](https://github.com/Qv1ko/GDCE/tree/master/documents/analysis)
-- [Diseño]()
-- [Implementación]()
-- [Pruebas]()
-- [Memoria del proyecto]()
+- [Diseño](https://github.com/Qv1ko/GDCE/tree/master/documents/design)
+- [Implementación](https://github.com/Qv1ko/GDCE/tree/master/documents/implementation)
+- [Pruebas](https://github.com/Qv1ko/GDCE/tree/master/documents/tests)
+- [Diario](https://github.com/Qv1ko/GDCE/tree/master/documents/diary)
