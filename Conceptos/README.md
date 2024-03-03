@@ -6,5 +6,4 @@
 
 ## Cursos
 - [Conceptos del primer curso](./Conceptos_curso1.pdf)
-- [Conceptos del segundo curso]()
-
+- [Conceptos del segundo curso](./Conceptos_curso2.pdf)
