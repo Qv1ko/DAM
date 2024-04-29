@@ -10,16 +10,16 @@
 - [Exercises](./Unidad1-Conceptos_iniciales/Ejercicios/)
 - [Project](./Unidad1-Conceptos_iniciales/Proyecto/)
 ### Unit 2 - WordPress
-- [Notes](./Unit2-WordPress/Apuntes/)
-- [Project](./Unit2-WordPress/Proyecto/)
+- [Notes](./Unidad2-WordPress/Apuntes/)
+- [Project](./Unidad2-WordPress/Proyecto/)
 ### Unit 3 - HTML
-- [Notes](./Unit3-HTML/Apuntes/)
-- [Classes](./Unit3-HTML/Clases/)
-- [Exercises](./Unit3-HTML/Ejercicios/)
+- [Notes](./Unidad3-HTML/Apuntes/)
+- [Classes](./Unidad3-HTML/Clases/)
+- [Exercises](./Unidad3-HTML/Ejercicios/)
 ### Unit 4 - CSS
-- [Notes](./Unit4-CSS/Apuntes/)
-- [Classes](./Unit4-CSS/Clases/)
-- [Project](./Unit4-CSS/Proyecto/)
+- [Notes](./Unidad4-CSS/Apuntes/)
+- [Classes](./Unidad4-CSS/Clases/)
+- [Project](./Unidad4-CSS/Proyecto/)
 
 ---
 

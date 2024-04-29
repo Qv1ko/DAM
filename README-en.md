@@ -19,7 +19,7 @@ Repository of activities carried out in the Higher Level Training Cycle of Multi
 - [Programming Services and Processes](./Programación%20de%20servicios%20y%20procesos/)
 - [Enterprise Management Systems](./Sistemas%20de%20gestión%20empresarial/)
 
-## Final Degree Work
+## End of Degree Project
 Web application designed to manage devices in study centers.
 - [Project in GitHub](https://github.com/Qv1ko/GDCE)
 - [Project in GitLab](https://gitlab.com/vgarcia3301646/gdce)
