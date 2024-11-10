@@ -1,5 +1,5 @@
 # DAM
-Repositorio de actividades realizadas en el Ciclo Formativo de Grado Superior de Desarrollo de Aplicaciones Multiplataforma (2022-).
+Repositorio de actividades realizadas en el Ciclo Formativo de Grado Superior de Desarrollo de Aplicaciones Multiplataforma (2022-2024).
 
 ### Lenguaje del README
 - 🇪🇸 **Español**
