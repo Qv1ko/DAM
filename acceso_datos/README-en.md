@@ -6,30 +6,30 @@
 
 ## Syllabus
 ### Unit 0 - Introduction
-- [Exercises](./Unidad0-Introducción/Ejercicios/)
+- [Exercises](./unidad0-introduccion/ejercicios/)
 ### Unit 1 - Database modeling
-- [Notes](./Unidad1-Modelado_de_bases_de_datos/Apuntes/)
-- [Exercises](./Unidad1-Modelado_de_bases_de_datos/Ejercicios/)
+- [Notes](./unidad1-modelado_de_bases_de_datos/apuntes/)
+- [Exercises](./unidad1-modelado_de_bases_de_datos/ejercicios/)
 ### Unit 2 - Relational model
-- [Notes](./Unidad2-Modelo_relacional/Apuntes/)
-- [Classes](./Unidad2-Modelo_relacional/Clases/)
-- [Exercises](./Unidad2-Modelo_relacional/Ejercicios/)
+- [Notes](./unidad2-modelo_relacional/apuntes/)
+- [Classes](./unidad2-modelo_relacional/clases/)
+- [Exercises](./unidad2-modelo_relacional/ejercicios/)
 ### Unit 3 - dbForge
-- [Notes](./Unidad3-dbForge/Apuntes/)
-- [Project](./Unidad3-dbForge/Proyecto/)
+- [Notes](./unidad3-dbforge/apuntes/)
+- [Project](./unidad3-dbforge/proyecto/)
 ### Unit 4 - SQL queries
-- [Notes](./Unidad4-Consultas_en_SQL/Apuntes/)
-- [Classes](./Unidad4-Consultas_en_SQL/Clases/)
-- [Exercises](./Unidad4-Consultas_en_SQL/Ejercicios/)
-- [Exam](./Unidad4-Consultas_en_SQL/Examen/)
+- [Notes](./unidad4-consultas_en_sql/apuntes/)
+- [Classes](./unidad4-consultas_en_sql/clases/)
+- [Exercises](./unidad4-consultas_en_sql/ejercicios/)
+- [Exam](./unidad4-consultas_en_sql/examen/)
 ### Unit 5 - Yii
-- [Notes](./Unidad5-Yii/Apuntes/)
-- [Exercises](./Unidad5-Yii/Ejercicios/)
-- [Exam](./Unidad5-Yii/Examen/)
+- [Notes](./unidad5-yii/apuntes/)
+- [Exercises](./unidad5-yii/ejercicios/)
+- [Exam](./unidad5-yii/examen/)
 ### Unit 6 - Programming
-- [Notes](./Unidad6-Programación/Apuntes/)
+- [Notes](./unidad6-programacion/apuntes/)
 
 ---
 
 ### Review
-- [Review](./Repaso/)
+- [Review](./repaso/)
