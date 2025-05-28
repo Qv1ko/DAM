@@ -20,7 +20,7 @@
 
 ## Control de versiones para trabajo individual
 
-![imagen1](./Imágenes/imagen1.png)
+![imagen1](./img/imagen1.png)
 
 `git add .` → Añadir todos los archivos de la ruta actual a la fase de stage
 
