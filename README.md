@@ -7,22 +7,22 @@ Repositorio de actividades realizadas en el Ciclo Formativo de Grado Superior de
 
 ## Índice
 ### Primer curso
-- [Bases de Datos](./Bases%20de%20datos/)
-- [Entornos de Desarrollo](./Entornos%20de%20desarrollo/)
-- [Lenguajes de Marcas y Sistemas de Gestión de Información](./Lenguajes%20de%20marcas%20y%20sistemas%20de%20gesti%C3%B3n%20de%20informaci%C3%B3n/)
-- [Programación](./Programaci%C3%B3n/)
-- [Sistemas Informáticos](./Sistemas%20inform%C3%A1ticos/)
+- [Bases de Datos](./bases_de_datos/)
+- [Entornos de Desarrollo](./entornos_de_desarrollo/)
+- [Lenguajes de Marcas y Sistemas de Gestión de Información](./lenguajes_de_marcas_y_sistemas_de_gestion_de_informacion/)
+- [Programación](./programacion/)
+- [Sistemas Informáticos](./sistemas_informaticos/)
 ### Verano
 - [Bootstrap](./verano/boostrap/)
 - [Java](./verano/java/)
 - [JavaScript](./verano/javascript/)
 - [TypeScript](./verano/typescript/)
 ### Segundo curso
-- [Acceso a Datos](./Acceso%20a%20datos/)
-- [Desarrollo de Interfaces](./Desarrollo%20de%20interfaces/)
-- [Programación Multimedia y Dispositivos Móviles](./Programación%20multimedia%20y%20dispositivos%20móviles/)
-- [Programación de Servicios y Procesos](./Programación%20de%20servicios%20y%20procesos/)
-- [Sistemas de Gestión Empresarial](./Sistemas%20de%20gestión%20empresarial/)
+- [Acceso a Datos](./acceso_a_datos/)
+- [Desarrollo de Interfaces](./desarrollo_de_interfaces/)
+- [Programación Multimedia y Dispositivos Móviles](./programacion_multimedia_y_dispositivos_moviles/)
+- [Programación de Servicios y Procesos](./programacion_de_servicios_y_procesos/)
+- [Sistemas de Gestión Empresarial](./sistemas_de_gestion_empresarial/)
 
 ## Proyecto de Fin de Grado
 Aplicación web diseñada para gestionar dispotivos en centros de estudios.
